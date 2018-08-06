@@ -36,7 +36,7 @@ namespace ProjetoFinal.Web.Pages
                 }
                 else
                 {
-                    LblResul.Text = "Usuário ou Senha incorreto!";
+                    LblResul.Text = "Usuário/Senha incorretos!";
                 }
             }
             catch (Exception)
