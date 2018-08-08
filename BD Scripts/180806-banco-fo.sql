@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: sggeweb
+-- Host: localhost    Database: sggpweb
 -- ------------------------------------------------------
 -- Server version	5.5.5-10.1.32-MariaDB
 
@@ -18,6 +18,9 @@
 --
 -- Table structure for table `tbllogin`
 --
+
+CREATE DATABASE sggpweb;
+USE sggpweb;
 
 DROP TABLE IF EXISTS `tbllogin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
