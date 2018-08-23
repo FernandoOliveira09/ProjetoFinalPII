@@ -13,13 +13,13 @@ namespace ProjetoFinal.Web.Pages {
     public partial class Login {
         
         /// <summary>
-        /// TxtUsuario control.
+        /// TxtLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtUsuario;
+        protected global::System.Web.UI.WebControls.TextBox TxtLogin;
         
         /// <summary>
         /// TxtSenha control.
@@ -31,21 +31,12 @@ namespace ProjetoFinal.Web.Pages {
         protected global::System.Web.UI.WebControls.TextBox TxtSenha;
         
         /// <summary>
-        /// LblResul control.
+        /// BtnLogar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblResul;
-        
-        /// <summary>
-        /// BtnCadastrar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnCadastrar;
+        protected global::System.Web.UI.WebControls.LinkButton BtnLogar;
     }
 }

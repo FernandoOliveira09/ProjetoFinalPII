@@ -15,28 +15,28 @@ namespace ProjetoFinal.Web.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-             
+
         }
 
-        protected void BtnCadastrar_Click(object sender, EventArgs e)
+        protected void BtnLogar_Click(object sender, EventArgs e)
         {
             MODLogin login = new MODLogin();
             MODLogin retorno = new MODLogin();
 
             try
             {
-                login.Usuario = TxtUsuario.Text.Trim();
+                login.Usuario = TxtLogin.Text.Trim();
                 string senha = criptografia(TxtSenha.Text.Trim());
 
                 retorno = BLLLogin.Pesquisar(login);
 
-                if(senha == retorno.Senha)
+                if (senha == retorno.Senha)
                 {
-                    LblResul.Text = "Logado com sucesso!";
+                    Response.Write("<script>alert('Logado com sucesso!');</script>");
                 }
                 else
                 {
-                    LblResul.Text = "Usuário/Senha incorretos!";
+                    Response.Write("<script>alert('Login e/ou senha incorretos');</script>");
                 }
             }
             catch (Exception)
@@ -50,7 +50,7 @@ namespace ProjetoFinal.Web.Pages
         {
             UnicodeEncoding ue = new UnicodeEncoding();
             byte[] HashValue, MessageBytes = ue.GetBytes(senha);
-            SHA1Managed shHash = new SHA1Managed();
+            SHA256Managed shHash = new SHA256Managed();
             string strHex = "";
             HashValue = shHash.ComputeHash(MessageBytes);
 
