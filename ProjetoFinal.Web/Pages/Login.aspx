@@ -43,7 +43,6 @@
     <center>
       <!--<img class="responsive-img" style="width: 250px;" src="https://i.imgur.com/ax0NCsK.gif" />-->
       <h2 class="white-text"><strong>SG</strong> Manager</h2>
-      <div class="section"></div>
       <h5 class="white-text">Por favor, faça login na sua conta</h5>
       <div class="section"></div>
 
@@ -84,9 +83,6 @@
       </div>
       <a href="#!"><span class="white-text">Crie sua conta</span></a>
     </center>
-
-    <div class="section"></div>
-    <div class="section"></div>
   </main>
 
   <script type="text/javascript" src="../Content/js/jquery.min.js"></script>
