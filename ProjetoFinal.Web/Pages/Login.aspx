@@ -31,7 +31,7 @@
     .input-field input[type=email]:focus,
     .input-field input[type=password]:focus {
       border-bottom: 2px solid #1976d2;
-      box-shadow: none;
+      box-shadow: none; 
     }
   </style>
 </head>
