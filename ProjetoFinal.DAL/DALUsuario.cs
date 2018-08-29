@@ -8,18 +8,23 @@ using MySql.Data.MySqlClient;
 
 namespace ProjetoFinal.DAL
 {
-    public static class DALLogin
+    public static class DALUsuario
     {
-        public static void Inserir(MODLogin login)
+        public static void Inserir(MODUsuario usuario)
         {
             Conexao.Abrir();
 
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "INSERT INTO TBLLOGIN (usuario, senha) VALUES (@usuario, @senha)";
-            comando.Parameters.AddWithValue("@usuario", login.Usuario);
-            comando.Parameters.AddWithValue("@senha", login.Senha);
+            comando.CommandText = "INSERT INTO TBLUSUARIO (login, nome, senha, email, data_cadastro, fk_tipo) " 
+                + "VALUES (@login, @nome, @senha, @email, @data_cadastro, @fk_tipo)";
+            comando.Parameters.AddWithValue("@login", usuario.Login);
+            comando.Parameters.AddWithValue("@nome", usuario.Nome);
+            comando.Parameters.AddWithValue("@senha", usuario.Senha);
+            comando.Parameters.AddWithValue("@email", usuario.Email);
+            comando.Parameters.AddWithValue("@data_cadastro", usuario.DataCadastro);
+            comando.Parameters.AddWithValue("@fk_tipo", usuario.FkTipo);
 
             comando.ExecuteNonQuery();
 
@@ -57,9 +62,9 @@ namespace ProjetoFinal.DAL
         //    Conexao.Fechar();
         //}
 
-        public static MODLogin Pesquisar(MODLogin login)
+        public static MODUsuario Pesquisar(MODUsuario login)
         {
-            MODLogin retorno = new MODLogin();
+            MODUsuario retorno = new MODUsuario();
 
             Conexao.Abrir();
 
@@ -74,7 +79,7 @@ namespace ProjetoFinal.DAL
 
             while (reader.Read())
             {
-                MODLogin ret = new MODLogin();
+                MODUsuario ret = new MODUsuario();
                 ret.Usuario = reader["USUARIO"].ToString();
                 ret.Senha = reader["SENHA"].ToString();
 

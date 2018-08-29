@@ -20,8 +20,8 @@ namespace ProjetoFinal.Web.Pages
 
         protected void BtnLogar_Click(object sender, EventArgs e)
         {
-            MODLogin login = new MODLogin();
-            MODLogin retorno = new MODLogin();
+            MODUsuario login = new MODUsuario();
+            MODUsuario retorno = new MODUsuario();
 
             try
             {

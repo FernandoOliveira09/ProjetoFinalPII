@@ -10,14 +10,14 @@ namespace ProjetoFinal.BLL
 {
     public static class BLLLogin
     {
-        public static void Inserir(MODLogin login)
+        public static void Inserir(MODUsuario login)
         {
-            DALLogin.Inserir(login);
+            DALUsuario.Inserir(login);
         }
 
-        public static MODLogin Pesquisar(MODLogin login)
+        public static MODUsuario Pesquisar(MODUsuario login)
         {
-            return DALLogin.Pesquisar(login);
+            return DALUsuario.Pesquisar(login);
         }
     }
 }
