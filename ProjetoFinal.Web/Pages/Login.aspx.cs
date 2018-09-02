@@ -16,27 +16,48 @@ namespace ProjetoFinal.Web.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            MODUsuario usuario = new MODUsuario();
 
+            try
+            {
+                List<MODUsuario> user = BLLUsuario.Pesquisar(usuario, 1);
+                if (user != null && user.Count > 0)
+                {
+                    Response.Write("<script>alert('Existe admin!');</script>");
+
+                }
+                else
+                {
+                    Response.Write("<script>alert('Não Existe admin!');</script>");
+                    Response.Redirect("../Pages/CadastroAdmin.aspx");
+                }
+
+            }
+            catch
+            {
+                //Response.Write("<script>alert('Erro!');</script>");
+            }
         }
 
         protected void BtnLogar_Click(object sender, EventArgs e)
         {
-            MODLogin login = new MODLogin();
-            MODLogin retorno = new MODLogin();
+            MODUsuario usuario = new MODUsuario();
+            MODUsuario retorno = new MODUsuario();
+            Criptografia cripto = new Criptografia();
 
             int tentativas = 0;
 
             try
             {
-                
-                login.Usuario = TxtLogin.Text.Trim();
+                usuario.Login = TxtLogin.Text.Trim();
                 string senha = cripto.criptografia(TxtSenha.Text.Trim());
 
-                retorno = BLLLogin.Pesquisar(login);
+                retorno = BLLUsuario.PesquisarLogin(usuario);
 
                 if (senha == retorno.Senha)
                 {
                     Response.Write("<script>alert('Logado com sucesso!');</script>");
+                    Response.Redirect("../Pages/Principal.aspx");
                 }
                 else
                 {
@@ -50,5 +71,6 @@ namespace ProjetoFinal.Web.Pages
                 throw;
             }
         }
+
     }
 }

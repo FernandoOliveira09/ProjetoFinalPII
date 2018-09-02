@@ -10,33 +10,42 @@
 namespace ProjetoFinal.Web.Pages {
     
     
-    public partial class Login {
+    public partial class CadastroUsuario {
         
         /// <summary>
-        /// TxtLogin control.
+        /// TxtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtLogin;
+        protected global::System.Web.UI.WebControls.TextBox TxtName;
         
         /// <summary>
-        /// TxtSenha control.
+        /// TxtProntuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtSenha;
+        protected global::System.Web.UI.WebControls.TextBox TxtProntuario;
         
         /// <summary>
-        /// BtnLogar control.
+        /// TxtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnLogar;
+        protected global::System.Web.UI.WebControls.TextBox TxtEmail;
+        
+        /// <summary>
+        /// TxtTipoUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TxtTipoUsuario;
     }
 }

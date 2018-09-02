@@ -19,7 +19,7 @@ namespace ProjetoFinal.DAL
             conexao = new MySqlConnection();
 
             //recebe a string de conexao com o banco
-            conexao.ConnectionString = @"server=localhost;port=3306;User Id=root;database=sggpweb;password=;SslMode=none";
+            conexao.ConnectionString = @"server=localhost;port=3306;User Id=root;database=sg_manager;password=;SslMode=none";
 
             conexao.Open();
         }

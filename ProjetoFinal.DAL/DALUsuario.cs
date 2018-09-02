@@ -62,7 +62,7 @@ namespace ProjetoFinal.DAL
         //    Conexao.Fechar();
         //}
 
-        public static MODUsuario Pesquisar(MODUsuario login)
+        public static MODUsuario PesquisarLogin(MODUsuario usuario)
         {
             MODUsuario retorno = new MODUsuario();
 
@@ -71,20 +71,57 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "SELECT usuario, senha FROM TBLLOGIN WHERE usuario = @usuario";
+            comando.CommandText = "SELECT login, senha, fk_tipo FROM TBLUSUARIO WHERE login = @login";
 
-            comando.Parameters.AddWithValue("@usuario", login.Usuario);
+            comando.Parameters.AddWithValue("@login", usuario.Login);
+            comando.Parameters.AddWithValue("@senha", usuario.Senha);
+            comando.Parameters.AddWithValue("@fk_tipo", usuario.FkTipo);
 
             MySqlDataReader reader = comando.ExecuteReader();
 
             while (reader.Read())
             {
                 MODUsuario ret = new MODUsuario();
-                ret.Usuario = reader["USUARIO"].ToString();
-                ret.Senha = reader["SENHA"].ToString();
+                ret.Login = reader["Login"].ToString();
+                ret.Senha = reader["Senha"].ToString();
+                ret.FkTipo = Convert.ToInt32(reader["fk_tipo"]);
 
-                retorno.Usuario = ret.Usuario;
+                retorno.Login = ret.Login;
                 retorno.Senha = ret.Senha;
+                retorno.FkTipo = ret.FkTipo;
+            }
+
+            reader.Close();
+
+            Conexao.Fechar();
+
+            return retorno;
+        }
+
+        public static List<MODUsuario> Pesquisar(MODUsuario item, int tipoPesquisa)
+        {
+            List<MODUsuario> retorno = new List<MODUsuario>();
+
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            if(tipoPesquisa == 1)
+                comando.CommandText = "SELECT login, senha FROM TBLUSUARIO WHERE fk_tipo = 1";
+            else if(tipoPesquisa == 2)
+                comando.CommandText = "SELECT login, senha, fk_tipo FROM TBLUSUARIO WHERE login = " + item.Login;
+
+            MySqlDataReader reader = comando.ExecuteReader();
+
+            while (reader.Read())
+            {
+                MODUsuario ret = new MODUsuario();
+                ret.Login = reader["Login"].ToString();
+                ret.Senha = reader["Senha"].ToString();
+                ret.FkTipo = (int)reader["Fk_Tipo"];
+
+                retorno.Add(ret);
             }
 
             reader.Close();

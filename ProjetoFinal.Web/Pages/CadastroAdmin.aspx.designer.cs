@@ -10,7 +10,7 @@
 namespace ProjetoFinal.Web.Pages {
     
     
-    public partial class Login {
+    public partial class CadastroAdmin {
         
         /// <summary>
         /// TxtLogin control.
@@ -22,6 +22,24 @@ namespace ProjetoFinal.Web.Pages {
         protected global::System.Web.UI.WebControls.TextBox TxtLogin;
         
         /// <summary>
+        /// TxtNome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtNome;
+        
+        /// <summary>
+        /// TxtEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtEmail;
+        
+        /// <summary>
         /// TxtSenha control.
         /// </summary>
         /// <remarks>
@@ -31,12 +49,12 @@ namespace ProjetoFinal.Web.Pages {
         protected global::System.Web.UI.WebControls.TextBox TxtSenha;
         
         /// <summary>
-        /// BtnLogar control.
+        /// BtnCadastrar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnLogar;
+        protected global::System.Web.UI.WebControls.Button BtnCadastrar;
     }
 }

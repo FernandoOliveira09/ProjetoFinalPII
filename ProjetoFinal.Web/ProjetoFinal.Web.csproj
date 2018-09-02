@@ -75,6 +75,8 @@
     <Content Include="Content\js\materialize.js" />
     <Content Include="Content\js\materialize.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\CadastroAdmin.aspx" />
+    <Content Include="Pages\CadastroUsuario.aspx" />
     <Content Include="Pages\Principal.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Web.config" />
@@ -82,6 +84,20 @@
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CadastroAdmin.aspx.cs">
+      <DependentUpon>CadastroAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CadastroAdmin.aspx.designer.cs">
+      <DependentUpon>CadastroAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CadastroUsuario.aspx.cs">
+      <DependentUpon>CadastroUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CadastroUsuario.aspx.designer.cs">
+      <DependentUpon>CadastroUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Principal.aspx.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
