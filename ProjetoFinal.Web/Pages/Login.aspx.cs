@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using ProjetoFinal.Model;
 using ProjetoFinal.BLL;
+using ProjetoFinal.Utilitarios;
 
 namespace ProjetoFinal.Web.Pages
 {
@@ -20,13 +21,16 @@ namespace ProjetoFinal.Web.Pages
 
         protected void BtnLogar_Click(object sender, EventArgs e)
         {
-            MODUsuario login = new MODUsuario();
-            MODUsuario retorno = new MODUsuario();
+            MODLogin login = new MODLogin();
+            MODLogin retorno = new MODLogin();
+
+            int tentativas = 0;
 
             try
             {
+                
                 login.Usuario = TxtLogin.Text.Trim();
-                string senha = criptografia(TxtSenha.Text.Trim());
+                string senha = cripto.criptografia(TxtSenha.Text.Trim());
 
                 retorno = BLLLogin.Pesquisar(login);
 
@@ -36,7 +40,8 @@ namespace ProjetoFinal.Web.Pages
                 }
                 else
                 {
-                    Response.Write("<script>alert('Login e/ou senha incorretos');</script>");
+                    Response.Write("<script>alert('Não foi possivel autenticar');</script>");
+                    tentativas += 1;
                 }
             }
             catch (Exception)
@@ -44,22 +49,6 @@ namespace ProjetoFinal.Web.Pages
 
                 throw;
             }
-        }
-
-        private string criptografia(string senha)
-        {
-            UnicodeEncoding ue = new UnicodeEncoding();
-            byte[] HashValue, MessageBytes = ue.GetBytes(senha);
-            SHA256Managed shHash = new SHA256Managed();
-            string strHex = "";
-            HashValue = shHash.ComputeHash(MessageBytes);
-
-            foreach (byte b in HashValue)
-            {
-                strHex += String.Format("{0:x2}", b);
-            }
-
-            return strHex;
         }
     }
 }
