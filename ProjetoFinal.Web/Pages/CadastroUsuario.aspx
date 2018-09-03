@@ -277,7 +277,7 @@
                         <form class="col s12" runat="server">
                           <div class="row">
                             <div class="input-field col s12">
-                              <asp:TextBox id="TxtName" type="text" runat="server" />
+                              <asp:TextBox id="TxtNome" type="text" runat="server" />
                               <label for="first_name">Nome</label>
                             </div>
                           </div>
@@ -310,9 +310,8 @@
 
                           <div class="row">
                               <div class="input-field col s12">
-                                  <button class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action">Cadastrar
-                                      <i class="material-icons right">send</i>
-                                  </button>
+                                  <asp:Button id="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar" runat="server" OnClick="BtnCadastrar_Click">
+                                  </asp:Button>
                               </div>
                           </div>
                         </form>

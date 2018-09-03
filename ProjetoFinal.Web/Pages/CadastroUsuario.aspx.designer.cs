@@ -13,13 +13,13 @@ namespace ProjetoFinal.Web.Pages {
     public partial class CadastroUsuario {
         
         /// <summary>
-        /// TxtName control.
+        /// TxtNome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtName;
+        protected global::System.Web.UI.WebControls.TextBox TxtNome;
         
         /// <summary>
         /// TxtProntuario control.
@@ -47,5 +47,14 @@ namespace ProjetoFinal.Web.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList TxtTipoUsuario;
+        
+        /// <summary>
+        /// BtnCadastrar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnCadastrar;
     }
 }

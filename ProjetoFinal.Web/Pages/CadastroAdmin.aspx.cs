@@ -21,13 +21,10 @@ namespace ProjetoFinal.Web.Pages
         {
             MODUsuario usuario = new MODUsuario();
             Criptografia cripto = new Criptografia();
-            //ValidaSenhaForte validaSenhaForte = new ValidaSenhaForte();
 
             bool teste = ValidaSenhaForte.ValidaSenha(TxtSenha.Text.Trim());
 
-            if(teste == true)
-                Response.Write("<script>alert('Senha válida!');</script>");
-            else
+            if(teste == false)
                 Response.Write("<script>alert('Senha INVÁLIDA!');</script>");
 
             try
@@ -39,9 +36,11 @@ namespace ProjetoFinal.Web.Pages
                 usuario.DataCadastro = Convert.ToDateTime(DateTime.Now.ToShortDateString());
                 usuario.FkTipo = 1;
 
-                //BLLUsuario.Inserir(usuario);
+                BLLUsuario.Inserir(usuario);
 
-                //Response.Write("<script>alert('Administrador cadastrado com sucesso!');</script>");
+                Response.Write("<script>alert('Administrador cadastrado com sucesso!');</script>");
+
+                Response.Redirect("../Pages/Principal.aspx");
             }
             catch (Exception)
             {

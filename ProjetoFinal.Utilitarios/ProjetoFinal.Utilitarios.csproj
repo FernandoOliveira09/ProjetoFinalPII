@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Criptografia.cs" />
+    <Compile Include="GeradorSenhaAleatoria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidaSenhaForte.cs" />
   </ItemGroup>
