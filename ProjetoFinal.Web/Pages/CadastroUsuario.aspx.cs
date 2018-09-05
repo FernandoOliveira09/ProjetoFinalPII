@@ -21,6 +21,7 @@ namespace ProjetoFinal.Web.Pages
         {
             MODUsuario usuario = new MODUsuario();
             Criptografia cripto = new Criptografia();
+            EnviaEmail enviaEmail = new EnviaEmail();
 
             try
             {
@@ -34,9 +35,13 @@ namespace ProjetoFinal.Web.Pages
                 else
                     usuario.FkTipo = 2;
 
-                usuario.Senha = cripto.criptografia(GeradorSenhaAleatoria.GeraSenha()); 
+                string senha = GeradorSenhaAleatoria.GeraSenha();
+
+                usuario.Senha = cripto.criptografia(senha); 
 
                 BLLUsuario.Inserir(usuario);
+
+                enviaEmail.EnvioEmail(usuario.Email, usuario.Nome, senha, usuario.Login);
 
                 Response.Write("<script>alert('Usuário cadastrado com sucesso!');</script>");
             }
