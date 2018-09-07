@@ -17,35 +17,76 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "INSERT INTO TBLUSUARIO (login, nome, senha, email, data_cadastro, fk_tipo) " 
-                + "VALUES (@login, @nome, @senha, @email, @data_cadastro, @fk_tipo)";
+            comando.CommandText = "INSERT INTO TBLUSUARIO (login, nome, senha, email, lattes, primeiro_acesso, data_cadastro, fk_tipo,fk_status) "
+                + "VALUES (@login, @nome, @senha, @email, @lattes, @primeiro_acesso, @data_cadastro, @fk_tipo, @fk_status)";
             comando.Parameters.AddWithValue("@login", usuario.Login);
             comando.Parameters.AddWithValue("@nome", usuario.Nome);
             comando.Parameters.AddWithValue("@senha", usuario.Senha);
             comando.Parameters.AddWithValue("@email", usuario.Email);
+            comando.Parameters.AddWithValue("@lattes", usuario.Lattes);
+            comando.Parameters.AddWithValue("@primeiro_acesso", usuario.PrimeiroAcesso);
             comando.Parameters.AddWithValue("@data_cadastro", usuario.DataCadastro);
             comando.Parameters.AddWithValue("@fk_tipo", usuario.FkTipo);
+            comando.Parameters.AddWithValue("@fk_status", usuario.FkStatus);
 
             comando.ExecuteNonQuery();
 
             Conexao.Fechar();
         }
 
-        //public static void Alterar(MODLogin login)
-        //{
-        //    Conexao.Abrir();
+        public static void Alterar(MODUsuario usuario)
+        {
+            Conexao.Abrir();
 
-        //    MySqlCommand comando = new MySqlCommand();
-        //    comando.Connection = Conexao.conexao;
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
 
-        //    comando.CommandText = "UPDATE TBLFUNCAO SET funcao = @funcao WHERE id = @id";
-        //    comando.Parameters.AddWithValue("@funcao", funcao.Funcao);
-        //    comando.Parameters.AddWithValue("@id", funcao.Id);
+            comando.CommandText = "UPDATE TBLUSUARIO SET senha = @senha, lattes = @lattes, "
+                + "primeiro_acesso = @primeiro_acesso, imagem = @imagem "
+                + "WHERE login = @login";
+            comando.Parameters.AddWithValue("@login", usuario.Login);
+            comando.Parameters.AddWithValue("@senha", usuario.Senha);
+            comando.Parameters.AddWithValue("@lattes", usuario.Lattes);
+            comando.Parameters.AddWithValue("@primeiro_acesso", usuario.PrimeiroAcesso);
+            comando.Parameters.AddWithValue("@imagem", usuario.Imagem);
 
-        //    comando.ExecuteNonQuery();
+            comando.ExecuteNonQuery();
 
-        //    Conexao.Fechar();
-        //}
+            Conexao.Fechar();
+        }
+
+        public static void AlterarStatus(MODUsuario usuario)
+        {
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "UPDATE TBLUSUARIO SET fk_status = @fk_status WHERE login = @login";
+            comando.Parameters.AddWithValue("@login", usuario.Login);
+            comando.Parameters.AddWithValue("@fk_status", usuario.FkStatus);
+
+            comando.ExecuteNonQuery();
+
+            Conexao.Fechar();
+        }
+
+        public static void AlterarSenha(MODUsuario usuario)
+        {
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "UPDATE TBLUSUARIO SET senha = @senha, fk_status = @fk_status WHERE login = @login";
+            comando.Parameters.AddWithValue("@login", usuario.Login);
+            comando.Parameters.AddWithValue("@senha", usuario.Senha);
+            comando.Parameters.AddWithValue("@fk_status", usuario.FkStatus);
+
+            comando.ExecuteNonQuery();
+
+            Conexao.Fechar();
+        }
 
         //public static void Excluir(ModFuncao funcao)
         //{
@@ -71,11 +112,9 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "SELECT login, senha, fk_tipo FROM TBLUSUARIO WHERE login = @login";
+            comando.CommandText = "SELECT login, senha, fk_tipo, fk_status, primeiro_acesso FROM TBLUSUARIO WHERE login = @login";
 
             comando.Parameters.AddWithValue("@login", usuario.Login);
-            comando.Parameters.AddWithValue("@senha", usuario.Senha);
-            comando.Parameters.AddWithValue("@fk_tipo", usuario.FkTipo);
 
             MySqlDataReader reader = comando.ExecuteReader();
 
@@ -85,10 +124,14 @@ namespace ProjetoFinal.DAL
                 ret.Login = reader["Login"].ToString();
                 ret.Senha = reader["Senha"].ToString();
                 ret.FkTipo = Convert.ToInt32(reader["fk_tipo"]);
+                ret.FkStatus = Convert.ToInt32(reader["fk_status"]);
+                ret.PrimeiroAcesso = Convert.ToChar(reader["primeiro_acesso"]);
 
                 retorno.Login = ret.Login;
                 retorno.Senha = ret.Senha;
                 retorno.FkTipo = ret.FkTipo;
+                retorno.FkStatus = ret.FkStatus;
+                retorno.PrimeiroAcesso = ret.PrimeiroAcesso;
             }
 
             reader.Close();
@@ -98,7 +141,7 @@ namespace ProjetoFinal.DAL
             return retorno;
         }
 
-        public static List<MODUsuario> Pesquisar(MODUsuario item, int tipoPesquisa)
+        public static List<MODUsuario> Pesquisar(MODUsuario item)
         {
             List<MODUsuario> retorno = new List<MODUsuario>();
 
@@ -107,10 +150,7 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            if(tipoPesquisa == 1)
-                comando.CommandText = "SELECT login, senha FROM TBLUSUARIO WHERE fk_tipo = 1";
-            else if(tipoPesquisa == 2)
-                comando.CommandText = "SELECT login, senha, fk_tipo FROM TBLUSUARIO WHERE login = " + item.Login;
+            comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO WHERE login = @login";
 
             MySqlDataReader reader = comando.ExecuteReader();
 
@@ -118,8 +158,12 @@ namespace ProjetoFinal.DAL
             {
                 MODUsuario ret = new MODUsuario();
                 ret.Login = reader["Login"].ToString();
-                ret.Senha = reader["Senha"].ToString();
+                ret.Nome = reader["Nome"].ToString();
+                ret.Email = reader["Email"].ToString();
+                ret.Lattes = reader["Lattes"].ToString();
+                ret.Imagem = reader["Imagem"].ToString();
                 ret.FkTipo = (int)reader["Fk_Tipo"];
+                ret.FkTipo = (int)reader["Fk_status"];
 
                 retorno.Add(ret);
             }

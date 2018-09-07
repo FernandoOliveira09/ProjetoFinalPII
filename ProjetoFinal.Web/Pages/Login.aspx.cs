@@ -14,21 +14,17 @@ namespace ProjetoFinal.Web.Pages
 {
     public partial class Login : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             MODUsuario usuario = new MODUsuario();
+            MODUsuario checaUsuario = new MODUsuario();
 
             try
             {
-                List<MODUsuario> user = BLLUsuario.Pesquisar(usuario, 1);
-                if (user != null && user.Count > 0)
+                List<MODUsuario> user = BLLUsuario.Pesquisar(usuario);
+                if (user != null && user.Count <= 0)
                 {
-                    Response.Write("<script>alert('Existe admin!');</script>");
-
-                }
-                else
-                {
-                    Response.Write("<script>alert('Não Existe admin!');</script>");
                     Response.Redirect("../Pages/CadastroAdmin.aspx");
                 }
 
@@ -45,24 +41,42 @@ namespace ProjetoFinal.Web.Pages
             MODUsuario retorno = new MODUsuario();
             Criptografia cripto = new Criptografia();
 
-            int tentativas = 0;
-
             try
             {
                 usuario.Login = TxtLogin.Text.Trim();
                 string senha = cripto.criptografia(TxtSenha.Text.Trim());
 
                 retorno = BLLUsuario.PesquisarLogin(usuario);
+                if(retorno.FkStatus == 1)
+                {
+                    
+                    if (senha == retorno.Senha)
+                    {
+                        PegaLogin.AtribuiLogin(usuario.Login);
+                        PegaLogin.AtribuiStatusLogin(1);
+                        if(retorno.PrimeiroAcesso == 's')
+                            Response.Redirect("../Pages/AlteracaoUsuario.aspx");
+                        else
+                            Response.Redirect("../Pages/Principal.aspx");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Não foi possivel autenticar');</script>");
+                        PegaLogin.AtribuiTentativas();
 
-                if (senha == retorno.Senha)
-                {
-                    Response.Write("<script>alert('Logado com sucesso!');</script>");
-                    Response.Redirect("../Pages/Principal.aspx");
+                        if (PegaLogin.RetornaTentativas() == 5)
+                        {
+                            usuario.FkStatus = 2;
+                            Response.Write("<script>alert('Usuário bloqueado após 5 tentativas!');</script>");
+                            BLLUsuario.AlterarStatus(usuario);
+                            //Response.Write("");
+                        }
+                    }
                 }
-                else
+                else if (retorno.FkStatus == 2)
                 {
-                    Response.Write("<script>alert('Não foi possivel autenticar');</script>");
-                    tentativas += 1;
+                    Response.Write("<script>alert('Seu usuário está bloqueado, por favor, recupere a sua conta a seguir');</script>");
+                    Response.Redirect("../Pages/RecuperacaoSenha.aspx");
                 }
             }
             catch (Exception)
@@ -71,6 +85,5 @@ namespace ProjetoFinal.Web.Pages
                 throw;
             }
         }
-
     }
 }

@@ -29,7 +29,7 @@ namespace ProjetoFinal.Web.Pages
                 usuario.Nome = TxtNome.Text.Trim();
                 usuario.Email = TxtEmail.Text.Trim();
                 usuario.DataCadastro = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-                
+
                 if (TxtTipoUsuario.SelectedValue == "Administrador")
                     usuario.FkTipo = 1;
                 else
@@ -37,7 +37,9 @@ namespace ProjetoFinal.Web.Pages
 
                 string senha = GeradorSenhaAleatoria.GeraSenha();
 
-                usuario.Senha = cripto.criptografia(senha); 
+                usuario.Senha = cripto.criptografia(senha);
+                usuario.FkStatus = 1;
+                usuario.PrimeiroAcesso = 's';
 
                 BLLUsuario.Inserir(usuario);
 

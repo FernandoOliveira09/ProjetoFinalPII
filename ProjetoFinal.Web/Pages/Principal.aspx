@@ -176,7 +176,7 @@
                         <i class="material-icons">keyboard_tab</i> Logout</a>
                     </li>
                   </ul>
-                  <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown-nav">John Doe<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                  <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown-nav">Fernando Oliveira<i class="mdi-navigation-arrow-drop-down right"></i></a>
                   <p class="user-roal">Administrator</p>
                 </div>
               </div>
@@ -184,7 +184,7 @@
             <li class="no-padding">
               <ul class="collapsible" data-collapsible="accordion">
                 <li class="bold">
-                  <a href="index.html" class="waves-effect waves-cyan">
+                  <a href="Principal.aspx" class="waves-effect waves-cyan">
                       <i class="material-icons">pie_chart_outlined</i>
                       <span class="nav-text">Dashboard</span>
                     </a>
@@ -200,36 +200,6 @@
                       <i class="material-icons">insert_link</i>
                       <span class="nav-text">Grupos de Pesquisa</span>
                     </a>
-                </li>
-                <li class="bold">
-                  <a href="form-layouts.html" class="waves-effect waves-cyan">
-                      <i class="material-icons">format_color_text</i>
-                      <span class="nav-text">Forms</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a href="css-typography.html" class="waves-effect waves-cyan">
-                      <i class="material-icons">format_size</i>
-                      <span class="nav-text">Typography</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a href="css-color.html" class="waves-effect waves-cyan">
-                      <i class="material-icons">invert_colors</i>
-                      <span class="nav-text">Color</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a href="table-basic.html" class="waves-effect waves-cyan">
-                      <i class="material-icons">border_all</i>
-                      <span class="nav-text">Table</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a href="ui-icons.html" class="waves-effect waves-cyan">
-                    <i class="material-icons">lightbulb_outline</i>
-                    <span class="nav-text">Icons</span>
-                  </a>
                 </li>
               </ul>
             </li>

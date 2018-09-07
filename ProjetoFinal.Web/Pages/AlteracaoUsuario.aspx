@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CadastroUsuario.aspx.cs" Inherits="ProjetoFinal.Web.Pages.CadastroUsuario" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="~/Pages/AlteracaoUsuario.aspx.cs" Inherits="ProjetoFinal.Web.Pages.AlteracaoUsuario" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -228,11 +228,11 @@
               <div class="container">
                 <div class="row">
                   <div class="col s10 m6 l6">
-                    <h5 class="breadcrumbs-title">Cadastro de Usuários</h5>
+                    <h5 class="breadcrumbs-title">Alteração de Usuários</h5>
                     <ol class="breadcrumbs">
                       <li><a href="index.html">Dashboard</a></li>
                       <li><a href="#">Usuários</a></li>
-                      <li><a href="#">Cadastro de Usuário</a></li>
+                      <li><a href="#">Alteração de Usuário</a></li>
                     </ol>
                   </div>
                 </div>
@@ -242,45 +242,42 @@
                 <div class="row">
                   <div class="col s12 m12 l6">
                     <div class="card-panel">
-                      <h4 class="header2">Insira os dados nos campos abaixo para cadastrar</h4>
+                      <h4 class="header2">Insira os dados nos campos abaixo para alterar</h4>
                       <div class="row">
                         <form class="col s12" runat="server">
                           <div class="row">
                             <div class="input-field col s12">
-                              <asp:TextBox id="TxtNome" type="text" runat="server" />
-                              <label for="first_name">Nome</label>
+                              <asp:TextBox id="TxtLattes" type="text" runat="server" />
+                              <label for="TxtLattes">Link do Currículo Lattes</label>
                             </div>
                           </div>
+
                           <div class="row">
                             <div class="input-field col s12">
-                              <asp:TextBox id="TxtProntuario" type="text" runat="server" />
-                              <label for="email">Prontuário ou Login</label>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="input-field col s12">
-                              <asp:TextBox class="validate" id="TxtEmail" type="email" runat="server" />
-                              <label for="email">Email</label>
+                              <label for="FUFoto">Foto do usuário</label>
+                                <br />
+                                <br />
+                              <asp:FileUpload id="FUFoto" runat="server" />
                             </div>
                           </div>
                           
-                          <%--<div class="input-field col s12">
-                            <select>
-                              <option value="" disabled selected>Tipo de Usuário</option>
-                              <option value="1">Administrador</option>
-                              <option value="2">Lider de Pesquisa</option>
-                            </select>
-                          </div>--%>
+                          <div class='row'>
+                              <div class='input-field col s12 cadastro'>
+                                <asp:TextBox class='validate' type='password' name='password' id='TxtSenha' runat="server"/>
+                                <label for='password'>Senha</label>
+                              </div>
+                          </div>
 
-                          <asp:DropDownList class="input-field col s12" runat="server" ID="TxtTipoUsuario">
-                              <asp:ListItem Text="Tipo de Usuário" disabled selected/>
-                              <asp:ListItem Text="Administrador" />
-                              <asp:ListItem Text="Lider de Pesquisa" />
-                          </asp:DropDownList>
+                          <div class='row'>
+                              <div class='input-field col s12 cadastro'>
+                                <asp:TextBox class='validate' type='password' name='password' id='TxtSenha2' runat="server"/>
+                                <label for='password'>Digite novamente a senha</label>
+                              </div>
+                          </div>   
 
                           <div class="row">
                               <div class="input-field col s12">
-                                  <asp:Button id="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar" runat="server" OnClick="BtnCadastrar_Click">
+                                  <asp:Button id="BtnAlterar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Alterar" runat="server" OnClick="BtnAlterar_Click">
                                   </asp:Button>
                               </div>
                           </div>

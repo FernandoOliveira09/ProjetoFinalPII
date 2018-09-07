@@ -12,8 +12,11 @@ namespace ProjetoFinal.Model
         public string Nome { get; set; }
         public string Senha { get; set; }
         public string Email { get; set; }
+        public string Lattes { get; set; }
+        public string Imagem { get; set; }
+        public char PrimeiroAcesso { get; set; }
         public DateTime DataCadastro { get; set; }
         public int? FkTipo { get; set; }
-
+        public int? FkStatus { get; set; }
     }
 }

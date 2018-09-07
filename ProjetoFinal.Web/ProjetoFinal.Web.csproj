@@ -75,15 +75,26 @@
     <Content Include="Content\js\materialize.js" />
     <Content Include="Content\js\materialize.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\AlteracaoUsuario.aspx" />
     <Content Include="Pages\CadastroAdmin.aspx" />
     <Content Include="Pages\CadastroUsuario.aspx" />
+    <Content Include="Pages\InserirCodigoRecuperacao.aspx" />
     <Content Include="Pages\Principal.aspx" />
     <Content Include="Pages\Login.aspx" />
+    <Content Include="Pages\RecuperacaoSenha.aspx" />
+    <Content Include="Pages\RecuperaSenhaUsuario.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AlteracaoUsuario.aspx.cs">
+      <DependentUpon>AlteracaoUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AlteracaoUsuario.aspx.designer.cs">
+      <DependentUpon>AlteracaoUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CadastroAdmin.aspx.cs">
       <DependentUpon>CadastroAdmin.aspx</DependentUpon>
@@ -99,6 +110,13 @@
     <Compile Include="Pages\CadastroUsuario.aspx.designer.cs">
       <DependentUpon>CadastroUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\InserirCodigoRecuperacao.aspx.cs">
+      <DependentUpon>InserirCodigoRecuperacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InserirCodigoRecuperacao.aspx.designer.cs">
+      <DependentUpon>InserirCodigoRecuperacao.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Principal.aspx.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -112,6 +130,20 @@
     </Compile>
     <Compile Include="Pages\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecuperacaoSenha.aspx.cs">
+      <DependentUpon>RecuperacaoSenha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecuperacaoSenha.aspx.designer.cs">
+      <DependentUpon>RecuperacaoSenha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecuperaSenhaUsuario.aspx.cs">
+      <DependentUpon>RecuperaSenhaUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecuperaSenhaUsuario.aspx.designer.cs">
+      <DependentUpon>RecuperaSenhaUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -136,7 +168,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Imagens\" />
     <Folder Include="Models\" />
+    <Folder Include="Pages\Imagens\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjetoFinal.BLL\ProjetoFinal.BLL.csproj">
