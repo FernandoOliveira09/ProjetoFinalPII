@@ -18,12 +18,13 @@ namespace ProjetoFinal.Web.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             MODUsuario usuario = new MODUsuario();
-            MODUsuario checaUsuario = new MODUsuario();
+
+            Deslogar();
 
             try
             {
-                List<MODUsuario> user = BLLUsuario.Pesquisar(usuario);
-                if (user != null && user.Count <= 0)
+                List<MODUsuario> user = BLLUsuario.PesquisarAdmin();
+                if (user == null || user.Count <= 0)
                 {
                     Response.Redirect("../Pages/CadastroAdmin.aspx");
                 }
@@ -54,7 +55,9 @@ namespace ProjetoFinal.Web.Pages
                     {
                         PegaLogin.AtribuiLogin(usuario.Login);
                         PegaLogin.AtribuiStatusLogin(1);
-                        if(retorno.PrimeiroAcesso == 's')
+
+                        Session["login"] = usuario.Login;
+                        if (retorno.PrimeiroAcesso == 's')
                             Response.Redirect("../Pages/AlteracaoUsuario.aspx");
                         else
                             Response.Redirect("../Pages/Principal.aspx");
@@ -83,6 +86,14 @@ namespace ProjetoFinal.Web.Pages
             {
 
                 throw;
+            }
+        }
+
+        private void Deslogar()
+        {
+            if (!string.IsNullOrEmpty(Page.Request.QueryString["logout"]))
+            {
+                Session.Abandon();
             }
         }
     }

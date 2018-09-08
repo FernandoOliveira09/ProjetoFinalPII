@@ -46,7 +46,7 @@
             <ul class="left">
               <li>
                 <h1 class="logo-wrapper">
-                  <a href="index.html" class="brand-logo darken-1">
+                  <a href="../Pages/Principal.aspx" class="brand-logo darken-1">
                     <img src="../Content/images/logo/materialize-logo.png" alt="materialize logo">
                     <span class="logo-text hide-on-med-and-down"><strong>SG</strong> Manager</span>
                   </a>
@@ -112,25 +112,14 @@
             <!-- profile-dropdown -->
             <ul id="profile-dropdown" class="dropdown-content">
               <li>
-                <a href="#" class="grey-text text-darken-1">
-                  <i class="material-icons">face</i> Profile</a>
-              </li>
-              <li>
-                <a href="#" class="grey-text text-darken-1">
-                  <i class="material-icons">settings</i> Settings</a>
-              </li>
-              <li>
-                <a href="#" class="grey-text text-darken-1">
-                  <i class="material-icons">live_help</i> Help</a>
+                <a href="../Pages/AlteracaoUsuario.aspx" class="grey-text text-darken-1">
+                  <i class="material-icons">settings</i> Alterar Informações</a>
               </li>
               <li class="divider"></li>
               <li>
-                <a href="#" class="grey-text text-darken-1">
-                  <i class="material-icons">lock_outline</i> Lock</a>
-              </li>
-              <li>
-                <a href="#" class="grey-text text-darken-1">
+                  <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1" ID="BtnLogout">
                   <i class="material-icons">keyboard_tab</i> Logout</a>
+                  
               </li>
             </ul>
           </div>
@@ -153,29 +142,7 @@
                   <img src="../Content/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan">
                 </div>
                 <div class="col col s8 m8 l8">
-                  <ul id="profile-dropdown-nav" class="dropdown-content">
-                    <li>
-                      <a href="#" class="grey-text text-darken-1">
-                        <i class="material-icons">face</i> Profile</a>
-                    </li>
-                    <li>
-                      <a href="#" class="grey-text text-darken-1">
-                        <i class="material-icons">settings</i> Settings</a>
-                    </li>
-                    <li>
-                      <a href="#" class="grey-text text-darken-1">
-                        <i class="material-icons">live_help</i> Help</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                      <a href="#" class="grey-text text-darken-1">
-                        <i class="material-icons">lock_outline</i> Lock</a>
-                    </li>
-                    <li>
-                      <a href="#" class="grey-text text-darken-1">
-                        <i class="material-icons">keyboard_tab</i> Logout</a>
-                    </li>
-                  </ul>
+                  
                   <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown-nav">Fernando Oliveira<i class="mdi-navigation-arrow-drop-down right"></i></a>
                   <p class="user-roal">Administrator</p>
                 </div>

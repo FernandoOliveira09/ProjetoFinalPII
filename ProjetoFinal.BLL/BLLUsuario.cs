@@ -39,5 +39,10 @@ namespace ProjetoFinal.BLL
         {
             return DALUsuario.PesquisarLogin(usuario);
         }
+
+        public static List<MODUsuario> PesquisarAdmin()
+        {
+            return DALUsuario.PesquisarAdmin();
+        }
     }
 }

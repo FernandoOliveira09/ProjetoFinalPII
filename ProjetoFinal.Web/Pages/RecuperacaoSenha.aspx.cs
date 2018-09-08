@@ -50,7 +50,7 @@ namespace ProjetoFinal.Web.Pages
 
                 BLLRecuperacaoSenha_Usuario.Inserir(recuperacaoSenha_Usuario);
 
-                enviaEmail.EnvioEmailRecuperacao("fernando.oliveira1801@gmail.com", senha, "FernandoO");
+                enviaEmail.EnvioEmailRecuperacao(usuario.Email, senha, usuario.Login);
 
                 Response.Write("<script>alert('O código de acesso foi enviado ao seu email com sucesso!');</script>");
                 Response.Redirect("../Pages/InserirCodigoRecuperacao.aspx");

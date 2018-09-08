@@ -112,7 +112,7 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "SELECT login, senha, fk_tipo, fk_status, primeiro_acesso FROM TBLUSUARIO WHERE login = @login";
+            comando.CommandText = "SELECT login, senha, email, fk_tipo, fk_status, primeiro_acesso FROM TBLUSUARIO WHERE login = @login";
 
             comando.Parameters.AddWithValue("@login", usuario.Login);
 
@@ -123,12 +123,14 @@ namespace ProjetoFinal.DAL
                 MODUsuario ret = new MODUsuario();
                 ret.Login = reader["Login"].ToString();
                 ret.Senha = reader["Senha"].ToString();
+                ret.Email = reader["Email"].ToString();
                 ret.FkTipo = Convert.ToInt32(reader["fk_tipo"]);
                 ret.FkStatus = Convert.ToInt32(reader["fk_status"]);
                 ret.PrimeiroAcesso = Convert.ToChar(reader["primeiro_acesso"]);
 
                 retorno.Login = ret.Login;
                 retorno.Senha = ret.Senha;
+                retorno.Email = ret.Email;
                 retorno.FkTipo = ret.FkTipo;
                 retorno.FkStatus = ret.FkStatus;
                 retorno.PrimeiroAcesso = ret.PrimeiroAcesso;
@@ -164,6 +166,40 @@ namespace ProjetoFinal.DAL
                 ret.Imagem = reader["Imagem"].ToString();
                 ret.FkTipo = (int)reader["Fk_Tipo"];
                 ret.FkTipo = (int)reader["Fk_status"];
+
+                retorno.Add(ret);
+            }
+
+            reader.Close();
+
+            Conexao.Fechar();
+
+            return retorno;
+        }
+
+        public static List<MODUsuario> PesquisarAdmin()
+        {
+            List<MODUsuario> retorno = new List<MODUsuario>();
+
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "SELECT login, fk_tipo FROM TBLUSUARIO WHERE fk_tipo = 1";
+
+            MySqlDataReader reader = comando.ExecuteReader();
+
+            while (reader.Read())
+            {
+                MODUsuario ret = new MODUsuario();
+                ret.Login = reader["Login"].ToString();
+                //ret.Nome = reader["Nome"].ToString();
+                //ret.Email = reader["Email"].ToString();
+                //ret.Lattes = reader["Lattes"].ToString();
+                //ret.Imagem = reader["Imagem"].ToString();
+                ret.FkTipo = (int)reader["Fk_Tipo"];
+                //ret.FkTipo = (int)reader["Fk_status"];
 
                 retorno.Add(ret);
             }

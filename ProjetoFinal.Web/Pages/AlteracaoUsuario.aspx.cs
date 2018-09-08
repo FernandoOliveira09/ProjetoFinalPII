@@ -14,8 +14,9 @@ namespace ProjetoFinal.Web.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(PegaLogin.RetornaStatusLogin() == 0)
+            if (Session["login"] == null)
             {
+                Session.RemoveAll();
                 Response.Redirect("../Pages/Login.aspx");
             }
         }

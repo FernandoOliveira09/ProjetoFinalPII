@@ -174,7 +174,7 @@ CREATE TABLE `tblusuario` (
   `login` varchar(15) NOT NULL,
   `nome` varchar(50) NOT NULL,
   `senha` varchar(68) NOT NULL,
-  `email` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `data_cadastro` date NOT NULL,
   `fk_tipo` int(11) DEFAULT NULL,
   `fk_status` int(11) DEFAULT NULL,

@@ -76,7 +76,7 @@
             
             <center>
               <div class='row' align="center">
-                <asp:Button type='submit' ID="BtnAlterar" name='btncadastrar' class='col s12 btn btn-large waves-effect blue darken-4' runat="server" Text="Enviar" style="text-align:center" OnClick="BtnAlterar_Click"></asp:Button>
+                <asp:Button type='submit' ID="BtnAlterar" name='btncadastrar' class='col s12 btn btn-large waves-effect blue darken-4' runat="server" Text="Alterar" style="text-align:center" OnClick="BtnAlterar_Click"></asp:Button>
               </div>
             </center>
           </form>

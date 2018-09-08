@@ -67,7 +67,7 @@
                 <label for='password'>Senha</label>
               </div>
               <label style='float: right;'>
-			    <a class='blue-text' href='#!'><b>Esqueceu sua senha?</b></a>
+			    <a class='blue-text' href='../Pages/RecuperacaoSenha.aspx'><b>Esqueceu sua senha?</b></a>
 			  </label>
             </div>
 

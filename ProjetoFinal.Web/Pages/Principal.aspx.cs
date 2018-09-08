@@ -11,7 +11,17 @@ namespace ProjetoFinal.Web.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["login"] == null)
+            {
+                Session.RemoveAll();
+                Response.Redirect("../Pages/Login.aspx");
+            }
+        }
 
+        protected void Logout_Click(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            Response.Redirect("../Pages/Login.aspx");
         }
     }
 }
