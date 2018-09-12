@@ -17,13 +17,14 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "INSERT INTO TBLUSUARIO (login, nome, senha, email, lattes, primeiro_acesso, data_cadastro, fk_tipo,fk_status) "
-                + "VALUES (@login, @nome, @senha, @email, @lattes, @primeiro_acesso, @data_cadastro, @fk_tipo, @fk_status)";
+            comando.CommandText = "INSERT INTO TBLUSUARIO (login, nome, senha, email, lattes, imagem, primeiro_acesso, data_cadastro, fk_tipo, fk_status) "
+                + "VALUES (@login, @nome, @senha, @email, @lattes, @imagem, @primeiro_acesso, @data_cadastro, @fk_tipo, @fk_status)";
             comando.Parameters.AddWithValue("@login", usuario.Login);
             comando.Parameters.AddWithValue("@nome", usuario.Nome);
             comando.Parameters.AddWithValue("@senha", usuario.Senha);
             comando.Parameters.AddWithValue("@email", usuario.Email);
             comando.Parameters.AddWithValue("@lattes", usuario.Lattes);
+            comando.Parameters.AddWithValue("@imagem", usuario.Imagem);
             comando.Parameters.AddWithValue("@primeiro_acesso", usuario.PrimeiroAcesso);
             comando.Parameters.AddWithValue("@data_cadastro", usuario.DataCadastro);
             comando.Parameters.AddWithValue("@fk_tipo", usuario.FkTipo);
@@ -112,7 +113,7 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "SELECT login, senha, email, fk_tipo, fk_status, primeiro_acesso FROM TBLUSUARIO WHERE login = @login";
+            comando.CommandText = "SELECT login, nome, senha, email, imagem, fk_tipo, fk_status, primeiro_acesso FROM TBLUSUARIO WHERE login = @login";
 
             comando.Parameters.AddWithValue("@login", usuario.Login);
 
@@ -122,15 +123,19 @@ namespace ProjetoFinal.DAL
             {
                 MODUsuario ret = new MODUsuario();
                 ret.Login = reader["Login"].ToString();
+                ret.Nome = reader["Nome"].ToString();
                 ret.Senha = reader["Senha"].ToString();
                 ret.Email = reader["Email"].ToString();
+                ret.Imagem = reader["Imagem"].ToString();
                 ret.FkTipo = Convert.ToInt32(reader["fk_tipo"]);
                 ret.FkStatus = Convert.ToInt32(reader["fk_status"]);
                 ret.PrimeiroAcesso = Convert.ToChar(reader["primeiro_acesso"]);
 
                 retorno.Login = ret.Login;
+                retorno.Nome = ret.Nome;
                 retorno.Senha = ret.Senha;
                 retorno.Email = ret.Email;
+                retorno.Imagem = ret.Imagem;
                 retorno.FkTipo = ret.FkTipo;
                 retorno.FkStatus = ret.FkStatus;
                 retorno.PrimeiroAcesso = ret.PrimeiroAcesso;

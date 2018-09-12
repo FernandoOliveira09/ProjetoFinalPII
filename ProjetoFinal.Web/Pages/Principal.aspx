@@ -67,7 +67,7 @@
               <li>
                 <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button" data-activates="profile-dropdown">
                   <span class="avatar-status avatar-online">
-                    <img src="../Content/images/avatar/avatar-7.png" alt="avatar">
+                    <asp:Image ID="ImagemUser2" ImageUrl="../Pages/Imagens/usuario.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server"/>
                     <i></i>
                   </span>
                 </a>
@@ -139,12 +139,14 @@
             <li class="user-details cyan darken-2">
               <div class="row">
                 <div class="col col s4 m4 l4">
-                  <img src="../Content/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan">
+                    <asp:Image ID="ImagemUser" ImageUrl="../Pages/Imagens/usuario.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server"/>
+                    <!--<asp:Image src="../Content/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server"/>-->
+                    <!--<img src="../Content/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan">-->
                 </div>
                 <div class="col col s8 m8 l8">
                   
-                  <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown-nav">Fernando Oliveira<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                  <p class="user-roal">Administrator</p>
+                  <a class="btn-flat waves-light white-text profile-btn" href="#" data-activates="profile-dropdown-nav"><asp:Label ID="LblNome" runat="server">Usuário</asp:Label> <i class="mdi-navigation-arrow-drop-down right"></i></a>
+                  <p class="user-roal"><asp:Label ID="LblFuncao" runat="server">Função</asp:Label></p>
                 </div>
               </div>
             </li>

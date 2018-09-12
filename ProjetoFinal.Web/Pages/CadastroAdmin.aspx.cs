@@ -32,6 +32,7 @@ namespace ProjetoFinal.Web.Pages
                 usuario.Login = TxtLogin.Text.Trim();
                 usuario.Nome = TxtNome.Text.Trim();
                 usuario.Email = TxtEmail.Text.Trim();
+                usuario.Imagem = "Imagens/usuario.png";
                 usuario.Senha = cripto.criptografia(TxtSenha.Text.Trim());
                 usuario.DataCadastro = Convert.ToDateTime(DateTime.Now.ToShortDateString());
                 usuario.FkTipo = 1;

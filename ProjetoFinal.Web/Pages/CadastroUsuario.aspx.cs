@@ -19,6 +19,19 @@ namespace ProjetoFinal.Web.Pages
                 Session.RemoveAll();
                 Response.Redirect("../Pages/Login.aspx");
             }
+
+            MODUsuario usuario = new MODUsuario();
+            usuario.Login = PegaLogin.RetornaLogin();
+            usuario = BLLUsuario.PesquisarLogin(usuario);
+
+            ImagemUser.ImageUrl = "../Pages/" + usuario.Imagem;
+            ImagemUser2.ImageUrl = "../Pages/" + usuario.Imagem;
+            LblNome.Text = usuario.Nome;
+
+            if (usuario.FkTipo == 1)
+                LblFuncao.Text = "Administrador";
+            else
+                LblFuncao.Text = "Lider de Pesquisa";
         }
 
         protected void BtnCadastrar_Click(object sender, EventArgs e)
@@ -32,6 +45,7 @@ namespace ProjetoFinal.Web.Pages
                 usuario.Login = TxtProntuario.Text.Trim();
                 usuario.Nome = TxtNome.Text.Trim();
                 usuario.Email = TxtEmail.Text.Trim();
+                usuario.Imagem = "Imagens/usuario.png";
                 usuario.DataCadastro = Convert.ToDateTime(DateTime.Now.ToShortDateString());
 
                 if (TxtTipoUsuario.SelectedValue == "Administrador")

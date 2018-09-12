@@ -13,6 +13,42 @@ namespace ProjetoFinal.Web.Pages {
     public partial class AlteracaoUsuario {
         
         /// <summary>
+        /// ImagemUser2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImagemUser2;
+        
+        /// <summary>
+        /// ImagemUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImagemUser;
+        
+        /// <summary>
+        /// LblNome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblNome;
+        
+        /// <summary>
+        /// LblFuncao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblFuncao;
+        
+        /// <summary>
         /// TxtLattes control.
         /// </summary>
         /// <remarks>
