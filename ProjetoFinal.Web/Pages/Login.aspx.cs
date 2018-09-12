@@ -85,7 +85,7 @@ namespace ProjetoFinal.Web.Pages
             catch (Exception)
             {
 
-                throw;
+                Response.Write("<script>alert('Não foi possivel autenticar');</script>");
             }
         }
 

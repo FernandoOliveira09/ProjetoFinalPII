@@ -62,37 +62,32 @@ namespace ProjetoFinal.DAL
             return id; 
         }
 
-        public static void Alterar(MODUsuario usuario)
+        public static char RecuperaStatus(MODRecuperaSenha recuperaSenha)
         {
             Conexao.Abrir();
 
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "UPDATE TBLUSUARIO SET senha = @senha, lattes = @lattes, "
-                + "primeiro_acesso = @primeiro_acesso, imagem = @imagem "
-                + "WHERE login = @login";
-            comando.Parameters.AddWithValue("@login", usuario.Login);
-            comando.Parameters.AddWithValue("@senha", usuario.Senha);
-            comando.Parameters.AddWithValue("@lattes", usuario.Lattes);
-            comando.Parameters.AddWithValue("@primeiro_acesso", usuario.PrimeiroAcesso);
-            comando.Parameters.AddWithValue("@imagem", usuario.Imagem);
+            comando.CommandText = "select ativo from tblrecuperacao_senha where id_recuperacao = " + recuperaSenha.ID;
 
-            comando.ExecuteNonQuery();
+            char status = Convert.ToChar(comando.ExecuteScalar());
 
             Conexao.Fechar();
+
+            return status;
         }
 
-        public static void AlterarStatus(MODUsuario usuario)
+        public static void AlterarStatus(MODRecuperaSenha recuperaSenha)
         {
             Conexao.Abrir();
 
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "UPDATE TBLUSUARIO SET fk_status = @fk_status WHERE login = @login";
-            comando.Parameters.AddWithValue("@login", usuario.Login);
-            comando.Parameters.AddWithValue("@fk_status", usuario.FkStatus);
+            comando.CommandText = "UPDATE tblrecuperacao_senha SET ativo = @ativo WHERE id_recuperacao = @id";
+            comando.Parameters.AddWithValue("@id", recuperaSenha.ID);
+            comando.Parameters.AddWithValue("@ativo", recuperaSenha.Ativo);
 
             comando.ExecuteNonQuery();
 

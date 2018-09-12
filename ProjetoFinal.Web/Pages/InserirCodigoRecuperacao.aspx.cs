@@ -34,17 +34,26 @@ namespace ProjetoFinal.Web.Pages
                 retorno = BLLUsuario.PesquisarLogin(usuario);
                 recuperaSenha.ID = BLLRecuperacaoSenha.recuperaId();
 
-                string retornoSenha = BLLRecuperacaoSenha.PesquisaRecuperacao(recuperaSenha, retorno);
+                char status = BLLRecuperacaoSenha.RecuperaStatus(recuperaSenha);
 
-                if(retornoSenha == senha)
+                if(status == 's')
                 {
-                    Response.Redirect("../Pages/RecuperaSenhaUsuario.aspx");
+                    string retornoSenha = BLLRecuperacaoSenha.PesquisaRecuperacao(recuperaSenha, retorno);
+
+                    if (retornoSenha == senha)
+                    {
+                        Response.Redirect("../Pages/RecuperaSenhaUsuario.aspx");
+                    }
+                    else
+                    {
+
+                    }
                 }
                 else
                 {
-
+                    Response.Write("Esse código não está mais disponível para a recuperação de senha");
                 }
-
+ 
             }
             catch (Exception)
             {

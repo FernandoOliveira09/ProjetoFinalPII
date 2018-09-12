@@ -24,5 +24,15 @@ namespace ProjetoFinal.BLL
         {
             return DALRecuperacaoSenha.PesquisaRecuperacao(recuperaSenha, usuario);
         }
+
+        public static void AlterarStatus(MODRecuperaSenha recuperaSenha)
+        {
+            DALRecuperacaoSenha.AlterarStatus(recuperaSenha);
+        }
+
+        public static char RecuperaStatus(MODRecuperaSenha recuperaSenha)
+        {
+            return DALRecuperacaoSenha.RecuperaStatus(recuperaSenha);
+        }
     }
 }

@@ -20,6 +20,7 @@ namespace ProjetoFinal.Web.Pages
         protected void BtnAlterar_Click(object sender, EventArgs e)
         {
             MODUsuario usuario = new MODUsuario();
+            MODRecuperaSenha recuperaSenha = new MODRecuperaSenha();
             Criptografia cripto = new Criptografia();
 
             bool teste = ValidaSenhaForte.ValidaSenha(TxtSenha.Text.Trim());
@@ -35,7 +36,11 @@ namespace ProjetoFinal.Web.Pages
                     usuario.Senha = cripto.criptografia(TxtSenha.Text.Trim());
                     usuario.FkStatus = 1;
 
+                    recuperaSenha.ID = BLLRecuperacaoSenha.recuperaId();
+                    recuperaSenha.Ativo = 'n';
+
                     BLLUsuario.AlterarSenha(usuario);
+                    BLLRecuperacaoSenha.AlterarStatus(recuperaSenha);
 
                     Response.Write("<script>alert('Senha recuperada com sucesso!');</script>");
 
