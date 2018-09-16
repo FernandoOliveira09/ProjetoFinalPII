@@ -22,32 +22,52 @@ namespace ProjetoFinal.Web.Pages
             MODUsuario usuario = new MODUsuario();
             Criptografia cripto = new Criptografia();
 
-            bool teste = ValidaSenhaForte.ValidaSenha(TxtSenha.Text.Trim());
+            bool senhaForte = ValidaSenhaForte.ValidaSenha(TxtSenha.Text.Trim());
 
-            if(teste == false)
-                Response.Write("<script>alert('Senha INVÁLIDA!');</script>");
-
-            try
+            if (senhaForte == false)
             {
-                usuario.Login = TxtLogin.Text.Trim();
-                usuario.Nome = TxtNome.Text.Trim();
-                usuario.Email = TxtEmail.Text.Trim();
-                usuario.Imagem = "Imagens/usuario.png";
-                usuario.Senha = cripto.criptografia(TxtSenha.Text.Trim());
-                usuario.DataCadastro = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-                usuario.FkTipo = 1;
-                usuario.FkStatus = 1;
-
-                BLLUsuario.Inserir(usuario);
-
-                Response.Write("<script>alert('Administrador cadastrado com sucesso!');</script>");
-
-                Response.Redirect("../Pages/Principal.aspx");
+                LblResposta.Text = Erros.SenhaFraca;
             }
-            catch (Exception)
+            else if (TxtEmail.Text.Trim() == "" || TxtEmail.Text.Length > 50)
             {
-                Response.Write("<script>alert('Erro ao inserir!');</script>");
-                throw;
+                LblResposta.Text = Erros.EmailVazio;
+            }
+            else if (TxtNome.Text.Trim() == "" || TxtNome.Text.Length > 50)
+            {
+                LblResposta.Text = Erros.NomeVazio;
+            }
+            else if (TxtLogin.Text.Trim() == "" || TxtLogin.Text.Length > 15)
+            {
+                LblResposta.Text = Erros.LoginVazio;
+            }
+            else if (TxtSenha.Text.Trim() == "" || TxtSenha.Text.Length > 12)
+            {
+                LblResposta.Text = Erros.SenhaVazio;
+            }
+            else
+            {
+                try
+                {
+                    usuario.Login = TxtLogin.Text.Trim();
+                    usuario.Nome = TxtNome.Text.Trim();
+                    usuario.Email = TxtEmail.Text.Trim();
+                    usuario.Imagem = "Imagens/usuario.png";
+                    usuario.Senha = cripto.criptografia(TxtSenha.Text.Trim());
+                    usuario.DataCadastro = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+                    usuario.FkTipo = 1;
+                    usuario.FkStatus = 1;
+
+                    BLLUsuario.Inserir(usuario);
+
+                    LblResposta.Text = "Administrador cadastrado com sucesso!";
+
+                    Response.Redirect("../Pages/Principal.aspx");
+                }
+                catch (Exception)
+                {
+                    Response.Write("<script>alert('Erro ao inserir!');</script>");
+                    throw;
+                }
             }
         }
     }

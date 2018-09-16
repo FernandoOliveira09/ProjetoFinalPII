@@ -64,7 +64,7 @@
               <div class='input-field col s12 cadastro'>
                 
                 <asp:TextBox type='text' name='login' id='TxtLogin' value="" runat="server"/>
-                <label for='login'>Username</label>
+                <label for='login'>Username<span style="color: red;">*</span></label>
               </div>
             </div>
             
@@ -72,7 +72,7 @@
               <div class='input-field col s12 cadastro'>
                 
                 <asp:TextBox type='text' name='nome' id='TxtNome' value="" runat="server"/>
-                <label for='nome'>Nome</label>
+                <label for='nome'>Nome<span style="color: red;">*</span></label>
               </div>
             </div>
 
@@ -80,15 +80,16 @@
               <div class='input-field col s12 cadastro'>
                 
                 <asp:TextBox type='email' name='email' id='TxtEmail' value="" runat="server"/>
-                <label for='email'>Email</label>
+                <label for='email'>Email<span style="color: red;">*</span></label>
               </div>
             </div>
            
             <div class='row'>
               <div class='input-field col s12 cadastro'>
                 <asp:TextBox class='validate' type='password' name='password' id='TxtSenha' runat="server"/>
-                <label for='password'>Senha</label>
+                <label for='password'>Senha<span style="color: red;">*</span></label>
               </div>
+                <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
             </div>
 
             <center>

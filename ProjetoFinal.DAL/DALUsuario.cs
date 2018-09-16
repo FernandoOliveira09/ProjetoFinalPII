@@ -199,12 +199,7 @@ namespace ProjetoFinal.DAL
             {
                 MODUsuario ret = new MODUsuario();
                 ret.Login = reader["Login"].ToString();
-                //ret.Nome = reader["Nome"].ToString();
-                //ret.Email = reader["Email"].ToString();
-                //ret.Lattes = reader["Lattes"].ToString();
-                //ret.Imagem = reader["Imagem"].ToString();
                 ret.FkTipo = (int)reader["Fk_Tipo"];
-                //ret.FkTipo = (int)reader["Fk_status"];
 
                 retorno.Add(ret);
             }

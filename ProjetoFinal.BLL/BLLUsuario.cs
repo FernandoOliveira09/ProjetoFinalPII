@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjetoFinal.Model;
 using ProjetoFinal.DAL;
+using ProjetoFinal.Utilitarios;
 
 namespace ProjetoFinal.BLL
 {
@@ -12,6 +13,15 @@ namespace ProjetoFinal.BLL
     {
         public static void Inserir(MODUsuario usuario)
         {
+            if (usuario.Nome.Trim() == "" || usuario.Nome.Length > 50)
+                throw new ExcecaoPersonalizada(Erros.NomeVazio);
+            if (usuario.Email.Trim() == "" || usuario.Email.Length > 50)
+                throw new ExcecaoPersonalizada(Erros.EmailVazio);
+            if (usuario.Login.Trim() == "" || usuario.Login.Length > 15)
+                throw new ExcecaoPersonalizada(Erros.LoginVazio);
+            if (usuario.Senha.Trim() == "" || usuario.Senha.Length > 12)
+                throw new ExcecaoPersonalizada(Erros.SenhaVazio);
+
             DALUsuario.Inserir(usuario);
         }
 

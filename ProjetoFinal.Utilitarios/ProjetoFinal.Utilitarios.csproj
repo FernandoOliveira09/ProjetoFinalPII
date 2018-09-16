@@ -44,6 +44,8 @@
     <Compile Include="Captcha.cs" />
     <Compile Include="Criptografia.cs" />
     <Compile Include="EnviaEmail.cs" />
+    <Compile Include="Erros.cs" />
+    <Compile Include="ExcecaoPersonalizada.cs" />
     <Compile Include="GeradorSenhaAleatoria.cs" />
     <Compile Include="PegaLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
