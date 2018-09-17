@@ -40,7 +40,7 @@ namespace ProjetoFinal.Web.Pages
             {
                 LblResposta.Text = Erros.LoginVazio;
             }
-            else if (TxtSenha.Text.Trim() == "" || TxtSenha.Text.Length > 12)
+            else if (TxtSenha.Text.Trim() == "")
             {
                 LblResposta.Text = Erros.SenhaVazio;
             }
@@ -56,6 +56,7 @@ namespace ProjetoFinal.Web.Pages
                     usuario.DataCadastro = Convert.ToDateTime(DateTime.Now.ToShortDateString());
                     usuario.FkTipo = 1;
                     usuario.FkStatus = 1;
+                    usuario.PrimeiroAcesso = 's';
 
                     BLLUsuario.Inserir(usuario);
 

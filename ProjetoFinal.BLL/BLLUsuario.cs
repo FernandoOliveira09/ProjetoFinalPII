@@ -19,7 +19,7 @@ namespace ProjetoFinal.BLL
                 throw new ExcecaoPersonalizada(Erros.EmailVazio);
             if (usuario.Login.Trim() == "" || usuario.Login.Length > 15)
                 throw new ExcecaoPersonalizada(Erros.LoginVazio);
-            if (usuario.Senha.Trim() == "" || usuario.Senha.Length > 12)
+            if (usuario.Senha.Trim() == "")
                 throw new ExcecaoPersonalizada(Erros.SenhaVazio);
 
             DALUsuario.Inserir(usuario);

@@ -16,7 +16,21 @@ namespace ProjetoFinal.Web.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            MODUsuario usuario = new MODUsuario();
 
+            try
+            {
+                List<MODUsuario> user = BLLUsuario.PesquisarAdmin();
+                if (user == null || user.Count <= 0)
+                {
+                    Response.Redirect("../Pages/CadastroAdmin.aspx");
+                }
+
+            }
+            catch
+            {
+                //Response.Write("<script>alert('Erro!');</script>");
+            }
         }
 
         protected void BtnEnviar_Click(object sender, EventArgs e)
