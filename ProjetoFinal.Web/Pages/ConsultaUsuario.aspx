@@ -1,11 +1,8 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConsultaUsuario.aspx.cs" Inherits="ProjetoFinal.Web.Pages.ConsultaUsuario" %>
+
 <!DOCTYPE html>
 <html lang="pt-br">
-  <!--================================================================================
-	Item Name: Materialize - Material Design Admin Template
-	Version: 4.0
-	Author: PIXINVENT
-	Author URL: https://themeforest.net/user/pixinvent/portfolio
-  ================================================================================ -->
+
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,21 +12,21 @@
     <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
     <title>Admin | SG Manager</title>
     <!-- Favicons-->
-    <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" href="../Content/images/favicon/favicon-32x32.png" sizes="32x32">
     <!-- Favicons-->
-    <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon-precomposed" href="..Content/images/favicon/apple-touch-icon-152x152.png">
     <!-- For iPhone -->
     <meta name="msapplication-TileColor" content="#00bcd4">
     <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
     <!-- For Windows Phone -->
     <!-- CORE CSS-->
-    <link href="css//materialize.css" type="text/css" rel="stylesheet">
-    <link href="css//style.css" type="text/css" rel="stylesheet">
+    <link href="../Content/css//materialize.css" type="text/css" rel="stylesheet">
+    <link href="../Content/css//style.css" type="text/css" rel="stylesheet">
     <!-- Custome CSS-->
-    <link href="css/custom/custom.css" type="text/css" rel="stylesheet">
+    <link href="../Content/css/custom/custom.css" type="text/css" rel="stylesheet">
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-    <link href="vendors/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet">
-    <link href="vendors/flag-icon/css/flag-icon.min.css" type="text/css" rel="stylesheet">
+    <link href="../Content/vendors/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet">
+    <link href="../Content/vendors/flag-icon/css/flag-icon.min.css" type="text/css" rel="stylesheet">
   </head>
   <body>
     <!-- Start Page Loading -->
@@ -49,8 +46,8 @@
             <ul class="left">
               <li>
                 <h1 class="logo-wrapper">
-                  <a href="index.html" class="brand-logo darken-1">
-                    <img src="images/logo/materialize-logo.png" alt="materialize logo">
+                  <a href="../Pages/Principal.aspx" class="brand-logo darken-1">
+                    <img src="../Content/images/logo/materialize-logo.png" alt="materialize logo">
                     <span class="logo-text hide-on-med-and-down"><strong>SG</strong> Manager</span>
                   </a>
                 </h1>
@@ -70,7 +67,7 @@
               <li>
                 <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button" data-activates="profile-dropdown">
                   <span class="avatar-status avatar-online">
-                    <img src="images/avatar/avatar-7.png" alt="avatar">
+                    <asp:Image ID="ImagemUser2" ImageUrl="../Pages/Imagens/usuario.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server"/>
                     <i></i>
                   </span>
                 </a>
@@ -115,25 +112,14 @@
             <!-- profile-dropdown -->
             <ul id="profile-dropdown" class="dropdown-content">
               <li>
-                <a href="#" class="grey-text text-darken-1">
-                  <i class="material-icons">face</i> Profile</a>
-              </li>
-              <li>
-                <a href="#" class="grey-text text-darken-1">
-                  <i class="material-icons">settings</i> Settings</a>
-              </li>
-              <li>
-                <a href="#" class="grey-text text-darken-1">
-                  <i class="material-icons">live_help</i> Help</a>
+                <a href="../Pages/AlteracaoUsuario.aspx" class="grey-text text-darken-1">
+                  <i class="material-icons">settings</i> Alterar Informações</a>
               </li>
               <li class="divider"></li>
               <li>
-                <a href="#" class="grey-text text-darken-1">
-                  <i class="material-icons">lock_outline</i> Lock</a>
-              </li>
-              <li>
-                <a href="#" class="grey-text text-darken-1">
+                  <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1" ID="BtnLogout">
                   <i class="material-icons">keyboard_tab</i> Logout</a>
+                  
               </li>
             </ul>
           </div>
@@ -153,86 +139,36 @@
             <li class="user-details cyan darken-2">
               <div class="row">
                 <div class="col col s4 m4 l4">
-                  <img src="images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan">
+                    <asp:Image ID="ImagemUser" ImageUrl="../Pages/Imagens/usuario.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server"/>
+                    <!--<asp:Image src="../Content/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server"/>-->
+                    <!--<img src="../Content/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan">-->
                 </div>
                 <div class="col col s8 m8 l8">
-                  <ul id="profile-dropdown-nav" class="dropdown-content">
-                    <li>
-                      <a href="#" class="grey-text text-darken-1">
-                        <i class="material-icons">face</i> Profile</a>
-                    </li>
-                    <li>
-                      <a href="#" class="grey-text text-darken-1">
-                        <i class="material-icons">settings</i> Settings</a>
-                    </li>
-                    <li>
-                      <a href="#" class="grey-text text-darken-1">
-                        <i class="material-icons">live_help</i> Help</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                      <a href="#" class="grey-text text-darken-1">
-                        <i class="material-icons">lock_outline</i> Lock</a>
-                    </li>
-                    <li>
-                      <a href="#" class="grey-text text-darken-1">
-                        <i class="material-icons">keyboard_tab</i> Logout</a>
-                    </li>
-                  </ul>
-                  <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown-nav">John Doe<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                  <p class="user-roal">Administrator</p>
+                  
+                  <a class="btn-flat waves-light white-text profile-btn" href="#" data-activates="profile-dropdown-nav"><asp:Label ID="LblNome" runat="server">Usuário</asp:Label> <i class="mdi-navigation-arrow-drop-down right"></i></a>
+                  <p class="user-roal"><asp:Label ID="LblFuncao" runat="server">Função</asp:Label></p>
                 </div>
               </div>
             </li>
             <li class="no-padding">
               <ul class="collapsible" data-collapsible="accordion">
                 <li class="bold">
-                  <a href="index.html" class="waves-effect waves-cyan">
+                  <a href="Principal.aspx" class="waves-effect waves-cyan">
                       <i class="material-icons">pie_chart_outlined</i>
                       <span class="nav-text">Dashboard</span>
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="cards-basic.html" class="waves-effect waves-cyan">
+                  <a href="CadastroUsuario.aspx" class="waves-effect waves-cyan">
                       <i class="material-icons">cast</i>
-                      <span class="nav-text">Cards</span>
+                      <span class="nav-text">Usuários</span>
                     </a>
                 </li>
                 <li class="bold">
                   <a href="ui-basic-buttons.html" class="waves-effect waves-cyan">
                       <i class="material-icons">insert_link</i>
-                      <span class="nav-text">Buttons</span>
+                      <span class="nav-text">Grupos de Pesquisa</span>
                     </a>
-                </li>
-                <li class="bold">
-                  <a href="form-layouts.html" class="waves-effect waves-cyan">
-                      <i class="material-icons">format_color_text</i>
-                      <span class="nav-text">Forms</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a href="css-typography.html" class="waves-effect waves-cyan">
-                      <i class="material-icons">format_size</i>
-                      <span class="nav-text">Typography</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a href="css-color.html" class="waves-effect waves-cyan">
-                      <i class="material-icons">invert_colors</i>
-                      <span class="nav-text">Color</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a href="table-basic.html" class="waves-effect waves-cyan">
-                      <i class="material-icons">border_all</i>
-                      <span class="nav-text">Table</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a href="ui-icons.html" class="waves-effect waves-cyan">
-                    <i class="material-icons">lightbulb_outline</i>
-                    <span class="nav-text">Icons</span>
-                  </a>
                 </li>
               </ul>
             </li>
@@ -244,37 +180,36 @@
         <!-- END LEFT SIDEBAR NAV-->
         <!-- //////////////////////////////////////////////////////////////////////////// -->
         <!-- START CONTENT -->
-        <section id="content">
-          <!--start container-->
-          <div class="container">
-            
-            <!--work collections start-->
-               <table class="striped responsive-table">
-                <thead>
-                  <tr>
-                      <th>Prontuário</th>
-                      <th>Nome</th>
-                      <th>Email</th>
-                      <th>Tipo de Usuário</th>
-                      <th>Ações</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Alvin</td>
-                    <td>Eclair</td>
-                    <td>$0.87</td>
-                    <td>$0.87</td>
-                    <td><button id="Teste" name="Teste" >Teste</button>&nbsp;<button id="Teste" name="Teste" >Teste</button></td>
-                  </tr>
-                </tbody>
-              </table>
-            <!--work collections end-->
-            
-            <!-- //////////////////////////////////////////////////////////////////////////// -->
-          </div>
-          <!--end container-->
-        </section>
+        <div class='row'>
+              <div class='input-field col s12'>
+                    <asp:Repeater ID="RptConsulta" runat="server">
+                        <HeaderTemplate>
+                            <table class="striped responsive-table">
+                                <thead>
+                                  <tr>
+                                      <th>Prontuário</th>
+                                      <th>Nome</th>
+                                      <th>Email</th>
+                                      <th>Ações</th>
+                                  </tr>
+                                </thead>
+                            <tbody>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                             <tr>
+                                <td><%# Eval("Login") %></td>
+                                <td><%# Eval("Nome") %></td>
+                                <td><%# Eval("Email") %></td>
+                                <td><button class="BtnAlterar">Alterar</button>&nbsp<button class="BtnMais">Ver Mais</button></td>
+                              </tr>               
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </tbody>
+                          </table>
+                        </FooterTemplate>
+                    </asp:Repeater>
+              </div>
+        </div>
         <!-- END CONTENT -->
         <!-- START RIGHT SIDEBAR NAV-->
         <aside id="right-sidebar-nav">
@@ -380,85 +315,85 @@
                 <div id="chatapp" class="col s12">
                   <div class="collection border-none">
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="images/avatar/avatar-1.png" alt="" class="circle cyan">
+                      <img src="..Content/images/avatar/avatar-1.png" alt="" class="circle cyan">
                       <span class="line-height-0">Elizabeth Elliott </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">5.00 AM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Thank you </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="images/avatar/avatar-2.png" alt="" class="circle deep-orange accent-2">
+                      <img src="..Content/images/avatar/avatar-2.png" alt="" class="circle deep-orange accent-2">
                       <span class="line-height-0">Mary Adams </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">4.14 AM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Hello Boo </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="images/avatar/avatar-3.png" alt="" class="circle teal accent-4">
+                      <img src="..Content/images/avatar/avatar-3.png" alt="" class="circle teal accent-4">
                       <span class="line-height-0">Caleb Richards </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">9.00 PM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Keny ! </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="images/avatar/avatar-4.png" alt="" class="circle cyan">
+                      <img src="..Content/images/avatar/avatar-4.png" alt="" class="circle cyan">
                       <span class="line-height-0">June Lane </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">4.14 AM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Ohh God </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="images/avatar/avatar-5.png" alt="" class="circle red accent-2">
+                      <img src="..Content/images/avatar/avatar-5.png" alt="" class="circle red accent-2">
                       <span class="line-height-0">Edward Fletcher </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">5.15 PM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Love you </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="images/avatar/avatar-6.png" alt="" class="circle deep-orange accent-2">
+                      <img src="..Content/images/avatar/avatar-6.png" alt="" class="circle deep-orange accent-2">
                       <span class="line-height-0">Crystal Bates </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">8.00 AM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Can we </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="images/avatar/avatar-7.png" alt="" class="circle cyan">
+                      <img src="..Content/images/avatar/avatar-7.png" alt="" class="circle cyan">
                       <span class="line-height-0">Nathan Watts </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">9.53 PM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Great! </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="images/avatar/avatar-8.png" alt="" class="circle red accent-2">
+                      <img src="..Content/images/avatar/avatar-8.png" alt="" class="circle red accent-2">
                       <span class="line-height-0">Willard Wood </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">4.20 AM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Do it </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="images/avatar/avatar-9.png" alt="" class="circle teal accent-4">
+                      <img src="..Content/images/avatar/avatar-9.png" alt="" class="circle teal accent-4">
                       <span class="line-height-0">Ronnie Ellis </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">5.30 PM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Got that </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="images/avatar/avatar-1.png" alt="" class="circle cyan">
+                      <img src="..Content/images/avatar/avatar-1.png" alt="" class="circle cyan">
                       <span class="line-height-0">Gwendolyn Wood </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">4.34 AM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Like you </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="images/avatar/avatar-2.png" alt="" class="circle red accent-2">
+                      <img src="..Content/images/avatar/avatar-2.png" alt="" class="circle red accent-2">
                       <span class="line-height-0">Daniel Russell </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">12.00 AM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Thank you </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="images/avatar/avatar-3.png" alt="" class="circle teal accent-4">
+                      <img src="..Content/images/avatar/avatar-3.png" alt="" class="circle teal accent-4">
                       <span class="line-height-0">Sarah Graves </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">11.14 PM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Okay you </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="images/avatar/avatar-4.png" alt="" class="circle red accent-2">
+                      <img src="..Content/images/avatar/avatar-4.png" alt="" class="circle red accent-2">
                       <span class="line-height-0">Andrew Hoffman </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">7.30 PM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Can do </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="images/avatar/avatar-5.png" alt="" class="circle cyan">
+                      <img src="..Content/images/avatar/avatar-5.png" alt="" class="circle cyan">
                       <span class="line-height-0">Camila Lynch </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">2.00 PM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Leave it </p>
@@ -567,14 +502,14 @@
     Scripts
     ================================================ -->
     <!-- jQuery Library -->
-    <script type="text/javascript" src="vendors/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../Content/vendors/jquery-3.2.1.min.js"></script>
     <!--materialize js-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="../Content/js/materialize.min.js"></script>
     <!--scrollbar-->
-    <script type="text/javascript" src="vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script type="text/javascript" src="../Content/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="../Content/js/plugins.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
-    <script type="text/javascript" src="js/custom-script.js"></script>
+    <script type="text/javascript" src="../Content/js/custom-script.js"></script>
   </body>
 </html>

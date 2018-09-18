@@ -162,11 +162,15 @@ namespace ProjetoFinal.DAL
                 comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO WHERE login = @login";
                 comando.Parameters.AddWithValue("@login", item.Login);
             }
-            else
+            else if(tipoPesquisa == "email")
             {
                 comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO WHERE email = @email";
                 comando.Parameters.AddWithValue("@email", item.Email);
-            }    
+            }
+            else
+            {
+                comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO";
+            }
 
             MySqlDataReader reader = comando.ExecuteReader();
 

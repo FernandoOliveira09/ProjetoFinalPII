@@ -78,6 +78,7 @@
     <Content Include="Pages\AlteracaoUsuario.aspx" />
     <Content Include="Pages\CadastroAdmin.aspx" />
     <Content Include="Pages\CadastroUsuario.aspx" />
+    <Content Include="Pages\ConsultaUsuario.aspx" />
     <Content Include="Pages\InserirCodigoRecuperacao.aspx" />
     <Content Include="Pages\Principal.aspx" />
     <Content Include="Pages\Login.aspx" />
@@ -109,6 +110,13 @@
     </Compile>
     <Compile Include="Pages\CadastroUsuario.aspx.designer.cs">
       <DependentUpon>CadastroUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConsultaUsuario.aspx.cs">
+      <DependentUpon>ConsultaUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ConsultaUsuario.aspx.designer.cs">
+      <DependentUpon>ConsultaUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\InserirCodigoRecuperacao.aspx.cs">
       <DependentUpon>InserirCodigoRecuperacao.aspx</DependentUpon>
