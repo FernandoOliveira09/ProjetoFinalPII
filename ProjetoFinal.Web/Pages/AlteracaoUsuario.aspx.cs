@@ -41,39 +41,59 @@ namespace ProjetoFinal.Web.Pages
             EnviaEmail enviaEmail = new EnviaEmail();
             string senha = "";
 
-            try
+            bool senhaForte = ValidaSenhaForte.ValidaSenha(TxtSenha.Text.Trim());
+
+            if (senhaForte == false)
             {
-                var mensagem = string.Empty;
-                if (this.FUFoto.HasFile)
+                LblResposta.Text = Erros.SenhaFraca;
+            }
+            else if (TxtLattes.Text.Trim() == "" || TxtLattes.Text.Length > 70)
+            {
+                LblResposta.Text = Erros.LattesVazio;
+            }
+            else if (!FUFoto.HasFile)
+            {
+                LblResposta.Text = Erros.FotoVazio;
+            }
+            else if (TxtSenha.Text.Trim() == "" || TxtSenha.Text.Length > 12)
+            {
+                LblResposta.Text = Erros.SenhaVazio;
+            }
+            else if (TxtSenha2.Text.Trim() == "" || TxtSenha2.Text.Length > 12)
+            {
+                LblResposta.Text = Erros.Senha2Vazio;
+            }
+            else if (TxtSenha.Text.Trim() != TxtSenha2.Text.Trim())
+            {
+                LblResposta.Text = Erros.SenhaInvalida;
+            }
+            else
+            {
+                try
                 {
                     this.FUFoto.SaveAs(Server.MapPath("Imagens/" + FUFoto.FileName));
                     usuario.Imagem = "Imagens/" + FUFoto.FileName;
-                    mensagem = "Imagem gravada com sucesso!";
+
+                    usuario.Login = PegaLogin.RetornaLogin();
+                    usuario.Lattes = TxtLattes.Text.Trim();
+                    usuario.DataCadastro = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+
+                    if (TxtSenha.Text.Trim() == TxtSenha2.Text.Trim())
+                        senha = TxtSenha.Text.Trim();
+
+                    usuario.Senha = cripto.criptografia(senha);
+                    usuario.PrimeiroAcesso = 'n';
+
+                    BLLUsuario.Alterar(usuario);
+
+                    LblResposta.Text = "Usuário alterado com sucesso!";
                 }
-                else
-                    mensagem = "Selecione uma imagem!";
-
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Mensagem", "alert(' " + mensagem + "')", true);
-
-                usuario.Login = PegaLogin.RetornaLogin();
-                usuario.Lattes = TxtLattes.Text.Trim();
-                usuario.DataCadastro = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-
-                if(TxtSenha.Text.Trim() == TxtSenha2.Text.Trim())
-                    senha = TxtSenha.Text.Trim();
-
-                usuario.Senha = cripto.criptografia(senha);
-                usuario.PrimeiroAcesso = 'n';
-
-                BLLUsuario.Alterar(usuario);
-
-                Response.Write("<script>alert('Usuário alterado com sucesso!');</script>");
-            }
-            catch (Exception)
-            {
-                Response.Write("<script>alert('Erro ao inserir!');</script>");
-                throw;
-            }
+                catch (Exception)
+                {
+                    Response.Write("<script>alert('Erro ao inserir!');</script>");
+                    throw;
+                }
+            }        
         }
     }
 }

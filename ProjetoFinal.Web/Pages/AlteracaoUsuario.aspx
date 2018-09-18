@@ -224,7 +224,7 @@
 
                           <div class="row">
                             <div class="input-field col s12">
-                              <label for="FUFoto">Foto do usuário</label>
+                              <label for="FUFoto">Foto do usuário<span style="color: red;">*</span></label>
                                 <br />
                                 <br />
                               <asp:FileUpload id="FUFoto" runat="server" />
@@ -234,16 +234,22 @@
                           <div class='row'>
                               <div class='input-field col s6 cadastro'>
                                 <asp:TextBox class='validate' type='password' name='password' id='TxtSenha' runat="server"/>
-                                <label for='password'>Senha</label>
+                                <label for='password'>Senha<span style="color: red;">*</span></label>
                               </div>
                           </div>
 
                           <div class='row'>
                               <div class='input-field col s6 cadastro'>
                                 <asp:TextBox class='validate' type='password' name='password' id='TxtSenha2' runat="server"/>
-                                <label for='password'>Digite novamente a senha</label>
+                                <label for='password'>Digite novamente a senha<span style="color: red;">*</span></label>
                               </div>
-                          </div>   
+                          </div>
+                            
+                          <div class="row">
+                            <div class="input-field col s12">
+                                <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
+                            </div>
+                          </div>  
 
                           <div class="row">
                               <div class="input-field col s12">

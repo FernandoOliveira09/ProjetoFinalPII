@@ -19,7 +19,7 @@ namespace ProjetoFinal.BLL
                 throw new ExcecaoPersonalizada(Erros.EmailVazio);
             if (usuario.Login.Trim() == "" || usuario.Login.Length > 15)
                 throw new ExcecaoPersonalizada(Erros.LoginVazio);
-            if (usuario.Senha.Trim() == "" || usuario.Senha.Length > 12)
+            if (usuario.Senha.Trim() == "")
                 throw new ExcecaoPersonalizada(Erros.SenhaVazio);
 
             DALUsuario.Inserir(usuario);
@@ -40,9 +40,9 @@ namespace ProjetoFinal.BLL
             DALUsuario.AlterarSenha(usuario);
         }
 
-        public static List<MODUsuario> Pesquisar(MODUsuario usuario)
+        public static List<MODUsuario> Pesquisar(MODUsuario usuario, string tipoPesquisa)
         {
-            return DALUsuario.Pesquisar(usuario);
+            return DALUsuario.Pesquisar(usuario, tipoPesquisa);
         }
 
         public static MODUsuario PesquisarLogin(MODUsuario usuario)

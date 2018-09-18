@@ -40,36 +40,63 @@ namespace ProjetoFinal.Web.Pages
             Criptografia cripto = new Criptografia();
             EnviaEmail enviaEmail = new EnviaEmail();
 
-            try
+            List<MODUsuario> checaEmail = new List<MODUsuario>();
+
+            if (TxtEmail.Text.Trim() == "" || TxtEmail.Text.Length > 50)
             {
-                usuario.Login = TxtProntuario.Text.Trim();
-                usuario.Nome = TxtNome.Text.Trim();
-                usuario.Email = TxtEmail.Text.Trim();
-                usuario.Imagem = "Imagens/usuario.png";
-                usuario.DataCadastro = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-
-                if (TxtTipoUsuario.SelectedValue == "Administrador")
-                    usuario.FkTipo = 1;
-                else
-                    usuario.FkTipo = 2;
-
-                string senha = GeradorSenhaAleatoria.GeraSenha();
-
-                usuario.Senha = cripto.criptografia(senha);
-                usuario.FkStatus = 1;
-                usuario.PrimeiroAcesso = 's';
-
-                BLLUsuario.Inserir(usuario);
-
-                enviaEmail.EnvioEmail(usuario.Email, usuario.Nome, senha, usuario.Login);
-
-                Response.Write("<script>alert('Usuário cadastrado com sucesso!');</script>");
+                LblResposta.Text = Erros.EmailVazio;
             }
-            catch (Exception)
+            else if (TxtNome.Text.Trim() == "" || TxtNome.Text.Length > 50)
             {
-                Response.Write("<script>alert('Erro ao inserir!');</script>");
-                throw;
+                LblResposta.Text = Erros.NomeVazio;
             }
+            else if (TxtProntuario.Text.Trim() == "" || TxtProntuario.Text.Length > 15)
+            {
+                LblResposta.Text = Erros.LoginVazio;
+            }
+            else
+            {
+                try
+                {
+                    usuario.Login = TxtProntuario.Text.Trim();
+                    usuario.Nome = TxtNome.Text.Trim();
+                    usuario.Email = TxtEmail.Text.Trim();
+                    usuario.Imagem = "Imagens/usuario.png";
+                    usuario.DataCadastro = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+
+                    if (TxtTipoUsuario.SelectedValue == "Administrador")
+                        usuario.FkTipo = 1;
+                    else
+                        usuario.FkTipo = 2;
+
+                    string senha = GeradorSenhaAleatoria.GeraSenha();
+
+                    usuario.Senha = cripto.criptografia(senha);
+                    usuario.FkStatus = 1;
+                    usuario.PrimeiroAcesso = 's';
+
+                    checaEmail = BLLUsuario.Pesquisar(usuario, "email");
+
+                    if (checaEmail.Count > 0)
+                    {
+                        LblResposta.Text = "Endereço de Email já cadastrado anteriormente";
+                    }
+                    else
+                    {
+                        BLLUsuario.Inserir(usuario);
+
+                        enviaEmail.EnvioEmail(usuario.Email, usuario.Nome, senha, usuario.Login);
+
+                        LblResposta.Text = "Usuário cadastrado com sucesso!";
+                    }
+                    
+                }
+                catch (Exception)
+                {
+                    Response.Write("<script>alert('Erro ao inserir!');</script>");
+                    throw;
+                }
+            }           
         }
     }
 }
