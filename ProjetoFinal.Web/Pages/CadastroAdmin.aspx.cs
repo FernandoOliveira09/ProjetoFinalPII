@@ -24,6 +24,8 @@ namespace ProjetoFinal.Web.Pages
 
             bool senhaForte = ValidaSenhaForte.ValidaSenha(TxtSenha.Text.Trim());
 
+            List<MODUsuario> checaEmail = new List<MODUsuario>();
+
             if (senhaForte == false)
             {
                 LblResposta.Text = Erros.SenhaFraca;
@@ -58,11 +60,20 @@ namespace ProjetoFinal.Web.Pages
                     usuario.FkStatus = 1;
                     usuario.PrimeiroAcesso = 's';
 
-                    BLLUsuario.Inserir(usuario);
+                    checaEmail = BLLUsuario.Pesquisar(usuario, "email");
 
-                    LblResposta.Text = "Administrador cadastrado com sucesso!";
+                    if (checaEmail.Count > 0)
+                    {
+                        LblResposta.Text = "Endereço de Email já cadastrado anteriormente";
+                    }
+                    else
+                    {
+                        BLLUsuario.Inserir(usuario);
 
-                    Response.Redirect("../Pages/Principal.aspx");
+                        LblResposta.Text = "Administrador cadastrado com sucesso!";
+
+                        Response.Redirect("../Pages/Principal.aspx");
+                    }
                 }
                 catch (Exception)
                 {

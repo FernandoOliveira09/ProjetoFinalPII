@@ -148,7 +148,7 @@ namespace ProjetoFinal.DAL
             return retorno;
         }
 
-        public static List<MODUsuario> Pesquisar(MODUsuario item)
+        public static List<MODUsuario> Pesquisar(MODUsuario item, string tipoPesquisa)
         {
             List<MODUsuario> retorno = new List<MODUsuario>();
 
@@ -157,7 +157,16 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO WHERE login = @login";
+            if(tipoPesquisa == "login")
+            {
+                comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO WHERE login = @login";
+                comando.Parameters.AddWithValue("@login", item.Login);
+            }
+            else
+            {
+                comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO WHERE email = @email";
+                comando.Parameters.AddWithValue("@email", item.Email);
+            }    
 
             MySqlDataReader reader = comando.ExecuteReader();
 

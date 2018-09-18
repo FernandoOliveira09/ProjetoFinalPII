@@ -216,28 +216,35 @@
                           <div class="row">
                             <div class="input-field col s12">
                               <asp:TextBox id="TxtNome" type="text" runat="server" />
-                              <label for="TxtNome">Nome</label>
+                              <label for="TxtNome">Nome<span style="color: red;">*</span></label>
                             </div>
                           </div>
                           <div class="row">
                             <div class="input-field col s6">
-                              <asp:TextBox id="TxtProntuario" type="text" runat="server" />
-                              <label for="TxtProntuario">Prontuário ou Login</label>
+                              <asp:TextBox id="TxtProntuario" type="text" runat="server" MaxLength="9" />
+                              <label for="TxtProntuario">Prontuário ou Login<span style="color: red;">*</span></label>
                             </div>
                           </div>
                           <div class="row">
                             <div class="input-field col s12">
                               <asp:TextBox class="validate" id="TxtEmail" type="email" runat="server" />
-                              <label for="TxtEmail">Email</label>
+                              <label for="TxtEmail">Email<span style="color: red;">*</span></label>
                             </div>
                           </div>
 
-                          <asp:DropDownList class="input-field col s6" runat="server" ID="TxtTipoUsuario">
-                              <asp:ListItem Text="Tipo de Usuário" disabled selected/>
+                          <asp:DropDownList class="input-field col s7" runat="server" ID="TxtTipoUsuario">
+                              <asp:ListItem Text="Tipo de Usuário (Obrigatório)" disabled selected/>
                               <asp:ListItem Text="Administrador" />
                               <asp:ListItem Text="Lider de Pesquisa" />
                           </asp:DropDownList>
-
+                          
+                          <div class="row">
+                            <div class="input-field col s12">
+                                <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
+                            </div>
+                          </div>    
+                          
+                            
                           <div class="row">
                               <div class="input-field col s12">
                                   <asp:Button id="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar" runat="server" OnClick="BtnCadastrar_Click">

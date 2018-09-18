@@ -40,9 +40,9 @@ namespace ProjetoFinal.BLL
             DALUsuario.AlterarSenha(usuario);
         }
 
-        public static List<MODUsuario> Pesquisar(MODUsuario usuario)
+        public static List<MODUsuario> Pesquisar(MODUsuario usuario, string tipoPesquisa)
         {
-            return DALUsuario.Pesquisar(usuario);
+            return DALUsuario.Pesquisar(usuario, tipoPesquisa);
         }
 
         public static MODUsuario PesquisarLogin(MODUsuario usuario)
