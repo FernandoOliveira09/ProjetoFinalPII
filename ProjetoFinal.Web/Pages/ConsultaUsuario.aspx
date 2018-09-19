@@ -13,6 +13,8 @@
     <title>Admin | SG Manager</title>
     <!-- Favicons-->
     <link rel="icon" href="../Content/images/favicon/favicon-32x32.png" sizes="32x32">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!-- Favicons-->
     <link rel="apple-touch-icon-precomposed" href="..Content/images/favicon/apple-touch-icon-152x152.png">
     <!-- For iPhone -->
@@ -204,7 +206,7 @@
                                 <td><%# Eval("Email") %></td>
                                 <td><%# Eval("Tipo") %></td>
                                 <td><%# Eval("Status") %></td>
-                                <td><button class="BtnAlterar">Alterar</button>&nbsp<button class="BtnMais">Ver Mais</button></td>
+                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>
                               </tr>               
                         </ItemTemplate>
                         <FooterTemplate>
