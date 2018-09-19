@@ -18,5 +18,9 @@ namespace ProjetoFinal.Model
         public DateTime DataCadastro { get; set; }
         public int? FkTipo { get; set; }
         public int? FkStatus { get; set; }
+
+        //apenas para consulta
+        public string Tipo { get; set; }
+        public string Status { get; set; }
     }
 }

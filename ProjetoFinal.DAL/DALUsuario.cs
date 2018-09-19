@@ -131,6 +131,8 @@ namespace ProjetoFinal.DAL
                 ret.FkStatus = Convert.ToInt32(reader["fk_status"]);
                 ret.PrimeiroAcesso = Convert.ToChar(reader["primeiro_acesso"]);
 
+                
+
                 retorno.Login = ret.Login;
                 retorno.Nome = ret.Nome;
                 retorno.Senha = ret.Senha;
@@ -182,8 +184,20 @@ namespace ProjetoFinal.DAL
                 ret.Email = reader["Email"].ToString();
                 ret.Lattes = reader["Lattes"].ToString();
                 ret.Imagem = reader["Imagem"].ToString();
-                ret.FkTipo = (int)reader["Fk_Tipo"];
-                ret.FkTipo = (int)reader["Fk_status"];
+                ret.FkTipo = (int)reader["fk_tipo"];
+                ret.FkStatus = (int)reader["fk_status"];
+
+                if (ret.FkTipo == 1)
+                    ret.Tipo = "Administrador";
+                else
+                    ret.Tipo = "Lider de Pesquisa";
+
+                if (ret.FkStatus == 1)
+                    ret.Status = "Ativo";
+                else if (ret.FkStatus == 2)
+                    ret.Status = "Bloqueado";
+                else
+                    ret.Status = "Desativado";
 
                 retorno.Add(ret);
             }

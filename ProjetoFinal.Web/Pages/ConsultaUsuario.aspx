@@ -190,6 +190,8 @@
                                       <th>Prontuário</th>
                                       <th>Nome</th>
                                       <th>Email</th>
+                                      <th>Tipo</th>
+                                      <th>Status</th>
                                       <th>Ações</th>
                                   </tr>
                                 </thead>
@@ -200,6 +202,8 @@
                                 <td><%# Eval("Login") %></td>
                                 <td><%# Eval("Nome") %></td>
                                 <td><%# Eval("Email") %></td>
+                                <td><%# Eval("Tipo") %></td>
+                                <td><%# Eval("Status") %></td>
                                 <td><button class="BtnAlterar">Alterar</button>&nbsp<button class="BtnMais">Ver Mais</button></td>
                               </tr>               
                         </ItemTemplate>
