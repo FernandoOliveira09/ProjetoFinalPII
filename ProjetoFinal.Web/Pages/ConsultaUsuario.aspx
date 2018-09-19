@@ -206,7 +206,7 @@
                                 <td><%# Eval("Email") %></td>
                                 <td><%# Eval("Tipo") %></td>
                                 <td><%# Eval("Status") %></td>
-                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>
+                                <td><button class="waves-effect waves-light btn teal lighten-2" id="btnAlterar"><i class="material-icons">edit</i></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>
                               </tr>               
                         </ItemTemplate>
                         <FooterTemplate>
