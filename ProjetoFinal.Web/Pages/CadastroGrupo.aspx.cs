@@ -52,7 +52,7 @@ namespace ProjetoFinal.Web.Pages
 
                     BLLGrupo.InserirLider(grupoLider);
 
-                    LblResposta.Text = "Lider adicionado com sucesso!";
+                    LblResposta.Text = "Grupo cadastrado com sucesso!";
 
                     //Response.Redirect("../Pages/Principal.aspx");
 
@@ -70,13 +70,8 @@ namespace ProjetoFinal.Web.Pages
             MODUsuario usuario = new MODUsuario();
 
             TxtLider.DataSource = BLLUsuario.Pesquisar(usuario, "todos");
-            //Indico que o DataValueField é a  
-            //propriedade Id da classe Estado 
             TxtLider.DataValueField = "login";
-            //Indico que o DataTextField é a  
-            //propriedade NomeEstado da classe Estado 
             TxtLider.DataTextField = "nome";
-            //Bindo o DropDownList 
             TxtLider.DataBind();
         }
     }
