@@ -182,7 +182,25 @@
         <!-- END LEFT SIDEBAR NAV-->
         <!-- //////////////////////////////////////////////////////////////////////////// -->
         <!-- START CONTENT -->
-        <div class='row'>
+        <div id="breadcrumbs-wrapper">
+              <!-- Search for small screen -->
+              <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
+                <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
+              </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col s10 m6 l6">
+                    <h5 class="breadcrumbs-title">Consulta de Usuários</h5>
+                    <ol class="breadcrumbs">
+                      <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
+                      <li><a href="#">Usuários</a></li>
+                      <li><a href="#">Consulta de Usuários</a></li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+         <div class='row'>
               <div class='input-field col s12'>
                     <asp:Repeater ID="RptConsulta" runat="server">
                         <HeaderTemplate>
@@ -206,7 +224,8 @@
                                 <td><%# Eval("Email") %></td>
                                 <td><%# Eval("Tipo") %></td>
                                 <td><%# Eval("Status") %></td>
-                                <td><button class="waves-effect waves-light btn teal lighten-2" id="btnAlterar"><i class="material-icons">edit</i></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Login.aspx?login=<%# Eval("Login") %>"><i class="material-icons">edit</i></a></td>
+<%--                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
                               </tr>               
                         </ItemTemplate>
                         <FooterTemplate>

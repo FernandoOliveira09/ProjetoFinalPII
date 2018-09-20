@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CadastroUsuario.aspx.cs" Inherits="ProjetoFinal.Web.Pages.CadastroUsuario" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CadastroGrupo.aspx.cs" Inherits="ProjetoFinal.Web.Pages.CadastroGrupo" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -196,11 +196,12 @@
               <div class="container">
                 <div class="row">
                   <div class="col s10 m6 l6">
-                    <h5 class="breadcrumbs-title">Cadastro de Usuários</h5>
+                    <h5 class="breadcrumbs-title">Cadastro de Grupos</h5>
                     <ol class="breadcrumbs">
                       <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
-                      <li><a href="#">Usuários</a></li>
-                      <li><a href="#">Cadastro de Usuário</a></li>
+                      <li><a href="#">Grupos de Pesquisa</a></li>
+                      <li><a href="#">Consulta de Grupos</a></li>
+                      <li><a href="#">Cadastro de Grupos</a></li>
                     </ol>
                   </div>
                 </div>
@@ -216,24 +217,18 @@
                           <div class="row">
                             <div class="input-field col s12">
                               <asp:TextBox id="TxtNome" type="text" runat="server" />
-                              <label for="TxtNome">Nome<span style="color: red;">*</span></label>
+                              <label for="TxtNome">Nome do grupo<span style="color: red;">*</span></label>
                             </div>
                           </div>
                           <div class="row">
                             <div class="input-field col s6">
-                              <asp:TextBox id="TxtProntuario" type="text" runat="server" MaxLength="9" />
-                              <label for="TxtProntuario">Prontuário ou Login<span style="color: red;">*</span></label>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="input-field col s12">
-                              <asp:TextBox class="validate" id="TxtEmail" type="email" runat="server" />
-                              <label for="TxtEmail">Email<span style="color: red;">*</span></label>
+                              <asp:TextBox id="TxtSigla" type="text" runat="server" MaxLength="9" />
+                              <label for="TxtSigla">Sigla<span style="color: red;">*</span></label>
                             </div>
                           </div>
 
                           <asp:DropDownList class="input-field col s7" runat="server" ID="TxtTipoUsuario">
-                              <asp:ListItem Text="Tipo de Usuário (Obrigatório)" disabled selected/>
+                              <asp:ListItem Text="Lider do grupo (Obrigatório)" disabled selected/>
                               <asp:ListItem Text="Administrador" />
                               <asp:ListItem Text="Lider de Pesquisa" />
                           </asp:DropDownList>
@@ -247,7 +242,7 @@
                             
                           <div class="row">
                               <div class="input-field col s12">
-                                  <asp:Button id="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar" runat="server" OnClick="BtnCadastrar_Click">
+                                  <asp:Button id="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar" runat="server" >
                                   </asp:Button>
                               </div>
                           </div>
