@@ -10,7 +10,7 @@ namespace ProjetoFinal.DAL
 {
     public static class DALGrupo
     {
-        public static void InserirGrupo(MODGrupo grupo)
+        public static int InserirGrupo(MODGrupo grupo)
         {
             Conexao.Abrir();
 
@@ -21,6 +21,29 @@ namespace ProjetoFinal.DAL
             comando.Parameters.AddWithValue("@nome", grupo.Nome);
             comando.Parameters.AddWithValue("@sigla", grupo.Sigla);
             comando.Parameters.AddWithValue("@fk_situacao", grupo.FkSituacao);
+
+            comando.ExecuteNonQuery();
+
+            if (comando.LastInsertedId != 0)
+                comando.Parameters.Add(new MySqlParameter("ultimoId", comando.LastInsertedId));
+
+            Conexao.Fechar();
+
+            return Convert.ToInt32(comando.Parameters["@ultimoId"].Value);
+        }
+
+        public static void InserirLider(MODGrupoLider grupoLider)
+        {
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "INSERT INTO TBLGRUPO_LIDER (data_entrada, fk_lider, fk_grupo) VALUES " +
+                "(@data_entrada, @fk_lider, @fk_grupo)";
+            comando.Parameters.AddWithValue("@data_entrada", grupoLider.DataEntrada);
+            comando.Parameters.AddWithValue("@fk_lider", grupoLider.FkUsuario);
+            comando.Parameters.AddWithValue("@fk_grupo", grupoLider.FkGrupo);
 
             comando.ExecuteNonQuery();
 
@@ -59,22 +82,6 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
-        public static void InserirLider(MODGrupoLider grupoLider)
-        {
-            Conexao.Abrir();
-
-            MySqlCommand comando = new MySqlCommand();
-            comando.Connection = Conexao.conexao;
-
-            comando.CommandText = "INSERT INTO TBLGRUPO_LIDER (data_entrada, fk_lider, fk_grupo) VALUES " +
-                "(@data_entrada, @fk_lider, @fk_grupo)";
-            comando.Parameters.AddWithValue("@data_entrada", grupoLider.DataEntrada);
-            comando.Parameters.AddWithValue("@fk_lider", grupoLider.FkUsuario);
-            comando.Parameters.AddWithValue("@fk_grupo", grupoLider.FkGrupo);
-
-            comando.ExecuteNonQuery();
-
-            Conexao.Fechar();
-        }
+        
     }
 }

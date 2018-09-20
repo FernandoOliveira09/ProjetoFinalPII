@@ -71,6 +71,7 @@
     <Content Include="Content\css\materialize.css" />
     <Content Include="Content\css\materialize.min.css" />
     <Content Include="Content\css\menuprincipal.css" />
+    <Content Include="Content\js\jquery.maskedinput.min.js" />
     <Content Include="Content\js\jquery.min.js" />
     <Content Include="Content\js\materialize.js" />
     <Content Include="Content\js\materialize.min.js" />

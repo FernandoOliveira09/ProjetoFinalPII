@@ -32,6 +32,7 @@
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
     <link href="../Content/vendors/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet">
     <link href="../Content/vendors/flag-icon/css/flag-icon.min.css" type="text/css" rel="stylesheet">
+    
   </head>
   <body>
     <!-- Start Page Loading -->
@@ -226,13 +227,24 @@
                               <label for="TxtSigla">Sigla<span style="color: red;">*</span></label>
                             </div>
                           </div>
-
-                          <asp:DropDownList class="input-field col s7" runat="server" ID="TxtTipoUsuario">
-                              <asp:ListItem Text="Lider do grupo (Obrigatório)" disabled selected/>
-                              <asp:ListItem Text="Administrador" />
-                              <asp:ListItem Text="Lider de Pesquisa" />
-                          </asp:DropDownList>
                           
+                          <div class="row">
+                            <div class="input-field col s8">
+                              <label for="TxtLider">Lider do grupo<span style="color: red;">*</span></label>
+                              <br />  
+                              <asp:DropDownList class="input-field" runat="server" ID="TxtLider">
+
+                              </asp:DropDownList>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="input-field col s6">
+                              <asp:TextBox id="TxtData" type="text" runat="server" ClientIDMode="Static" />
+                              <label for="TxtData">Data da entrada do lider<span style="color: red;">*</span></label>
+                            </div>
+                          </div>  
+
                           <div class="row">
                             <div class="input-field col s12">
                                 <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
@@ -242,7 +254,7 @@
                             
                           <div class="row">
                               <div class="input-field col s12">
-                                  <asp:Button id="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar" runat="server" >
+                                  <asp:Button id="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar" runat="server" OnClick="BtnCadastrar_Click" >
                                   </asp:Button>
                               </div>
                           </div>
@@ -557,5 +569,13 @@
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="../Content/js/custom-script.js"></script>
     <script>$('.dropdown-trigger').dropdown();</script>
+    <script src="../Content/js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript">
+         jQuery(function ($) {
+             $("#TxtData").mask("99/99/9999");
+
+         });
+    </script>
+   
   </body>
 </html>

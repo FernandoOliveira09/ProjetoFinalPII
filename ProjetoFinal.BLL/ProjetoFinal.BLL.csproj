@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLGrupo.cs" />
     <Compile Include="BLLRecuperacaoSenha.cs" />
     <Compile Include="BLLRecuperacaoSenha_Usuario.cs" />
     <Compile Include="BLLUsuario.cs" />
