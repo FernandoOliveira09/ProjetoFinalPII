@@ -161,14 +161,14 @@
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="CadastroUsuario.aspx" class="waves-effect waves-cyan">
-                      <i class="material-icons">cast</i>
+                  <a href="ConsultaUsuario.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
                       <span class="nav-text">Usuários</span>
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="ui-basic-buttons.html" class="waves-effect waves-cyan">
-                      <i class="material-icons">insert_link</i>
+                  <a href="ConsultaGrupo.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group_work</i>
                       <span class="nav-text">Grupos de Pesquisa</span>
                     </a>
                 </li>
@@ -195,7 +195,10 @@
                       <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
                       <li><a href="#">Usuários</a></li>
                       <li><a href="#">Consulta de Usuários</a></li>
-                    </ol>
+                    </ol>   
+                  </div>
+                  <div class="col s2 m6 l6">
+                      <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/CadastroUsuario.aspx">Novo Usuário</a>
                   </div>
                 </div>
               </div>

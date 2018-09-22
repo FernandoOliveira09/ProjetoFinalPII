@@ -161,14 +161,14 @@
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="CadastroUsuario.aspx" class="waves-effect waves-cyan">
-                      <i class="material-icons">cast</i>
+                  <a href="ConsultaUsuario.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
                       <span class="nav-text">Usuários</span>
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="ui-basic-buttons.html" class="waves-effect waves-cyan">
-                      <i class="material-icons">insert_link</i>
+                  <a href="ConsultaGrupo.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group_work</i>
                       <span class="nav-text">Grupos de Pesquisa</span>
                     </a>
                 </li>
@@ -190,12 +190,16 @@
               <div class="container">
                 <div class="row">
                   <div class="col s10 m6 l6">
+
                     <h5 class="breadcrumbs-title">Consulta de Grupos</h5>
                     <ol class="breadcrumbs">
                       <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
                       <li><a href="#">Grupos de Pesquisa</a></li>
                       <li><a href="#">Consulta de Grupos</a></li>
                     </ol>
+                  </div>
+                  <div class="col s2 m6 l6">
+                     <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/CadastroGrupo.aspx">Novo Grupo</a>
                   </div>
                 </div>
               </div>
@@ -207,11 +211,10 @@
                             <table class="striped responsive-table">
                                 <thead>
                                   <tr>
-                                      <th>Prontuário</th>
                                       <th>Nome</th>
-                                      <th>Email</th>
-                                      <th>Tipo</th>
-                                      <th>Status</th>
+                                      <th>Sigla</th>
+                                      <th>Lider</th>
+                                      <th>Situacao</th>
                                       <th>Ações</th>
                                   </tr>
                                 </thead>
@@ -221,9 +224,9 @@
                              <tr>
                                 <td><%# Eval("Nome") %></td>
                                 <td><%# Eval("Sigla") %></td>
-                                <td><%# Eval("Data_Inicio") %></td>
                                 <td><%# Eval("Lider") %></td>
-                                <td><%# Eval("Status") %></td>
+                                <td><%# Eval("Situacao") %></td>
+                                <%--<td><%# Eval("Status") %></td>--%>
                                 <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Login.aspx?login=<%# Eval("Id_Grupo") %>"><i class="material-icons">edit</i></a></td>
 <%--                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
                               </tr>               

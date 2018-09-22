@@ -17,5 +17,7 @@ namespace ProjetoFinal.Utilitarios
         public static string SenhaInvalida = "Os campos de senha não coincidem!";
         public static string LattesVazio = "O campo LATTES é inválido!";
         public static string FotoVazio = "O campo FOTO é inválido!";
+        public static string SiglaVazio = "O campo SIGLA é inválido!";
+        public static string DataVazio = "O campo DATA é inválido!";
     }
 }

@@ -159,14 +159,14 @@
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="CadastroUsuario.aspx" class="waves-effect waves-cyan">
-                      <i class="material-icons">cast</i>
+                  <a href="ConsultaUsuario.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
                       <span class="nav-text">Usuários</span>
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="ui-basic-buttons.html" class="waves-effect waves-cyan">
-                      <i class="material-icons">insert_link</i>
+                  <a href="ConsultaGrupo.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group_work</i>
                       <span class="nav-text">Grupos de Pesquisa</span>
                     </a>
                 </li>

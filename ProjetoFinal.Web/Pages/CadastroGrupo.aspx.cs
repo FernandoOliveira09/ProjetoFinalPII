@@ -15,25 +15,46 @@ namespace ProjetoFinal.Web.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             CarregaDropDownList();
+
+            if (Session["login"] == null)
+            {
+                Session.RemoveAll();
+                Response.Redirect("../Pages/Login.aspx");
+            }
+
+            MODUsuario usuario = new MODUsuario();
+            usuario.Login = PegaLogin.RetornaLogin();
+            usuario = BLLUsuario.PesquisarLogin(usuario);
+
+            ImagemUser.ImageUrl = "../Pages/" + usuario.Imagem;
+            ImagemUser2.ImageUrl = "../Pages/" + usuario.Imagem;
+            LblNome.Text = usuario.Nome;
+
+            if (usuario.FkTipo == 1)
+                LblFuncao.Text = "Administrador";
+            else
+                LblFuncao.Text = "Lider de Pesquisa";
         }
 
         protected void BtnCadastrar_Click(object sender, EventArgs e)
         {
             MODUsuario usuario = new MODUsuario();
+            MODUsuario usuario2 = new MODUsuario();
             MODGrupo grupo = new MODGrupo();
             MODGrupoLider grupoLider = new MODGrupoLider();
+            EnviaEmail enviaEmail = new EnviaEmail();
 
             if (TxtNome.Text.Trim() == "" || TxtNome.Text.Length > 60)
             {
-                LblResposta.Text = Erros.EmailVazio;
-            }
-            else if (TxtSigla.Text.Trim() == "" || TxtNome.Text.Length > 10)
-            {
                 LblResposta.Text = Erros.NomeVazio;
+            }
+            else if (TxtSigla.Text.Trim() == "" || TxtSigla.Text.Length > 10)
+            {
+                LblResposta.Text = Erros.SiglaVazio;
             }
             else if (TxtData.Text.Trim() == "")
             {
-                LblResposta.Text = Erros.LoginVazio;
+                LblResposta.Text = Erros.DataVazio;
             }
             else
             {
@@ -41,7 +62,7 @@ namespace ProjetoFinal.Web.Pages
                 {
                     grupo.Nome = TxtNome.Text.Trim();
                     grupo.Sigla = TxtSigla.Text.Trim();
-                    grupo.FkSituacao = 1;
+                    grupo.FkSituacao = 3;
 
                     grupoLider.FkGrupo = BLLGrupo.InserirGrupo(grupo);
 
@@ -54,8 +75,11 @@ namespace ProjetoFinal.Web.Pages
 
                     LblResposta.Text = "Grupo cadastrado com sucesso!";
 
-                    //Response.Redirect("../Pages/Principal.aspx");
+                    usuario.Login = PegaLogin.RetornaLogin();
 
+                    usuario2 = BLLUsuario.PesquisarLogin(usuario);
+
+                    enviaEmail.EnvioEmailAvisoGrupo(usuario2.Email, grupo.Nome, usuario2.Nome);
                 }
                 catch (Exception)
                 {
@@ -69,7 +93,7 @@ namespace ProjetoFinal.Web.Pages
         {
             MODUsuario usuario = new MODUsuario();
 
-            TxtLider.DataSource = BLLUsuario.Pesquisar(usuario, "todos");
+            TxtLider.DataSource = BLLUsuario.Pesquisar(usuario, "lider");
             TxtLider.DataValueField = "login";
             TxtLider.DataTextField = "nome";
             TxtLider.DataBind();

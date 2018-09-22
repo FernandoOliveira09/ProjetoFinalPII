@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjetoFinal.Model;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace ProjetoFinal.DAL
 {
@@ -82,65 +83,83 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
-        public static List<MODGrupo> Pesquisar(MODGrupo item, string tipoPesquisa)
+        public static DataTable Pesquisar(MODGrupoLider grupoLider)
         {
-            List<MODUsuario> retorno = new List<MODUsuario>();
-
-            Conexao.Abrir();
-
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            if (tipoPesquisa == "todos")
-            {
-                comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.fk_situacao, u.login from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo " +
-                    "inner join tblusuario u on u.login = l.fk_lider and l.fk_lider = @lider and l.fk_grupo = @grupo";
-                //comando.Parameters.AddWithValue("@lider", item.);
-                //comando.Parameters.AddWithValue("@grupo", item.Login);
-            }
-            else if (tipoPesquisa == "email")
-            {
-                comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO WHERE email = @email";
-                comando.Parameters.AddWithValue("@email", item.Email);
-            }
-            else
-            {
-                comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO";
-            }
+            comando.CommandText = "select g.id_grupo, g.nome, g.sigla, s.situacao as Situacao, u.login, u.nome as Lider from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
+                + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao";
 
-            MySqlDataReader reader = comando.ExecuteReader();
+            Conexao.Abrir();
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
 
-            while (reader.Read())
-            {
-                MODUsuario ret = new MODUsuario();
-                ret.Login = reader["Login"].ToString();
-                ret.Nome = reader["Nome"].ToString();
-                ret.Email = reader["Email"].ToString();
-                ret.Lattes = reader["Lattes"].ToString();
-                ret.Imagem = reader["Imagem"].ToString();
-                ret.FkTipo = (int)reader["fk_tipo"];
-                ret.FkStatus = (int)reader["fk_status"];
+            da.Fill(dados);
 
-                if (ret.FkTipo == 1)
-                    ret.Tipo = "Administrador";
-                else
-                    ret.Tipo = "Lider de Pesquisa";
-
-                if (ret.FkStatus == 1)
-                    ret.Status = "Ativo";
-                else if (ret.FkStatus == 2)
-                    ret.Status = "Bloqueado";
-                else
-                    ret.Status = "Desativado";
-
-                retorno.Add(ret);
-            }
-
-            reader.Close();
-
-            Conexao.Fechar();
-
-            return retorno;
+            return dados;
         }
+
+        //public static List<MODGrupo> Pesquisar(MODGrupo item, string tipoPesquisa)
+        //{
+        //    List<MODUsuario> retorno = new List<MODUsuario>();
+
+        //    Conexao.Abrir();
+
+        //    MySqlCommand comando = new MySqlCommand();
+        //    comando.Connection = Conexao.conexao;
+
+        //    if (tipoPesquisa == "todos")
+        //    {
+        //        comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.fk_situacao, u.login from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo " +
+        //            "inner join tblusuario u on u.login = l.fk_lider and l.fk_lider = @lider and l.fk_grupo = @grupo";
+        //        comando.Parameters.AddWithValue("@lider", item.);
+        //        comando.Parameters.AddWithValue("@grupo", item.Login);
+        //    }
+        //    else if (tipoPesquisa == "email")
+        //    {
+        //        comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO WHERE email = @email";
+        //        comando.Parameters.AddWithValue("@email", item.Email);
+        //    }
+        //    else
+        //    {
+        //        comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO";
+        //    }
+
+        //    MySqlDataReader reader = comando.ExecuteReader();
+
+        //    while (reader.Read())
+        //    {
+        //        MODUsuario ret = new MODUsuario();
+        //        ret.Login = reader["Login"].ToString();
+        //        ret.Nome = reader["Nome"].ToString();
+        //        ret.Email = reader["Email"].ToString();
+        //        ret.Lattes = reader["Lattes"].ToString();
+        //        ret.Imagem = reader["Imagem"].ToString();
+        //        ret.FkTipo = (int)reader["fk_tipo"];
+        //        ret.FkStatus = (int)reader["fk_status"];
+
+        //        if (ret.FkTipo == 1)
+        //            ret.Tipo = "Administrador";
+        //        else
+        //            ret.Tipo = "Lider de Pesquisa";
+
+        //        if (ret.FkStatus == 1)
+        //            ret.Status = "Ativo";
+        //        else if (ret.FkStatus == 2)
+        //            ret.Status = "Bloqueado";
+        //        else
+        //            ret.Status = "Desativado";
+
+        //        retorno.Add(ret);
+        //    }
+
+        //    reader.Close();
+
+        //    Conexao.Fechar();
+
+        //    return retorno;
+        //}
     }
 }

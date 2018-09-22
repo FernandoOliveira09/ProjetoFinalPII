@@ -89,21 +89,6 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
-        //public static void Excluir(ModFuncao funcao)
-        //{
-        //    Conexao.Abrir();
-
-        //    MySqlCommand comando = new MySqlCommand();
-        //    comando.Connection = Conexao.conexao;
-
-        //    comando.CommandText = "DELETE FROM TBLFUNCAO WHERE id = @id";
-        //    comando.Parameters.AddWithValue("@id", funcao.Id);
-
-        //    comando.ExecuteNonQuery();
-
-        //    Conexao.Fechar();
-        //}
-
         public static MODUsuario PesquisarLogin(MODUsuario usuario)
         {
             MODUsuario retorno = new MODUsuario();
@@ -130,8 +115,6 @@ namespace ProjetoFinal.DAL
                 ret.FkTipo = Convert.ToInt32(reader["fk_tipo"]);
                 ret.FkStatus = Convert.ToInt32(reader["fk_status"]);
                 ret.PrimeiroAcesso = Convert.ToChar(reader["primeiro_acesso"]);
-
-                
 
                 retorno.Login = ret.Login;
                 retorno.Nome = ret.Nome;
@@ -169,9 +152,13 @@ namespace ProjetoFinal.DAL
                 comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO WHERE email = @email";
                 comando.Parameters.AddWithValue("@email", item.Email);
             }
-            else
+            else if (tipoPesquisa == "todos")
             {
                 comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO";
+            }
+            else
+            {
+                comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO where fk_tipo = 2 and fk_status = 1";
             }
 
             MySqlDataReader reader = comando.ExecuteReader();

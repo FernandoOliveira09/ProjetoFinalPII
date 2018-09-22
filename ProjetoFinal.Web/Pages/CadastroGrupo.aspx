@@ -164,14 +164,14 @@
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="../Pages/CadastroUsuario.aspx" class="waves-effect waves-cyan">
-                      <i class="material-icons">cast</i>
+                  <a href="ConsultaUsuario.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
                       <span class="nav-text">Usuários</span>
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="ui-basic-buttons.html" class="waves-effect waves-cyan">
-                      <i class="material-icons">insert_link</i>
+                  <a href="ConsultaGrupo.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group_work</i>
                       <span class="nav-text">Grupos de Pesquisa</span>
                     </a>
                 </li>
@@ -223,7 +223,7 @@
                           </div>
                           <div class="row">
                             <div class="input-field col s6">
-                              <asp:TextBox id="TxtSigla" type="text" runat="server" MaxLength="9" />
+                              <asp:TextBox id="TxtSigla" type="text" runat="server" />
                               <label for="TxtSigla">Sigla<span style="color: red;">*</span></label>
                             </div>
                           </div>
