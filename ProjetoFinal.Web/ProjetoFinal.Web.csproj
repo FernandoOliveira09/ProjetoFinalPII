@@ -76,6 +76,7 @@
     <Content Include="Content\js\materialize.js" />
     <Content Include="Content\js\materialize.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\AlteracaoGrupo.aspx" />
     <Content Include="Pages\AlteracaoUsuario.aspx" />
     <Content Include="Pages\CadastroAdmin.aspx" />
     <Content Include="Pages\CadastroGrupo.aspx" />
@@ -92,6 +93,13 @@
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AlteracaoGrupo.aspx.cs">
+      <DependentUpon>AlteracaoGrupo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AlteracaoGrupo.aspx.designer.cs">
+      <DependentUpon>AlteracaoGrupo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AlteracaoUsuario.aspx.cs">
       <DependentUpon>AlteracaoUsuario.aspx</DependentUpon>

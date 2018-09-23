@@ -83,13 +83,85 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
-        public static DataTable Pesquisar(MODGrupoLider grupoLider)
+        public static MODGrupo PesquisarGrupo(MODGrupo grupo)
+        {
+            MODGrupo retorno = new MODGrupo();
+
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "SELECT id_grupo, nome, sigla, email, texto_descricao, logotipo, lattes, data_inicio, fk_situacao FROM TBLGRUPO WHERE nome = @nome";
+
+            comando.Parameters.AddWithValue("@nome", grupo.Nome);
+
+            MySqlDataReader reader = comando.ExecuteReader();
+
+            while (reader.Read())
+            {
+                MODGrupo ret = new MODGrupo();
+                ret.IdGrupo = Convert.ToInt32(reader["id_grupo"]);
+                ret.Nome = reader["Nome"].ToString();
+                ret.Sigla = reader["Sigla"].ToString();
+                ret.Email = reader["Email"].ToString();
+                ret.Descricao = reader["texto_descricao"].ToString();
+                ret.Lattes = reader["lattes"].ToString();
+                ret.FkSituacao = Convert.ToInt32(reader["fk_situacao"]);
+
+                retorno.IdGrupo = ret.IdGrupo;
+                retorno.Nome = ret.Nome;
+                retorno.Sigla = ret.Sigla;
+                retorno.Email = ret.Email;
+                retorno.Descricao = ret.Descricao;
+                retorno.Lattes = ret.Lattes;
+                retorno.DataInicio = ret.DataInicio;
+                retorno.FkSituacao = ret.FkSituacao;
+            }
+
+            reader.Close();
+
+            Conexao.Fechar();
+
+            return retorno;
+        }
+
+        //public static MODGrupo PesquisarGrupo(MODGrupo grupo)
+        //{
+        //    MySqlCommand comando = new MySqlCommand();
+        //    comando.Connection = Conexao.conexao;
+
+        //    comando.CommandText = "select ";
+
+
+
+        //    Conexao.Abrir();
+        //    comando.CommandType = CommandType.Text;
+        //    MySqlDataAdapter da = new MySqlDataAdapter(comando);
+        //    DataTable dados = new DataTable();
+
+        //    da.Fill(dados);
+
+        //    return dados;
+        //}
+
+        public static DataTable Pesquisar(MODGrupoLider grupoLider, string tipoPesquisa)
         {
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "select g.id_grupo, g.nome, g.sigla, s.situacao as Situacao, u.login, u.nome as Lider from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
-                + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao";
+            if(tipoPesquisa == "todos")
+            {
+                comando.CommandText = "select g.id_grupo, g.nome, g.sigla, s.situacao as Situacao, u.login, u.nome as Lider from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
+                    + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao";
+            }
+            else if(tipoPesquisa == "grupo")
+            {
+                comando.CommandText = "select g.id_grupo, g.nome, g.sigla, s.situacao as Situacao, u.login, u.nome as Lider from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
+                    + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao and l.fk_grupo = @grupo";
+                comando.Parameters.AddWithValue("@grupo", grupoLider.FkGrupo);
+            }
+                
 
             Conexao.Abrir();
             comando.CommandType = CommandType.Text;

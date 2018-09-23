@@ -10,18 +10,10 @@ using ProjetoFinal.Utilitarios;
 
 namespace ProjetoFinal.Web.Pages
 {
-    public partial class ConsultaGrupo : System.Web.UI.Page
+    public partial class AlteracaoGrupo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            MODGrupoLider grupoLider = new MODGrupoLider();
-
-            if (!IsPostBack)
-            {
-                RptConsulta.DataSource = BLLGrupo.Pesquisar(grupoLider, "todos");
-                RptConsulta.DataBind();
-            }
-
             if (Session["login"] == null)
             {
                 Session.RemoveAll();
@@ -40,6 +32,17 @@ namespace ProjetoFinal.Web.Pages
                 LblFuncao.Text = "Administrador";
             else
                 LblFuncao.Text = "Lider de Pesquisa";
+
+            MODGrupo grupo = new MODGrupo();
+
+            grupo.Nome = Page.Request.QueryString["grupo"];
+
+            grupo = BLLGrupo.PesquisarGrupo(grupo);
+
+            TxtNome.Text = grupo.Nome;
+            TxtSigla.Text = grupo.Sigla;
+            TxtEmail.Text = grupo.Email;
+            TxtDescricao.Text = grupo.Descricao;
         }
     }
 }

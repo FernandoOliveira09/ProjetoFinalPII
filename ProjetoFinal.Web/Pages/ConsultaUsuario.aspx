@@ -227,7 +227,7 @@
                                 <td><%# Eval("Email") %></td>
                                 <td><%# Eval("Tipo") %></td>
                                 <td><%# Eval("Status") %></td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Login.aspx?login=<%# Eval("Login") %>"><i class="material-icons">edit</i></a></td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoUsuario.aspx?login=<%# Eval("Login") %>"><i class="material-icons">edit</i></a></td>
 <%--                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
                               </tr>               
                         </ItemTemplate>
