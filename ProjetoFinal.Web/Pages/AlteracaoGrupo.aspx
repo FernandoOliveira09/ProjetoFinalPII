@@ -269,7 +269,7 @@
 
                           <div class="row">
                               <div class="input-field col s12">
-                                  <asp:Button id="BtnAlterar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Alterar" runat="server">
+                                  <asp:Button id="BtnAlterar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Alterar" runat="server" OnClick="BtnAlterar_Click">
                                   </asp:Button>
                               </div>
                           </div>

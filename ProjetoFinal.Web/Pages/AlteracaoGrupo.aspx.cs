@@ -44,5 +44,10 @@ namespace ProjetoFinal.Web.Pages
             TxtEmail.Text = grupo.Email;
             TxtDescricao.Text = grupo.Descricao;
         }
+
+        protected void BtnAlterar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
