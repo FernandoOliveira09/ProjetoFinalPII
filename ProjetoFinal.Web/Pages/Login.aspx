@@ -74,7 +74,7 @@
             <br />
             <center>
               <div class='row'>
-                <asp:Button type='submit' id="BtnLogar" name='btn_login' class='col s12 btn btn-large waves-effect blue darken-4' Text="Logar" runat="server" OnClick="BtnLogar_Click"></asp:Button>
+                <asp:LinkButton type='submit' name='btn_login' class='col s12 btn-large waves-effect blue darken-4' Text="Logar" runat="server" OnClick="BtnLogar_Click"></asp:LinkButton>
               </div>
             </center>
           </form>

@@ -70,7 +70,7 @@
             
             <center>
               <div class='row' align="center">
-                <asp:Button type='submit' ID="BtnEnviar" name='btncadastrar' class='col s12 btn btn-large waves-effect blue darken-4' runat="server" Text="Enviar" style="text-align:center" OnClick="BtnEnviar_Click"></asp:Button>
+                <asp:LinkButton type='submit' name='btncadastrar' class='col s12 btn btn-large waves-effect blue darken-4' runat="server" Text="Enviar" style="text-align:center" OnClick="BtnEnviar_Click"></asp:LinkButton>
               </div>
             </center>
           </form>
