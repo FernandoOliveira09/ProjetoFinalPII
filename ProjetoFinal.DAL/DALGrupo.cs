@@ -58,9 +58,9 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            if(tipoAlteracao == "Todos")
+            if(tipoAlteracao == "todos")
             {
-                comando.CommandText = "UPDATE TBLGRUPO SET nome = @nome, sigla = @sigla, email = @email, texto_descricao = @texto" +
+                comando.CommandText = "UPDATE TBLGRUPO SET nome = @nome, sigla = @sigla, email = @email, texto_descricao = @texto, " +
                 "logotipo = @logotipo, lattes = @lattes, data_inicio = @data_inicio WHERE id_grupo = @id";
                 comando.Parameters.AddWithValue("@nome", grupo.Nome);
                 comando.Parameters.AddWithValue("@sigla", grupo.Sigla);

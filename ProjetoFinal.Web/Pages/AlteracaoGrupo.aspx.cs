@@ -12,6 +12,8 @@ namespace ProjetoFinal.Web.Pages
 {
     public partial class AlteracaoGrupo : System.Web.UI.Page
     {
+        private int idGrupo;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["login"] == null)
@@ -38,7 +40,7 @@ namespace ProjetoFinal.Web.Pages
             grupo.Nome = Page.Request.QueryString["grupo"];
 
             grupo = BLLGrupo.PesquisarGrupo(grupo);
-
+            idGrupo = grupo.IdGrupo;
             TxtNome.Text = grupo.Nome;
             TxtSigla.Text = grupo.Sigla;
             TxtEmail.Text = grupo.Email;
@@ -67,11 +69,12 @@ namespace ProjetoFinal.Web.Pages
                 {
                     this.FUFoto.SaveAs(Server.MapPath("Imagens/" + FUFoto.FileName));
                     grupo.Logotipo = "Imagens/" + FUFoto.FileName;
-
+                    grupo.IdGrupo = idGrupo;
                     grupo.Nome = TxtNome.Text.Trim();
                     grupo.Lattes = TxtLattes.Text.Trim();
                     grupo.Sigla = TxtSigla.Text.Trim();
-
+                    grupo.Email = TxtEmail.Text.Trim();
+                    grupo.Descricao = TxtDescricao.Text.Trim();
                     grupo.DataInicio = Convert.ToDateTime(TxtData.Text.Trim());
 
                     BLLGrupo.AlterarGrupo(grupo, "todos");
