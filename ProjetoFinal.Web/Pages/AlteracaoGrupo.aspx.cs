@@ -55,12 +55,12 @@ namespace ProjetoFinal.Web.Pages
             }
             else if (TxtLattes.Text.Trim() == "")
             {
-                LblResposta.Text = Erros.DescricaoVazio;
+                LblResposta.Text = Erros.LattesVazio;
             }
-            else if (TxtDescricao.Text.Trim() == "")
-            {
-                LblResposta.Text = Erros.DescricaoVazio;
-            }
+            //else if (TxtDescricao.Text.Trim() == "")
+            //{
+            //    LblResposta.Text = Erros.DescricaoVazio;
+            //}
             else
             {
                 try

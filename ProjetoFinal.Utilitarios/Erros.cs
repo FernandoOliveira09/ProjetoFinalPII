@@ -19,6 +19,6 @@ namespace ProjetoFinal.Utilitarios
         public static string FotoVazio = "O campo FOTO é inválido!";
         public static string SiglaVazio = "O campo SIGLA é inválido!";
         public static string DataVazio = "O campo DATA é inválido!";
-        public static string DescricaoVazio = "O campo DATA é inválido!";
+        public static string DescricaoVazio = "O campo DESCRIÇÃO é inválido!";
     }
 }
