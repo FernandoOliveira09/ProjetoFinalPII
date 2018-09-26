@@ -22,6 +22,11 @@ namespace ProjetoFinal.BLL
             DALGrupo.InserirLider(grupoLider);
         }
 
+        public static void AlterarGrupo(MODGrupo grupo, string tipoAlteracao)
+        {
+            DALGrupo.AlterarGrupo(grupo, tipoAlteracao);
+        }
+
         public static DataTable Pesquisar(MODGrupoLider grupoLider, string tipoPesquisa)
         {
             return DALGrupo.Pesquisar(grupoLider, tipoPesquisa);

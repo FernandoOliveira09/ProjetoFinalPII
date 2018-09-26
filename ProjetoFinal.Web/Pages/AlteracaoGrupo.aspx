@@ -253,6 +253,12 @@
                             </div>
                           </div>
                           <br />
+                          <div class="row">
+                            <div class="input-field col s6">
+                              <asp:TextBox id="TxtData" type="text" runat="server" ClientIDMode="Static" />
+                              <label for="TxtData">Data de início<span style="color: red;">*</span></label>
+                            </div>
+                          </div>   
                           <div class='row'>
                               <div class='input-field col s12 cadastro'>
                                 <label for='TxtDescricao'>Descrição do grupo<span style="color: red;">*</span></label>
@@ -583,5 +589,12 @@
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="../Content/js/custom-script.js"></script>
     <script>$('.dropdown-trigger').dropdown();</script>
+    <script src="../Content/js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript">
+         jQuery(function ($) {
+             $("#TxtData").mask("99/99/9999");
+
+         });
+    </script>
   </body>
 </html>

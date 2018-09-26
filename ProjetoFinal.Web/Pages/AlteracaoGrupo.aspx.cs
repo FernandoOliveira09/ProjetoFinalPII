@@ -47,7 +47,43 @@ namespace ProjetoFinal.Web.Pages
 
         protected void BtnAlterar_Click(object sender, EventArgs e)
         {
+            MODGrupo grupo = new MODGrupo();
 
+            if (!FUFoto.HasFile)
+            {
+                LblResposta.Text = Erros.FotoVazio;
+            }
+            else if (TxtLattes.Text.Trim() == "")
+            {
+                LblResposta.Text = Erros.DescricaoVazio;
+            }
+            else if (TxtDescricao.Text.Trim() == "")
+            {
+                LblResposta.Text = Erros.DescricaoVazio;
+            }
+            else
+            {
+                try
+                {
+                    this.FUFoto.SaveAs(Server.MapPath("Imagens/" + FUFoto.FileName));
+                    grupo.Logotipo = "Imagens/" + FUFoto.FileName;
+
+                    grupo.Nome = TxtNome.Text.Trim();
+                    grupo.Lattes = TxtLattes.Text.Trim();
+                    grupo.Sigla = TxtSigla.Text.Trim();
+
+                    grupo.DataInicio = Convert.ToDateTime(TxtData.Text.Trim());
+
+                    BLLGrupo.AlterarGrupo(grupo, "todos");
+
+                    LblResposta.Text = "Grupo alterado com sucesso!";
+                }
+                catch (Exception)
+                {
+                    Response.Write("<script>alert('Erro ao inserir!');</script>");
+                    throw;
+                }
+            }
         }
     }
 }
