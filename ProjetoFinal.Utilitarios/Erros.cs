@@ -20,5 +20,6 @@ namespace ProjetoFinal.Utilitarios
         public static string SiglaVazio = "O campo SIGLA é inválido!";
         public static string DataVazio = "O campo DATA é inválido!";
         public static string DescricaoVazio = "O campo DESCRIÇÃO é inválido!";
+        public static string GrupoExistente = "Já existe um grupo com esse nome!";
     }
 }

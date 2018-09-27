@@ -44,9 +44,18 @@ namespace ProjetoFinal.Web.Pages
             MODGrupoLider grupoLider = new MODGrupoLider();
             EnviaEmail enviaEmail = new EnviaEmail();
 
+            grupo.Nome = TxtNome.Text.Trim();
+
+            MODGrupo retornaGrupo = new MODGrupo();
+            retornaGrupo = BLLGrupo.PesquisarGrupo(grupo);
+
             if (TxtNome.Text.Trim() == "" || TxtNome.Text.Length > 60)
             {
                 LblResposta.Text = Erros.NomeVazio;
+            }
+            else if (retornaGrupo.Nome != null)
+            {
+                LblResposta.Text = Erros.GrupoExistente;
             }
             else if (TxtSigla.Text.Trim() == "" || TxtSigla.Text.Length > 10)
             {
@@ -60,12 +69,10 @@ namespace ProjetoFinal.Web.Pages
             {
                 try
                 {
-                    grupo.Nome = TxtNome.Text.Trim();
                     grupo.Sigla = TxtSigla.Text.Trim();
                     grupo.FkSituacao = 3;
 
                     grupoLider.FkGrupo = BLLGrupo.InserirGrupo(grupo);
-
 
                     LblResposta.Text = "Grupo cadastrado com sucesso!";
                     grupoLider.FkUsuario = TxtLider.SelectedValue.ToString();

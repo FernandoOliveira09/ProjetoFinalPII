@@ -106,7 +106,10 @@ namespace ProjetoFinal.DAL
                 ret.Sigla = reader["Sigla"].ToString();
                 ret.Email = reader["Email"].ToString();
                 ret.Descricao = reader["texto_descricao"].ToString();
+                ret.Logotipo = reader["Logotipo"].ToString();
                 ret.Lattes = reader["lattes"].ToString();
+                if(reader["data_inicio"].ToString() != "")
+                    ret.DataInicio = Convert.ToDateTime(reader["data_inicio"].ToString());
                 ret.FkSituacao = Convert.ToInt32(reader["fk_situacao"]);
 
                 retorno.IdGrupo = ret.IdGrupo;
@@ -114,6 +117,7 @@ namespace ProjetoFinal.DAL
                 retorno.Sigla = ret.Sigla;
                 retorno.Email = ret.Email;
                 retorno.Descricao = ret.Descricao;
+                retorno.Logotipo = ret.Logotipo;
                 retorno.Lattes = ret.Lattes;
                 retorno.DataInicio = ret.DataInicio;
                 retorno.FkSituacao = ret.FkSituacao;

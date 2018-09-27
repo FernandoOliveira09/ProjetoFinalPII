@@ -229,13 +229,13 @@
                               <label for="TxtSigla">Sigla<span style="color: red;">*</span></label>
                             </div>
                           </div>
-
+                            
                           <div class="row">
                             <div class="input-field col s12">
-                              <asp:TextBox id="TxtEmail" type="text" runat="server" />
+                              <asp:TextBox id="TxtEmail2" type="text" runat="server" />
                               <label for="TxtEmail">Email</label>
                             </div>
-                          </div>
+                          </div>  
                           
                           <div class="row">
                             <div class="input-field col s12">

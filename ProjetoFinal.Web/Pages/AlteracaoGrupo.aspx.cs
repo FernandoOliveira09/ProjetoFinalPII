@@ -13,7 +13,7 @@ namespace ProjetoFinal.Web.Pages
     public partial class AlteracaoGrupo : System.Web.UI.Page
     {
         private int idGrupo;
-
+        private string logo;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["login"] == null)
@@ -41,21 +41,26 @@ namespace ProjetoFinal.Web.Pages
 
             grupo = BLLGrupo.PesquisarGrupo(grupo);
             idGrupo = grupo.IdGrupo;
-            TxtNome.Text = grupo.Nome;
-            TxtSigla.Text = grupo.Sigla;
-            TxtEmail.Text = grupo.Email;
-            TxtDescricao.Text = grupo.Descricao;
+
+            if (!Page.IsPostBack)
+            {    
+                TxtNome.Text = grupo.Nome;
+                TxtSigla.Text = grupo.Sigla;
+                TxtEmail2.Text = grupo.Email;
+                TxtDescricao.Text = grupo.Descricao;
+                TxtLattes.Text = grupo.Lattes;
+                TxtData.Text = grupo.DataInicio.ToString();
+                logo = grupo.Logotipo;
+            }
+            
         }
 
         protected void BtnAlterar_Click(object sender, EventArgs e)
         {
             MODGrupo grupo = new MODGrupo();
 
-            if (!FUFoto.HasFile)
-            {
-                LblResposta.Text = Erros.FotoVazio;
-            }
-            else if (TxtLattes.Text.Trim() == "")
+            
+            if (TxtLattes.Text.Trim() == "")
             {
                 LblResposta.Text = Erros.LattesVazio;
             }
@@ -73,7 +78,7 @@ namespace ProjetoFinal.Web.Pages
                     grupo.Nome = TxtNome.Text.Trim();
                     grupo.Lattes = TxtLattes.Text.Trim();
                     grupo.Sigla = TxtSigla.Text.Trim();
-                    grupo.Email = TxtEmail.Text.Trim();
+                    grupo.Email = TxtEmail2.Text.Trim();
                     grupo.Descricao = TxtDescricao.Text.Trim();
                     grupo.DataInicio = Convert.ToDateTime(TxtData.Text.Trim());
 
