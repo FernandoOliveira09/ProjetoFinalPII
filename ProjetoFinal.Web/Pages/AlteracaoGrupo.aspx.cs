@@ -14,6 +14,8 @@ namespace ProjetoFinal.Web.Pages
     {
         private int idGrupo;
         private string logo;
+        private string status;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["login"] == null)
@@ -51,6 +53,13 @@ namespace ProjetoFinal.Web.Pages
                 TxtLattes.Text = grupo.Lattes;
                 TxtData.Text = grupo.DataInicio.ToString();
                 logo = grupo.Logotipo;
+
+                if (grupo.FkSituacao == 1)
+                    status = "Ativo";
+                else if (grupo.FkSituacao == 2)
+                    status = "Inativo";
+                else
+                    status = "Aguardando Lider";
             }
             
         }
@@ -64,10 +73,10 @@ namespace ProjetoFinal.Web.Pages
             {
                 LblResposta.Text = Erros.LattesVazio;
             }
-            //else if (TxtDescricao.Text.Trim() == "")
-            //{
-            //    LblResposta.Text = Erros.DescricaoVazio;
-            //}
+            else if (TxtDescricao.Text.Trim() == "")
+            {
+                LblResposta.Text = Erros.DescricaoVazio;
+            }
             else
             {
                 try
@@ -83,6 +92,18 @@ namespace ProjetoFinal.Web.Pages
                     grupo.DataInicio = Convert.ToDateTime(TxtData.Text.Trim());
 
                     BLLGrupo.AlterarGrupo(grupo, "todos");
+
+                    if (status != TxtStatus.SelectedValue)
+                    {
+                        if (TxtStatus.SelectedValue == "Ativo")
+                            grupo.FkSituacao = 1;
+                        else if (TxtStatus.SelectedValue == "Inativo")
+                            grupo.FkSituacao = 2;
+                        else
+                            grupo.FkSituacao = 3;
+
+                        BLLGrupo.AlterarGrupo(grupo, "status");
+                    }
 
                     LblResposta.Text = "Grupo alterado com sucesso!";
                 }

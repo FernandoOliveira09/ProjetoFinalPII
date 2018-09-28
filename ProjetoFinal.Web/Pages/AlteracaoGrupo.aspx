@@ -266,6 +266,13 @@
                                 <asp:TextBox type='text' TextMode="MultiLine" id='TxtDescricao' runat="server"/>
                               </div>
                           </div>
+                          
+                          <asp:DropDownList class="input-field col s7" runat="server" ID="TxtStatus">
+                              <asp:ListItem Text="Status do Grupo" disabled selected/>
+                              <asp:ListItem Text="Aguardando Lider" />
+                              <asp:ListItem Text="Ativo" />
+                              <asp:ListItem Text="Inativo" />
+                          </asp:DropDownList>
                             
                           <div class="row">
                             <div class="input-field col s12">
