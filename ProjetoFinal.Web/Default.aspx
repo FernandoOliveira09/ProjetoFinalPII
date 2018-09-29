@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,
     initial-scale=1.0">
-    <title>@ViewBag.Title - SG Manager</title>
+    <title>Home - SG Manager</title>
     <link href="../Content/css/materialize.min.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="../Content/js/materialize.min.js"></script>
@@ -19,8 +19,9 @@
     <nav>
         <div class="nav-wrapper teal">
             <div class="container">
-                <a href="" class="brand-logo">SG Manager</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <a href="Default.aspx" class="brand-logo">SG Manager</a>
+                 <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="../Pages/Login.aspx">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -31,7 +32,7 @@
             <div class="col-md-4">
                 <asp:Repeater ID="RptConsulta" runat="server">
                      <ItemTemplate>
-                         <h3><%# Eval("Nome") %> - (<%# Eval("Sigla") %>)</h3>
+                         <asp:Image ID="ImgGrupo" style="float:left; margin-top: 0px" ImageUrl=<%# string.Format("../Pages/{0}", Eval("Logotipo"))%> alt="" Width="50" Height="50" class="circle responsive-img valign profile-image cyan" runat="server"/><h3>&nbsp <%# Eval("Nome") %> - (<%# Eval("Sigla") %>)</h3>
                          <p><%# Eval("Texto_Descricao") %></p>
                          <p>Lattes - <a href="<%# Eval("Lattes") %>"><%# Eval("Lattes") %></a></p>
                          <p><a class="btn btn-default" href="../Pages/Login.aspx?grupo=<%# Eval("Nome") %>">Acesso a nossa Pagina &raquo;</a></p>
@@ -70,7 +71,7 @@
                 </p>
             </div>
             <div class="col-md-4">
-                <h2>Produção Científica e Tecnológica</h2>
+                <h3>Produção Científica e Tecnológica</h3>
                 <p>
                     Dados referentes às produções científica e tecnológica dos servidores do câmpus podem ser consultados na
                     pasta abaixo. Essas informações foram extraídas da Plataforma Lattes do CNPq, a partir da Plataforma Stela
