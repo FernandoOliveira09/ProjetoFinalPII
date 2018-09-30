@@ -245,7 +245,7 @@
                           </div>
 
                           <div class="row">
-                            <div class="input-field col s12">
+                            <div class="input-field col s12">  
                               <label for="FUFoto">Logotipo<span style="color: red;">*</span></label>
                                 <br />
                                 <br />
@@ -285,6 +285,11 @@
                                   <asp:Button id="BtnAlterar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Alterar" runat="server" OnClick="BtnAlterar_Click">
                                   </asp:Button>
                               </div>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <asp:TextBox id="TxtLogo" type="text" runat="server" />
+                            </div>
                           </div>
                         </form>
                       </div>

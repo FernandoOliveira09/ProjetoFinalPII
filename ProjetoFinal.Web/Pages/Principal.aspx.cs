@@ -21,6 +21,7 @@ namespace ProjetoFinal.Web.Pages
             }
 
             MODUsuario usuario = new MODUsuario();
+
             usuario.Login = PegaLogin.RetornaLogin();
             usuario = BLLUsuario.PesquisarLogin(usuario);
 
@@ -32,13 +33,25 @@ namespace ProjetoFinal.Web.Pages
                 LblFuncao.Text = "Administrador";
             else
                 LblFuncao.Text = "Lider de Pesquisa";
-            
+
+            VerificaGruposInativos();
         }
 
         protected void Logout_Click(object sender, EventArgs e)
         {
             Session.RemoveAll();
             Response.Redirect("../Pages/Login.aspx");
+        }
+
+        private void VerificaGruposInativos()
+        {
+            MODGrupoLider grupoLider = new MODGrupoLider();
+
+            if(BLLGrupo.Pesquisar(grupoLider, "aguardando").Rows.Count != 0)
+            {
+                RptGrupo.DataSource = BLLGrupo.Pesquisar(grupoLider, "aguardando");
+                RptGrupo.DataBind();
+            }               
         }
     }
 }

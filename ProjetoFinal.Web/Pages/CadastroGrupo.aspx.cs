@@ -14,7 +14,8 @@ namespace ProjetoFinal.Web.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            CarregaDropDownList();
+            if(!Page.IsPostBack)
+                CarregaDropDownList();
 
             if (Session["login"] == null)
             {
@@ -45,9 +46,13 @@ namespace ProjetoFinal.Web.Pages
             EnviaEmail enviaEmail = new EnviaEmail();
 
             grupo.Nome = TxtNome.Text.Trim();
+            grupo.Sigla = TxtSigla.Text.Trim();
 
             MODGrupo retornaGrupo = new MODGrupo();
+            MODGrupo retornaSigla = new MODGrupo();
+
             retornaGrupo = BLLGrupo.PesquisarGrupo(grupo, "nome");
+            retornaSigla = BLLGrupo.PesquisarGrupo(grupo, "sigla");
 
             if (TxtNome.Text.Trim() == "" || TxtNome.Text.Length > 60)
             {
@@ -56,6 +61,10 @@ namespace ProjetoFinal.Web.Pages
             else if (retornaGrupo.Nome != null)
             {
                 LblResposta.Text = Erros.GrupoExistente;
+            }
+            else if (retornaSigla.Sigla != null)
+            {
+                LblResposta.Text = Erros.SiglaExistente;
             }
             else if (TxtSigla.Text.Trim() == "" || TxtSigla.Text.Length > 10)
             {

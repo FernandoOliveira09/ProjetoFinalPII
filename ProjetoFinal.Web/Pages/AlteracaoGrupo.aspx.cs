@@ -52,23 +52,33 @@ namespace ProjetoFinal.Web.Pages
                 TxtDescricao.Text = grupo.Descricao;
                 TxtLattes.Text = grupo.Lattes;
                 TxtData.Text = grupo.DataInicio.ToString();
-                logo = grupo.Logotipo;
+                TxtLogo.Text = grupo.Logotipo;
 
                 if (grupo.FkSituacao == 1)
+                {
+                    TxtStatus.Text = "Ativo";
                     status = "Ativo";
+                } 
                 else if (grupo.FkSituacao == 2)
+                {
+                    TxtStatus.Text = "Inativo";
                     status = "Inativo";
+                }
                 else
+                {
+                    TxtStatus.Text = "Aguardando Lider";
                     status = "Aguardando Lider";
+                }
+                    
             }
-            
+
+            TxtLogo.Visible = false;
         }
 
         protected void BtnAlterar_Click(object sender, EventArgs e)
         {
             MODGrupo grupo = new MODGrupo();
 
-            
             if (TxtLattes.Text.Trim() == "")
             {
                 LblResposta.Text = Erros.LattesVazio;
@@ -81,8 +91,22 @@ namespace ProjetoFinal.Web.Pages
             {
                 try
                 {
-                    this.FUFoto.SaveAs(Server.MapPath("Imagens/" + FUFoto.FileName));
-                    grupo.Logotipo = "Imagens/" + FUFoto.FileName;
+                    if(FUFoto.FileName == "")
+                    {
+                        if (TxtLogo.Text == "")
+                        {
+                            LblResposta.Text = Erros.FotoVazio;
+                        }
+                        else
+                        {
+                            grupo.Logotipo = TxtLogo.Text.Trim();
+                        }
+                    }
+                    else
+                    {
+                        this.FUFoto.SaveAs(Server.MapPath("Imagens/" + FUFoto.FileName));
+                        grupo.Logotipo = "Imagens/" + FUFoto.FileName;
+                    }   
                     grupo.IdGrupo = idGrupo;
                     grupo.Nome = TxtNome.Text.Trim();
                     grupo.Lattes = TxtLattes.Text.Trim();

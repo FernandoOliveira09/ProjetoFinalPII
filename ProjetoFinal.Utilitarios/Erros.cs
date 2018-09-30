@@ -21,5 +21,6 @@ namespace ProjetoFinal.Utilitarios
         public static string DataVazio = "O campo DATA é inválido!";
         public static string DescricaoVazio = "O campo DESCRIÇÃO é inválido!";
         public static string GrupoExistente = "Já existe um grupo com esse nome!";
+        public static string SiglaExistente = "Já existe um grupo com essa sigla!";
     }
 }

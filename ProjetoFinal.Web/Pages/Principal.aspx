@@ -180,7 +180,26 @@
         <!-- END LEFT SIDEBAR NAV-->
         <!-- //////////////////////////////////////////////////////////////////////////// -->
         <!-- START CONTENT -->
-        
+        <asp:Repeater ID="RptGrupo" runat="server">
+            <HeaderTemplate>
+                <div id="basic-form" class="section">
+                    <div class="row">
+                        <div class="col s12 m12 l10">
+                            <div class="card-panel">
+                                <h5>Há grupos esperando para serem atualizados!</h5>
+            </HeaderTemplate>
+            <ItemTemplate>
+                                    <p>Grupo: <%# Eval("Nome") %></p>
+                                    <p><a href="../Pages/AlteracaoGrupo.aspx?grupo=<%# Eval("Nome") %>">Clique aqui para atualizar</a></p>
+                                    <hr />
+            </ItemTemplate>
+            <FooterTemplate>
+                             </div>
+                        </div>
+                    </div>
+                </div>            
+            </FooterTemplate>
+        </asp:Repeater>
         <!-- END CONTENT -->
         <!-- START RIGHT SIDEBAR NAV-->
         <aside id="right-sidebar-nav">
