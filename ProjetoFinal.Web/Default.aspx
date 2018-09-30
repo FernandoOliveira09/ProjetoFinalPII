@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body >
     <nav>
         <div class="nav-wrapper teal">
             <div class="container">
@@ -34,8 +34,8 @@
                      <ItemTemplate>
                          <asp:Image ID="ImgGrupo" style="float:left; margin-top: 0px" ImageUrl=<%# string.Format("../Pages/{0}", Eval("Logotipo"))%> alt="" Width="50" Height="50" class="circle responsive-img valign profile-image cyan" runat="server"/><h3>&nbsp <%# Eval("Nome") %> - (<%# Eval("Sigla") %>)</h3>
                          <p><%# Eval("Texto_Descricao") %></p>
-                         <p>Lattes - <a href="<%# Eval("Lattes") %>"><%# Eval("Lattes") %></a></p>
-                         <p><a class="btn btn-default" href="../Pages/Login.aspx?grupo=<%# Eval("Nome") %>">Acesso a nossa Pagina &raquo;</a></p>
+                         <p>Lattes - <a href="<%# Eval("Lattes") %>" target="_blank"><%# Eval("Lattes") %></a></p>
+                         <p><a class="btn btn-default" href="Grupos.aspx?sigla=<%# Eval("Sigla") %>">Acesso a nossa Pagina &raquo;</a></p>
                          <hr />
                      </ItemTemplate>
                  </asp:Repeater>

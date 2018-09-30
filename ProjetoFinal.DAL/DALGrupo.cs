@@ -83,7 +83,7 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
-        public static MODGrupo PesquisarGrupo(MODGrupo grupo)
+        public static MODGrupo PesquisarGrupo(MODGrupo grupo, string tipoPesquisa)
         {
             MODGrupo retorno = new MODGrupo();
 
@@ -92,9 +92,16 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "SELECT id_grupo, nome, sigla, email, texto_descricao, logotipo, lattes, data_inicio, fk_situacao FROM TBLGRUPO WHERE nome = @nome";
-
-            comando.Parameters.AddWithValue("@nome", grupo.Nome);
+            if(tipoPesquisa == "nome")
+            {
+                comando.CommandText = "SELECT id_grupo, nome, sigla, email, texto_descricao, logotipo, lattes, data_inicio, fk_situacao FROM TBLGRUPO WHERE nome = @nome";
+                comando.Parameters.AddWithValue("@nome", grupo.Nome);
+            }
+            else
+            {
+                comando.CommandText = "SELECT id_grupo, nome, sigla, email, texto_descricao, logotipo, lattes, data_inicio, fk_situacao FROM TBLGRUPO WHERE sigla = @sigla";
+                comando.Parameters.AddWithValue("@sigla", grupo.Sigla);
+            }
 
             MySqlDataReader reader = comando.ExecuteReader();
 
@@ -152,6 +159,7 @@ namespace ProjetoFinal.DAL
         public static DataTable Pesquisar(MODGrupoLider grupoLider, string tipoPesquisa)
         {
             MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
             comando.Connection = Conexao.conexao;
 
             if(tipoPesquisa == "todos")
@@ -166,13 +174,11 @@ namespace ProjetoFinal.DAL
             }
             else if(tipoPesquisa == "grupo")
             {
-                comando.CommandText = "select g.id_grupo, g.nome, g.sigla, s.situacao as Situacao, u.login, u.nome as Lider from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
+                comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.texto_descricao, g.lattes, g.logotipo, g.data_inicio as Data, s.situacao as Situacao, u.login, u.nome as Lider from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
                     + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao and l.fk_grupo = @grupo";
                 comando.Parameters.AddWithValue("@grupo", grupoLider.FkGrupo);
             }
                 
-
-            Conexao.Abrir();
             comando.CommandType = CommandType.Text;
             MySqlDataAdapter da = new MySqlDataAdapter(comando);
             DataTable dados = new DataTable();

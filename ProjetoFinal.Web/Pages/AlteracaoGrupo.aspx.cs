@@ -41,7 +41,7 @@ namespace ProjetoFinal.Web.Pages
 
             grupo.Nome = Page.Request.QueryString["grupo"];
 
-            grupo = BLLGrupo.PesquisarGrupo(grupo);
+            grupo = BLLGrupo.PesquisarGrupo(grupo, "nome");
             idGrupo = grupo.IdGrupo;
 
             if (!Page.IsPostBack)

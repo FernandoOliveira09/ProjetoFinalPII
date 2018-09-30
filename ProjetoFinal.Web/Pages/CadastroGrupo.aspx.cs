@@ -47,7 +47,7 @@ namespace ProjetoFinal.Web.Pages
             grupo.Nome = TxtNome.Text.Trim();
 
             MODGrupo retornaGrupo = new MODGrupo();
-            retornaGrupo = BLLGrupo.PesquisarGrupo(grupo);
+            retornaGrupo = BLLGrupo.PesquisarGrupo(grupo, "nome");
 
             if (TxtNome.Text.Trim() == "" || TxtNome.Text.Length > 60)
             {
