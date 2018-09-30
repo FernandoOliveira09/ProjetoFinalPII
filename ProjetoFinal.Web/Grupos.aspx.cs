@@ -23,6 +23,8 @@ namespace ProjetoFinal.Web
                 grupo = BLLGrupo.PesquisarGrupo(grupo, "sigla");
                 grupoLider.FkGrupo = grupo.IdGrupo;
 
+                this.Title = grupo.Sigla + " - " + grupo.Nome + " - " + "SG Manager";
+
                 RptConsulta.DataSource = BLLGrupo.Pesquisar(grupoLider, "grupo");
                 RptConsulta.DataBind();
             }

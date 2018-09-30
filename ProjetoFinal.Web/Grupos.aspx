@@ -2,11 +2,11 @@
 
 <!DOCTYPE html>
 <html>
-<head>
+<head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,
     initial-scale=1.0">
-    <title>Home - SG Manager</title>
+    <title>SG Manager</title>
     <link href="../Content/css/materialize.min.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="../Content/js/materialize.min.js"></script>
