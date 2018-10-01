@@ -1,12 +1,10 @@
+CREATE DATABASE  IF NOT EXISTS `sg_manager` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `sg_manager`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: sg_manager
 -- ------------------------------------------------------
 -- Server version	5.5.5-10.1.32-MariaDB
-
-create database sg_manager;
-
-use sg_manager;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,6 +16,50 @@ use sg_manager;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `tblgrupo`
+--
+
+DROP TABLE IF EXISTS `tblgrupo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tblgrupo` (
+  `id_grupo` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(60) NOT NULL,
+  `sigla` varchar(10) NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `texto_descricao` text,
+  `logotipo` varchar(100) DEFAULT NULL,
+  `lattes` varchar(100) DEFAULT NULL,
+  `data_inicio` date DEFAULT NULL,
+  `fk_situacao` int(11) NOT NULL,
+  PRIMARY KEY (`id_grupo`),
+  KEY `fk_situacao` (`fk_situacao`),
+  CONSTRAINT `tblgrupo_ibfk_1` FOREIGN KEY (`fk_situacao`) REFERENCES `tblsituacao` (`id_situacao`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `tblgrupo_lider`
+--
+
+DROP TABLE IF EXISTS `tblgrupo_lider`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tblgrupo_lider` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_grupo` int(11) DEFAULT NULL,
+  `fk_lider` varchar(15) DEFAULT NULL,
+  `data_entrada` date NOT NULL,
+  `data_saida` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_grupo` (`fk_grupo`),
+  KEY `fk_lider` (`fk_lider`),
+  CONSTRAINT `tblgrupo_lider_ibfk_1` FOREIGN KEY (`fk_grupo`) REFERENCES `tblgrupo` (`id_grupo`),
+  CONSTRAINT `tblgrupo_lider_ibfk_2` FOREIGN KEY (`fk_lider`) REFERENCES `tblusuario` (`login`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `tblpermissao`
@@ -32,15 +74,6 @@ CREATE TABLE `tblpermissao` (
   PRIMARY KEY (`id_permissao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tblpermissao`
---
-
-LOCK TABLES `tblpermissao` WRITE;
-/*!40000 ALTER TABLE `tblpermissao` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblpermissao` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tblpermissao_tipo_usuario`
@@ -60,15 +93,6 @@ CREATE TABLE `tblpermissao_tipo_usuario` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tblpermissao_tipo_usuario`
---
-
-LOCK TABLES `tblpermissao_tipo_usuario` WRITE;
-/*!40000 ALTER TABLE `tblpermissao_tipo_usuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblpermissao_tipo_usuario` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `tblrecuperacao_senha`
 --
 
@@ -80,17 +104,8 @@ CREATE TABLE `tblrecuperacao_senha` (
   `codigo_recuperacao` varchar(68) NOT NULL,
   `ativo` char(1) NOT NULL,
   PRIMARY KEY (`id_recuperacao`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tblrecuperacao_senha`
---
-
-LOCK TABLES `tblrecuperacao_senha` WRITE;
-/*!40000 ALTER TABLE `tblrecuperacao_senha` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblrecuperacao_senha` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tblrecuperacao_senha_usuario`
@@ -111,12 +126,27 @@ CREATE TABLE `tblrecuperacao_senha_usuario` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tblrecuperacao_senha_usuario`
+-- Table structure for table `tblsituacao`
 --
 
-LOCK TABLES `tblrecuperacao_senha_usuario` WRITE;
-/*!40000 ALTER TABLE `tblrecuperacao_senha_usuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblrecuperacao_senha_usuario` ENABLE KEYS */;
+DROP TABLE IF EXISTS `tblsituacao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tblsituacao` (
+  `id_situacao` int(11) NOT NULL AUTO_INCREMENT,
+  `situacao` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id_situacao`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tblsituacao`
+--
+
+LOCK TABLES `tblsituacao` WRITE;
+/*!40000 ALTER TABLE `tblsituacao` DISABLE KEYS */;
+INSERT INTO `tblsituacao` VALUES (1,'Ativo'),(2,'Inativo'),(3,'Aguardando Lider');
+/*!40000 ALTER TABLE `tblsituacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -193,14 +223,6 @@ CREATE TABLE `tblusuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `tblusuario`
---
-
-LOCK TABLES `tblusuario` WRITE;
-/*!40000 ALTER TABLE `tblusuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblusuario` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -211,4 +233,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-07 19:39:58
+-- Dump completed on 2018-09-30 21:06:25

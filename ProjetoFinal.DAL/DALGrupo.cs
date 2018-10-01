@@ -83,6 +83,25 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
+        public static void AlterarLider(MODGrupoLider grupoLider, string tipoAlteracao)
+        {
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            if (tipoAlteracao == "data_saida")
+            {
+                comando.CommandText = "UPDATE TBLGRUPO_LIDER SET data_saida = @data_saida where id = @id";
+                comando.Parameters.AddWithValue("@data_saida", grupoLider.DataSaida);
+                comando.Parameters.AddWithValue("@id", grupoLider.Id);
+            }
+            
+            comando.ExecuteNonQuery();
+
+            Conexao.Fechar();
+        }
+
         public static MODGrupo PesquisarGrupo(MODGrupo grupo, string tipoPesquisa)
         {
             MODGrupo retorno = new MODGrupo();
@@ -137,24 +156,44 @@ namespace ProjetoFinal.DAL
             return retorno;
         }
 
-        //public static MODGrupo PesquisarGrupo(MODGrupo grupo)
-        //{
-        //    MySqlCommand comando = new MySqlCommand();
-        //    comando.Connection = Conexao.conexao;
+        public static MODGrupoLider PesquisarLider(MODGrupoLider grupoLider)
+        {
+            MODGrupoLider retorno = new MODGrupoLider();
 
-        //    comando.CommandText = "select ";
+            Conexao.Abrir();
 
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
 
+            comando.CommandText = "SELECT id, fk_grupo, fk_lider, data_entrada, data_saida FROM tblgrupo_lider where fk_grupo = @grupo";
+            comando.Parameters.AddWithValue("@grupo", grupoLider.FkGrupo);
+            
 
-        //    Conexao.Abrir();
-        //    comando.CommandType = CommandType.Text;
-        //    MySqlDataAdapter da = new MySqlDataAdapter(comando);
-        //    DataTable dados = new DataTable();
+            MySqlDataReader reader = comando.ExecuteReader();
 
-        //    da.Fill(dados);
+            while (reader.Read())
+            {
+                MODGrupoLider ret = new MODGrupoLider();
+                ret.Id = Convert.ToInt32(reader["id"]);
+                ret.FkGrupo = Convert.ToInt32(reader["fk_grupo"]);
+                ret.FkUsuario = reader["fk_lider"].ToString();
+                ret.DataEntrada = Convert.ToDateTime(reader["data_entrada"].ToString());
+                if (reader["data_saida"].ToString() != "")
+                    ret.DataSaida = Convert.ToDateTime(reader["data_saida"].ToString());
 
-        //    return dados;
-        //}
+                retorno.Id = ret.Id;
+                retorno.FkGrupo = ret.FkGrupo;
+                retorno.FkUsuario = ret.FkUsuario;
+                retorno.DataEntrada = ret.DataEntrada;
+                retorno.DataSaida = ret.DataSaida;
+            }
+
+            reader.Close();
+
+            Conexao.Fechar();
+
+            return retorno;
+        }
 
         public static DataTable Pesquisar(MODGrupoLider grupoLider, string tipoPesquisa)
         {
@@ -165,12 +204,12 @@ namespace ProjetoFinal.DAL
             if(tipoPesquisa == "todos")
             {
                 comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.texto_descricao, s.situacao as Situacao, u.login, u.nome as Lider from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
-                    + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao";
+                    + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao and l.data_saida is null";
             }
             else if (tipoPesquisa == "ativos")
             {
                 comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.texto_descricao, g.lattes, g.logotipo, s.situacao as Situacao, u.login, u.nome as Lider from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
-                    + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao and g.fk_situacao = 1";
+                    + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao and g.fk_situacao = 1 and l.data_saida is null";
             }
             else if (tipoPesquisa == "aguardando")
             {
@@ -179,8 +218,8 @@ namespace ProjetoFinal.DAL
             }
             else if(tipoPesquisa == "grupo")
             {
-                comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.texto_descricao, g.lattes, g.logotipo, g.data_inicio as Data, s.situacao as Situacao, u.login, u.nome as Lider from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
-                    + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao and l.fk_grupo = @grupo";
+                comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.texto_descricao, g.lattes, g.logotipo, g.data_inicio as Data, s.situacao as Situacao, u.login, u.nome as Lider, l.data_entrada, l.data_saida from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
+                    + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao and l.fk_grupo = @grupo and l.data_saida is null";
                 comando.Parameters.AddWithValue("@grupo", grupoLider.FkGrupo);
             }
                 

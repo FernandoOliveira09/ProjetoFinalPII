@@ -27,6 +27,11 @@ namespace ProjetoFinal.BLL
             DALGrupo.AlterarGrupo(grupo, tipoAlteracao);
         }
 
+        public static void AlterarLider(MODGrupoLider grupoLider, string tipoAlteracao)
+        {
+            DALGrupo.AlterarLider(grupoLider, tipoAlteracao);
+        }
+
         public static DataTable Pesquisar(MODGrupoLider grupoLider, string tipoPesquisa)
         {
             return DALGrupo.Pesquisar(grupoLider, tipoPesquisa);
@@ -35,6 +40,11 @@ namespace ProjetoFinal.BLL
         public static MODGrupo PesquisarGrupo(MODGrupo grupo, string tipoPesquisa)
         {
             return DALGrupo.PesquisarGrupo(grupo, tipoPesquisa);
+        }
+
+        public static MODGrupoLider PesquisarLider(MODGrupoLider grupoLider)
+        {
+            return DALGrupo.PesquisarLider(grupoLider);
         }
     }
 }

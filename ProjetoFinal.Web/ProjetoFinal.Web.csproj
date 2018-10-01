@@ -79,6 +79,7 @@
     <Content Include="Global.asax" />
     <Content Include="Grupos.aspx" />
     <Content Include="Pages\AlteracaoGrupo.aspx" />
+    <Content Include="Pages\AlteracaoLider.aspx" />
     <Content Include="Pages\AlteracaoUsuario.aspx" />
     <Content Include="Pages\CadastroAdmin.aspx" />
     <Content Include="Pages\CadastroGrupo.aspx" />
@@ -116,6 +117,13 @@
     </Compile>
     <Compile Include="Pages\AlteracaoGrupo.aspx.designer.cs">
       <DependentUpon>AlteracaoGrupo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AlteracaoLider.aspx.cs">
+      <DependentUpon>AlteracaoLider.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AlteracaoLider.aspx.designer.cs">
+      <DependentUpon>AlteracaoLider.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AlteracaoUsuario.aspx.cs">
       <DependentUpon>AlteracaoUsuario.aspx</DependentUpon>
