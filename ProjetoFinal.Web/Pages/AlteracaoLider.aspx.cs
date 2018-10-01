@@ -57,7 +57,7 @@ namespace ProjetoFinal.Web.Pages
             if (!Page.IsPostBack)
             {
                 TxtNome.Text = usuario.Nome;
-                TxtDataEntrada.Text = grupoLider.DataEntrada.ToString();
+                TxtDataEntrada.Text = grupoLider.DataEntrada.ToShortDateString().ToString();
             }
         }
 

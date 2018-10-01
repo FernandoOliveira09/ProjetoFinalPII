@@ -42,7 +42,7 @@
                              <div class="col-md-4" style="margin-left: 25%">
                                 <p>Lider do grupo: <%# Eval("Lider") %></p>
                                 <p>Situação: <%# Eval("Situacao") %></p>
-                                <p>Data de início: <%# Eval("Data") %></p>    
+                                <p>Data de início: <%# Eval("Data", "{0:d}") %></p>    
                                 <p>Link no lattes: <a href="<%# Eval("Lattes") %>" target="_blank"><%# Eval("Lattes") %></a></p>
                                 <p>Descrição: <%# Eval("Texto_Descricao") %></p>    
                              </div>
