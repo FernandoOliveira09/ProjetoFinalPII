@@ -94,7 +94,7 @@
 
             <center>
               <div class='row' align="center">
-                <asp:Button type='submit' ID="BtnCadastrar" name='btncadastrar' class='col s12 btn btn-large waves-effect blue darken-4' runat="server" Text="Cadastrar" style="text-align:center" OnClick="BtnCadastrar_Click"></asp:Button>
+                <asp:LinkButton type='submit' class='col s12 btn btn-large waves-effect blue darken-4' runat="server" Text="Cadastrar" OnClick="BtnCadastrar_Click"></asp:LinkButton>
               </div>
             </center>
           </form>
