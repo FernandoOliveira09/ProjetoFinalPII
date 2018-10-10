@@ -83,6 +83,7 @@
     <Content Include="Pages\AlteracaoUsuario.aspx" />
     <Content Include="Pages\CadastroAdmin.aspx" />
     <Content Include="Pages\CadastroGrupo.aspx" />
+    <Content Include="Pages\CadastroLinhaPesquisa.aspx" />
     <Content Include="Pages\CadastroUsuario.aspx" />
     <Content Include="Pages\ConsultaGrupo.aspx" />
     <Content Include="Pages\ConsultaUsuario.aspx" />
@@ -145,6 +146,13 @@
     </Compile>
     <Compile Include="Pages\CadastroGrupo.aspx.designer.cs">
       <DependentUpon>CadastroGrupo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CadastroLinhaPesquisa.aspx.cs">
+      <DependentUpon>CadastroLinhaPesquisa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CadastroLinhaPesquisa.aspx.designer.cs">
+      <DependentUpon>CadastroLinhaPesquisa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CadastroUsuario.aspx.cs">
       <DependentUpon>CadastroUsuario.aspx</DependentUpon>

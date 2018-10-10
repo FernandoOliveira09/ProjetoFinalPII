@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Conexao.cs" />
     <Compile Include="DALGrupo.cs" />
+    <Compile Include="DALLinha_Pesquisa.cs" />
     <Compile Include="DALRecuperacaoSenha.cs" />
     <Compile Include="DALRecuperacaoSenha_Usuario.cs" />
     <Compile Include="DALUsuario.cs" />

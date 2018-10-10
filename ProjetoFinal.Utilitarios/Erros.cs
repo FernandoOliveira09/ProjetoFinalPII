@@ -22,5 +22,7 @@ namespace ProjetoFinal.Utilitarios
         public static string DescricaoVazio = "O campo DESCRIÇÃO é inválido!";
         public static string GrupoExistente = "Já existe um grupo com esse nome!";
         public static string SiglaExistente = "Já existe um grupo com essa sigla!";
+        public static string LinhaExistente = "Já existe uma linha de pesquisa com esse nome ou código!";
+        public static string CodigoVazio = "O campo CÓDIGO é inválido!";
     }
 }

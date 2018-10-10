@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MODArea_Avaliacao.cs" />
+    <Compile Include="MODArea_Conhecimento.cs" />
     <Compile Include="MODGrupo.cs" />
     <Compile Include="MODGrupoLider.cs" />
+    <Compile Include="MODLinha_Pesquisa.cs" />
     <Compile Include="MODRecuperacaoSenha_Usuario.cs" />
     <Compile Include="MODRecuperaSenha.cs" />
     <Compile Include="MODUsuario.cs" />
