@@ -104,7 +104,11 @@ namespace ProjetoFinal.DAL
                 comando.Parameters.AddWithValue("@nome", linhaPesquisa.Linha);
                 comando.Parameters.AddWithValue("@id", linhaPesquisa.Id);
             }
-                
+            else if (tipoPesquisa == "avaliacao")
+            {
+                comando.CommandText = "SELECT id_linha, nome_linha FROM tbllinha_pesquisa where fk_ava = @fk";
+                comando.Parameters.AddWithValue("@fk", linhaPesquisa.FkAva);
+            }
 
             MySqlDataReader reader = comando.ExecuteReader();
 

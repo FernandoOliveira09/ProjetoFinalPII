@@ -86,6 +86,7 @@
     <Content Include="Pages\CadastroLinhaPesquisa.aspx" />
     <Content Include="Pages\CadastroUsuario.aspx" />
     <Content Include="Pages\ConsultaGrupo.aspx" />
+    <Content Include="Pages\ConsultaLinhaPesquisa.aspx" />
     <Content Include="Pages\ConsultaUsuario.aspx" />
     <Content Include="Pages\InserirCodigoRecuperacao.aspx" />
     <Content Include="Pages\Principal.aspx" />
@@ -167,6 +168,13 @@
     </Compile>
     <Compile Include="Pages\ConsultaGrupo.aspx.designer.cs">
       <DependentUpon>ConsultaGrupo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConsultaLinhaPesquisa.aspx.cs">
+      <DependentUpon>ConsultaLinhaPesquisa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ConsultaLinhaPesquisa.aspx.designer.cs">
+      <DependentUpon>ConsultaLinhaPesquisa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ConsultaUsuario.aspx.cs">
       <DependentUpon>ConsultaUsuario.aspx</DependentUpon>
