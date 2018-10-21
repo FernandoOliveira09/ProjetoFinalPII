@@ -42,6 +42,11 @@ namespace ProjetoFinal.BLL
             return DALGrupo.PesquisarGrupo(grupo, tipoPesquisa);
         }
 
+        public static List<MODGrupo> PesquisarGrupos(MODGrupo item, string tipoPesquisa)
+        {
+            return DALGrupo.PesquisarGrupos(item, tipoPesquisa);
+        }
+
         public static MODGrupoLider PesquisarLider(MODGrupoLider grupoLider)
         {
             return DALGrupo.PesquisarLider(grupoLider);

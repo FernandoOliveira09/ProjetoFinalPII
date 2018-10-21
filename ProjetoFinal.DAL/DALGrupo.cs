@@ -232,65 +232,45 @@ namespace ProjetoFinal.DAL
             return dados;
         }
 
-        //public static List<MODGrupo> Pesquisar(MODGrupo item, string tipoPesquisa)
-        //{
-        //    List<MODUsuario> retorno = new List<MODUsuario>();
+        public static List<MODGrupo> PesquisarGrupos(MODGrupo item, string tipoPesquisa)
+        {
+            List<MODGrupo> retorno = new List<MODGrupo>();
 
-        //    Conexao.Abrir();
+            Conexao.Abrir();
 
-        //    MySqlCommand comando = new MySqlCommand();
-        //    comando.Connection = Conexao.conexao;
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
 
-        //    if (tipoPesquisa == "todos")
-        //    {
-        //        comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.fk_situacao, u.login from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo " +
-        //            "inner join tblusuario u on u.login = l.fk_lider and l.fk_lider = @lider and l.fk_grupo = @grupo";
-        //        comando.Parameters.AddWithValue("@lider", item.);
-        //        comando.Parameters.AddWithValue("@grupo", item.Login);
-        //    }
-        //    else if (tipoPesquisa == "email")
-        //    {
-        //        comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO WHERE email = @email";
-        //        comando.Parameters.AddWithValue("@email", item.Email);
-        //    }
-        //    else
-        //    {
-        //        comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO";
-        //    }
+            if (tipoPesquisa == "todos")
+            {
+                comando.CommandText = "select id_grupo, nome from tblgrupo";
+            }
+            else if (tipoPesquisa == "email")
+            {
+                comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO WHERE email = @email";
+                comando.Parameters.AddWithValue("@email", item.Email);
+            }
+            else
+            {
+                comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO";
+            }
 
-        //    MySqlDataReader reader = comando.ExecuteReader();
+            MySqlDataReader reader = comando.ExecuteReader();
 
-        //    while (reader.Read())
-        //    {
-        //        MODUsuario ret = new MODUsuario();
-        //        ret.Login = reader["Login"].ToString();
-        //        ret.Nome = reader["Nome"].ToString();
-        //        ret.Email = reader["Email"].ToString();
-        //        ret.Lattes = reader["Lattes"].ToString();
-        //        ret.Imagem = reader["Imagem"].ToString();
-        //        ret.FkTipo = (int)reader["fk_tipo"];
-        //        ret.FkStatus = (int)reader["fk_status"];
+            while (reader.Read())
+            {
+                MODGrupo ret = new MODGrupo();
+                ret.IdGrupo = Convert.ToInt32(reader["id_grupo"].ToString());
+                ret.Nome = reader["Nome"].ToString();
 
-        //        if (ret.FkTipo == 1)
-        //            ret.Tipo = "Administrador";
-        //        else
-        //            ret.Tipo = "Lider de Pesquisa";
+                retorno.Add(ret);
+            }
 
-        //        if (ret.FkStatus == 1)
-        //            ret.Status = "Ativo";
-        //        else if (ret.FkStatus == 2)
-        //            ret.Status = "Bloqueado";
-        //        else
-        //            ret.Status = "Desativado";
+            reader.Close();
 
-        //        retorno.Add(ret);
-        //    }
+            Conexao.Fechar();
 
-        //    reader.Close();
-
-        //    Conexao.Fechar();
-
-        //    return retorno;
-        //}
+            return retorno;
+        }
     }
 }

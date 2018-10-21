@@ -48,6 +48,9 @@
     <Compile Include="Conexao.cs" />
     <Compile Include="DALDocente.cs" />
     <Compile Include="DALGrupo.cs" />
+    <Compile Include="DALGrupoLinha_Pesquisa.cs" />
+    <Compile Include="DALGrupo_Tecnico.cs" />
+    <Compile Include="DALGrupo_Docente.cs" />
     <Compile Include="DALLinha_Pesquisa.cs" />
     <Compile Include="DALRecuperacaoSenha.cs" />
     <Compile Include="DALRecuperacaoSenha_Usuario.cs" />

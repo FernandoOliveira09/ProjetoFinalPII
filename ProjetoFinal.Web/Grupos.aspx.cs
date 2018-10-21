@@ -27,6 +27,11 @@ namespace ProjetoFinal.Web
 
                 RptConsulta.DataSource = BLLGrupo.Pesquisar(grupoLider, "grupo");
                 RptConsulta.DataBind();
+
+                MODGrupoDocente grupoDocente = new MODGrupoDocente();
+
+                RPTDocente.DataSource = BLLGrupo_Docente.Pesquisar(grupoDocente, "ativos");
+                RPTDocente.DataBind();
             }
         }
     }

@@ -109,6 +109,8 @@
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\RecuperacaoSenha.aspx" />
     <Content Include="Pages\RecuperaSenhaUsuario.aspx" />
+    <Content Include="Pages\VincularGrupoDocente.aspx" />
+    <Content Include="Pages\VincularGrupoTecnico.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -345,6 +347,20 @@
     </Compile>
     <Compile Include="Pages\RecuperaSenhaUsuario.aspx.designer.cs">
       <DependentUpon>RecuperaSenhaUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\VincularGrupoDocente.aspx.cs">
+      <DependentUpon>VincularGrupoDocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\VincularGrupoDocente.aspx.designer.cs">
+      <DependentUpon>VincularGrupoDocente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\VincularGrupoTecnico.aspx.cs">
+      <DependentUpon>VincularGrupoTecnico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\VincularGrupoTecnico.aspx.designer.cs">
+      <DependentUpon>VincularGrupoTecnico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
