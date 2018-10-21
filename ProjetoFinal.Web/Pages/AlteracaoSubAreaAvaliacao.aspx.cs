@@ -8,12 +8,12 @@ using ProjetoFinal.BLL;
 using ProjetoFinal.Model;
 using ProjetoFinal.Utilitarios;
 
+
 namespace ProjetoFinal.Web.Pages
 {
-    public partial class CadastroLinhaPesquisa : System.Web.UI.Page
+    public partial class AlteracaoSubAreaAvaliacao : System.Web.UI.Page
     {
-        private static int carregamento = 0;
-
+        private string idArea, idSub;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["login"] == null)
@@ -38,14 +38,44 @@ namespace ProjetoFinal.Web.Pages
 
             if (!Page.IsPostBack)
             {
-                carregamento = 0;
                 CarregaAreaConhecimento();
             }
-                
-            if (carregamento == 0)
-                CarregaAreaAvaliacao();
 
-            CarregaSubAreaAvaliacao();
+            MODArea_Avaliacao areaAvaliacao = new MODArea_Avaliacao();
+            MODSubArea_Avaliacao subArea = new MODSubArea_Avaliacao();
+
+            subArea.Id = Page.Request.QueryString["id"];
+
+            subArea = BLLLinha_Pesquisa.PesquisarSubAvaliacao(subArea);
+            idSub = subArea.Id;
+            idArea = subArea.FkAva;
+
+            areaAvaliacao.Id = idArea;
+            areaAvaliacao = BLLLinha_Pesquisa.PesquisarAvaliacao(areaAvaliacao);
+
+            if (!Page.IsPostBack)
+            {
+                TxtIdSubArea.Text = subArea.Id;
+                TxtSubArea.Text = subArea.Nome;
+                TxtAvaliacao.Text = areaAvaliacao.Nome;
+            }
+
+            CarregaAreaAvaliacao();
+        }
+
+        protected void TxtSelecao_CheckedChanged(object sender, EventArgs e)
+        {
+            if (TxtSelecao.Checked == true)
+            {
+                TxtAreaConhecimento.Enabled = true;
+                TxtAreaAvaliacao.Enabled = true;
+            }
+            else
+            {
+                TxtAreaConhecimento.Enabled = false;
+                TxtAreaAvaliacao.Enabled = false;
+            }
+                
         }
 
         private void CarregaAreaConhecimento()
@@ -56,7 +86,6 @@ namespace ProjetoFinal.Web.Pages
             TxtAreaConhecimento.DataValueField = "Id";
             TxtAreaConhecimento.DataTextField = "Nome";
             TxtAreaConhecimento.DataBind();
-            carregamento = 0;
         }
 
         private void CarregaAreaAvaliacao()
@@ -69,97 +98,63 @@ namespace ProjetoFinal.Web.Pages
 
             if (lista.Count == 0)
             {
-                LblAreaAvaliacao.Text = "Não há sub áreas cadastradas nessa área de avaliação";
+                LblAreaAvaliacao.Text = "Não há áreas de avaliação cadastradas nessa área do conhecimento";
                 TxtAreaAvaliacao.Items.Clear();
             }
             else
             {
+                LblAreaAvaliacao.Text = "";
                 TxtAreaAvaliacao.DataSource = BLLLinha_Pesquisa.PesquisarAreaAvaliacao(areaAvaliacao, "conhecimento");
                 TxtAreaAvaliacao.DataValueField = "Id";
                 TxtAreaAvaliacao.DataTextField = "Nome";
                 TxtAreaAvaliacao.DataBind();
-                carregamento = 1;
-            }            
+            }
         }
 
-        private void CarregaSubAreaAvaliacao()
+        protected void BtnAlteracao_Click(object sender, EventArgs e)
         {
-            MODSubArea_Avaliacao subArea = new MODSubArea_Avaliacao();
-            subArea.FkAva = TxtAreaAvaliacao.SelectedValue.ToString();
+            MODSubArea_Avaliacao area = new MODSubArea_Avaliacao();
 
-            List<MODSubArea_Avaliacao> lista = new List<MODSubArea_Avaliacao>();
-            lista = BLLLinha_Pesquisa.PesquisarSubAreaAvaliacao(subArea, "avaliacao");
+            area.Id = TxtIdSubArea.Text.Trim();
+            area.Nome = TxtSubArea.Text.Trim().ToUpper();
 
-            if(lista.Count == 0)
+            if (TxtSelecao.Checked == true)
             {
-                LblSubArea.Text = "Não há sub áreas cadastradas nessa área de avaliação";
-                TxtSubAreaAvaliacao.Items.Clear();
+                TxtAreaAvaliacao.Enabled = true;
+                area.FkAva = TxtAreaAvaliacao.SelectedValue.ToString();
             }
             else
             {
-                LblSubArea.Text = "";
-                TxtSubAreaAvaliacao.DataSource = BLLLinha_Pesquisa.PesquisarSubAreaAvaliacao(subArea, "avaliacao");
-                TxtSubAreaAvaliacao.DataValueField = "Id";
-                TxtSubAreaAvaliacao.DataTextField = "Nome";
-                TxtSubAreaAvaliacao.DataBind();
-            }  
-        }
+                area.FkAva = idArea;
+            }
 
-        protected void TxtAreaConhecimento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CarregaAreaAvaliacao();
-            CarregaSubAreaAvaliacao();
-        }
+            List<MODSubArea_Avaliacao> lista = new List<MODSubArea_Avaliacao>();
+            lista = BLLLinha_Pesquisa.PesquisarSubAreaAvaliacao(area, "existente");
 
-        protected void TxtAreaAvaliacao_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CarregaSubAreaAvaliacao();
-        }
-
-        protected void BtnCadastrar_Click(object sender, EventArgs e)
-        {
-            MODLinha_Pesquisa linha = new MODLinha_Pesquisa();
-
-            linha.Id = TxtIdLinha.Text.Trim();
-            linha.Linha = TxtLinhaPesquisa.Text.Trim().ToUpper();
-
-            List<MODLinha_Pesquisa> lista = new List<MODLinha_Pesquisa>();
-            lista = BLLLinha_Pesquisa.PesquisarLinhaPesquisa(linha, "existente");
-
-            if (TxtIdLinha.Text.Trim() == "" || TxtIdLinha.Text.Length > 10)
+            if (TxtIdSubArea.Text.Trim() == "" || TxtIdSubArea.Text.Length > 10)
             {
                 LblResposta.Text = Erros.CodigoVazio;
             }
-            else if(TxtIdLinha.Text.Length < 8)
+            else if (TxtIdSubArea.Text.Length < 8)
             {
                 LblResposta.Text = "O código deve ter ao menos 8 caracteres";
             }
-            else if (TxtLinhaPesquisa.Text.Trim() == "" || TxtLinhaPesquisa.Text.Length > 80)
+            else if (TxtSubArea.Text.Trim() == "" || TxtSubArea.Text.Length > 80)
             {
                 LblResposta.Text = Erros.NomeVazio;
             }
             else if (lista.Count > 0)
             {
-                LblResposta.Text = Erros.LinhaExistente;
-            }
-            else if (TxtAreaAvaliacao.Text == "")
-            {
-                LblResposta.Text = "A área de avaliação é obrigatória!";
-            }
-            else if(TxtSubAreaAvaliacao.Text == "")
-            {
-                LblResposta.Text = "A sub área é obrigatória!";
+                LblResposta.Text = Erros.AreaConExiste;
             }
             else
             {
                 try
                 {
                     
-                    linha.FkSub = TxtSubAreaAvaliacao.SelectedValue.ToString();
+                    BLLLinha_Pesquisa.AlterarSubAreaAvaliacao(area, idSub);
 
-                    BLLLinha_Pesquisa.InserirLinha(linha);
-
-                    LblResposta.Text = "Linha de pesquisa cadastrada com sucesso!";
+                    LblResposta.Text = "Linha de pesquisa alterada com sucesso!";
                 }
                 catch (Exception)
                 {
@@ -167,6 +162,11 @@ namespace ProjetoFinal.Web.Pages
                     throw;
                 }
             }
+        }
+
+        protected void TxtAreaConhecimento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CarregaAreaAvaliacao();
         }
     }
 }

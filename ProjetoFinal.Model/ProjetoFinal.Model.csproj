@@ -48,6 +48,7 @@
     <Compile Include="MODLinha_Pesquisa.cs" />
     <Compile Include="MODRecuperacaoSenha_Usuario.cs" />
     <Compile Include="MODRecuperaSenha.cs" />
+    <Compile Include="MODSubArea_Avaliacao.cs" />
     <Compile Include="MODUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

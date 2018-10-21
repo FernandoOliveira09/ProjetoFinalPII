@@ -10,7 +10,7 @@ using ProjetoFinal.Utilitarios;
 
 namespace ProjetoFinal.Web.Pages
 {
-    public partial class ConsultaLinhaPesquisa : System.Web.UI.Page
+    public partial class ConsultaSubAreaAvaliacao : System.Web.UI.Page
     {
         private static int carregamento = 0;
 
@@ -38,18 +38,13 @@ namespace ProjetoFinal.Web.Pages
 
             if (!Page.IsPostBack)
             {
-                carregamento = 0;
                 CarregaAreaConhecimento();
-                CarregaLinhaPesquisa();
             }
 
             if (carregamento == 0)
-            {
                 CarregaAreaAvaliacao();
-                CarregaSubAreaAvaliacao();
-            }
 
-            CarregaLinhaPesquisa();
+            CarregaSubAreaAvaliacao();
         }
 
         private void CarregaAreaConhecimento()
@@ -68,52 +63,20 @@ namespace ProjetoFinal.Web.Pages
             MODArea_Avaliacao areaAvaliacao = new MODArea_Avaliacao();
             areaAvaliacao.FkCon = TxtAreaConhecimento.SelectedValue.ToString();
 
-            List<MODArea_Avaliacao> lista = new List<MODArea_Avaliacao>();
-            lista = BLLLinha_Pesquisa.PesquisarAreaAvaliacao(areaAvaliacao, "conhecimento");
-
-            if (lista.Count == 0)
-            {
-                TxtAreaAvaliacao.Items.Clear();
-            }
-            else
-            {
-                TxtAreaAvaliacao.DataSource = BLLLinha_Pesquisa.PesquisarAreaAvaliacao(areaAvaliacao, "conhecimento");
-                TxtAreaAvaliacao.DataValueField = "Id";
-                TxtAreaAvaliacao.DataTextField = "Nome";
-                TxtAreaAvaliacao.DataBind();
-                carregamento = 1;
-            }
+            TxtAreaAvaliacao.DataSource = BLLLinha_Pesquisa.PesquisarAreaAvaliacao(areaAvaliacao, "conhecimento");
+            TxtAreaAvaliacao.DataValueField = "Id";
+            TxtAreaAvaliacao.DataTextField = "Nome";
+            TxtAreaAvaliacao.DataBind();
+            carregamento = 1;
         }
 
         private void CarregaSubAreaAvaliacao()
         {
-            MODSubArea_Avaliacao areaSubAvaliacao = new MODSubArea_Avaliacao();
-            areaSubAvaliacao.FkAva = TxtAreaAvaliacao.SelectedValue.ToString();
+            MODSubArea_Avaliacao subAreaAvaliacao = new MODSubArea_Avaliacao();
+            subAreaAvaliacao.FkAva = TxtAreaAvaliacao.SelectedValue.ToString();
 
             List<MODSubArea_Avaliacao> lista = new List<MODSubArea_Avaliacao>();
-            lista = BLLLinha_Pesquisa.PesquisarSubAreaAvaliacao(areaSubAvaliacao, "avaliacao");
-
-            if (lista.Count == 0)
-            {
-                TxtSubAreaAvaliacao.Items.Clear();
-            }
-            else
-            {
-                TxtSubAreaAvaliacao.DataSource = BLLLinha_Pesquisa.PesquisarSubAreaAvaliacao(areaSubAvaliacao, "avaliacao");
-                TxtSubAreaAvaliacao.DataValueField = "Id";
-                TxtSubAreaAvaliacao.DataTextField = "Nome";
-                TxtSubAreaAvaliacao.DataBind();
-                carregamento = 1;
-            }
-        }
-
-        private void CarregaLinhaPesquisa()
-        {
-            MODLinha_Pesquisa linhaPesquisa = new MODLinha_Pesquisa();
-            linhaPesquisa.FkSub = TxtSubAreaAvaliacao.SelectedValue.ToString();
-
-            List<MODLinha_Pesquisa> lista = new List<MODLinha_Pesquisa>();
-            lista = BLLLinha_Pesquisa.PesquisarLinhaPesquisa(linhaPesquisa, "subarea");
+            lista = BLLLinha_Pesquisa.PesquisarSubAreaAvaliacao(subAreaAvaliacao, "avaliacao");
 
             RptConsulta.DataSource = lista;
             RptConsulta.DataBind();
@@ -123,18 +86,11 @@ namespace ProjetoFinal.Web.Pages
         {
             CarregaAreaAvaliacao();
             CarregaSubAreaAvaliacao();
-            CarregaLinhaPesquisa();
         }
 
         protected void TxtAreaAvaliacao_SelectedIndexChanged(object sender, EventArgs e)
         {
             CarregaSubAreaAvaliacao();
-            CarregaLinhaPesquisa();
-        }
-
-        protected void TxtSubAreaAvaliacao_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CarregaLinhaPesquisa();
         }
     }
 }

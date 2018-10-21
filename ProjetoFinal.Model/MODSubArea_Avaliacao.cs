@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProjetoFinal.Model
 {
-    public class MODLinha_Pesquisa
+    public class MODSubArea_Avaliacao
     {
         public string Id { get; set; }
-        public string Linha { get; set; }
-        public string FkSub { get; set; }
+        public string Nome { get; set; }
+        public string FkAva { get; set; }
     }
 }

@@ -10,7 +10,7 @@
 namespace ProjetoFinal.Web.Pages {
     
     
-    public partial class CadastroLinhaPesquisa {
+    public partial class CadastroSubAreaAvaliacao {
         
         /// <summary>
         /// ImagemUser2 control.
@@ -76,40 +76,22 @@ namespace ProjetoFinal.Web.Pages {
         protected global::System.Web.UI.WebControls.Label LblAreaAvaliacao;
         
         /// <summary>
-        /// TxtSubAreaAvaliacao control.
+        /// TxtIdSubArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TxtSubAreaAvaliacao;
+        protected global::System.Web.UI.WebControls.TextBox TxtIdSubArea;
         
         /// <summary>
-        /// LblSubArea control.
+        /// TxtSubArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSubArea;
-        
-        /// <summary>
-        /// TxtIdLinha control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtIdLinha;
-        
-        /// <summary>
-        /// TxtLinhaPesquisa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtLinhaPesquisa;
+        protected global::System.Web.UI.WebControls.TextBox TxtSubArea;
         
         /// <summary>
         /// LblResposta control.

@@ -10,7 +10,7 @@
 namespace ProjetoFinal.Web.Pages {
     
     
-    public partial class ConsultaLinhaPesquisa {
+    public partial class ConsultaAreaAvaliacao1 {
         
         /// <summary>
         /// ImagemUser2 control.
@@ -56,24 +56,6 @@ namespace ProjetoFinal.Web.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList TxtAreaConhecimento;
-        
-        /// <summary>
-        /// TxtAreaAvaliacao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TxtAreaAvaliacao;
-        
-        /// <summary>
-        /// TxtSubAreaAvaliacao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TxtSubAreaAvaliacao;
         
         /// <summary>
         /// RptConsulta control.

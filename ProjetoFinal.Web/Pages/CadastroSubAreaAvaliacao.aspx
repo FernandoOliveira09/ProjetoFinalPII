@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="~/Pages/AlteracaoUsuario.aspx.cs" Inherits="ProjetoFinal.Web.Pages.AlteracaoUsuario" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CadastroSubAreaAvaliacao.aspx.cs" Inherits="ProjetoFinal.Web.Pages.CadastroSubAreaAvaliacao" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,6 +32,8 @@
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
     <link href="../Content/vendors/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet">
     <link href="../Content/vendors/flag-icon/css/flag-icon.min.css" type="text/css" rel="stylesheet">
+  
+    
   </head>
   <body>
     <!-- Start Page Loading -->
@@ -51,7 +53,7 @@
             <ul class="left">
               <li>
                 <h1 class="logo-wrapper">
-                  <a href="../Pages/Principal.html" class="brand-logo darken-1">
+                  <a href="../Pages/Principal.aspx" class="brand-logo darken-1">
                     <img src="../Content/images/logo/materialize-logo.png" alt="materialize logo">
                     <span class="logo-text hide-on-med-and-down"><strong>SG</strong> Manager</span>
                   </a>
@@ -117,15 +119,13 @@
             <!-- profile-dropdown -->
             <ul id="profile-dropdown" class="dropdown-content">
               <li>
-                   <a href="../Pages/AlteracaoUsuario.aspx" class="grey-text text-darken-1">
-                   <i class="material-icons">settings</i> Alterar Informações</a>
-                   </li>
-                   <li class="divider"></li>
-                   <li>
-                    <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1" ID="BtnLogout">
-                    <i class="material-icons">keyboard_tab</i> Logout</a>
-                  
-                  </li>
+                <a href="../Pages/AlteracaoUsuario.aspx" class="grey-text text-darken-1">
+                  <i class="material-icons">settings</i> Alterar Informações</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1">
+                  <i class="material-icons">keyboard_tab</i> Logout</a>
               </li>
             </ul>
           </div>
@@ -177,18 +177,18 @@
                     </a>
                 </li>
                 <ul class="collapsible collapsible-accordion">
-                  <li>
-                    <a class="collapsible-header">Linhas de pesquisa<i class="material-icons">search</i></a>
-                    <div class="collapsible-body">
-                      <ul>
-                        <li><a href="../Pages/ConsultaAreaConhecimento.aspx">Áreas do conhecimento</a></li>
-                        <li><a href="../Pages/ConsultaAreaAvaliacao.aspx">Áreas de avaliação</a></li>
-                        <li><a href="../Pages/ConsultaSubAreaAvaliacao.aspx">Sub áreas de avaliação</a></li>
-                        <li><a href="../Pages/ConsultaLinhaPesquisa.aspx">Linhas de pesquisa</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
+              <li>
+                <a class="collapsible-header">Linhas de pesquisa<i class="material-icons">search</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a href="../Pages/ConsultaAreaConhecimento.aspx">Áreas do conhecimento</a></li>
+                    <li><a href="../Pages/ConsultaAreaAvaliacao.aspx">Áreas de avaliação</a></li>
+                    <li><a href="../Pages/ConsultaSubAreaAvaliacao.aspx">Sub áreas de avaliação</a></li>
+                    <li><a href="../Pages/ConsultaLinhaPesquisa.aspx">Linhas de pesquisa</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
               </ul>
             </li>
           </ul>
@@ -201,7 +201,7 @@
         <!-- START CONTENT -->
         <section id="content">
           <!--start container-->
-            <section id="content">
+           <section id="content">
           <!--start container-->
             <div id="breadcrumbs-wrapper">
               <!-- Search for small screen -->
@@ -211,11 +211,11 @@
               <div class="container">
                 <div class="row">
                   <div class="col s10 m6 l6">
-                    <h5 class="breadcrumbs-title">Alteração de Usuários</h5>
+                    <h5 class="breadcrumbs-title">Cadastro de sub área de pesquisa</h5>
                     <ol class="breadcrumbs">
-                      <li><a href="index.html">Dashboard</a></li>
-                      <li><a href="#">Usuários</a></li>
-                      <li><a href="#">Alteração de Usuário</a></li>
+                      <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
+                      <li><a href="#">Linhas de pesquisa</a></li>
+                      <li><a href="#">Cadastro de sub áreas</a></li>
                     </ol>
                   </div>
                 </div>
@@ -223,50 +223,59 @@
             </div>
             <div id="basic-form" class="section">
                 <div class="row">
-                  <div class="col s12 m12 l6">
+                  <div class="col s12 m12 l8">
                     <div class="card-panel">
-                      <h4 class="header2">Insira os dados nos campos abaixo para alterar</h4>
+                      <h4 class="header2">Insira os dados nos campos abaixo para cadastrar</h4>
                       <div class="row">
                         <form class="col s12" runat="server">
+                         
                           <div class="row">
-                            <div class="input-field col s12">
-                              <asp:TextBox id="TxtLattes" type="text" runat="server" />
-                              <label for="TxtLattes">Link do Currículo Lattes</label>
+                            <div class="input-field col s10">
+                                <label for="TxtAreaConhecimento">Selecione a área de conhecimento<span style="color: red;">*</span></label>
+                                <br /> 
+                                <asp:DropDownList class="input-field" runat="server" ID="TxtAreaConhecimento" AutoPostBack="true" OnSelectedIndexChanged="TxtAreaConhecimento_SelectedIndexChanged">
+
+                                </asp:DropDownList>
+                            </div>
+                            <div class="input-field col s1" style="float:left; margin-top: 60px">                          
+                                <a class="btn-floating btn-small waves-effect waves-light teal lighten-2" href="../Pages/CadastroAreaConhecimento.aspx"><i class="material-icons left">add</i></a>
                             </div>
                           </div>
-
                           <div class="row">
-                            <div class="input-field col s12">
-                              <label for="FUFoto">Foto do usuário<span style="color: red;">*</span></label>
-                                <br />
-                                <br />
-                              <asp:FileUpload id="FUFoto" runat="server" />
+                            <div class="input-field col s8">
+                                <label for="TxtAreaAvaliacao">Selecione a área de avaliação<span style="color: red;">*</span></label>
+                                <br /> 
+                                <asp:DropDownList class="input-field" runat="server" ID="TxtAreaAvaliacao" AutoPostBack="true">
+
+                                </asp:DropDownList>
+                                <asp:Label ID="LblAreaAvaliacao" runat="server" ForeColor="Red"></asp:Label>
+                            </div>
+                            <div class="input-field col s2" style="float:left; margin-top: 60px">                          
+                                <a class="btn-floating btn-small waves-effect waves-light teal lighten-2" href="../Pages/CadastroAreaAvaliacao.aspx"><i class="material-icons left">add</i></a>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s6">
+                              <asp:TextBox id="TxtIdSubArea" type="text" runat="server" MaxLength="10" />
+                              <label for="TxtIdSubArea">Código da sub área <span style="color: red;">*</span></label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s6">
+                              <asp:TextBox id="TxtSubArea" type="text" runat="server" />
+                              <label for="TxtSubArea">Nome <span style="color: red;">*</span></label>
                             </div>
                           </div>
                           
-                          <div class='row'>
-                              <div class='input-field col s6 cadastro'>
-                                <asp:TextBox class='validate' type='password' name='password' id='TxtSenha' runat="server"/>
-                                <label for='password'>Senha<span style="color: red;">*</span></label>
-                              </div>
-                          </div>
-
-                          <div class='row'>
-                              <div class='input-field col s6 cadastro'>
-                                <asp:TextBox class='validate' type='password' name='password' id='TxtSenha2' runat="server"/>
-                                <label for='password'>Digite novamente a senha<span style="color: red;">*</span></label>
-                              </div>
-                          </div>
-                            
                           <div class="row">
                             <div class="input-field col s12">
                                 <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
                             </div>
-                          </div>  
-
+                          </div>    
+                          
                           <div class="row">
                               <div class="input-field col s12">
-                                  <asp:Button id="BtnAlterar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Alterar" runat="server" OnClick="BtnAlterar_Click">
+                                  <asp:Button id="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar" runat="server" OnClick="BtnCadastrar_Click">
                                   </asp:Button>
                               </div>
                           </div>
@@ -277,6 +286,7 @@
                 </div>
               </div>
           <!--end container-->
+            </section>
         </section>
         <!-- END CONTENT -->
         <!-- START RIGHT SIDEBAR NAV-->

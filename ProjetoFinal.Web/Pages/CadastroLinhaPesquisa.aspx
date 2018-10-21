@@ -1,8 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CadastroLinhaPesquisa.aspx.cs" Inherits="ProjetoFinal.Web.Pages.CadastroLinhaPesquisa" %>
 
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
   <!--================================================================================
@@ -179,6 +176,19 @@
                       <span class="nav-text">Grupos de Pesquisa</span>
                     </a>
                 </li>
+                <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header">Linhas de pesquisa<i class="material-icons">search</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a href="../Pages/ConsultaAreaConhecimento.aspx">Áreas do conhecimento</a></li>
+                    <li><a href="../Pages/ConsultaAreaAvaliacao.aspx">Áreas de avaliação</a></li>
+                    <li><a href="../Pages/ConsultaSubAreaAvaliacao.aspx">Sub áreas de avaliação</a></li>
+                    <li><a href="../Pages/ConsultaLinhaPesquisa.aspx">Linhas de pesquisa</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
               </ul>
             </li>
           </ul>
@@ -213,7 +223,7 @@
             </div>
             <div id="basic-form" class="section">
                 <div class="row">
-                  <div class="col s12 m12 l6">
+                  <div class="col s12 m12 l8">
                     <div class="card-panel">
                       <h4 class="header2">Insira os dados nos campos abaixo para cadastrar</h4>
                       <div class="row">
@@ -221,20 +231,41 @@
                          
                           <div class="row">
                             <div class="input-field col s10">
-                                <label for="TxtLider">Selecione a área de conhecimento<span style="color: red;">*</span></label>
+                                <label for="TxtAreaConhecimento">Selecione a área de conhecimento<span style="color: red;">*</span></label>
                                 <br /> 
                                 <asp:DropDownList class="input-field" runat="server" ID="TxtAreaConhecimento" AutoPostBack="true" OnSelectedIndexChanged="TxtAreaConhecimento_SelectedIndexChanged">
 
                                 </asp:DropDownList>
                             </div>
+                            <div class="input-field col s1" style="float:left; margin-top: 60px">                          
+                                <a class="btn-floating btn-small waves-effect waves-light teal lighten-2" href="../Pages/CadastroAreaConhecimento.aspx"><i class="material-icons left">add</i></a>
+                            </div>
                           </div>
                           <div class="row">
                             <div class="input-field col s8">
-                                <label for="TxtLider">Selecione a área de avaliação<span style="color: red;">*</span></label>
+                                <label for="TxtAreaAvaliacao">Selecione a área de avaliação<span style="color: red;">*</span></label>
                                 <br /> 
-                                <asp:DropDownList class="input-field" runat="server" ID="TxtAreaAvaliacao">
+                                <asp:DropDownList class="input-field" runat="server" ID="TxtAreaAvaliacao" AutoPostBack="true">
 
                                 </asp:DropDownList>
+                                <asp:Label ID="LblAreaAvaliacao" runat="server" ForeColor="Red"></asp:Label>
+                            </div>
+                            <div class="input-field col s2" style="float:left; margin-top: 60px">                          
+                                <a class="btn-floating btn-small waves-effect waves-light teal lighten-2" href="../Pages/CadastroAreaAvaliacao.aspx"><i class="material-icons left">add</i></a>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s8" style="float:left">
+                                <label for="TxtLider">Selecione a sub área de avaliação<span style="color: red;">*</span></label>
+                                <br /> 
+                                <asp:DropDownList class="input-field" runat="server" ID="TxtSubAreaAvaliacao">
+
+                                </asp:DropDownList>
+                                <%--<a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i></a>--%>
+                                <asp:Label ID="LblSubArea" runat="server" ForeColor="Red"></asp:Label>
+                            </div>
+                            <div class="input-field col s2" style="float:left; margin-top: 60px">                          
+                                <a class="btn-floating btn-small waves-effect waves-light teal lighten-2" href="../Pages/CadastroSubAreaAvaliacao.aspx"><i class="material-icons left">add</i></a>
                             </div>
                           </div>
                           <div class="row">
@@ -245,7 +276,7 @@
                           </div>
                           <div class="row">
                             <div class="input-field col s6">
-                              <asp:TextBox id="TxtLinhaPesquisa" type="text" runat="server" MaxLength="9" />
+                              <asp:TextBox id="TxtLinhaPesquisa" type="text" runat="server" />
                               <label for="TxtLinhaPesquisa">Nome <span style="color: red;">*</span></label>
                             </div>
                           </div>

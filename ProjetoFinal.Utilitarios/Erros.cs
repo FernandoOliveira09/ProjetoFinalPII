@@ -24,5 +24,7 @@ namespace ProjetoFinal.Utilitarios
         public static string SiglaExistente = "Já existe um grupo com essa sigla!";
         public static string LinhaExistente = "Já existe uma linha de pesquisa com esse nome ou código!";
         public static string CodigoVazio = "O campo CÓDIGO é inválido!";
+        public static string AreaConExiste = "Já existe uma area do conhecimento com esse nome ou código!";
+        public static string AreaAvaExiste = "Já existe uma area de avaliação com esse nome ou código!";
     }
 }

@@ -78,15 +78,25 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Grupos.aspx" />
+    <Content Include="Pages\AlteracaoAreaAvaliacao.aspx" />
+    <Content Include="Pages\AlteracaoAreaConhecimento.aspx" />
     <Content Include="Pages\AlteracaoGrupo.aspx" />
     <Content Include="Pages\AlteracaoLider.aspx" />
+    <Content Include="Pages\AlteracaoLinhaPesquisa.aspx" />
+    <Content Include="Pages\AlteracaoSubAreaAvaliacao.aspx" />
     <Content Include="Pages\AlteracaoUsuario.aspx" />
     <Content Include="Pages\CadastroAdmin.aspx" />
+    <Content Include="Pages\CadastroAreaAvaliacao.aspx" />
+    <Content Include="Pages\CadastroAreaConhecimento.aspx" />
     <Content Include="Pages\CadastroGrupo.aspx" />
     <Content Include="Pages\CadastroLinhaPesquisa.aspx" />
+    <Content Include="Pages\CadastroSubAreaAvaliacao.aspx" />
     <Content Include="Pages\CadastroUsuario.aspx" />
+    <Content Include="Pages\ConsultaAreaAvaliacao.aspx" />
+    <Content Include="Pages\ConsultaAreaConhecimento.aspx" />
     <Content Include="Pages\ConsultaGrupo.aspx" />
     <Content Include="Pages\ConsultaLinhaPesquisa.aspx" />
+    <Content Include="Pages\ConsultaSubAreaAvaliacao.aspx" />
     <Content Include="Pages\ConsultaUsuario.aspx" />
     <Content Include="Pages\InserirCodigoRecuperacao.aspx" />
     <Content Include="Pages\Principal.aspx" />
@@ -113,6 +123,20 @@
     <Compile Include="Grupos.aspx.designer.cs">
       <DependentUpon>Grupos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AlteracaoAreaAvaliacao.aspx.cs">
+      <DependentUpon>AlteracaoAreaAvaliacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AlteracaoAreaAvaliacao.aspx.designer.cs">
+      <DependentUpon>AlteracaoAreaAvaliacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AlteracaoAreaConhecimento.aspx.cs">
+      <DependentUpon>AlteracaoAreaConhecimento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AlteracaoAreaConhecimento.aspx.designer.cs">
+      <DependentUpon>AlteracaoAreaConhecimento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AlteracaoGrupo.aspx.cs">
       <DependentUpon>AlteracaoGrupo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -126,6 +150,20 @@
     </Compile>
     <Compile Include="Pages\AlteracaoLider.aspx.designer.cs">
       <DependentUpon>AlteracaoLider.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AlteracaoLinhaPesquisa.aspx.cs">
+      <DependentUpon>AlteracaoLinhaPesquisa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AlteracaoLinhaPesquisa.aspx.designer.cs">
+      <DependentUpon>AlteracaoLinhaPesquisa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AlteracaoSubAreaAvaliacao.aspx.cs">
+      <DependentUpon>AlteracaoSubAreaAvaliacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AlteracaoSubAreaAvaliacao.aspx.designer.cs">
+      <DependentUpon>AlteracaoSubAreaAvaliacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AlteracaoUsuario.aspx.cs">
       <DependentUpon>AlteracaoUsuario.aspx</DependentUpon>
@@ -141,6 +179,20 @@
     <Compile Include="Pages\CadastroAdmin.aspx.designer.cs">
       <DependentUpon>CadastroAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CadastroAreaAvaliacao.aspx.cs">
+      <DependentUpon>CadastroAreaAvaliacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CadastroAreaAvaliacao.aspx.designer.cs">
+      <DependentUpon>CadastroAreaAvaliacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CadastroAreaConhecimento.aspx.cs">
+      <DependentUpon>CadastroAreaConhecimento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CadastroAreaConhecimento.aspx.designer.cs">
+      <DependentUpon>CadastroAreaConhecimento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CadastroGrupo.aspx.cs">
       <DependentUpon>CadastroGrupo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -155,12 +207,33 @@
     <Compile Include="Pages\CadastroLinhaPesquisa.aspx.designer.cs">
       <DependentUpon>CadastroLinhaPesquisa.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CadastroSubAreaAvaliacao.aspx.cs">
+      <DependentUpon>CadastroSubAreaAvaliacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CadastroSubAreaAvaliacao.aspx.designer.cs">
+      <DependentUpon>CadastroSubAreaAvaliacao.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CadastroUsuario.aspx.cs">
       <DependentUpon>CadastroUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\CadastroUsuario.aspx.designer.cs">
       <DependentUpon>CadastroUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConsultaAreaAvaliacao.aspx.cs">
+      <DependentUpon>ConsultaAreaAvaliacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ConsultaAreaAvaliacao.aspx.designer.cs">
+      <DependentUpon>ConsultaAreaAvaliacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConsultaAreaConhecimento.aspx.cs">
+      <DependentUpon>ConsultaAreaConhecimento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ConsultaAreaConhecimento.aspx.designer.cs">
+      <DependentUpon>ConsultaAreaConhecimento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ConsultaGrupo.aspx.cs">
       <DependentUpon>ConsultaGrupo.aspx</DependentUpon>
@@ -175,6 +248,13 @@
     </Compile>
     <Compile Include="Pages\ConsultaLinhaPesquisa.aspx.designer.cs">
       <DependentUpon>ConsultaLinhaPesquisa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConsultaSubAreaAvaliacao.aspx.cs">
+      <DependentUpon>ConsultaSubAreaAvaliacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ConsultaSubAreaAvaliacao.aspx.designer.cs">
+      <DependentUpon>ConsultaSubAreaAvaliacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ConsultaUsuario.aspx.cs">
       <DependentUpon>ConsultaUsuario.aspx</DependentUpon>

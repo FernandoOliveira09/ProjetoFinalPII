@@ -10,7 +10,7 @@
 namespace ProjetoFinal.Web.Pages {
     
     
-    public partial class CadastroLinhaPesquisa {
+    public partial class AlteracaoLinhaPesquisa {
         
         /// <summary>
         /// ImagemUser2 control.
@@ -47,6 +47,24 @@ namespace ProjetoFinal.Web.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblFuncao;
+        
+        /// <summary>
+        /// TxtSubArea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtSubArea;
+        
+        /// <summary>
+        /// TxtSelecao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox TxtSelecao;
         
         /// <summary>
         /// TxtAreaConhecimento control.
@@ -121,12 +139,12 @@ namespace ProjetoFinal.Web.Pages {
         protected global::System.Web.UI.WebControls.Label LblResposta;
         
         /// <summary>
-        /// BtnCadastrar control.
+        /// BtnAlterar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnCadastrar;
+        protected global::System.Web.UI.WebControls.Button BtnAlterar;
     }
 }

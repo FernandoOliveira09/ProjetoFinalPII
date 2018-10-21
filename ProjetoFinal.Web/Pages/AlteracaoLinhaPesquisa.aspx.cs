@@ -10,10 +10,10 @@ using ProjetoFinal.Utilitarios;
 
 namespace ProjetoFinal.Web.Pages
 {
-    public partial class CadastroLinhaPesquisa : System.Web.UI.Page
+    public partial class AlteracaoLinhaPesquisa : System.Web.UI.Page
     {
-        private static int carregamento = 0;
-
+        private int carregamento;
+        private string idLinha, idSub;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["login"] == null)
@@ -41,11 +41,30 @@ namespace ProjetoFinal.Web.Pages
                 carregamento = 0;
                 CarregaAreaConhecimento();
             }
-                
+
+            MODSubArea_Avaliacao subArea = new MODSubArea_Avaliacao();
+            MODLinha_Pesquisa linha = new MODLinha_Pesquisa();
+
+            linha.Id = Page.Request.QueryString["id"];
+
+            linha = BLLLinha_Pesquisa.PesquisarLinha(linha);
+            idLinha = linha.Id;
+            idSub = linha.FkSub;
+
+            subArea.Id = idLinha;
+            subArea = BLLLinha_Pesquisa.PesquisarSubAvaliacao(subArea);
+
             if (carregamento == 0)
                 CarregaAreaAvaliacao();
 
             CarregaSubAreaAvaliacao();
+
+            if (!Page.IsPostBack)
+            {
+                TxtIdLinha.Text = linha.Id;
+                TxtLinhaPesquisa.Text = linha.Linha;
+                TxtSubArea.Text = subArea.Nome;
+            }
         }
 
         private void CarregaAreaConhecimento()
@@ -79,7 +98,7 @@ namespace ProjetoFinal.Web.Pages
                 TxtAreaAvaliacao.DataTextField = "Nome";
                 TxtAreaAvaliacao.DataBind();
                 carregamento = 1;
-            }            
+            }
         }
 
         private void CarregaSubAreaAvaliacao()
@@ -90,7 +109,7 @@ namespace ProjetoFinal.Web.Pages
             List<MODSubArea_Avaliacao> lista = new List<MODSubArea_Avaliacao>();
             lista = BLLLinha_Pesquisa.PesquisarSubAreaAvaliacao(subArea, "avaliacao");
 
-            if(lista.Count == 0)
+            if (lista.Count == 0)
             {
                 LblSubArea.Text = "Não há sub áreas cadastradas nessa área de avaliação";
                 TxtSubAreaAvaliacao.Items.Clear();
@@ -102,7 +121,7 @@ namespace ProjetoFinal.Web.Pages
                 TxtSubAreaAvaliacao.DataValueField = "Id";
                 TxtSubAreaAvaliacao.DataTextField = "Nome";
                 TxtSubAreaAvaliacao.DataBind();
-            }  
+            }
         }
 
         protected void TxtAreaConhecimento_SelectedIndexChanged(object sender, EventArgs e)
@@ -116,21 +135,48 @@ namespace ProjetoFinal.Web.Pages
             CarregaSubAreaAvaliacao();
         }
 
-        protected void BtnCadastrar_Click(object sender, EventArgs e)
+        protected void TxtSelecao_CheckedChanged(object sender, EventArgs e)
         {
-            MODLinha_Pesquisa linha = new MODLinha_Pesquisa();
+            if (TxtSelecao.Checked == true)
+            {
+                TxtAreaConhecimento.Enabled = true;
+                TxtAreaAvaliacao.Enabled = true;
+                TxtSubAreaAvaliacao.Enabled = true;
+            }
+            else
+            {
+                TxtAreaConhecimento.Enabled = false;
+                TxtAreaAvaliacao.Enabled = false;
+                TxtSubAreaAvaliacao.Enabled = false;
+            }
 
-            linha.Id = TxtIdLinha.Text.Trim();
-            linha.Linha = TxtLinhaPesquisa.Text.Trim().ToUpper();
+        }
+
+        protected void BtnAlterar_Click(object sender, EventArgs e)
+        {
+            MODLinha_Pesquisa area = new MODLinha_Pesquisa();
+
+            area.Id = TxtIdLinha.Text.Trim();
+            area.Linha = TxtLinhaPesquisa.Text.Trim().ToUpper();
+
+            if (TxtSelecao.Checked == true)
+            {
+                TxtSubArea.Enabled = true;
+                area.FkSub = TxtSubAreaAvaliacao.SelectedValue.ToString();
+            }
+            else
+            {
+                area.FkSub = idSub;
+            }
 
             List<MODLinha_Pesquisa> lista = new List<MODLinha_Pesquisa>();
-            lista = BLLLinha_Pesquisa.PesquisarLinhaPesquisa(linha, "existente");
+            lista = BLLLinha_Pesquisa.PesquisarLinhaPesquisa(area, "existente");
 
             if (TxtIdLinha.Text.Trim() == "" || TxtIdLinha.Text.Length > 10)
             {
                 LblResposta.Text = Erros.CodigoVazio;
             }
-            else if(TxtIdLinha.Text.Length < 8)
+            else if (TxtIdLinha.Text.Length < 8)
             {
                 LblResposta.Text = "O código deve ter ao menos 8 caracteres";
             }
@@ -140,26 +186,16 @@ namespace ProjetoFinal.Web.Pages
             }
             else if (lista.Count > 0)
             {
-                LblResposta.Text = Erros.LinhaExistente;
-            }
-            else if (TxtAreaAvaliacao.Text == "")
-            {
-                LblResposta.Text = "A área de avaliação é obrigatória!";
-            }
-            else if(TxtSubAreaAvaliacao.Text == "")
-            {
-                LblResposta.Text = "A sub área é obrigatória!";
+                LblResposta.Text = Erros.AreaConExiste;
             }
             else
             {
                 try
                 {
-                    
-                    linha.FkSub = TxtSubAreaAvaliacao.SelectedValue.ToString();
 
-                    BLLLinha_Pesquisa.InserirLinha(linha);
+                    BLLLinha_Pesquisa.AlterarLinhaPesquisa(area, idLinha);
 
-                    LblResposta.Text = "Linha de pesquisa cadastrada com sucesso!";
+                    LblResposta.Text = "Sub área de avaliação alterada com sucesso!";
                 }
                 catch (Exception)
                 {
