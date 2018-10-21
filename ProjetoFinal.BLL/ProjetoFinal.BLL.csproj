@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLDocente.cs" />
     <Compile Include="BLLLinha_Pesquisa.cs" />
     <Compile Include="BLLGrupo.cs" />
     <Compile Include="BLLRecuperacaoSenha.cs" />

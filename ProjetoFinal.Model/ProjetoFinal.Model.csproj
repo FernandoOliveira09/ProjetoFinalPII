@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="MODArea_Avaliacao.cs" />
     <Compile Include="MODArea_Conhecimento.cs" />
+    <Compile Include="MODDocente.cs" />
     <Compile Include="MODGrupo.cs" />
     <Compile Include="MODGrupoLider.cs" />
     <Compile Include="MODLinha_Pesquisa.cs" />
