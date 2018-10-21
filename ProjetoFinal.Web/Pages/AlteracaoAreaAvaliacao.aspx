@@ -163,15 +163,27 @@
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="ConsultaUsuario.aspx" class="waves-effect waves-cyan">
+                  <a href="../Pages/ConsultaUsuario.aspx" class="waves-effect waves-cyan">
                       <i class="material-icons">group</i>
                       <span class="nav-text">Usuários</span>
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="ConsultaGrupo.aspx" class="waves-effect waves-cyan">
+                  <a href="../Pages/ConsultaGrupo.aspx" class="waves-effect waves-cyan">
                       <i class="material-icons">group_work</i>
                       <span class="nav-text">Grupos de Pesquisa</span>
+                    </a>
+                </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
+                      <span class="nav-text">Docentes</span>
+                    </a>
+                </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaTecnico.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
+                      <span class="nav-text">Técnicos</span>
                     </a>
                 </li>
                 <ul class="collapsible collapsible-accordion">

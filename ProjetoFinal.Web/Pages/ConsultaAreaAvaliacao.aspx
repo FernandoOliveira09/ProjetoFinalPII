@@ -173,6 +173,18 @@
                     </a>
                 </li>
               </ul>
+            <li class="bold">
+                  <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
+                      <span class="nav-text">Docentes</span>
+                    </a>
+                </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaTecnico.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
+                      <span class="nav-text">Técnicos</span>
+                    </a>
+                </li>
               <ul class="collapsible collapsible-accordion">
               <li>
                 <a class="collapsible-header">Linhas de pesquisa<i class="material-icons">search</i></a>
