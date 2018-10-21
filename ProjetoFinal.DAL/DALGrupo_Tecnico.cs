@@ -63,5 +63,59 @@ namespace ProjetoFinal.DAL
 
             Conexao.Fechar();
         }
+
+        public static void ExcluirDocente(MODGrupoDocente grupoDocente)
+        {
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "DELETE FROM TBLGRUPO_Docente where fk_grupo = @grupo and fk_docente = @docente and data_entrada = @data";
+            comando.Parameters.AddWithValue("@data", grupoDocente.DataEntrada);
+            comando.Parameters.AddWithValue("@grupo", grupoDocente.FkGrupo);
+            comando.Parameters.AddWithValue("@tecnico", grupoDocente.FkDocente);
+
+            comando.ExecuteNonQuery();
+
+            Conexao.Fechar();
+        }
+
+        public static DataTable Pesquisar(MODGrupoTecnico grupoTecnico, string tipoPesquisa)
+        {
+            MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
+            comando.Connection = Conexao.conexao;
+
+            if (tipoPesquisa == "todos")
+            {
+                comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.texto_descricao, s.situacao as Situacao, u.login, u.nome as Lider from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
+                    + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao and l.data_saida is null";
+            }
+            else if (tipoPesquisa == "ativos")
+            {
+                comando.CommandText = "select t.id_tecnico, t.nome, t.formacao, t.curso, t.lattes, t.foto, gt.data_entrada from tbltecnico t inner join tblgrupo_tecnico gt on gt.fk_tecnico = t.id_tecnico inner join Tblgrupo g on gt.fk_grupo = g.id_grupo "
+                    + "and gt.data_saida is null";
+            }
+            else if (tipoPesquisa == "aguardando")
+            {
+                comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.texto_descricao, g.lattes, g.logotipo, s.situacao as Situacao, u.login, u.nome as Lider from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
+                    + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao and g.fk_situacao = 3";
+            }
+            else if (tipoPesquisa == "grupo")
+            {
+                comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.texto_descricao, g.lattes, g.logotipo, g.data_inicio as Data, s.situacao as Situacao, u.login, u.nome as Lider, l.data_entrada, l.data_saida from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
+                    + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao and l.fk_grupo = @grupo and l.data_saida is null";
+                //comando.Parameters.AddWithValue("@grupo", grupoLider.FkGrupo);
+            }
+
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
+
+            da.Fill(dados);
+
+            return dados;
+        }
     }
 }

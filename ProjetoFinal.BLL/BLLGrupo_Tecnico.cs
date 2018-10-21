@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjetoFinal.Model;
 using ProjetoFinal.DAL;
+using System.Data;
 
 namespace ProjetoFinal.BLL
 {
@@ -23,6 +24,11 @@ namespace ProjetoFinal.BLL
         public static void ExcluirTecnico(MODGrupoTecnico grupoTecnico)
         {
             DALGrupo_Tecnico.ExcluirTecnico(grupoTecnico);
+        }
+
+        public static DataTable Pesquisar(MODGrupoTecnico grupoTecnico, string tipoPesquisa)
+        {
+            return DALGrupo_Tecnico.Pesquisar(grupoTecnico, tipoPesquisa);
         }
     }
 }

@@ -32,6 +32,11 @@ namespace ProjetoFinal.Web
 
                 RPTDocente.DataSource = BLLGrupo_Docente.Pesquisar(grupoDocente, "ativos");
                 RPTDocente.DataBind();
+
+                MODGrupoTecnico grupoTecnico = new MODGrupoTecnico();
+
+                RPTTecnico.DataSource = BLLGrupo_Tecnico.Pesquisar(grupoTecnico, "ativos");
+                RPTTecnico.DataBind();
             }
         }
     }

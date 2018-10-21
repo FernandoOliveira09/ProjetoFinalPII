@@ -29,7 +29,6 @@
 
     <div class="container">
         <div class="row">
-
             <div class="col s12 container">
                 <asp:Repeater ID="RptConsulta" runat="server">
                      <ItemTemplate>
@@ -63,6 +62,31 @@
                          <div class="row">
                              <div style="float: left">
                                  <asp:Image ID="ImgDocente" style="float:left; margin-left: 60%; margin-top: 10px" ImageUrl=<%# string.Format("../Pages/{0}", Eval("Foto"))%> alt="" Width="100" Height="100" class="circle responsive-img valign profile-image cyan" runat="server"/>
+                             </div>
+                             <div class="col-md-4" style="margin-left: 25%">
+                                <p>Nome: <%# Eval("Nome") %></p>
+                                <p>Formação: <%# Eval("Formacao") %></p>
+                                <p>lattes: <%# Eval("Lattes") %></p>       
+                                <p>Data Entrada: <%# Eval("Data_Entrada") %></p>       
+
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-md-4" >
+                                 
+                             </div>
+                         </div>
+                     </ItemTemplate>
+                 </asp:Repeater>
+            </div>
+            <div class="col s12 container">
+                <h5 style="text-align: center; margin-top: 40px;">Técnicos</h5>
+                <asp:Repeater ID="RPTTecnico" runat="server">
+                     <ItemTemplate>
+                         <hr />
+                         <div class="row">
+                             <div style="float: left">
+                                 <asp:Image ID="ImgTecnico" style="float:left; margin-left: 60%; margin-top: 10px" ImageUrl=<%# string.Format("../Pages/{0}", Eval("Foto"))%> alt="" Width="100" Height="100" class="circle responsive-img valign profile-image cyan" runat="server"/>
                              </div>
                              <div class="col-md-4" style="margin-left: 25%">
                                 <p>Nome: <%# Eval("Nome") %></p>
