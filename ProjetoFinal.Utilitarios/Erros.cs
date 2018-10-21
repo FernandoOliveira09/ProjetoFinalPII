@@ -26,5 +26,9 @@ namespace ProjetoFinal.Utilitarios
         public static string CodigoVazio = "O campo CÓDIGO é inválido!";
         public static string AreaConExiste = "Já existe uma area do conhecimento com esse nome ou código!";
         public static string AreaAvaExiste = "Já existe uma area de avaliação com esse nome ou código!";
+        public static string AtividadeVazia = "O campo ATIVIDADE é inválido!";
+        public static string CursoVazio = "O campo CURSO é inválido!";
+        public static string FormacaoVazia = "O campo FORMAÇÃO é inválido!";
+        public static string AnoConclusaoVazio = "O campo ANO DE CONCLUSÃO é inválido!";
     }
 }

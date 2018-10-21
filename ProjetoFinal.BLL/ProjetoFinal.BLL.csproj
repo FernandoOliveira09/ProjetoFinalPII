@@ -45,6 +45,7 @@
     <Compile Include="BLLGrupo.cs" />
     <Compile Include="BLLRecuperacaoSenha.cs" />
     <Compile Include="BLLRecuperacaoSenha_Usuario.cs" />
+    <Compile Include="BLLTecnico.cs" />
     <Compile Include="BLLUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
