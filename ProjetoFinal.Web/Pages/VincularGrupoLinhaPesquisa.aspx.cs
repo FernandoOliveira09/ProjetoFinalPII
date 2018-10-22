@@ -17,17 +17,40 @@ namespace ProjetoFinal.Web.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["login"] == null)
+            {
+                Session.RemoveAll();
+                Response.Redirect("../Pages/Login.aspx");
+            }
+
+            MODUsuario usuario = new MODUsuario();
+
+            usuario.Login = PegaLogin.RetornaLogin();
+            usuario = BLLUsuario.PesquisarLogin(usuario);
+
+            ImagemUser.ImageUrl = "../Pages/" + usuario.Imagem;
+            ImagemUser2.ImageUrl = "../Pages/" + usuario.Imagem;
+            LblNome.Text = usuario.Nome;
+
+            if (usuario.FkTipo == 1)
+                LblFuncao.Text = "Administrador";
+            else
+                LblFuncao.Text = "Lider de Pesquisa";
+
             if (!Page.IsPostBack)
             {
                 carregamento = 0;
                 CarregaAreaConhecimento();
-                CarregaLinhaPesquisa();
-                CarregaGrupo();
             }
 
             if (carregamento == 0)
             {
                 CarregaAreaAvaliacao();
+                CarregaSubAreaAvaliacao();
+            }
+
+            if(carregamento == 1)
+            {
                 CarregaSubAreaAvaliacao();
             }
 
@@ -85,7 +108,7 @@ namespace ProjetoFinal.Web.Pages
                 TxtSubAreaAvaliacao.DataValueField = "Id";
                 TxtSubAreaAvaliacao.DataTextField = "Nome";
                 TxtSubAreaAvaliacao.DataBind();
-                carregamento = 1;
+                carregamento = 2;
             }
         }
 
@@ -136,7 +159,7 @@ namespace ProjetoFinal.Web.Pages
 
         protected void TxtSubAreaAvaliacao_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CarregaLinhaPesquisa();
+           
         }
 
         protected void BtnVincular_Click(object sender, EventArgs e)
