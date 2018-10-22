@@ -116,6 +116,11 @@ namespace ProjetoFinal.DAL
                 comando.CommandText = "SELECT id_grupo, nome, sigla, email, texto_descricao, logotipo, lattes, data_inicio, fk_situacao FROM TBLGRUPO WHERE nome = @nome";
                 comando.Parameters.AddWithValue("@nome", grupo.Nome);
             }
+            else if (tipoPesquisa == "id")
+            {
+                comando.CommandText = "SELECT id_grupo, nome, sigla, email, texto_descricao, logotipo, lattes, data_inicio, fk_situacao FROM TBLGRUPO WHERE id_grupo = @id";
+                comando.Parameters.AddWithValue("@id", grupo.IdGrupo);
+            }
             else
             {
                 comando.CommandText = "SELECT id_grupo, nome, sigla, email, texto_descricao, logotipo, lattes, data_inicio, fk_situacao FROM TBLGRUPO WHERE sigla = @sigla";

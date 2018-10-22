@@ -14,8 +14,11 @@ namespace ProjetoFinal.Web.Pages
     {
         private static int carregamento = 0;
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             if (Session["login"] == null)
             {
                 Session.RemoveAll();

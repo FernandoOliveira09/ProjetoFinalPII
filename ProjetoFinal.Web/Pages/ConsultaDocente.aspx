@@ -223,6 +223,7 @@
                     </ol>   
                   </div>
                   <div class="col s2 m6 l6">
+                      <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/VincularGrupoDocente.aspx">Vincular Docente</a>
                       <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/CadastroDocente.aspx">Novo Docente</a>
                   </div>
                 </div>

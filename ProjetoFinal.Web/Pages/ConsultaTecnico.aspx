@@ -216,7 +216,11 @@
                       <li><a href="#">Consulta de Técnicos</a></li>
                     </ol>   
                   </div>
+                  <%--<div class="col s2 m6 l6">
+                      <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/VincularGrupoTecnico.aspx">Vincular Técnico</a>
+                  </div>--%>
                   <div class="col s2 m6 l6">
+                      <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/VincularGrupoTecnico.aspx">Vincular Técnico</a>
                       <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/CadastroTecnico.aspx">Novo Técnico</a>
                   </div>
                 </div>

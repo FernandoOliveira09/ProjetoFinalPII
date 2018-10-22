@@ -16,6 +16,26 @@ namespace ProjetoFinal.Web.Pages
         {
             MODDocente docente = new MODDocente();
 
+            if (Session["login"] == null)
+            {
+                Session.RemoveAll();
+                Response.Redirect("../Pages/Login.aspx");
+            }
+
+            MODUsuario usuario = new MODUsuario();
+
+            usuario.Login = PegaLogin.RetornaLogin();
+            usuario = BLLUsuario.PesquisarLogin(usuario);
+
+            ImagemUser.ImageUrl = "../Pages/" + usuario.Imagem;
+            ImagemUser2.ImageUrl = "../Pages/" + usuario.Imagem;
+            LblNome.Text = usuario.Nome;
+
+            if (usuario.FkTipo == 1)
+                LblFuncao.Text = "Administrador";
+            else
+                LblFuncao.Text = "Lider de Pesquisa";
+
             if (!IsPostBack)
             {
                 RptConsulta.DataSource = BLLDocente.Pesquisar(docente, "todos");

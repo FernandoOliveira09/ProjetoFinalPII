@@ -101,6 +101,7 @@
     <Content Include="Pages\ConsultaDocente.aspx" />
     <Content Include="Pages\ConsultaGrupo.aspx" />
     <Content Include="Pages\ConsultaLinhaPesquisa.aspx" />
+    <Content Include="Pages\ConsultarGrupoVinculos.aspx" />
     <Content Include="Pages\ConsultaSubAreaAvaliacao.aspx" />
     <Content Include="Pages\ConsultaTecnico.aspx" />
     <Content Include="Pages\ConsultaUsuario.aspx" />
@@ -292,6 +293,13 @@
     </Compile>
     <Compile Include="Pages\ConsultaLinhaPesquisa.aspx.designer.cs">
       <DependentUpon>ConsultaLinhaPesquisa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConsultarGrupoVinculos.aspx.cs">
+      <DependentUpon>ConsultarGrupoVinculos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ConsultarGrupoVinculos.aspx.designer.cs">
+      <DependentUpon>ConsultarGrupoVinculos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ConsultaSubAreaAvaliacao.aspx.cs">
       <DependentUpon>ConsultaSubAreaAvaliacao.aspx</DependentUpon>

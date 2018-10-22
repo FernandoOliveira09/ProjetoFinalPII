@@ -104,9 +104,8 @@ namespace ProjetoFinal.DAL
             }
             else if (tipoPesquisa == "grupo")
             {
-                comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.texto_descricao, g.lattes, g.logotipo, g.data_inicio as Data, s.situacao as Situacao, u.login, u.nome as Lider, l.data_entrada, l.data_saida from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
-                    + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao and l.fk_grupo = @grupo and l.data_saida is null";
-                //comando.Parameters.AddWithValue("@grupo", grupoLider.FkGrupo);
+                comando.CommandText = "select t.id_tecnico, t.nome, t.formacao, t.curso, t.lattes, t.foto, gt.data_entrada, gt.data_saida, g.id_grupo from tbltecnico t inner join tblgrupo_tecnico gt on gt.fk_tecnico = t.id_tecnico inner join Tblgrupo g on gt.fk_grupo = g.id_grupo and gt.fk_grupo = @grupo ";
+                comando.Parameters.AddWithValue("@grupo", grupoTecnico.FkGrupo);
             }
 
             comando.CommandType = CommandType.Text;

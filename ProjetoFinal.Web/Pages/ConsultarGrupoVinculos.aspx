@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConsultaLinhaPesquisa.aspx.cs" Inherits="ProjetoFinal.Web.Pages.ConsultaLinhaPesquisa" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConsultarGrupoVinculos.aspx.cs" Inherits="ProjetoFinal.Web.Pages.ConsultarGrupoVinculos" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -215,55 +215,26 @@
               <div class="container">
                 <div class="row">
                   <div class="col s10 m6 l6">
-
-                    <h5 class="breadcrumbs-title">Consulta de linha de pesquisa</h5>
+                    <h5 class="breadcrumbs-title">Consulta de Vínculos do Grupo</h5>
                     <ol class="breadcrumbs">
                       <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
-                      <li><a href="#">Grupos de Pesquisa</a></li>
-                      <li><a href="#">Consulta de Linha de Pesquisa</a></li>
-                    </ol>
-                  </div>
-                  <div class="col s2 m6 l6">
-                      <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/VincularGrupoLinhaPesquisa.aspx">Vincular Linha</a>
-                     <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/CadastroLinhaPesquisa.aspx">Nova Linha</a>
+                      <li><a href="#">Grupos</a></li>
+                      <li><a href="#">Consulta de Vínculos do Grupo</a></li>
+                    </ol>   
                   </div>
                 </div>
               </div>
             </div>
-            <div class='row'>
-                    <form runat="server">
-                        <div class="input-field col s6">
-                            <label for="TxtAreaConhecimento">Selecione a área de conhecimento<span style="color: red;">*</span></label>
-                            <br /> 
-                            <asp:DropDownList class="input-field" runat="server" ID="TxtAreaConhecimento" AutoPostBack="true" OnSelectedIndexChanged="TxtAreaConhecimento_SelectedIndexChanged">
-
-                            </asp:DropDownList>
-                         </div>
-                         <div class="input-field col s6">
-                            <label for="TxtAreaAvaliacao">Selecione a área de avaliação<span style="color: red;">*</span></label>
-                            <br /> 
-                            <asp:DropDownList class="input-field" runat="server" ID="TxtAreaAvaliacao" AutoPostBack="true" OnSelectedIndexChanged="TxtAreaAvaliacao_SelectedIndexChanged">
-
-                            </asp:DropDownList>
-                         </div>
-                         <div class="input-field col s6">
-                            <label for="TxtSubAreaAvaliacao">Selecione a sub área de avaliação<span style="color: red;">*</span></label>
-                            <br /> 
-                            <asp:DropDownList class="input-field" runat="server" ID="TxtSubAreaAvaliacao" AutoPostBack="true">
-
-                            </asp:DropDownList>
-                         </div>
-                    </form>          
-               </div>  
-            <div class="row">
-                <div class='input-field col s12'>
-                    <asp:Repeater ID="RptConsulta" runat="server">
+         <div class='row'>
+              <div class='input-field col s12'>
+                  <h5>Docentes</h5>
+                    <asp:Repeater ID="RptDocentes" runat="server">
                         <HeaderTemplate>
                             <table class="striped responsive-table">
                                 <thead>
                                   <tr>
-                                      <th>Código</th>
-                                      <th>Nome da Linha</th>
+                                      <th>Nome</th>
+                                      <th>Data de Entrada</th>
                                       <th>Ações</th>
                                   </tr>
                                 </thead>
@@ -271,21 +242,74 @@
                         </HeaderTemplate>
                         <ItemTemplate>
                              <tr>
-                                <td><%# Eval("ID") %></td>
-                                <td><%# Eval("Linha") %></td>
-                                <%--<td><%# Eval("Status") %></td>--%>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoLinhaPesquisa.aspx?id=<%# Eval("ID") %>"><i class="material-icons">edit</i>&nbsp&nbsp<a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Alteracaolider.aspx?linha=<%# Eval("Linha") %>"><i class="material-icons">close</i></a></a></td>
-<%--                               <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
+                                <td><%# Eval("Nome") %></td>
+                                <td><%# Eval("data_entrada", "{0:d}") %></td>
+                                <%--<td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoVinculoDocentes.aspx?docente=<%# Eval("id_docente") %>?grupo=<%# Eval("id_grupo") %>"><i class="material-icons">edit</i></a></td>--%>
+<%--                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
                               </tr>               
                         </ItemTemplate>
                         <FooterTemplate>
                             </tbody>
                           </table>
                         </FooterTemplate>
-                    </asp:Repeater> 
+                    </asp:Repeater>
               </div>
-            </div>
-              
+              <div class='input-field col s12'>
+                    <h5>Técnicos</h5>
+                    <asp:Repeater ID="RPTTecnicos" runat="server">
+                        <HeaderTemplate>
+                            <table class="striped responsive-table">
+                                <thead>
+                                  <tr>
+                                      <th>Nome</th>
+                                      <th>Data de Entrada</th>
+                                      <th>Ações</th>
+                                  </tr>
+                                </thead>
+                            <tbody>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                             <tr>
+                                <td><%# Eval("Nome") %></td>
+                                <td><%# Eval("data_entrada", "{0:d}") %></td>
+                                <%--<td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDocente.aspx?docente=<%# Eval("id_tecnico") %>?grupo=<%# Eval("id_grupo") %>"><i class="material-icons">edit</i></a></td>--%>
+<%--                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
+                              </tr>               
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </tbody>
+                          </table>
+                        </FooterTemplate>
+                    </asp:Repeater>
+              </div>
+              <div class='input-field col s12'>
+                  <h5>Linhas</h5>
+                    <asp:Repeater ID="RPTLinhas" runat="server">
+                        <HeaderTemplate>
+                            <table class="striped responsive-table">
+                                <thead>
+                                  <tr>
+                                      <th>Nome</th>
+                                      <th>Data de Entrada</th>
+                                      <th>Ações</th>
+                                  </tr>
+                                </thead>
+                            <tbody>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                             <tr>
+                                <td><%# Eval("nome_linha") %></td>
+                                <td><%# Eval("data_inicio", "{0:d}") %></td>
+                                <%--<td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDocente.aspx?docente=<%# Eval("id_linha") %>?grupo=<%# Eval("id_grupo") %>"><i class="material-icons">edit</i></a></td>--%>
+<%--                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
+                              </tr>               
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </tbody>
+                          </table>
+                        </FooterTemplate>
+                    </asp:Repeater>
+              </div>
         </div>
         <!-- END CONTENT -->
         <!-- START RIGHT SIDEBAR NAV-->
