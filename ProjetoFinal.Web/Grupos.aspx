@@ -104,6 +104,25 @@
                      </ItemTemplate>
                  </asp:Repeater>
             </div>
+            <div class="col s12 container">
+                <h5 style="text-align: center; margin-top: 40px;">Linhas de pesquisa</h5>
+                <asp:Repeater ID="RPTLinha" runat="server">
+                     <ItemTemplate>
+                         <hr />
+                         <div class="row">
+                             <div class="col-md-4" style="margin-left: 25%">
+                                <p>Linha: <%# Eval("Nome_linha") %></p>
+                                <p>Descrição: <%# Eval("Descricao") %></p>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-md-4" >
+                                 
+                             </div>
+                         </div>
+                     </ItemTemplate>
+                 </asp:Repeater>
+            </div>
         </div>
         <hr />
     </div>
