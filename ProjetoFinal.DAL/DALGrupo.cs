@@ -250,14 +250,10 @@ namespace ProjetoFinal.DAL
             {
                 comando.CommandText = "select id_grupo, nome from tblgrupo";
             }
-            else if (tipoPesquisa == "email")
+            else if (tipoPesquisa == "nome")
             {
-                comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO WHERE email = @email";
-                comando.Parameters.AddWithValue("@email", item.Email);
-            }
-            else
-            {
-                comando.CommandText = "SELECT login, nome, email, lattes, imagem, fk_tipo, fk_status FROM TBLUSUARIO";
+                comando.CommandText = "select id_grupo, nome from tblgrupo where nome = @nome";
+                comando.Parameters.AddWithValue("@nome", item.Nome);
             }
 
             MySqlDataReader reader = comando.ExecuteReader();

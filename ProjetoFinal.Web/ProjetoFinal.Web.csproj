@@ -93,6 +93,7 @@
     <Content Include="Pages\CadastroDocente.aspx" />
     <Content Include="Pages\CadastroGrupo.aspx" />
     <Content Include="Pages\CadastroLinhaPesquisa.aspx" />
+    <Content Include="Pages\CadastroProjetoPesquisa.aspx" />
     <Content Include="Pages\CadastroSubAreaAvaliacao.aspx" />
     <Content Include="Pages\CadastroTecnico.aspx" />
     <Content Include="Pages\CadastroUsuario.aspx" />
@@ -238,6 +239,13 @@
     </Compile>
     <Compile Include="Pages\CadastroLinhaPesquisa.aspx.designer.cs">
       <DependentUpon>CadastroLinhaPesquisa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CadastroProjetoPesquisa.aspx.cs">
+      <DependentUpon>CadastroProjetoPesquisa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CadastroProjetoPesquisa.aspx.designer.cs">
+      <DependentUpon>CadastroProjetoPesquisa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CadastroSubAreaAvaliacao.aspx.cs">
       <DependentUpon>CadastroSubAreaAvaliacao.aspx</DependentUpon>
