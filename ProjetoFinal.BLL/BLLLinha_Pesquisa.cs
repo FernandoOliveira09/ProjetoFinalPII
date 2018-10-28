@@ -85,9 +85,9 @@ namespace ProjetoFinal.BLL
             return DALLinha_Pesquisa.PesquisarSubAvaliacao(area);
         }
 
-        public static MODLinha_Pesquisa PesquisarLinha(MODLinha_Pesquisa area)
+        public static MODLinha_Pesquisa PesquisarLinha(MODLinha_Pesquisa area, string tipoPesquisa)
         {
-            return DALLinha_Pesquisa.PesquisarLinha(area);
+            return DALLinha_Pesquisa.PesquisarLinha(area , tipoPesquisa);
         }
     }
 }

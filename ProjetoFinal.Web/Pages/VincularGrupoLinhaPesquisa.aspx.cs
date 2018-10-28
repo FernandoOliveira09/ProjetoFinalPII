@@ -174,7 +174,7 @@ namespace ProjetoFinal.Web.Pages
             {
                 try
                 {
-                    grupoLinha.FkLinha = Convert.ToInt32(TxtLinhaPesquisa.SelectedValue);
+                    grupoLinha.FkLinha = TxtLinhaPesquisa.SelectedValue.ToString();
                     grupoLinha.FkGrupo = Convert.ToInt32(TxtGrupo.SelectedValue);
                     grupoLinha.DataEntrada = Convert.ToDateTime(TxtData.Text.Trim());
                     grupoLinha.Descricao = TxtDescricao.Text.Trim();

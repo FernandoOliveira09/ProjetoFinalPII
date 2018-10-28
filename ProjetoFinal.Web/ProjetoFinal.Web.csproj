@@ -110,6 +110,7 @@
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\RecuperacaoSenha.aspx" />
     <Content Include="Pages\RecuperaSenhaUsuario.aspx" />
+    <Content Include="Pages\VincularDocenteLinhaPesquisa.aspx" />
     <Content Include="Pages\VincularGrupoDocente.aspx" />
     <Content Include="Pages\VincularGrupoLinhaPesquisa.aspx" />
     <Content Include="Pages\VincularGrupoTecnico.aspx" />
@@ -357,6 +358,13 @@
     <Compile Include="Pages\RecuperaSenhaUsuario.aspx.designer.cs">
       <DependentUpon>RecuperaSenhaUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\VincularDocenteLinhaPesquisa.aspx.cs">
+      <DependentUpon>VincularDocenteLinhaPesquisa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\VincularDocenteLinhaPesquisa.aspx.designer.cs">
+      <DependentUpon>VincularDocenteLinhaPesquisa.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\VincularGrupoDocente.aspx.cs">
       <DependentUpon>VincularGrupoDocente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -404,6 +412,7 @@
     <Folder Include="Imagens\" />
     <Folder Include="Models\" />
     <Folder Include="Pages\Imagens\" />
+    <Folder Include="Pages\Lider\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjetoFinal.BLL\ProjetoFinal.BLL.csproj">

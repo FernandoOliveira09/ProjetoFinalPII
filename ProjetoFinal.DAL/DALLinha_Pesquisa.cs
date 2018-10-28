@@ -403,7 +403,7 @@ namespace ProjetoFinal.DAL
             return retorno;
         }
 
-        public static MODLinha_Pesquisa PesquisarLinha(MODLinha_Pesquisa area)
+        public static MODLinha_Pesquisa PesquisarLinha(MODLinha_Pesquisa area, string tipoPesquisa)
         {
             MODLinha_Pesquisa retorno = new MODLinha_Pesquisa();
 
@@ -412,8 +412,17 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "SELECT id_linha, nome_linha, fk_sub FROM tbllinha_pesquisa where id_linha = @id";
-            comando.Parameters.AddWithValue("@id", area.Id);
+            if (tipoPesquisa == "id")
+            {
+                comando.CommandText = "SELECT id_linha, nome_linha, fk_sub FROM tbllinha_pesquisa where id_linha = @id";
+                comando.Parameters.AddWithValue("@id", area.Id);
+            }
+            else
+            {
+                comando.CommandText = "SELECT id_linha, nome_linha, fk_sub FROM tbllinha_pesquisa where nome_linha = @nome";
+                comando.Parameters.AddWithValue("@nome", area.Linha);
+            }
+            
 
             MySqlDataReader reader = comando.ExecuteReader();
 

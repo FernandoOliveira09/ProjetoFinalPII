@@ -47,7 +47,7 @@ namespace ProjetoFinal.Web.Pages
 
             linha.Id = Page.Request.QueryString["id"];
 
-            linha = BLLLinha_Pesquisa.PesquisarLinha(linha);
+            linha = BLLLinha_Pesquisa.PesquisarLinha(linha, "id");
             idLinha = linha.Id;
             idSub = linha.FkSub;
 

@@ -28,7 +28,7 @@ namespace ProjetoFinal.BLL
 
         public static DataTable Pesquisar(MODGrupoDocente grupoDocente, string tipoPesquisa)
         {
-            return DALGrupo_Docente.Pesquisar(grupoDocente, "ativos");
+            return DALGrupo_Docente.Pesquisar(grupoDocente, tipoPesquisa);
         }
     }
 }

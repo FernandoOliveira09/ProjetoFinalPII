@@ -1,0 +1,50 @@
+.fonte-menu
+{
+	color: #000;
+}
+
+#titulo-sessao
+{
+  margin-left: 20%;
+  margin-right: 2%; 
+  padding-bottom: -1%; 
+  padding-left: 0.5%;
+}
+
+#conteudo-sessao
+{
+  margin-left: 20%;
+  margin-right: 2%; 
+  padding-bottom: -1%; 
+  margin-top: -1%;
+}
+
+#header-titulo{
+  display:block;
+  position:fixed;
+  top:100;
+  left:0;
+  width:100%;
+  background:white;
+  text-align:center;
+  padding: 20px 0;
+  height: 9%; 
+  margin-top: -1%; 
+  border-bottom: 1px solid #0D47A1;
+}
+
+@media only screen and (min-width: 993px)
+{
+  #titulo-sessao{margin-left: 280px;}
+  #conteudo-sessao{margin-left: 280px;}
+}
+
+@media only screen and (max-height: 810px)
+{
+  #header-titulo{height: 12%;}
+}
+
+@media only screen and (max-height: 600px)
+{
+  #header-titulo{height: 17%;}
+}

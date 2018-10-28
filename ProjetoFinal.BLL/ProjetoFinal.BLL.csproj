@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLLDocente.cs" />
+    <Compile Include="BLLDocente_Linha_Pesquisa.cs" />
     <Compile Include="BLLGrupo_Docente.cs" />
     <Compile Include="BLLGrupo_Linha_Pesquisa.cs" />
     <Compile Include="BLLGrupo_Tecnico.cs" />

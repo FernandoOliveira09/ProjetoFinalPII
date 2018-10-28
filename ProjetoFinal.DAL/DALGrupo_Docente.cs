@@ -91,6 +91,11 @@ namespace ProjetoFinal.DAL
                 comando.CommandText = "select d.id_docente, d.nome, d.formacao, d.curso, d.lattes, d.foto, gd.data_entrada, gd.data_saida, g.id_grupo from tbldocente d inner join tblgrupo_docente gd on gd.fk_docente = d.id_docente inner join Tblgrupo g on gd.fk_grupo = g.id_grupo and gd.fk_grupo = @grupo";
                 comando.Parameters.AddWithValue("@grupo", grupoDocente.FkGrupo);
             }
+            else if (tipoPesquisa == "docente")
+            {
+                comando.CommandText = "select g.id_grupo, g.nome, gd.data_entrada, gd.data_saida from tblgrupo g inner join tblgrupo_docente gd on gd.fk_grupo = g.id_grupo inner join tbldocente d on gd.fk_docente = d.id_docente and gd.fk_docente = @docente and gd.data_saida is null";
+                comando.Parameters.AddWithValue("@docente", grupoDocente.FkDocente);
+            }
 
             comando.CommandType = CommandType.Text;
             MySqlDataAdapter da = new MySqlDataAdapter(comando);

@@ -9,7 +9,7 @@ namespace ProjetoFinal.Model
     public class MODGrupoLinha_Pesquisa
     {
         public int FkGrupo { get; set; }
-        public int FkLinha { get; set; }
+        public string FkLinha { get; set; }
         public DateTime DataEntrada { get; set; }
         public DateTime DataSaida { get; set; }
         public string Descricao { get; set; }

@@ -22,9 +22,9 @@ namespace ProjetoFinal.BLL
             DALDocente.Alterar(docente);
         }
 
-        public static MODDocente PesquisarDocente(MODDocente docente)
+        public static MODDocente PesquisarDocente(MODDocente docente, string tipoPesquisa)
         {
-            return DALDocente.PesquisarDocente(docente);
+            return DALDocente.PesquisarDocente(docente, tipoPesquisa);
         }
 
         public static List<MODDocente> Pesquisar(MODDocente docente, string tipoPesquisa)

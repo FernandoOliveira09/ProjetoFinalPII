@@ -41,25 +41,6 @@ namespace ProjetoFinal.Web.Pages
                 RptConsulta.DataSource = BLLDocente.Pesquisar(docente, "todos");
                 RptConsulta.DataBind();
             }
-
-            if (Session["login"] == null)
-            {
-                Session.RemoveAll();
-                Response.Redirect("../Pages/Login.aspx");
-            }
-
-            MODUsuario usuario2 = new MODUsuario();
-            usuario2.Login = PegaLogin.RetornaLogin();
-            usuario2 = BLLUsuario.PesquisarLogin(usuario2);
-
-            ImagemUser.ImageUrl = "../Pages/" + usuario2.Imagem;
-            ImagemUser2.ImageUrl = "../Pages/" + usuario2.Imagem;
-            LblNome.Text = usuario2.Nome;
-
-            if (usuario2.FkTipo == 1)
-                LblFuncao.Text = "Administrador";
-            else
-                LblFuncao.Text = "Lider de Pesquisa";
         }
     }
 }

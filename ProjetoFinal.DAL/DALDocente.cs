@@ -57,7 +57,7 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
-        public static MODDocente PesquisarDocente(MODDocente docente)
+        public static MODDocente PesquisarDocente(MODDocente docente, string tipoPesquisa)
         {
             MODDocente retorno = new MODDocente();
 
@@ -66,9 +66,16 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "SELECT id_docente, nome, formacao, data_conclusao, lattes, foto FROM TBLDOCENTE WHERE id_docente = @id";
-
-            comando.Parameters.AddWithValue("@id", docente.IdDocente);
+            if(tipoPesquisa == "id")
+            {
+                comando.CommandText = "SELECT id_docente, nome, formacao, data_conclusao, lattes, foto FROM TBLDOCENTE WHERE id_docente = @id";
+                comando.Parameters.AddWithValue("@id", docente.IdDocente);
+            }
+            else
+            {
+                comando.CommandText = "SELECT id_docente, nome, formacao, data_conclusao, lattes, foto FROM TBLDOCENTE WHERE nome = @nome";
+                comando.Parameters.AddWithValue("@nome", docente.Nome);
+            }
 
             MySqlDataReader reader = comando.ExecuteReader();
 
@@ -111,6 +118,11 @@ namespace ProjetoFinal.DAL
             {
                 comando.CommandText = "SELECT id_docente, nome, formacao, data_conclusao, lattes, foto FROM TBLDOCENTE WHERE nome = @nome";
                 comando.Parameters.AddWithValue("@nome", item.Nome);
+            }
+            else if (tipoPesquisa == "incompleto")
+            {
+                comando.CommandText = "SELECT id_docente, nome, formacao, data_conclusao, lattes, foto FROM TBLDOCENTE WHERE nome like @nome";
+                comando.Parameters.AddWithValue("@nome", "%" + item.Nome + "%");
             }
             else if (tipoPesquisa == "formacao")
             {

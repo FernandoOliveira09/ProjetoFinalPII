@@ -44,6 +44,7 @@
     <Compile Include="MODArea_Avaliacao.cs" />
     <Compile Include="MODArea_Conhecimento.cs" />
     <Compile Include="MODDocente.cs" />
+    <Compile Include="MODDocente_Linha_Pesquisa.cs" />
     <Compile Include="MODGrupo.cs" />
     <Compile Include="MODGrupoDocente.cs" />
     <Compile Include="MODGrupoLider.cs" />

@@ -39,7 +39,7 @@ namespace ProjetoFinal.Web.Pages
 
             docente.IdDocente = Convert.ToInt32(Page.Request.QueryString["docente"]);
             idDocente = Convert.ToInt32(Page.Request.QueryString["docente"]);
-            docente = BLLDocente.PesquisarDocente(docente);
+            docente = BLLDocente.PesquisarDocente(docente, "id");
             //idDocente = docente.IdDocente;
 
             if (!Page.IsPostBack)
