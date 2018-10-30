@@ -246,7 +246,7 @@
                             </div>
                           </div>
                           <div class="input-field col s1" style="float:right; margin-top: -74px;">                          
-                            <asp:LinkButton ID="TxtPesquisarGrupo" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="Pesquisar" />
+                            <asp:LinkButton ID="BtnPesquisar" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="Pesquisar" OnClick="BtnPesquisar_Click" />
                           </div>
                           <div class="row">
                             <div class='input-field col s12' style="margin-top: -10px">
@@ -265,7 +265,7 @@
                                     <ItemTemplate>
                                          <tr>
                                             <td><asp:Label ID="TxtNomeGrupo" Text='<%# Eval("Nome") %>' runat="server"></asp:Label> </td>
-                                            <td><asp:LinkButton ID="BtnAddGrupo" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="+"></asp:LinkButton></td>
+                                            <td><asp:LinkButton ID="BtnAddGrupo" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="+" OnClick="BtnAddGrupo_Click"></asp:LinkButton></td>
                                         </tr>               
                                     </ItemTemplate>
                                     <FooterTemplate>
@@ -287,7 +287,7 @@
                             <div class="input-field col s8">
                               <label for="TxtLider">Tipo de projeto<span style="color: red;">*</span></label>
                               <br />  
-                              <asp:DropDownList class="input-field" runat="server" ID="TxtTipoProjeto">
+                              <asp:DropDownList class="input-field" runat="server" ID="TxtTipoProjeto" AutoPostBack="True" OnSelectedIndexChanged="TxtTipoProjeto_SelectedIndexChanged">
                                   <asp:ListItem Text="Voluntário" />
                                   <asp:ListItem Text="Bolsa" />
                               </asp:DropDownList>
@@ -298,7 +298,7 @@
                             <div class="input-field col s8">
                               <label for="TxtLider">Tipo de bolsa<span style="color: red;">*</span></label>
                               <br />  
-                                <asp:DropDownList class="input-field" runat="server" ID="TxtTipoBolsa" Enabled="false">
+                                <asp:DropDownList class="input-field" runat="server" ID="TxtTipoBolsa" Enabled="false" AutoPostBack="True" OnSelectedIndexChanged="TxtTipoBolsa_SelectedIndexChanged">
                                   <asp:ListItem Text="Pibifsp" />
                                   <asp:ListItem Text="CNPQ" />
                                   <asp:ListItem Text="Outra" />
@@ -322,10 +322,36 @@
                               </asp:DropDownList>
                             </div>
                           </div>
+                          
+                          <div class='input-field col s12' style="margin-top: -10px">
+                                <h5>Linhas de pesquisa do docente</h5>
+                                <asp:Repeater ID="RptLinhas" runat="server">
+                                    <HeaderTemplate>
+                                        <table class="striped responsive-table">
+                                            <thead>
+                                              <tr>
+                                                  <th>Nome da linha</th>
+                                                  <th>Ações</th>
+                                              </tr>
+                                            </thead>
+                                        <tbody>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                         <tr>
+                                            <td><asp:Label ID="TxtNomeLinha" Text='<%# Eval("Linha") %>' runat="server"></asp:Label> </td>
+                                            <td><asp:CheckBox ID="ChkAddLinha" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="+"></asp:CheckBox></td>
+                                        </tr>               
+                                    </ItemTemplate>
+                                    <FooterTemplate>
+                                        </tbody>
+                                      </table>
+                                    </FooterTemplate>
+                                </asp:Repeater> 
+                            </div>
 
                           <div class="row">
                               <div class="input-field col s12">
-                                  <asp:Button id="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar" runat="server">
+                                  <asp:Button id="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar" runat="server" OnClick="BtnCadastrar_Click">
                                   </asp:Button>
                               </div>
                           </div>

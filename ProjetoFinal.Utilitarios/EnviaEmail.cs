@@ -31,7 +31,7 @@ namespace ProjetoFinal.Utilitarios
             {
                 client.Send(mail);
             }
-            catch (System.Exception erro)
+            catch (Exception)
             {
                //trata erro
             }
@@ -61,7 +61,7 @@ namespace ProjetoFinal.Utilitarios
             {
                 client.Send(mail);
             }
-            catch (System.Exception erro)
+            catch (System.Exception)
             {
                 //trata erro
             }
@@ -90,7 +90,7 @@ namespace ProjetoFinal.Utilitarios
             {
                 client.Send(mail);
             }
-            catch (System.Exception erro)
+            catch (Exception)
             {
                 //trata erro
             }

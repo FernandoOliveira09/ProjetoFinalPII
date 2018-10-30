@@ -25,24 +25,56 @@ namespace ProjetoFinal.Web.Pages
             }
         }
 
+        protected void TxtTipoProjeto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TxtTipoProjeto.Text == "Bolsa")
+                TxtTipoBolsa.Enabled = true;
+            else
+                TxtTipoBolsa.Enabled = false;
+        }
+
+        protected void TxtTipoBolsa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TxtTipoBolsa.Text == "Outra")
+                TxtNomeBolsa.Enabled = true;
+            else
+                TxtNomeBolsa.Enabled = false;
+        }
+
+        protected void BtnCadastrar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+            MODGrupo grupo = new MODGrupo();
+
+            grupo.Nome = TxtPesquisar.Text.Trim();
+            RptGrupo.DataSource = BLLGrupo.PesquisarGrupos(grupo, "incompleto");
+            RptGrupo.DataBind();
+        }
+
         protected void BtnAddGrupo_Click(object sender, EventArgs e)
         {
-            //MODGrupoDocente grupoDocente = new MODGrupoDocente();
-            //MODDocente docente = new MODDocente();
+            MODGrupoDocente grupoDocente = new MODGrupoDocente();
+            MODGrupo grupo = new MODGrupo();
 
-            //Control botao = (Control)sender;
-            //RepeaterItem item = (RepeaterItem)botao.Parent;
+            Control botao = (Control)sender;
+            RepeaterItem item = (RepeaterItem)botao.Parent;
 
-            //Label lbl = (Label)item.FindControl("TxtNomeGrupo");
-            //string titulo = lbl.Text;
-            //docente.Nome = titulo;
+            Label lbl = (Label)item.FindControl("TxtNomeGrupo");
+            string titulo = lbl.Text;
+            grupo.Nome = titulo;
 
-            //docente = BLLDocente.PesquisarDocente(docente, "nome");
-            //grupoDocente.FkDocente = docente.IdDocente;
-            //idDocente = docente.IdDocente;
+            grupo = BLLGrupo.PesquisarGrupo(grupo, "nome");
 
-            //RptGrupo.DataSource = BLLGrupo_Docente.Pesquisar(grupoDocente, "docente");
-            //RptGrupo.DataBind();
+            grupoDocente.FkGrupo = grupo.IdGrupo;
+
+            TxtDocenteLider.DataSource = BLLGrupo_Docente.Pesquisar(grupoDocente, "grupo");
+            TxtDocenteLider.DataValueField = "id_docente";
+            TxtDocenteLider.DataTextField = "nome";
+            TxtDocenteLider.DataBind();
         }
     }
 }
