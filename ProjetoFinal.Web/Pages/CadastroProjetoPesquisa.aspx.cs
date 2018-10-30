@@ -27,22 +27,7 @@ namespace ProjetoFinal.Web.Pages
 
         protected void BtnAddGrupo_Click(object sender, EventArgs e)
         {
-            //MODGrupoDocente grupoDocente = new MODGrupoDocente();
-            //MODDocente docente = new MODDocente();
 
-            //Control botao = (Control)sender;
-            //RepeaterItem item = (RepeaterItem)botao.Parent;
-
-            //Label lbl = (Label)item.FindControl("TxtNomeGrupo");
-            //string titulo = lbl.Text;
-            //docente.Nome = titulo;
-
-            //docente = BLLDocente.PesquisarDocente(docente, "nome");
-            //grupoDocente.FkDocente = docente.IdDocente;
-            //idDocente = docente.IdDocente;
-
-            //RptGrupo.DataSource = BLLGrupo_Docente.Pesquisar(grupoDocente, "docente");
-            //RptGrupo.DataBind();
         }
     }
 }
