@@ -255,6 +255,11 @@ namespace ProjetoFinal.DAL
                 comando.CommandText = "select id_grupo, nome from tblgrupo where nome = @nome";
                 comando.Parameters.AddWithValue("@nome", item.Nome);
             }
+            else
+            {
+                comando.CommandText = "select id_grupo, nome from tblgrupo where nome like @nome";
+                comando.Parameters.AddWithValue("@nome", "%" + item.Nome + "%");
+            }
 
             MySqlDataReader reader = comando.ExecuteReader();
 
