@@ -53,6 +53,7 @@
     <Compile Include="DALGrupo_Tecnico.cs" />
     <Compile Include="DALGrupo_Docente.cs" />
     <Compile Include="DALLinha_Pesquisa.cs" />
+    <Compile Include="DALProjeto_Pesquisa.cs" />
     <Compile Include="DALRecuperacaoSenha.cs" />
     <Compile Include="DALRecuperacaoSenha_Usuario.cs" />
     <Compile Include="DALTecnico.cs" />

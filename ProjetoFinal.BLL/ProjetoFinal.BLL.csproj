@@ -48,6 +48,7 @@
     <Compile Include="BLLGrupo_Tecnico.cs" />
     <Compile Include="BLLLinha_Pesquisa.cs" />
     <Compile Include="BLLGrupo.cs" />
+    <Compile Include="BLLProjeto_Pesquisa.cs" />
     <Compile Include="BLLRecuperacaoSenha.cs" />
     <Compile Include="BLLRecuperacaoSenha_Usuario.cs" />
     <Compile Include="BLLTecnico.cs" />

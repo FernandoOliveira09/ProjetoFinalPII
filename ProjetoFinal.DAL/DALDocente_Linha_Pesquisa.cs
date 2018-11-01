@@ -29,5 +29,31 @@ namespace ProjetoFinal.DAL
 
             Conexao.Fechar();
         }
+
+        public static DataTable Pesquisar(MODGrupoDocente grupoDocente, string tipoPesquisa)
+        {
+            MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
+            comando.Connection = Conexao.conexao;
+
+            if (tipoPesquisa == "docente")
+            {
+                comando.CommandText = "select l.id_linha, l.nome_linha, d.id_docente, d.nome, g.id_grupo, g.nome" 
+                    + " from tbllinha_pesquisa l inner join tbldocente_linha_pesquisa dlp on dlp.fk_linha = l.id_linha "
+                    + " inner join tblgrupo g on g.id_grupo = dlp.fk_grupo" 
+                    + " inner join tbldocente d on dlp.fk_docente = d.id_docente and dlp.fk_docente = @docente" 
+                    + " and dlp.fk_grupo = @grupo and dlp.data_saida is null";
+                comando.Parameters.AddWithValue("@docente", grupoDocente.FkDocente);
+                comando.Parameters.AddWithValue("@grupo", grupoDocente.FkGrupo);
+            }
+
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
+
+            da.Fill(dados);
+
+            return dados;
+        }
     }
 }

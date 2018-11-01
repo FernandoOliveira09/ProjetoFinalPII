@@ -314,10 +314,17 @@
                           </div>
                           
                           <div class="row">
+                            <div class="input-field col s12">
+                              <asp:TextBox id="TxtDataInicio" type="text" runat="server" />
+                              <label for="TxtCurso">Data de início</label>
+                            </div>
+                          </div>
+                          
+                          <div class="row">
                             <div class="input-field col s8">
                               <label for="TxtLider">Docente responsável<span style="color: red;">*</span></label>
                               <br />  
-                              <asp:DropDownList class="input-field" runat="server" ID="TxtDocenteLider">
+                              <asp:DropDownList class="input-field" runat="server" ID="TxtDocenteLider" OnSelectedIndexChanged="TxtDocenteLider_SelectedIndexChanged" AutoPostBack="true">
 
                               </asp:DropDownList>
                             </div>
@@ -331,15 +338,21 @@
                                             <thead>
                                               <tr>
                                                   <th>Nome da linha</th>
-                                                  <th>Ações</th>
+                                                  <th>Adicionar</th>
                                               </tr>
                                             </thead>
                                         <tbody>
                                     </HeaderTemplate>
                                     <ItemTemplate>
                                          <tr>
-                                            <td><asp:Label ID="TxtNomeLinha" Text='<%# Eval("Linha") %>' runat="server"></asp:Label> </td>
-                                            <td><asp:CheckBox ID="ChkAddLinha" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="+"></asp:CheckBox></td>
+                                            <td><asp:Label ID="TxtNomeLinha" Text='<%# Eval("Nome_Linha") %>' runat="server"></asp:Label> </td>
+                                            <td>
+                                                <asp:DropDownList ID="DdlAddLinha" runat="server" class='input-field col s6'>
+                                                    <asp:ListItem Text="Sim" />
+                                                    <asp:ListItem Text="Não" />
+                                                </asp:DropDownList>
+
+                                            </td>
                                         </tr>               
                                     </ItemTemplate>
                                     <FooterTemplate>
@@ -348,6 +361,12 @@
                                     </FooterTemplate>
                                 </asp:Repeater> 
                             </div>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
+                                </div>
+                            </div> 
 
                           <div class="row">
                               <div class="input-field col s12">
@@ -669,7 +688,7 @@
      <script src="../Content/js/jquery.maskedinput.min.js"></script>
     <script type="text/javascript">
          jQuery(function ($) {
-             $("#TxtData").mask("99/99/9999");
+             $("#TxtDataInicio").mask("99/99/9999");
 
          });
     </script>

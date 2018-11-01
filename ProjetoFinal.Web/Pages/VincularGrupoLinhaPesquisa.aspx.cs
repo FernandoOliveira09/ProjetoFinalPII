@@ -39,22 +39,12 @@ namespace ProjetoFinal.Web.Pages
 
             if (!Page.IsPostBack)
             {
-                carregamento = 0;
                 CarregaAreaConhecimento();
-            }
-
-            if (carregamento == 0)
-            {
                 CarregaAreaAvaliacao();
                 CarregaSubAreaAvaliacao();
+                CarregaLinhaPesquisa();
+                CarregaGrupo();
             }
-
-            if(carregamento == 1)
-            {
-                CarregaSubAreaAvaliacao();
-            }
-
-            CarregaLinhaPesquisa();
         }
 
         private void CarregaAreaConhecimento()

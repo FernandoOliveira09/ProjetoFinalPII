@@ -283,8 +283,8 @@
                           <div class="row">
                             <div class="input-field col s8" style="float:left">
                                 <label for="TxtLinhaPesquisa">Selecione a linha de pesquisa<span style="color: red;">*</span></label>
-                                <br /> 
-                                <asp:DropDownList class="input-field" runat="server" ID="TxtLinhaPesquisa">
+                                <br />  
+                                <asp:DropDownList class="input-field" runat="server" ID="TxtLinhaPesquisa" AppendDataBoundItems = "true">
 
                                 </asp:DropDownList>
                                 <%--<a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i></a>--%>

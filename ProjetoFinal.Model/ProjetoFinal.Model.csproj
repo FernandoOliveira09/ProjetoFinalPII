@@ -51,6 +51,7 @@
     <Compile Include="MODGrupoLinha_Pesquisa.cs" />
     <Compile Include="MODGrupoTecnico.cs" />
     <Compile Include="MODLinha_Pesquisa.cs" />
+    <Compile Include="MODProjetoPesquisa.cs" />
     <Compile Include="MODRecuperacaoSenha_Usuario.cs" />
     <Compile Include="MODRecuperaSenha.cs" />
     <Compile Include="MODSubArea_Avaliacao.cs" />
