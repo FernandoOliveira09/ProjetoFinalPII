@@ -80,6 +80,7 @@
     <Content Include="Grupos.aspx" />
     <Content Include="Pages\AlteracaoAreaAvaliacao.aspx" />
     <Content Include="Pages\AlteracaoAreaConhecimento.aspx" />
+    <Content Include="Pages\AlteracaoDiscente.aspx" />
     <Content Include="Pages\AlteracaoDocente.aspx" />
     <Content Include="Pages\AlteracaoGrupo.aspx" />
     <Content Include="Pages\AlteracaoLider.aspx" />
@@ -90,6 +91,7 @@
     <Content Include="Pages\CadastroAdmin.aspx" />
     <Content Include="Pages\CadastroAreaAvaliacao.aspx" />
     <Content Include="Pages\CadastroAreaConhecimento.aspx" />
+    <Content Include="Pages\CadastroDiscente.aspx" />
     <Content Include="Pages\CadastroDocente.aspx" />
     <Content Include="Pages\CadastroGrupo.aspx" />
     <Content Include="Pages\CadastroLinhaPesquisa.aspx" />
@@ -99,6 +101,7 @@
     <Content Include="Pages\CadastroUsuario.aspx" />
     <Content Include="Pages\ConsultaAreaAvaliacao.aspx" />
     <Content Include="Pages\ConsultaAreaConhecimento.aspx" />
+    <Content Include="Pages\ConsultaDiscente.aspx" />
     <Content Include="Pages\ConsultaDocente.aspx" />
     <Content Include="Pages\ConsultaGrupo.aspx" />
     <Content Include="Pages\ConsultaLinhaPesquisa.aspx" />
@@ -148,6 +151,13 @@
     </Compile>
     <Compile Include="Pages\AlteracaoAreaConhecimento.aspx.designer.cs">
       <DependentUpon>AlteracaoAreaConhecimento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AlteracaoDiscente.aspx.cs">
+      <DependentUpon>AlteracaoDiscente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AlteracaoDiscente.aspx.designer.cs">
+      <DependentUpon>AlteracaoDiscente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AlteracaoDocente.aspx.cs">
       <DependentUpon>AlteracaoDocente.aspx</DependentUpon>
@@ -219,6 +229,13 @@
     <Compile Include="Pages\CadastroAreaConhecimento.aspx.designer.cs">
       <DependentUpon>CadastroAreaConhecimento.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CadastroDiscente.aspx.cs">
+      <DependentUpon>CadastroDiscente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CadastroDiscente.aspx.designer.cs">
+      <DependentUpon>CadastroDiscente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CadastroDocente.aspx.cs">
       <DependentUpon>CadastroDocente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -281,6 +298,13 @@
     </Compile>
     <Compile Include="Pages\ConsultaAreaConhecimento.aspx.designer.cs">
       <DependentUpon>ConsultaAreaConhecimento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConsultaDiscente.aspx.cs">
+      <DependentUpon>ConsultaDiscente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ConsultaDiscente.aspx.designer.cs">
+      <DependentUpon>ConsultaDiscente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ConsultaDocente.aspx.cs">
       <DependentUpon>ConsultaDocente.aspx</DependentUpon>

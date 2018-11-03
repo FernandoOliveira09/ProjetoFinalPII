@@ -170,6 +170,24 @@
                       <span class="nav-text">Grupos de Pesquisa</span>
                     </a>
                 </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
+                      <span class="nav-text">Docente</span>
+                  </a>
+                </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaDiscente.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
+                      <span class="nav-text">Discentes</span>
+                  </a>
+                </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaTecnico.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
+                      <span class="nav-text">Técnicos</span>
+                  </a>
+                </li>
               </ul>
               <ul class="collapsible collapsible-accordion">
               <li>

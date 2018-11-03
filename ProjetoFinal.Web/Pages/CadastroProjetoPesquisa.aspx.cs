@@ -12,7 +12,7 @@ namespace ProjetoFinal.Web.Pages
 {
     public partial class CadastroProjetoPesquisa : System.Web.UI.Page
     {
-        public static int idDocente, idGrupo;
+        public static int idDocente, idGrupo, idProjeto;
         public static string grupoNome;
         public static string idLinha;
 
@@ -29,9 +29,14 @@ namespace ProjetoFinal.Web.Pages
         protected void TxtTipoProjeto_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (TxtTipoProjeto.Text == "Bolsa")
+            {
                 TxtTipoBolsa.Enabled = true;
+            }
             else
+            {
                 TxtTipoBolsa.Enabled = false;
+                TxtNomeBolsa.Enabled = false;
+            }            
         }
 
         protected void TxtTipoBolsa_SelectedIndexChanged(object sender, EventArgs e)
@@ -45,7 +50,10 @@ namespace ProjetoFinal.Web.Pages
         protected void BtnCadastrar_Click(object sender, EventArgs e)
         {
             MODProjetoPesquisa projetoPesquisa = new MODProjetoPesquisa();
-            List<string> lista = new List<string>();
+            MODProjetoPesquisa_Linha projetoLinha = new MODProjetoPesquisa_Linha();
+            MODLinha_Pesquisa linhaPesquisa = new MODLinha_Pesquisa();
+
+            bool existeLinha = false;
 
             if (TxtNome.Text.Trim() == "")
             {
@@ -55,37 +63,66 @@ namespace ProjetoFinal.Web.Pages
             {
                 LblResposta.Text = Erros.DataVazio;
             }
+            else if (TxtDocenteLider.Text.Trim() == "")
+            {
+                LblLiderExiste.Text = "Não há lider vínculado nesse grupo!";
+            }
             else
             {
-                projetoPesquisa.FkGrupo = idGrupo;
-                projetoPesquisa.FkDocente = Convert.ToInt32(TxtDocenteLider.SelectedValue);
-                projetoPesquisa.Titulo = TxtNome.Text.Trim();
-                projetoPesquisa.Tipo = TxtTipoProjeto.Text.Trim();
+                foreach (RepeaterItem dli in RptLinhas.Items)
+                {
+                    if (dli.ItemType == ListItemType.Item || dli.ItemType == ListItemType.AlternatingItem)
+                    {
+                        DropDownList ddl = (DropDownList)dli.FindControl("DdlAddLinha");
+                        if (ddl.Text == "Sim")
+                        {
+                            existeLinha = true;
+                        }
+                    }
+                }
 
-                if (TxtTipoProjeto.Text.Trim() == "Bolsa")
-                    projetoPesquisa.Bolsa = TxtTipoBolsa.Text.Trim();
+                if(existeLinha == false)
+                {
+                    LblResposta.Text = "O Projeto deve ter pelo menos uma linha de pesquisa!";
+                }
+                else
+                {
+                    projetoPesquisa.FkGrupo = idGrupo;
+                    projetoPesquisa.FkDocente = Convert.ToInt32(TxtDocenteLider.SelectedValue);
+                    projetoPesquisa.Titulo = TxtNome.Text.Trim();
+                    projetoPesquisa.Tipo = TxtTipoProjeto.Text.Trim();
 
-                if (TxtTipoBolsa.Text.Trim() == "Outra")
-                    projetoPesquisa.NomeBolsa = TxtNomeBolsa.Text.Trim();
+                    if (TxtTipoProjeto.Text.Trim() == "Bolsa")
+                        projetoPesquisa.Bolsa = TxtTipoBolsa.Text.Trim();
 
-                projetoPesquisa.DataInicio = Convert.ToDateTime(TxtDataInicio.Text.Trim());
+                    if (TxtTipoBolsa.Text.Trim() == "Outra")
+                        projetoPesquisa.NomeBolsa = TxtNomeBolsa.Text.Trim();
 
-                BLLProjeto_Pesquisa.Inserir(projetoPesquisa);
+                    projetoPesquisa.DataInicio = Convert.ToDateTime(TxtDataInicio.Text.Trim());
+                    projetoPesquisa.DataTermino = Convert.ToDateTime("");
+
+                    idProjeto = BLLProjeto_Pesquisa.Inserir(projetoPesquisa);
+                }               
             }
 
             foreach (RepeaterItem dli in RptLinhas.Items)
-            {
+            {              
                 if (dli.ItemType == ListItemType.Item || dli.ItemType == ListItemType.AlternatingItem)
                 {
                     DropDownList ddl = (DropDownList)dli.FindControl("DdlAddLinha");
                     if (ddl.Text == "Sim")
                     {
-
                         Label lbl = (Label)dli.FindControl("TxtNomeLinha");
                         string titulo = lbl.Text;
-                        lista.Add(titulo);
+                        linhaPesquisa.Linha = titulo;
 
-                        //Negocio.Inserir(lblNome.Text)
+                        linhaPesquisa = BLLLinha_Pesquisa.PesquisarLinha(linhaPesquisa, "nome");
+
+                        projetoLinha.FkLinha = linhaPesquisa.Id;
+                        projetoLinha.FkProjeto = idProjeto;
+
+                        BLLProjeto_Pesquisa.InserirLinha(projetoLinha);
+                        LblResposta.Text = "Projeto cadastrado com sucesso!";
                     }
                 }
             }
@@ -108,7 +145,6 @@ namespace ProjetoFinal.Web.Pages
             MODDocente docente = new MODDocente();
 
             grupo.Nome = grupoNome;
-
             grupo = BLLGrupo.PesquisarGrupo(grupo, "nome");
 
             grupoDocente.FkGrupo = grupo.IdGrupo;
@@ -118,6 +154,11 @@ namespace ProjetoFinal.Web.Pages
 
             RptLinhas.DataSource = BLLDocente_Linha_Pesquisa.Pesquisar(grupoDocente, "docente");
             RptLinhas.DataBind();
+
+            if (BLLDocente_Linha_Pesquisa.Pesquisar(grupoDocente, "docente").Rows.Count == 0)
+            {
+                LblLiderExiste.Text = "Não há linhas vínculadas a esse lider!";
+            }
         }
 
         protected void BtnAddGrupo_Click(object sender, EventArgs e)
@@ -146,10 +187,20 @@ namespace ProjetoFinal.Web.Pages
             TxtDocenteLider.DataTextField = "nome";
             TxtDocenteLider.DataBind();
 
+            if (TxtDocenteLider.Text.Trim() == "")
+            {
+                LblLiderExiste.Text = "Não há lider vínculado nesse grupo!";
+            }
+
             grupoDocente.FkDocente = Convert.ToInt32(TxtDocenteLider.SelectedValue);
 
             RptLinhas.DataSource = BLLDocente_Linha_Pesquisa.Pesquisar(grupoDocente, "docente");
             RptLinhas.DataBind();
+
+            if (BLLDocente_Linha_Pesquisa.Pesquisar(grupoDocente, "docente").Rows.Count == 0)
+            {
+                LblLiderExiste.Text = "Não há linhas vínculadas a esse lider!";
+            }
         }
     }
 }

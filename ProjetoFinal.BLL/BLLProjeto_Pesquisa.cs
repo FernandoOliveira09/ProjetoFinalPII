@@ -11,9 +11,19 @@ namespace ProjetoFinal.BLL
 {
     public static class BLLProjeto_Pesquisa
     {
-        public static void Inserir(MODProjetoPesquisa projetoPesquisa)
+        public static int Inserir(MODProjetoPesquisa projetoPesquisa)
         {
-            DALProjeto_Pesquisa.Inserir(projetoPesquisa);
+            return DALProjeto_Pesquisa.Inserir(projetoPesquisa);
+        }
+
+        public static void InserirLinha(MODProjetoPesquisa_Linha projetoLinha)
+        {
+            DALProjeto_Pesquisa.InserirLinha(projetoLinha);
+        }
+
+        public static MODProjetoPesquisa_Linha PesquisarLinha(MODProjetoPesquisa_Linha projetoLinha)
+        {
+            return DALProjeto_Pesquisa.PesquisarLinha(projetoLinha);
         }
     }
 }

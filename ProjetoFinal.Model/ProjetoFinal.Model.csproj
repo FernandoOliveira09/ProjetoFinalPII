@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="MODArea_Avaliacao.cs" />
     <Compile Include="MODArea_Conhecimento.cs" />
+    <Compile Include="MODDiscente.cs" />
     <Compile Include="MODDocente.cs" />
     <Compile Include="MODDocente_Linha_Pesquisa.cs" />
     <Compile Include="MODGrupo.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="MODGrupoTecnico.cs" />
     <Compile Include="MODLinha_Pesquisa.cs" />
     <Compile Include="MODProjetoPesquisa.cs" />
+    <Compile Include="MODProjetoPesquisa_Linha.cs" />
     <Compile Include="MODRecuperacaoSenha_Usuario.cs" />
     <Compile Include="MODRecuperaSenha.cs" />
     <Compile Include="MODSubArea_Avaliacao.cs" />

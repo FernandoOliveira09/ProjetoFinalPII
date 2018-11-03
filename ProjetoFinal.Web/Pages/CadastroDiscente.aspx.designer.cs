@@ -10,7 +10,7 @@
 namespace ProjetoFinal.Web.Pages {
     
     
-    public partial class CadastroProjetoPesquisa {
+    public partial class CadastroDiscente {
         
         /// <summary>
         /// ImagemUser2 control.
@@ -49,33 +49,6 @@ namespace ProjetoFinal.Web.Pages {
         protected global::System.Web.UI.WebControls.Label LblFuncao;
         
         /// <summary>
-        /// TxtPesquisar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtPesquisar;
-        
-        /// <summary>
-        /// BtnPesquisar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton BtnPesquisar;
-        
-        /// <summary>
-        /// RptGrupo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RptGrupo;
-        
-        /// <summary>
         /// TxtNome control.
         /// </summary>
         /// <remarks>
@@ -85,67 +58,22 @@ namespace ProjetoFinal.Web.Pages {
         protected global::System.Web.UI.WebControls.TextBox TxtNome;
         
         /// <summary>
-        /// TxtTipoProjeto control.
+        /// TxtCurso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TxtTipoProjeto;
+        protected global::System.Web.UI.WebControls.TextBox TxtCurso;
         
         /// <summary>
-        /// TxtTipoBolsa control.
+        /// TxtLattes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TxtTipoBolsa;
-        
-        /// <summary>
-        /// TxtNomeBolsa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtNomeBolsa;
-        
-        /// <summary>
-        /// TxtDataInicio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtDataInicio;
-        
-        /// <summary>
-        /// TxtDocenteLider control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TxtDocenteLider;
-        
-        /// <summary>
-        /// LblLiderExiste control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblLiderExiste;
-        
-        /// <summary>
-        /// RptLinhas control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RptLinhas;
+        protected global::System.Web.UI.WebControls.TextBox TxtLattes;
         
         /// <summary>
         /// LblResposta control.

@@ -329,6 +329,11 @@
                               </asp:DropDownList>
                             </div>
                           </div>
+                          <div class="row">
+                                <div class="input-field col s12">
+                                    <asp:Label ID="LblLiderExiste" runat="server" ForeColor="Red"></asp:Label>
+                                </div>
+                          </div> 
                           
                           <div class='input-field col s12' style="margin-top: -10px">
                                 <h5>Linhas de pesquisa do docente</h5>
