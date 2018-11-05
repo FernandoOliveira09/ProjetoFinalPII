@@ -82,6 +82,7 @@
     <Content Include="Pages\AlteracaoAreaConhecimento.aspx" />
     <Content Include="Pages\AlteracaoDiscente.aspx" />
     <Content Include="Pages\AlteracaoDocente.aspx" />
+    <Content Include="Pages\AlteracaoEquipamento.aspx" />
     <Content Include="Pages\AlteracaoGrupo.aspx" />
     <Content Include="Pages\AlteracaoLider.aspx" />
     <Content Include="Pages\AlteracaoLinhaPesquisa.aspx" />
@@ -93,6 +94,7 @@
     <Content Include="Pages\CadastroAreaConhecimento.aspx" />
     <Content Include="Pages\CadastroDiscente.aspx" />
     <Content Include="Pages\CadastroDocente.aspx" />
+    <Content Include="Pages\CadastroEquipamento.aspx" />
     <Content Include="Pages\CadastroGrupo.aspx" />
     <Content Include="Pages\CadastroLinhaPesquisa.aspx" />
     <Content Include="Pages\CadastroProjetoPesquisa.aspx" />
@@ -103,8 +105,10 @@
     <Content Include="Pages\ConsultaAreaConhecimento.aspx" />
     <Content Include="Pages\ConsultaDiscente.aspx" />
     <Content Include="Pages\ConsultaDocente.aspx" />
+    <Content Include="Pages\ConsultaEquipamento.aspx" />
     <Content Include="Pages\ConsultaGrupo.aspx" />
     <Content Include="Pages\ConsultaLinhaPesquisa.aspx" />
+    <Content Include="Pages\ConsultaProjetoPesquisa.aspx" />
     <Content Include="Pages\ConsultarGrupoVinculos.aspx" />
     <Content Include="Pages\ConsultaSubAreaAvaliacao.aspx" />
     <Content Include="Pages\ConsultaTecnico.aspx" />
@@ -118,6 +122,8 @@
     <Content Include="Pages\VincularGrupoDocente.aspx" />
     <Content Include="Pages\VincularGrupoLinhaPesquisa.aspx" />
     <Content Include="Pages\VincularGrupoTecnico.aspx" />
+    <Content Include="Pages\VincularProjetoDiscente.aspx" />
+    <Content Include="Pages\VincularProjetoEquipamento.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +171,13 @@
     </Compile>
     <Compile Include="Pages\AlteracaoDocente.aspx.designer.cs">
       <DependentUpon>AlteracaoDocente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AlteracaoEquipamento.aspx.cs">
+      <DependentUpon>AlteracaoEquipamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AlteracaoEquipamento.aspx.designer.cs">
+      <DependentUpon>AlteracaoEquipamento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AlteracaoGrupo.aspx.cs">
       <DependentUpon>AlteracaoGrupo.aspx</DependentUpon>
@@ -243,6 +256,13 @@
     <Compile Include="Pages\CadastroDocente.aspx.designer.cs">
       <DependentUpon>CadastroDocente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CadastroEquipamento.aspx.cs">
+      <DependentUpon>CadastroEquipamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CadastroEquipamento.aspx.designer.cs">
+      <DependentUpon>CadastroEquipamento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CadastroGrupo.aspx.cs">
       <DependentUpon>CadastroGrupo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -313,6 +333,13 @@
     <Compile Include="Pages\ConsultaDocente.aspx.designer.cs">
       <DependentUpon>ConsultaDocente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ConsultaEquipamento.aspx.cs">
+      <DependentUpon>ConsultaEquipamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ConsultaEquipamento.aspx.designer.cs">
+      <DependentUpon>ConsultaEquipamento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ConsultaGrupo.aspx.cs">
       <DependentUpon>ConsultaGrupo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -326,6 +353,13 @@
     </Compile>
     <Compile Include="Pages\ConsultaLinhaPesquisa.aspx.designer.cs">
       <DependentUpon>ConsultaLinhaPesquisa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConsultaProjetoPesquisa.aspx.cs">
+      <DependentUpon>ConsultaProjetoPesquisa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ConsultaProjetoPesquisa.aspx.designer.cs">
+      <DependentUpon>ConsultaProjetoPesquisa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ConsultarGrupoVinculos.aspx.cs">
       <DependentUpon>ConsultarGrupoVinculos.aspx</DependentUpon>
@@ -418,7 +452,21 @@
     <Compile Include="Pages\VincularGrupoTecnico.aspx.designer.cs">
       <DependentUpon>VincularGrupoTecnico.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\VincularProjetoDiscente.aspx.cs">
+      <DependentUpon>VincularProjetoDiscente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\VincularProjetoDiscente.aspx.designer.cs">
+      <DependentUpon>VincularProjetoDiscente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pages\VincularProjetoEquipamento.aspx.cs">
+      <DependentUpon>VincularProjetoEquipamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\VincularProjetoEquipamento.aspx.designer.cs">
+      <DependentUpon>VincularProjetoEquipamento.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\roboto\Roboto-Bold.woff" />

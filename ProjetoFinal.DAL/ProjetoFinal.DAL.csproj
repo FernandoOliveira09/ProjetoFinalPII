@@ -49,6 +49,7 @@
     <Compile Include="DALDiscente.cs" />
     <Compile Include="DALDocente.cs" />
     <Compile Include="DALDocente_Linha_Pesquisa.cs" />
+    <Compile Include="DALEquipamento.cs" />
     <Compile Include="DALGrupo.cs" />
     <Compile Include="DALGrupoLinha_Pesquisa.cs" />
     <Compile Include="DALGrupo_Tecnico.cs" />

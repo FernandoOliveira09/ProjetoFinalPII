@@ -44,6 +44,7 @@
     <Compile Include="BLLDiscente.cs" />
     <Compile Include="BLLDocente.cs" />
     <Compile Include="BLLDocente_Linha_Pesquisa.cs" />
+    <Compile Include="BLLEquipamento.cs" />
     <Compile Include="BLLGrupo_Docente.cs" />
     <Compile Include="BLLGrupo_Linha_Pesquisa.cs" />
     <Compile Include="BLLGrupo_Tecnico.cs" />
