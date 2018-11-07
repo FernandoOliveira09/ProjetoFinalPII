@@ -54,6 +54,9 @@
     <Compile Include="MODGrupoTecnico.cs" />
     <Compile Include="MODLinha_Pesquisa.cs" />
     <Compile Include="MODProjetoPesquisa.cs" />
+    <Compile Include="MODProjetoPesquisa_Colaborador.cs" />
+    <Compile Include="MODProjetoPesquisa_Discente.cs" />
+    <Compile Include="MODGrupo_Equipamento.cs" />
     <Compile Include="MODProjetoPesquisa_Linha.cs" />
     <Compile Include="MODRecuperacaoSenha_Usuario.cs" />
     <Compile Include="MODRecuperaSenha.cs" />

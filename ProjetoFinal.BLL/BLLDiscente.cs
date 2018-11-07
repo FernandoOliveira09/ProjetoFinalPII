@@ -17,6 +17,11 @@ namespace ProjetoFinal.BLL
             DALDiscente.InserirDiscente(discente);
         }
 
+        public static void InserirDiscenteProjeto(MODProjetoPesquisa_Discente projetoDiscente)
+        {
+            DALDiscente.InserirDiscenteProjeto(projetoDiscente);
+        }
+
         public static void Alterar(MODDiscente discente)
         {
             DALDiscente.Alterar(discente);

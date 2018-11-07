@@ -269,7 +269,7 @@
                                     <ItemTemplate>
                                          <tr>
                                             <td><asp:Label ID="TxtNomeEquipamento" Text='<%# Eval("Nome") %>' runat="server"></asp:Label> </td>
-                                            <td><asp:LinkButton ID="BtnAddEquipamento" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="+"></asp:LinkButton></td>
+                                            <td><asp:LinkButton ID="BtnAddEquipamento" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="+" OnClick="BtnAddEquipamento_Click"></asp:LinkButton></td>
                                         </tr>               
                                     </ItemTemplate>
                                     <FooterTemplate>
@@ -295,7 +295,7 @@
 
                           <div class="row">
                               <div class="input-field col s12">
-                                  <asp:Button id="BtnVincularEquipamento" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Vincular" runat="server">
+                                  <asp:Button id="BtnVincularEquipamento" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Vincular" runat="server" OnClick="BtnVincularEquipamento_Click">
                                   </asp:Button>
                               </div>
                           </div>                        

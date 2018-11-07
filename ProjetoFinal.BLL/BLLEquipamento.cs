@@ -22,6 +22,11 @@ namespace ProjetoFinal.BLL
             DALEquipamento.Inserir(equipamento);
         }
 
+        public static void InserirEquipamentoGrupo(MODGrupo_Equipamento grupoEquipamento)
+        {
+            DALEquipamento.InserirEquipamentoGrupo(grupoEquipamento);
+        }
+
         public static void Alterar(MODEquipamento equipamento)
         {
             DALEquipamento.Alterar(equipamento);
@@ -32,9 +37,9 @@ namespace ProjetoFinal.BLL
             return DALEquipamento.Pesquisar(equipamento, tipoPesquisa);
         }
 
-        public static MODEquipamento PesquisarEquipamento(MODEquipamento equipamento)
+        public static MODEquipamento PesquisarEquipamento(MODEquipamento equipamento, string tipoPesquisa)
         {
-            return DALEquipamento.PesquisarEquipamento(equipamento);
+            return DALEquipamento.PesquisarEquipamento(equipamento, tipoPesquisa);
         }
     }
 }

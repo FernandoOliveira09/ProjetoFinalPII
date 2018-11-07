@@ -26,6 +26,24 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
+        public static void InserirEquipamentoGrupo(MODGrupo_Equipamento grupoEquipamento)
+        {
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "INSERT INTO TBLGRUPO_EQUIPAMENTO (fk_grupo, fk_equipamento, data_inicio) "
+                + "VALUES (@fk_grupo, @fk_equipamento, @data_inicio)";
+            comando.Parameters.AddWithValue("@fk_grupo", grupoEquipamento.FkGrupo);
+            comando.Parameters.AddWithValue("@fk_equipamento", grupoEquipamento.FkEquipamento);
+            comando.Parameters.AddWithValue("@data_inicio", grupoEquipamento.DataInicio);
+
+            comando.ExecuteNonQuery();
+
+            Conexao.Fechar();
+        }
+
         public static void Alterar(MODEquipamento equipamento)
         {
             Conexao.Abrir();
@@ -45,7 +63,7 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
-        public static MODEquipamento PesquisarEquipamento(MODEquipamento equipamento)
+        public static MODEquipamento PesquisarEquipamento(MODEquipamento equipamento, string tipoPesquisa)
         {
             MODEquipamento retorno = new MODEquipamento();
 
@@ -54,18 +72,27 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "SELECT nome, descricao FROM TBLEQUIPAMENTO WHERE id_equipamento = @id";
-
-            comando.Parameters.AddWithValue("@id", equipamento.IdEquipamento);
+            if(tipoPesquisa == "id")
+            {
+                comando.CommandText = "SELECT nome, descricao FROM TBLEQUIPAMENTO WHERE id_equipamento = @id";
+                comando.Parameters.AddWithValue("@id", equipamento.IdEquipamento);
+            }
+            else
+            {
+                comando.CommandText = "SELECT id_equipamento, nome, descricao FROM TBLEQUIPAMENTO WHERE nome = @nome";
+                comando.Parameters.AddWithValue("@nome", equipamento.Nome);
+            }
 
             MySqlDataReader reader = comando.ExecuteReader();
 
             while (reader.Read())
             {
                 MODEquipamento ret = new MODEquipamento();
+                ret.IdEquipamento = Convert.ToInt32(reader["id_equipamento"].ToString());
                 ret.Nome = reader["Nome"].ToString();
                 ret.Descricao = reader["Descricao"].ToString();
 
+                retorno.IdEquipamento = ret.IdEquipamento;
                 retorno.Nome = ret.Nome;
                 retorno.Descricao = ret.Descricao;
 

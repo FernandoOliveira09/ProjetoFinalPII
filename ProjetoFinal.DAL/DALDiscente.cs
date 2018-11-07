@@ -29,6 +29,24 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
+        public static void InserirDiscenteProjeto(MODProjetoPesquisa_Discente projetoDiscente)
+        {
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "INSERT INTO TBLPROJETO_DISCENTE (fk_projeto, fk_discente, data_inicio) "
+                + "VALUES (@fk_projeto, @fk_discente, @data_inicio)";
+            comando.Parameters.AddWithValue("@fk_projeto", projetoDiscente.FkProjeto);
+            comando.Parameters.AddWithValue("@fk_discente", projetoDiscente.FkDiscente);
+            comando.Parameters.AddWithValue("@data_inicio", projetoDiscente.DataInicio);
+
+            comando.ExecuteNonQuery();
+
+            Conexao.Fechar();
+        }
+
         public static void Alterar(MODDiscente discente)
         {
             Conexao.Abrir();

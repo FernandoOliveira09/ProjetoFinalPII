@@ -120,8 +120,7 @@
               <li class="divider"></li>
               <li>
                   <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1" ID="BtnLogout">
-                  <i class="material-icons">keyboard_tab</i> Logout</a>
-                  
+                  <i class="material-icons">keyboard_tab</i> Logout</a>               
               </li>
             </ul>
           </div>
@@ -172,7 +171,7 @@
                       <span class="nav-text">Grupos de Pesquisa</span>
                     </a>
                 </li>
-            <li class="bold">
+                <li class="bold">
                   <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
                       <i class="material-icons">group</i>
                       <span class="nav-text">Docentes</span>

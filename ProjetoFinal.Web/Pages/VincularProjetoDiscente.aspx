@@ -238,8 +238,8 @@
                       <div class="row">
                           <div class="row">
                             <div class="input-field col s12">
-                              <asp:TextBox id="TxtGrupo" type="text" runat="server" Enabled="false"/>
-                              <label for="TxtCurso">Grupo</label>
+                              <asp:TextBox id="TxtProjeto" type="text" runat="server" Enabled="false"/>
+                              <label for="TxtCurso">Projeto</label>
                             </div>
                           </div>  
 
@@ -269,7 +269,7 @@
                                     <ItemTemplate>
                                          <tr>
                                             <td><asp:Label ID="TxtNomeDiscente" Text='<%# Eval("Nome") %>' runat="server"></asp:Label> </td>
-                                            <td><asp:LinkButton ID="BtnAddDiscente" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="+"></asp:LinkButton></td>
+                                            <td><asp:LinkButton ID="BtnAddDiscente" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="+" OnClick="BtnAddDiscente_Click"></asp:LinkButton></td>
                                         </tr>               
                                     </ItemTemplate>
                                     <FooterTemplate>
@@ -295,7 +295,7 @@
 
                           <div class="row">
                               <div class="input-field col s12">
-                                  <asp:Button id="BtnVincularDiscente" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Vincular" runat="server">
+                                  <asp:Button id="BtnVincularDiscente" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Vincular" runat="server" OnClick="BtnVincularDiscente_Click">
                                   </asp:Button>
                               </div>
                           </div>                        

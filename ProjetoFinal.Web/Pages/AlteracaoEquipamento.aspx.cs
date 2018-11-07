@@ -38,8 +38,7 @@ namespace ProjetoFinal.Web.Pages
 
             equipamento.IdEquipamento = Convert.ToInt32(Page.Request.QueryString["id"]);
             idEquipamento = Convert.ToInt32(Page.Request.QueryString["id"]);
-            equipamento = BLLEquipamento.PesquisarEquipamento(equipamento);
-            // = tecnico.IdTecnico;
+            equipamento = BLLEquipamento.PesquisarEquipamento(equipamento, "id");
 
             if (!Page.IsPostBack)
             {
@@ -47,8 +46,6 @@ namespace ProjetoFinal.Web.Pages
                 TxtDescricao.Text = equipamento.Descricao;
 
             }
-
-
         }
 
         protected void BtnAlterar_Click(object sender, EventArgs e)
