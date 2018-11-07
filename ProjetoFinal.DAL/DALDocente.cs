@@ -32,6 +32,23 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
+        public static void InserirColaboradorProjeto(MODProjetoPesquisa_Colaborador projetoColaborador)
+        {
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "INSERT INTO TBLPROJETO_COLABORADOR (fk_docente, fk_projeto) "
+                + "VALUES (@fk_docente, @fk_projeto)";
+            comando.Parameters.AddWithValue("@fk_docente", projetoColaborador.FkDocente);
+            comando.Parameters.AddWithValue("@fk_projeto", projetoColaborador.FkProjeto);
+
+            comando.ExecuteNonQuery();
+
+            Conexao.Fechar();
+        }
+
         public static void Alterar(MODDocente docente)
         {
             Conexao.Abrir();

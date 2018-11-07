@@ -122,6 +122,7 @@
     <Content Include="Pages\VincularGrupoDocente.aspx" />
     <Content Include="Pages\VincularGrupoLinhaPesquisa.aspx" />
     <Content Include="Pages\VincularGrupoTecnico.aspx" />
+    <Content Include="Pages\VincularProjetoColaborador.aspx" />
     <Content Include="Pages\VincularProjetoDiscente.aspx" />
     <Content Include="Pages\VincularProjetoEquipamento.aspx" />
     <Content Include="Web.config" />
@@ -451,6 +452,13 @@
     </Compile>
     <Compile Include="Pages\VincularGrupoTecnico.aspx.designer.cs">
       <DependentUpon>VincularGrupoTecnico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\VincularProjetoColaborador.aspx.cs">
+      <DependentUpon>VincularProjetoColaborador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\VincularProjetoColaborador.aspx.designer.cs">
+      <DependentUpon>VincularProjetoColaborador.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\VincularProjetoDiscente.aspx.cs">
       <DependentUpon>VincularProjetoDiscente.aspx</DependentUpon>

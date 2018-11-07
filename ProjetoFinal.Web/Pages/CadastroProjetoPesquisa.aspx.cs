@@ -99,7 +99,6 @@ namespace ProjetoFinal.Web.Pages
                         projetoPesquisa.NomeBolsa = TxtNomeBolsa.Text.Trim();
 
                     projetoPesquisa.DataInicio = Convert.ToDateTime(TxtDataInicio.Text.Trim());
-                    projetoPesquisa.DataTermino = Convert.ToDateTime("");
 
                     idProjeto = BLLProjeto_Pesquisa.Inserir(projetoPesquisa);
                 }               

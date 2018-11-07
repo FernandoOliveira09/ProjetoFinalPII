@@ -17,6 +17,11 @@ namespace ProjetoFinal.BLL
             DALDocente.InserirDocente(docente);
         }
 
+        public static void InserirColaboradorProjeto(MODProjetoPesquisa_Colaborador projetoColaborador)
+        {
+            DALDocente.InserirColaboradorProjeto(projetoColaborador);
+        }
+
         public static void Alterar(MODDocente docente)
         {
             DALDocente.Alterar(docente);
