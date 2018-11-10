@@ -58,6 +58,7 @@
     <Compile Include="MODProjetoPesquisa_Discente.cs" />
     <Compile Include="MODGrupo_Equipamento.cs" />
     <Compile Include="MODProjetoPesquisa_Linha.cs" />
+    <Compile Include="MODPublicacao.cs" />
     <Compile Include="MODRecuperacaoSenha_Usuario.cs" />
     <Compile Include="MODRecuperaSenha.cs" />
     <Compile Include="MODSubArea_Avaliacao.cs" />
