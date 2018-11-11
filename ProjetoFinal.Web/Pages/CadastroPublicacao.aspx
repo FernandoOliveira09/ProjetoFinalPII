@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AlteracaoTecnico.aspx.cs" Inherits="ProjetoFinal.Web.Pages.AlteracaoTecnico" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CadastroPublicacao.aspx.cs" Inherits="ProjetoFinal.Web.Pages.CadastroPublicacao" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -51,7 +51,7 @@
             <ul class="left">
               <li>
                 <h1 class="logo-wrapper">
-                  <a href="../Pages/Principal.html" class="brand-logo darken-1">
+                  <a href="../Pages/Principal.aspx" class="brand-logo darken-1">
                     <img src="../Content/images/logo/materialize-logo.png" alt="materialize logo">
                     <span class="logo-text hide-on-med-and-down"><strong>SG</strong> Manager</span>
                   </a>
@@ -117,15 +117,13 @@
             <!-- profile-dropdown -->
             <ul id="profile-dropdown" class="dropdown-content">
               <li>
-                   <a href="../Pages/AlteracaoUsuario.aspx" class="grey-text text-darken-1">
-                   <i class="material-icons">settings</i> Alterar Informações</a>
-                   </li>
-                   <li class="divider"></li>
-                   <li>
-                    <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1" ID="BtnLogout">
-                    <i class="material-icons">keyboard_tab</i> Logout</a>
-                  
-                  </li>
+                <a href="../Pages/AlteracaoUsuario.aspx" class="grey-text text-darken-1">
+                  <i class="material-icons">settings</i> Alterar Informações</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1">
+                  <i class="material-icons">keyboard_tab</i> Logout</a>
               </li>
             </ul>
           </div>
@@ -151,7 +149,7 @@
                 </div>
                 <div class="col col s8 m8 l8">
                   
-                  <a class="btn-flat waves-light white-text profile-btn" href="#" data-activates="profile-dropdown-nav"><asp:Label ID="LblNome" runat="server">Técnico</asp:Label> <i class="mdi-navigation-arrow-drop-down right"></i></a>
+                  <a class="btn-flat waves-light white-text profile-btn" href="#" data-activates="profile-dropdown-nav"><asp:Label ID="LblNome" runat="server">Usuário</asp:Label> <i class="mdi-navigation-arrow-drop-down right"></i></a>
                   <p class="user-roal"><asp:Label ID="LblFuncao" runat="server">Função</asp:Label></p>
                 </div>
               </div>
@@ -237,8 +235,6 @@
         <!-- START CONTENT -->
         <section id="content">
           <!--start container-->
-            <section id="content">
-          <!--start container-->
             <div id="breadcrumbs-wrapper">
               <!-- Search for small screen -->
               <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
@@ -247,117 +243,127 @@
               <div class="container">
                 <div class="row">
                   <div class="col s10 m6 l6">
-                    <h5 class="breadcrumbs-title">Alteração de Técnicos</h5>
+                    <h5 class="breadcrumbs-title">Cadastro de publicações</h5>
                     <ol class="breadcrumbs">
-                      <li><a href="index.html">Dashboard</a></li>
-                      <li><a href="#">Técnicos</a></li>
-                      <li><a href="#">Alteração de Técnico</a></li>
+                      <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
+                      <li><a href="#">Publicações</a></li>
+                      <li><a href="#">Cadastro de Publicações</a></li>
                     </ol>
                   </div>
                 </div>
               </div>
             </div>
+            <form class="col s12" runat="server">
             <div id="basic-form" class="section">
-                <div class="row">
-                  <div class="col s12 m12 l6">
+                <div class="row" style="display: inline-block">
+                  <div class="col s12 m12 l12">
                     <div class="card-panel">
-                      <h4 class="header2">Insira os dados nos campos abaixo para alterar</h4>
+                      <h4 class="header2">Insira os dados nos campos abaixo para cadastrar</h4>
                       <div class="row">
-                        <form class="col s12" runat="server">
+                        
                           <div class="row">
                             <div class="input-field col s12">
-                              <asp:TextBox id="TxtNome" type="text" runat="server" />
-                              <label for="TxtNome">Nome do Técnico<span style="color: red;">*</span></label>
+                              <asp:TextBox id="TxtTitulo" type="text" runat="server" />
+                              <label for="TxtTitulo">Título da publicação<span style="color: red;">*</span></label>
                             </div>
                           </div>
-                          <div class="row">
-                            <div class="input-field col s6">
-                              <asp:TextBox id="TxtLattes" type="text" runat="server" />
-                              <label for="TxtLattes">Lattes<span style="color: red;">*</span></label>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="input-field col s6">
-                              <asp:TextBox id="TextAtividades" type="text" runat="server" />
-                              <label for="TxtAtividades">Atividades<span style="color: red;">*</span></label>
-                            </div>
-                          </div>
+
                           <div class="row">
                             <div class="input-field col s8">
-                              <label for="TxtFormacao">Formação<span style="color: red;">*</span></label>
+                              <label for="TxtTipoPublicacao">Tipo de publicação<span style="color: red;">*</span></label>
                               <br />  
-                              <asp:DropDownList class="input-field" runat="server" ID="TxtFormacao">
-                                  <asp:ListItem>Ensino Médio Completo</asp:ListItem>
-                                  <asp:ListItem>Ensino Técnico</asp:ListItem>
-                                  <asp:ListItem>Ensino Superior</asp:ListItem>
-                                  <asp:ListItem>Pós Graduação</asp:ListItem>
-                                  <asp:ListItem>Mestrado</asp:ListItem>
-                                  <asp:ListItem>Doutorado</asp:ListItem>
-                                  <asp:ListItem>Pós Doutorado</asp:ListItem>
+                              <asp:DropDownList class="input-field" runat="server" ID="TxtTipoPublicacao"  >
+                                  <asp:ListItem Text="Livro completo" />
+                                  <asp:ListItem Text="Capítulo de livro" />
+                                  <asp:ListItem Text="Anais do congresso" />
+                                  <asp:ListItem Text="Periódico de revista" />
                               </asp:DropDownList>
                             </div>
                           </div>
-                           <div class="row">
-                            <div class="input-field col s6">
-                              <asp:TextBox id="TextCurso" type="text" runat="server" />
-                              <label for="TxtCurso">Curso<span style="color: red;"></span></label>
-                            </div>
-                          </div>
 
                           <div class="row">
-                            <div class="input-field col s6">
-                              <asp:TextBox id="TxtData" type="text" runat="server" ClientIDMode="Static" />
-                              <label for="TxtData">Data de Conclusão do Curso<span style="color: red;">*</span></label>
-                            </div>
-                          </div>  
-                            <div class="row">
                             <div class="input-field col s12">
-                              <label for="FUFoto">Foto do Técnico<span style="color: red;">*</span></label>
-                                <br />
-                                <br />
-                              <asp:FileUpload id="FUFotoTec" runat="server" />
+                              <asp:TextBox id="TxtDataPublicacao" type="text" runat="server" />
+                              <label for="TxtDataPublicacao">Data de publicação<span style="color: red;">*</span></label>
                             </div>
                           </div>
                           
-                          <%--<div class='row'>
-                              <div class='input-field col s6 cadastro'>
-                                <asp:TextBox class='validate' type='password' name='password' id='TxtSenha' runat="server"/>
-                                <label for='password'>Senha<span style="color: red;">*</span></label>
-                              </div>
-                          </div>
-
-                          <div class='row'>
-                              <div class='input-field col s6 cadastro'>
-                                <asp:TextBox class='validate' type='password' name='password' id='TxtSenha2' runat="server"/>
-                                <label for='password'>Digite novamente a senha<span style="color: red;">*</span></label>
-                              </div>
-                          </div>--%>
-                            
                           <div class="row">
                             <div class="input-field col s12">
-                                <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
+                              <asp:TextBox id="TxtReferencia" type="text" runat="server" />
+                              <label for="TxtReferencia">Referência ABNT<span style="color: red;">*</span></label>
                             </div>
-                          </div>  
+                          </div>
+
+                          <div class="row">
+                            <div class="input-field col s8">
+                              <label for="TxtGrupo">Grupo de pesquisa<span style="color: red;">*</span></label>
+                              <br />  
+                              <asp:DropDownList class="input-field" runat="server" ID="TxtGrupo" AutoPostBack="true" OnSelectedIndexChanged="TxtGrupo_SelectedIndexChanged">
+
+                              </asp:DropDownList>
+                            </div>
+                          </div>
+
+                          <asp:CheckBox ID="ChkProjeto" Text="Vincular com projeto de pesquisa" AutoPostBack="true" runat="server" style="margin-left: 10px" OnCheckedChanged="ChkProjeto_CheckedChanged"/>
+
+                          <div class="row">
+                            <div class="input-field col s8">
+                              <label for="TxtProjeto">Projeto de pesquisa</label>
+                              <br />  
+                              <asp:DropDownList class="input-field" runat="server" ID="TxtProjeto" AutoPostBack="true" Enabled="false" OnSelectedIndexChanged="TxtProjeto_SelectedIndexChanged">
+
+                              </asp:DropDownList>
+                            </div>
+                          </div>
+                          
+                          <div class="row">
+                            <div class="input-field col s8">
+                              <label for="TxtDocente">Docente<span style="color: red;">*</span></label>
+                              <br />  
+                              <asp:DropDownList class="input-field" runat="server" ID="TxtDocente" AutoPostBack="true" OnSelectedIndexChanged="TxtDocente_SelectedIndexChanged">
+
+                              </asp:DropDownList>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="input-field col s8">
+                              <label for="TxtLinha">Linha de pesquisa<span style="color: red;">*</span></label>
+                              <br />  
+                              <asp:DropDownList class="input-field" runat="server" ID="TxtLinha" AutoPostBack="true">
+
+                              </asp:DropDownList>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                                <div class="input-field col s12">
+                                    <asp:Label ID="LblLiderExiste" runat="server" ForeColor="Red"></asp:Label>
+                                </div>
+                          </div> 
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
+                                </div>
+                            </div> 
 
                           <div class="row">
                               <div class="input-field col s12">
-                                  <asp:Button id="BtnAlterar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Alterar" runat="server" OnClick="BtnAlterar_Click">
+                                  <asp:Button id="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar" runat="server" OnClick="BtnCadastrar_Click" >
                                   </asp:Button>
                               </div>
                           </div>
-                          <div class="row">
-                            <div class="input-field col s6">
-                              <asp:TextBox id="TxtFoto" type="text" runat="server" Visible="false"/>
-                              <label for="TxtCurso">Curso<span style="color: red;"></span></label>
-                            </div>
-                          </div>
-                        </form>
+                        
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+            </form>
           <!--end container-->
+            </section>
         </section>
         <!-- END CONTENT -->
         <!-- START RIGHT SIDEBAR NAV-->
@@ -661,5 +667,12 @@
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="../Content/js/custom-script.js"></script>
     <script>$('.dropdown-trigger').dropdown();</script>
+     <script src="../Content/js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript">
+         jQuery(function ($) {
+             $("#TxtDataPublicacao").mask("99/99/9999");
+
+         });
+    </script>
   </body>
 </html>

@@ -18,22 +18,58 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "INSERT INTO TBLPublicacao (titulo, tipo_publicacao, referencia_abnt, " 
+            if(publicacao.FKProjeto > 0)
+            {
+                comando.CommandText = "INSERT INTO TBLPublicacao (titulo, tipo_publicacao, referencia_abnt, "
                 + "data_publicacao, fk_grupo, fk_projeto, fk_linha, fk_docente) "
-                + "VALUES (@titulo, @tipo_publicacao, @referencia_abnt, " 
+                + "VALUES (@titulo, @tipo_publicacao, @referencia_abnt, "
                 + "@data_publicacao, @fk_grupo, @fk_projeto, @fk_linha, @fk_docente)";
+                comando.Parameters.AddWithValue("@fk_projeto", publicacao.FKProjeto);
+            }
+            else
+            {
+                comando.CommandText = "INSERT INTO TBLPublicacao (titulo, tipo_publicacao, referencia_abnt, "
+                + "data_publicacao, fk_grupo, fk_linha, fk_docente) "
+                + "VALUES (@titulo, @tipo_publicacao, @referencia_abnt, "
+                + "@data_publicacao, @fk_grupo, @fk_linha, @fk_docente)";
+            }
+            
             comando.Parameters.AddWithValue("@titulo", publicacao.Titulo);
             comando.Parameters.AddWithValue("@tipo_publicacao", publicacao.TipoPublicacao);
             comando.Parameters.AddWithValue("@referencia_abnt", publicacao.ReferenciaABNT);
             comando.Parameters.AddWithValue("@data_publicacao", publicacao.DataPublicacao);
-            comando.Parameters.AddWithValue("@fk_grupo", publicacao.FkGrupo);
-            comando.Parameters.AddWithValue("@fk_projeto", publicacao.FKProjeto);
+            comando.Parameters.AddWithValue("@fk_grupo", publicacao.FkGrupo);            
             comando.Parameters.AddWithValue("@fk_linha", publicacao.FkLinha);
             comando.Parameters.AddWithValue("@fk_docente", publicacao.FkDocente);
 
             comando.ExecuteNonQuery();
 
             Conexao.Fechar();
+        }
+
+        public static DataTable ConsultaPublicacao(MODPublicacao publicacao, string tipoPesquisa)
+        {
+            MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
+            comando.Connection = Conexao.conexao;
+
+            if (tipoPesquisa == "todos")
+            {
+                comando.CommandText = "select p.id_publicacao, p.titulo as Titulo, g.id_grupo, g.nome as Grupo, pr.id_projeto, pr.titulo as Projeto, d.id_docente, d.nome "
+                    + "as Docente, l.id_linha, l.nome_linha as Linha from tblpublicacao p  "
+                    + "inner join tblgrupo g on p.fk_grupo = g.id_grupo  "
+                    + "inner join tblprojeto_pesquisa pr on p.fk_projeto = pr.id_projeto  "
+                    + "inner join tbldocente d on p.fk_docente = d.id_docente "
+                    + "inner join tbllinha_pesquisa l on p.fk_linha = l.id_linha ";
+            }
+
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
+
+            da.Fill(dados);
+
+            return dados;
         }
     }
 }

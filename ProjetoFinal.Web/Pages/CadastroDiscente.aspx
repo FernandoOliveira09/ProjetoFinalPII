@@ -192,6 +192,24 @@
                       <span class="nav-text">Técnicos</span>
                     </a>
                 </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaEquipamento.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">settings</i>
+                      <span class="nav-text">Equipamentos</span>
+                    </a>
+                </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaProjetoPesquisa.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">work</i>
+                      <span class="nav-text">Projetos de pesquisa</span>
+                    </a>
+                </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaPublicacao.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">title</i>
+                      <span class="nav-text">Publicações</span>
+                    </a>
+                </li>
                 <ul class="collapsible collapsible-accordion">
               <li>
                 <a class="collapsible-header">Linhas de pesquisa<i class="material-icons">search</i></a>

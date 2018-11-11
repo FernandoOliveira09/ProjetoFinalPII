@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConsultaProjetoPesquisa.aspx.cs" Inherits="ProjetoFinal.Web.Pages.ConsultaProjetoPesquisa" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConsultaPublicacao.aspx.cs" Inherits="ProjetoFinal.Web.Pages.ConsultaPublicacao" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -207,19 +207,19 @@
                       <span class="nav-text">Publicações</span>
                     </a>
                 </li>
-             <ul class="collapsible collapsible-accordion">
-              <li>
-                <a class="collapsible-header">Linhas de pesquisa<i class="material-icons">search</i></a>
-                <div class="collapsible-body">
-                  <ul>
-                    <li><a href="../Pages/ConsultaAreaConhecimento.aspx">Áreas do conhecimento</a></li>
-                    <li><a href="../Pages/ConsultaAreaAvaliacao.aspx">Áreas de avaliação</a></li>
-                    <li><a href="../Pages/ConsultaSubAreaAvaliacao.aspx">Sub áreas de avaliação</a></li>
-                    <li><a href="../Pages/ConsultaLinhaPesquisa.aspx">Linhas de pesquisa</a></li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
+                 <ul class="collapsible collapsible-accordion">
+                  <li>
+                    <a class="collapsible-header">Linhas de pesquisa<i class="material-icons">search</i></a>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li><a href="../Pages/ConsultaAreaConhecimento.aspx">Áreas do conhecimento</a></li>
+                        <li><a href="../Pages/ConsultaAreaAvaliacao.aspx">Áreas de avaliação</a></li>
+                        <li><a href="../Pages/ConsultaSubAreaAvaliacao.aspx">Sub áreas de avaliação</a></li>
+                        <li><a href="../Pages/ConsultaLinhaPesquisa.aspx">Linhas de pesquisa</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
               </ul>
             </li>
           </ul>
@@ -239,15 +239,15 @@
                 <div class="row">
                   <div class="col s10 m6 l6">
 
-                    <h5 class="breadcrumbs-title">Consulta de projetos</h5>
+                    <h5 class="breadcrumbs-title">Consulta de publicações</h5>
                     <ol class="breadcrumbs">
                       <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
-                      <li><a href="#">Projetos de Pesquisa</a></li>
-                      <li><a href="#">Consulta de Projetos</a></li>
+                      <li><a href="#">Publicações</a></li>
+                      <li><a href="#">Consulta de publicações</a></li>
                     </ol>
                   </div>
                   <div class="col s2 m6 l6">             
-                     <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/CadastroProjetoPesquisa.aspx">Novo Projeto</a>
+                     <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/CadastroPublicacao.aspx">Nova Publicação</a>
                   </div>
                 </div>
               </div>
@@ -261,8 +261,9 @@
                                   <tr>
                                       <th>Nome</th>
                                       <th>Grupo</th>
+                                      <th>Projeto</th>
                                       <th>Docente</th>
-                                      <th>Orientado</th>
+                                      <th>linha</th>
                                       <th>Ações</th>
                                   </tr>
                                 </thead>
@@ -272,9 +273,10 @@
                              <tr>
                                 <td><%# Eval("Titulo") %></td>
                                 <td><%# Eval("Grupo") %></td>
+                                <td><%# Eval("Projeto") %></td>
                                 <td><%# Eval("Docente") %></td>
-                                <td><%# Eval("Discente") %></td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoProjeto.aspx?projeto=<%# Eval("id_projeto") %>"><i class="material-icons">edit</i>&nbsp&nbsp<a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoProjetoDiscente.aspx?projeto=<%# Eval("id_projeto") %>&discente=<%# Eval("id_discente") %>"><i class="material-icons">account_circle</i></a></a>
+                                <td><%# Eval("Linha") %></td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoProjeto.aspx?projeto=<%# Eval("id_publicacao") %>"><i class="material-icons">edit</i></a>
                                 </td>
                              </tr>               
                         </ItemTemplate>

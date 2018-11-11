@@ -56,30 +56,47 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
-        public static MODProjetoPesquisa_Linha PesquisarLinha(MODProjetoPesquisa_Linha projetoLinha)
+
+        public static DataTable PesquisarLinha(MODProjetoPesquisa_Linha projetoLinha)
         {
-            MODProjetoPesquisa_Linha retorno = new MODProjetoPesquisa_Linha();
+            MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "select l.id_linha, l.nome_linha from tbllinha_pesquisa l " 
+                + "inner join tblprojeto_linha_pesquisa pl on pl.fk_linha = l.id_linha " 
+                + "inner join tblprojeto_pesquisa p on pl.fk_projeto = p.id_projeto and pl.fk_projeto = @projeto";
+            comando.Parameters.AddWithValue("@projeto", projetoLinha.FkProjeto);
+
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
+
+            da.Fill(dados);
+
+            return dados;
+        }
+
+        public static MODProjetoPesquisa PesquisarDocente(MODProjetoPesquisa projetoPesquisa)
+        {
+            MODProjetoPesquisa retorno = new MODProjetoPesquisa();
 
             Conexao.Abrir();
 
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "SELECT * from TBLProjeto_linha_pesquisa WHERE fk_Projeto = @projeto and fk_linha = @linha";
-            comando.Parameters.AddWithValue("@projeto", projetoLinha.FkProjeto);
-            comando.Parameters.AddWithValue("@linha", projetoLinha.FkLinha);
+            comando.CommandText = "SELECT fk_docente from TBLProjeto_pesquisa WHERE id_projeto = @projeto";
+            comando.Parameters.AddWithValue("@projeto", projetoPesquisa.IdProjeto);
 
             MySqlDataReader reader = comando.ExecuteReader();
 
             while (reader.Read())
             {
-                MODProjetoPesquisa_Linha ret = new MODProjetoPesquisa_Linha();
-                ret.FkLinha = reader["fk_linha"].ToString();
-                ret.FkProjeto = Convert.ToInt32(reader["fk_Projeto"]);
+                MODProjetoPesquisa ret = new MODProjetoPesquisa();
+                ret.FkDocente = Convert.ToInt32(reader["fk_docente"]);
 
-
-                retorno.FkLinha = ret.FkLinha;
-                retorno.FkProjeto = ret.FkProjeto;
+                retorno.FkDocente = ret.FkDocente;
             }
 
             reader.Close();
@@ -87,6 +104,73 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
 
             return retorno;
+        }
+
+        public static List<MODProjetoPesquisa> PesquisarProjetos(MODProjetoPesquisa item, string tipoPesquisa)
+        {
+            List<MODProjetoPesquisa> retorno = new List<MODProjetoPesquisa>();
+
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            if (tipoPesquisa == "todos")
+            {
+                comando.CommandText = "select id_projeto, titulo from tblprojeto_pesquisa";
+            }
+            else if (tipoPesquisa == "grupo")
+            {
+                comando.CommandText = "select id_projeto, titulo from tblprojeto_pesquisa where fk_grupo = @grupo";
+                comando.Parameters.AddWithValue("@grupo", item.FkGrupo);
+            }
+            else 
+            {
+                comando.CommandText = "select id_projeto, titulo from tblprojeto_pesquisa where fk_grupo = @grupo and fk_docente = @docente";
+                comando.Parameters.AddWithValue("@grupo", item.FkGrupo);
+                comando.Parameters.AddWithValue("@docente", item.FkDocente);
+            }
+
+            MySqlDataReader reader = comando.ExecuteReader();
+
+            while (reader.Read())
+            {
+                MODProjetoPesquisa ret = new MODProjetoPesquisa();
+                ret.IdProjeto = Convert.ToInt32(reader["id_projeto"].ToString());
+                ret.Titulo = reader["titulo"].ToString();
+
+                retorno.Add(ret);
+            }
+
+            reader.Close();
+
+            Conexao.Fechar();
+
+            return retorno;
+        }
+
+        public static DataTable ConsultaProjetos(MODProjetoPesquisa projeto, string tipoPesquisa)
+        {
+            MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
+            comando.Connection = Conexao.conexao;
+
+            if(tipoPesquisa == "todos")
+            {
+                comando.CommandText = "select p.id_projeto, p.titulo as Titulo, g.id_grupo, g.nome as Grupo, d.id_docente, d.nome as Docente, di.id_discente, di.nome as Discente from tblprojeto_pesquisa p "
+                    + "inner join tbldocente d on p.fk_docente = d.id_docente "
+                    + "inner join tblgrupo g on p.fk_grupo = g.id_grupo "
+                    + "inner join tblprojeto_discente pd on pd.fk_projeto = p.id_projeto "
+                    + "inner join tbldiscente di on pd.fk_discente = di.id_discente";
+            }
+                
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
+
+            da.Fill(dados);
+
+            return dados;
         }
     }
 }

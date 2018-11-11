@@ -16,9 +16,9 @@ namespace ProjetoFinal.BLL
             DALDocente_Linha_Pesquisa.Inserir(DocenteLinha);
         }
 
-        public static DataTable Pesquisar(MODGrupoDocente grupoDocente, string tipoPesquisa)
+        public static DataTable Pesquisar(MODDocente_Linha_Pesquisa linhaDocente, string tipoPesquisa)
         {
-            return DALDocente_Linha_Pesquisa.Pesquisar(grupoDocente, tipoPesquisa);
+            return DALDocente_Linha_Pesquisa.Pesquisar(linhaDocente, tipoPesquisa);
         }
     }
 }

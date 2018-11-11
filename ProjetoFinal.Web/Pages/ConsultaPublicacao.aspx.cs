@@ -10,7 +10,7 @@ using ProjetoFinal.Utilitarios;
 
 namespace ProjetoFinal.Web.Pages
 {
-    public partial class ConsultaProjetoPesquisa : System.Web.UI.Page
+    public partial class ConsultaPublicacao : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,8 +36,8 @@ namespace ProjetoFinal.Web.Pages
 
             if (!IsPostBack)
             {
-                MODProjetoPesquisa projetoPesquisa = new MODProjetoPesquisa();
-                RptConsulta.DataSource = BLLProjeto_Pesquisa.ConsultaProjetos(projetoPesquisa, "todos");
+                MODPublicacao publicacao = new MODPublicacao();
+                RptConsulta.DataSource = BLLPublicacao.ConsultaPublicacao(publicacao, "todos");
                 RptConsulta.DataBind();
             }
         }

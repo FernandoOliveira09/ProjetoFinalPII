@@ -150,6 +150,11 @@ namespace ProjetoFinal.DAL
             {
                 comando.CommandText = "SELECT id_docente, nome, formacao, data_conclusao, lattes, foto FROM TBLDOCENTE";
             }
+            else
+            {
+                comando.CommandText = "SELECT id_docente, nome, formacao, data_conclusao, lattes, foto FROM TBLDOCENTE WHERE id_docente = @id";
+                comando.Parameters.AddWithValue("@id", item.IdDocente);
+            }
 
             MySqlDataReader reader = comando.ExecuteReader();
 

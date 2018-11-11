@@ -10,7 +10,7 @@
 namespace ProjetoFinal.Web.Pages {
     
     
-    public partial class AlteracaoEquipamento {
+    public partial class CadastroPublicacao {
         
         /// <summary>
         /// ImagemUser2 control.
@@ -49,40 +49,94 @@ namespace ProjetoFinal.Web.Pages {
         protected global::System.Web.UI.WebControls.Label LblFuncao;
         
         /// <summary>
-        /// TxtNome control.
+        /// TxtTitulo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtNome;
+        protected global::System.Web.UI.WebControls.TextBox TxtTitulo;
         
         /// <summary>
-        /// TxtDescricao control.
+        /// TxtTipoPublicacao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtDescricao;
+        protected global::System.Web.UI.WebControls.DropDownList TxtTipoPublicacao;
         
         /// <summary>
-        /// TxtDataInicio control.
+        /// TxtDataPublicacao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtDataInicio;
+        protected global::System.Web.UI.WebControls.TextBox TxtDataPublicacao;
         
         /// <summary>
-        /// TxtDataFim control.
+        /// TxtReferencia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtDataFim;
+        protected global::System.Web.UI.WebControls.TextBox TxtReferencia;
+        
+        /// <summary>
+        /// TxtGrupo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TxtGrupo;
+        
+        /// <summary>
+        /// ChkProjeto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ChkProjeto;
+        
+        /// <summary>
+        /// TxtProjeto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TxtProjeto;
+        
+        /// <summary>
+        /// TxtDocente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TxtDocente;
+        
+        /// <summary>
+        /// TxtLinha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TxtLinha;
+        
+        /// <summary>
+        /// LblLiderExiste control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblLiderExiste;
         
         /// <summary>
         /// LblResposta control.
@@ -94,12 +148,12 @@ namespace ProjetoFinal.Web.Pages {
         protected global::System.Web.UI.WebControls.Label LblResposta;
         
         /// <summary>
-        /// BtnAlterar control.
+        /// BtnCadastrar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAlterar;
+        protected global::System.Web.UI.WebControls.Button BtnCadastrar;
     }
 }

@@ -98,6 +98,7 @@
     <Content Include="Pages\CadastroGrupo.aspx" />
     <Content Include="Pages\CadastroLinhaPesquisa.aspx" />
     <Content Include="Pages\CadastroProjetoPesquisa.aspx" />
+    <Content Include="Pages\CadastroPublicacao.aspx" />
     <Content Include="Pages\CadastroSubAreaAvaliacao.aspx" />
     <Content Include="Pages\CadastroTecnico.aspx" />
     <Content Include="Pages\CadastroUsuario.aspx" />
@@ -109,6 +110,7 @@
     <Content Include="Pages\ConsultaGrupo.aspx" />
     <Content Include="Pages\ConsultaLinhaPesquisa.aspx" />
     <Content Include="Pages\ConsultaProjetoPesquisa.aspx" />
+    <Content Include="Pages\ConsultaPublicacao.aspx" />
     <Content Include="Pages\ConsultarGrupoVinculos.aspx" />
     <Content Include="Pages\ConsultaSubAreaAvaliacao.aspx" />
     <Content Include="Pages\ConsultaTecnico.aspx" />
@@ -285,6 +287,13 @@
     <Compile Include="Pages\CadastroProjetoPesquisa.aspx.designer.cs">
       <DependentUpon>CadastroProjetoPesquisa.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CadastroPublicacao.aspx.cs">
+      <DependentUpon>CadastroPublicacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CadastroPublicacao.aspx.designer.cs">
+      <DependentUpon>CadastroPublicacao.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CadastroSubAreaAvaliacao.aspx.cs">
       <DependentUpon>CadastroSubAreaAvaliacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -361,6 +370,13 @@
     </Compile>
     <Compile Include="Pages\ConsultaProjetoPesquisa.aspx.designer.cs">
       <DependentUpon>ConsultaProjetoPesquisa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConsultaPublicacao.aspx.cs">
+      <DependentUpon>ConsultaPublicacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ConsultaPublicacao.aspx.designer.cs">
+      <DependentUpon>ConsultaPublicacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ConsultarGrupoVinculos.aspx.cs">
       <DependentUpon>ConsultarGrupoVinculos.aspx</DependentUpon>

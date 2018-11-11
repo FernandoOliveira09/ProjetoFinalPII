@@ -30,7 +30,7 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
-        public static DataTable Pesquisar(MODGrupoDocente grupoDocente, string tipoPesquisa)
+        public static DataTable Pesquisar(MODDocente_Linha_Pesquisa linhaDocente, string tipoPesquisa)
         {
             MySqlCommand comando = new MySqlCommand();
             Conexao.Abrir();
@@ -43,8 +43,8 @@ namespace ProjetoFinal.DAL
                     + " inner join tblgrupo g on g.id_grupo = dlp.fk_grupo" 
                     + " inner join tbldocente d on dlp.fk_docente = d.id_docente and dlp.fk_docente = @docente" 
                     + " and dlp.fk_grupo = @grupo and dlp.data_saida is null";
-                comando.Parameters.AddWithValue("@docente", grupoDocente.FkDocente);
-                comando.Parameters.AddWithValue("@grupo", grupoDocente.FkGrupo);
+                comando.Parameters.AddWithValue("@docente", linhaDocente.FkDocente);
+                comando.Parameters.AddWithValue("@grupo", linhaDocente.FkGrupo);
             }
 
             comando.CommandType = CommandType.Text;

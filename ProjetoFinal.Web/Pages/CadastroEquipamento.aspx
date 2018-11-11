@@ -193,7 +193,31 @@
                       <span class="nav-text">Equipamentos</span>
                     </a>
                 </li>
-
+                <li class="bold">
+                  <a href="../Pages/ConsultaProjetoPesquisa.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">work</i>
+                      <span class="nav-text">Projetos de pesquisa</span>
+                    </a>
+                </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaPublicacao.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">title</i>
+                      <span class="nav-text">Publicações</span>
+                    </a>
+                </li>
+                <ul class="collapsible collapsible-accordion">
+                  <li>
+                    <a class="collapsible-header">Linhas de pesquisa<i class="material-icons">search</i></a>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li><a href="../Pages/ConsultaAreaConhecimento.aspx">Áreas do conhecimento</a></li>
+                        <li><a href="../Pages/ConsultaAreaAvaliacao.aspx">Áreas de avaliação</a></li>
+                        <li><a href="../Pages/ConsultaSubAreaAvaliacao.aspx">Sub áreas de avaliação</a></li>
+                        <li><a href="../Pages/ConsultaLinhaPesquisa.aspx">Linhas de pesquisa</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
               </ul>
             </li>
           </ul>

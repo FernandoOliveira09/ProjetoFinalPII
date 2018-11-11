@@ -18,6 +18,26 @@ namespace ProjetoFinal.Web.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["login"] == null)
+            {
+                Session.RemoveAll();
+                Response.Redirect("../Pages/Login.aspx");
+            }
+
+            MODUsuario usuario = new MODUsuario();
+
+            usuario.Login = PegaLogin.RetornaLogin();
+            usuario = BLLUsuario.PesquisarLogin(usuario);
+
+            ImagemUser.ImageUrl = "../Pages/" + usuario.Imagem;
+            ImagemUser2.ImageUrl = "../Pages/" + usuario.Imagem;
+            LblNome.Text = usuario.Nome;
+
+            if (usuario.FkTipo == 1)
+                LblFuncao.Text = "Administrador";
+            else
+                LblFuncao.Text = "Lider de Pesquisa";
+
             if (!IsPostBack)
             {
                 MODGrupo grupo = new MODGrupo();
@@ -138,7 +158,6 @@ namespace ProjetoFinal.Web.Pages
 
         protected void TxtDocenteLider_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MODGrupoDocente grupoDocente = new MODGrupoDocente();
             MODDocente_Linha_Pesquisa docenteLinha = new MODDocente_Linha_Pesquisa();
             MODGrupo grupo = new MODGrupo();
             MODDocente docente = new MODDocente();
@@ -146,15 +165,15 @@ namespace ProjetoFinal.Web.Pages
             grupo.Nome = grupoNome;
             grupo = BLLGrupo.PesquisarGrupo(grupo, "nome");
 
-            grupoDocente.FkGrupo = grupo.IdGrupo;
+            docenteLinha.FkGrupo = grupo.IdGrupo;
             idGrupo = grupo.IdGrupo;
 
-            grupoDocente.FkDocente = Convert.ToInt32(TxtDocenteLider.SelectedValue);
+            docenteLinha.FkDocente = Convert.ToInt32(TxtDocenteLider.SelectedValue);
 
-            RptLinhas.DataSource = BLLDocente_Linha_Pesquisa.Pesquisar(grupoDocente, "docente");
+            RptLinhas.DataSource = BLLDocente_Linha_Pesquisa.Pesquisar(docenteLinha, "docente");
             RptLinhas.DataBind();
 
-            if (BLLDocente_Linha_Pesquisa.Pesquisar(grupoDocente, "docente").Rows.Count == 0)
+            if (BLLDocente_Linha_Pesquisa.Pesquisar(docenteLinha, "docente").Rows.Count == 0)
             {
                 LblLiderExiste.Text = "Não há linhas vínculadas a esse lider!";
             }
@@ -191,12 +210,12 @@ namespace ProjetoFinal.Web.Pages
                 LblLiderExiste.Text = "Não há lider vínculado nesse grupo!";
             }
 
-            grupoDocente.FkDocente = Convert.ToInt32(TxtDocenteLider.SelectedValue);
+            docenteLinha.FkDocente = Convert.ToInt32(TxtDocenteLider.SelectedValue);
 
-            RptLinhas.DataSource = BLLDocente_Linha_Pesquisa.Pesquisar(grupoDocente, "docente");
+            RptLinhas.DataSource = BLLDocente_Linha_Pesquisa.Pesquisar(docenteLinha, "docente");
             RptLinhas.DataBind();
 
-            if (BLLDocente_Linha_Pesquisa.Pesquisar(grupoDocente, "docente").Rows.Count == 0)
+            if (BLLDocente_Linha_Pesquisa.Pesquisar(docenteLinha, "docente").Rows.Count == 0)
             {
                 LblLiderExiste.Text = "Não há linhas vínculadas a esse lider!";
             }

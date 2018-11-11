@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ProjetoFinal.Model;
 using ProjetoFinal.DAL;
 using ProjetoFinal.Utilitarios;
+using System.Data;
 
 namespace ProjetoFinal.BLL
 {
@@ -14,6 +15,11 @@ namespace ProjetoFinal.BLL
         public static void Inserir(MODPublicacao publicacao)
         {
             DALPublicacao.Inserir(publicacao);
+        }
+
+        public static DataTable ConsultaPublicacao(MODPublicacao publicacao, string tipoPesquisa)
+        {
+            return DALPublicacao.ConsultaPublicacao(publicacao, tipoPesquisa);
         }
     }
 }

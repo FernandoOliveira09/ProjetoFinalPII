@@ -10,7 +10,7 @@
 namespace ProjetoFinal.Web.Pages {
     
     
-    public partial class ConsultaEquipamento {
+    public partial class ConsultaPublicacao {
         
         /// <summary>
         /// ImagemUser2 control.

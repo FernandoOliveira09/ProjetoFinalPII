@@ -21,9 +21,24 @@ namespace ProjetoFinal.BLL
             DALProjeto_Pesquisa.InserirLinha(projetoLinha);
         }
 
-        public static MODProjetoPesquisa_Linha PesquisarLinha(MODProjetoPesquisa_Linha projetoLinha)
+        public static DataTable PesquisarLinha(MODProjetoPesquisa_Linha projetoLinha)
         {
             return DALProjeto_Pesquisa.PesquisarLinha(projetoLinha);
+        }
+
+        public static MODProjetoPesquisa PesquisarDocente(MODProjetoPesquisa projetoPesquisa)
+        {
+            return DALProjeto_Pesquisa.PesquisarDocente(projetoPesquisa);
+        }
+
+        public static List<MODProjetoPesquisa> PesquisarProjetos(MODProjetoPesquisa item, string tipoPesquisa)
+        {
+            return DALProjeto_Pesquisa.PesquisarProjetos(item, tipoPesquisa);
+        }
+
+        public static DataTable ConsultaProjetos(MODProjetoPesquisa projeto, string tipoPesquisa)
+        {
+            return DALProjeto_Pesquisa.ConsultaProjetos(projeto, tipoPesquisa);
         }
     }
 }
