@@ -274,7 +274,7 @@
                                 <td><%# Eval("Grupo") %></td>
                                 <td><%# Eval("Docente") %></td>
                                 <td><%# Eval("Discente") %></td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoProjeto.aspx?projeto=<%# Eval("id_projeto") %>"><i class="material-icons">edit</i>&nbsp&nbsp<a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoProjetoDiscente.aspx?projeto=<%# Eval("id_projeto") %>&discente=<%# Eval("id_discente") %>"><i class="material-icons">account_circle</i></a></a>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/DesvincularDiscente.aspx?projeto=<%# Eval("id_projeto") %>&discente=<%# Eval("id_discente") %>"><i class="material-icons">account_circle</i></a></a>
                                 </td>
                              </tr>               
                         </ItemTemplate>

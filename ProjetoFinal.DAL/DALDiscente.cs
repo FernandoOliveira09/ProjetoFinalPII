@@ -68,6 +68,24 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
+        public static void AlterarVinculoProjeto(MODProjetoPesquisa_Discente projetoDiscente)
+        {
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "UPDATE tblprojeto_discente SET data_fim = @data "
+                + "WHERE fk_projeto = @projeto and fk_discente = @discente";
+            comando.Parameters.AddWithValue("@projeto", projetoDiscente.FkProjeto);
+            comando.Parameters.AddWithValue("@discente", projetoDiscente.FkDiscente);
+            comando.Parameters.AddWithValue("@data", projetoDiscente.DataFim);
+
+            comando.ExecuteNonQuery();
+
+            Conexao.Fechar();
+        }
+
         public static MODDiscente PesquisarDiscente(MODDiscente discente, string tipoPesquisa)
         {
             MODDiscente retorno = new MODDiscente();
@@ -169,7 +187,7 @@ namespace ProjetoFinal.DAL
             comando.CommandText = "select di.id_discente, di.nome as Nome, di.curso, di.lattes, p.titulo as Projeto from tbldiscente di "
                     + "inner join tblprojeto_discente pd on pd.fk_discente = di.id_discente "
                     + "inner join tblprojeto_pesquisa p on pd.fk_projeto = p.id_projeto "
-                    + "inner join tblgrupo g on p.fk_grupo = g.id_grupo and g.sigla = @sigla";
+                    + "inner join tblgrupo g on p.fk_grupo = g.id_grupo and pd.data_fim is null and g.sigla = @sigla";
 
             comando.Parameters.AddWithValue("@sigla", grupo.Sigla);
 

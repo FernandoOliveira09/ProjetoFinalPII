@@ -41,5 +41,10 @@ namespace ProjetoFinal.BLL
         {
             return DALDiscente.PesquisarPorGrupo(grupo);
         }
+
+        public static void AlterarVinculoProjeto(MODProjetoPesquisa_Discente projetoDiscente)
+        {
+            DALDiscente.AlterarVinculoProjeto(projetoDiscente);
+        }
     }
 }

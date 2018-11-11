@@ -106,6 +106,37 @@ namespace ProjetoFinal.DAL
             return retorno;
         }
 
+        public static MODProjetoPesquisa PesquisarProjeto(MODProjetoPesquisa projetoPesquisa)
+        {
+            MODProjetoPesquisa retorno = new MODProjetoPesquisa();
+
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "SELECT id_projeto, titulo from TBLProjeto_pesquisa WHERE id_projeto = @projeto";
+            comando.Parameters.AddWithValue("@projeto", projetoPesquisa.IdProjeto);
+
+            MySqlDataReader reader = comando.ExecuteReader();
+
+            while (reader.Read())
+            {
+                MODProjetoPesquisa ret = new MODProjetoPesquisa();
+                ret.IdProjeto = Convert.ToInt32(reader["id_projeto"]);
+                ret.Titulo = reader["titulo"].ToString();
+
+                retorno.FkDocente = ret.FkDocente;
+                retorno.Titulo = ret.Titulo;
+            }
+
+            reader.Close();
+
+            Conexao.Fechar();
+
+            return retorno;
+        }
+
         public static List<MODProjetoPesquisa> PesquisarProjetos(MODProjetoPesquisa item, string tipoPesquisa)
         {
             List<MODProjetoPesquisa> retorno = new List<MODProjetoPesquisa>();
@@ -161,7 +192,7 @@ namespace ProjetoFinal.DAL
                     + "inner join tbldocente d on p.fk_docente = d.id_docente "
                     + "inner join tblgrupo g on p.fk_grupo = g.id_grupo "
                     + "inner join tblprojeto_discente pd on pd.fk_projeto = p.id_projeto "
-                    + "inner join tbldiscente di on pd.fk_discente = di.id_discente";
+                    + "inner join tbldiscente di on pd.fk_discente = di.id_discente and pd.data_fim is null";
             }
             else if (tipoPesquisa == "projeto")
             {

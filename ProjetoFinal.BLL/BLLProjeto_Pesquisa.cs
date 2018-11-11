@@ -45,5 +45,10 @@ namespace ProjetoFinal.BLL
         {
             return DALProjeto_Pesquisa.ConsultaPorGrupo(grupo);
         }
+
+        public static MODProjetoPesquisa PesquisarProjeto(MODProjetoPesquisa projetoPesquisa)
+        {
+            return DALProjeto_Pesquisa.PesquisarProjeto(projetoPesquisa);
+        }
     }
 }
