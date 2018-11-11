@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjetoFinal.Model;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace ProjetoFinal.DAL
 {
@@ -147,6 +148,28 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
 
             return retorno;
+        }
+
+        public static DataTable ConsultaPorGrupo(MODGrupo grupo)
+        {
+            MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "select e.id_equipamento, e.nome, e.descricao "
+                    + "from tblequipamento e "
+                    + "inner join tblgrupo_equipamento ge on ge.fk_equipamento = e.id_equipamento "
+                    + "inner join tblgrupo g on ge.fk_grupo = g.id_grupo and ge.data_fim is null and g.sigla = @sigla";
+
+            comando.Parameters.AddWithValue("@sigla", grupo.Sigla);
+
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
+
+            da.Fill(dados);
+
+            return dados;
         }
     }
 }

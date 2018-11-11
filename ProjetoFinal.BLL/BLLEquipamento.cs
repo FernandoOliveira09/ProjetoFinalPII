@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ProjetoFinal.Model;
 using ProjetoFinal.DAL;
 using ProjetoFinal.Utilitarios;
-
+using System.Data;
 
 namespace ProjetoFinal.BLL
 {
@@ -40,6 +40,11 @@ namespace ProjetoFinal.BLL
         public static MODEquipamento PesquisarEquipamento(MODEquipamento equipamento, string tipoPesquisa)
         {
             return DALEquipamento.PesquisarEquipamento(equipamento, tipoPesquisa);
+        }
+
+        public static DataTable ConsultaPorGrupo(MODGrupo grupo)
+        {
+            return DALEquipamento.ConsultaPorGrupo(grupo);
         }
     }
 }

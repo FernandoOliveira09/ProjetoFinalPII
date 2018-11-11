@@ -21,5 +21,10 @@ namespace ProjetoFinal.BLL
         {
             return DALPublicacao.ConsultaPublicacao(publicacao, tipoPesquisa);
         }
+
+        public static DataTable ConsultaPorGrupo(MODGrupo grupo)
+        {
+            return DALPublicacao.ConsultaPorGrupo(grupo);
+        }
     }
 }

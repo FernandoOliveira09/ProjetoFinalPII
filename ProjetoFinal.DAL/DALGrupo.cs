@@ -227,6 +227,7 @@ namespace ProjetoFinal.DAL
                     + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao and l.fk_grupo = @grupo and l.data_saida is null";
                 comando.Parameters.AddWithValue("@grupo", grupoLider.FkGrupo);
             }
+            
 
             comando.CommandType = CommandType.Text;
             MySqlDataAdapter da = new MySqlDataAdapter(comando);

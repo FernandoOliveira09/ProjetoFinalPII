@@ -42,6 +42,18 @@ namespace ProjetoFinal.Web
 
                 RPTLinha.DataSource = BLLGrupo_Linha_Pesquisa.Pesquisar(grupoLinha_Pesquisa, "ativos");
                 RPTLinha.DataBind();
+
+                RPTDiscente.DataSource = BLLDiscente.PesquisarPorGrupo(grupo);
+                RPTDiscente.DataBind();
+
+                RPTProjetos.DataSource = BLLProjeto_Pesquisa.ConsultaPorGrupo(grupo);
+                RPTProjetos.DataBind();
+
+                RPTPublicacao.DataSource = BLLPublicacao.ConsultaPorGrupo(grupo);
+                RPTPublicacao.DataBind();
+
+                RptEquipamento.DataSource = BLLEquipamento.ConsultaPorGrupo(grupo);
+                RptEquipamento.DataBind();
             }
         }
     }

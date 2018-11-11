@@ -172,5 +172,24 @@ namespace ProjetoFinal.DAL
 
             return dados;
         }
+
+        public static DataTable ConsultaPorGrupo(MODGrupo grupo)
+        {
+            MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "select p.id_projeto, p.titulo from tblprojeto_pesquisa p "
+                    + "inner join tblgrupo g on p.fk_grupo = g.id_grupo and g.sigla = @sigla";
+            comando.Parameters.AddWithValue("@sigla", grupo.Sigla);
+
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
+
+            da.Fill(dados);
+
+            return dados;
+        }
     }
 }

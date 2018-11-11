@@ -123,6 +123,86 @@
                      </ItemTemplate>
                  </asp:Repeater>
             </div>
+            <div class="col s12 container">
+                <h5 style="text-align: center; margin-top: 40px;">Projetos de pesquisa</h5>
+                <asp:Repeater ID="RPTProjetos" runat="server">
+                     <ItemTemplate>
+                         <hr />
+                         <div class="row">
+                             <div class="col-md-4" style="margin-left: 25%">
+                                <p> <%# Eval("Titulo") %></p>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-md-4" >
+                                 
+                             </div>
+                         </div>
+                     </ItemTemplate>
+                 </asp:Repeater>
+            </div>
+            <div class="col s12 container">
+                <h5 style="text-align: center; margin-top: 40px;">Publicações</h5>
+                <asp:Repeater ID="RPTPublicacao" runat="server">
+                     <ItemTemplate>
+                         <hr />
+                         <div class="row">
+                             <div class="col-md-4" style="margin-left: 25%">
+                                <p>Título: <%# Eval("Titulo") %></p>
+                                <p>Orientador: <%# Eval("Orientador") %></p>
+                                <p>Linha de pesquisa: <%# Eval("Linha") %></p>
+                                <p>Tipo de publicação: <%# Eval("Tipo") %></p>
+                                <p>Linha de pesquisa: <%# Eval("Data") %></p>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-md-4" >
+                                 
+                             </div>
+                         </div>
+                     </ItemTemplate>
+                 </asp:Repeater>
+            </div>
+            <div class="col s12 container">
+                <h5 style="text-align: center; margin-top: 40px;">Discentes</h5>
+                <asp:Repeater ID="RPTDiscente" runat="server">
+                     <ItemTemplate>
+                         <hr />
+                         <div class="row">
+                             <div class="col-md-4" style="margin-left: 25%">
+                                <p>Linha: <%# Eval("Nome") %></p>
+                                <p>Curso: <%# Eval("Curso") %></p>
+                                <p>Lattes: <%# Eval("Lattes") %></p>
+                                <p>Projeto de pesquisa: <%# Eval("Projeto") %></p>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-md-4" >
+                                 
+                             </div>
+                         </div>
+                     </ItemTemplate>
+                 </asp:Repeater>
+            </div>
+            <div class="col s12 container">
+                <h5 style="text-align: center; margin-top: 40px;">Equipamentos</h5>
+                <asp:Repeater ID="RptEquipamento" runat="server">
+                     <ItemTemplate>
+                         <hr />
+                         <div class="row">
+                             <div class="col-md-4" style="margin-left: 25%">
+                                <p>Nome: <%# Eval("Nome") %></p>
+                                <p>Descricao: <%# Eval("Descricao") %></p>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-md-4" >
+                                 
+                             </div>
+                         </div>
+                     </ItemTemplate>
+                 </asp:Repeater>
+            </div>
         </div>
         <hr />
     </div>

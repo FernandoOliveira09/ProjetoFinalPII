@@ -57,11 +57,34 @@ namespace ProjetoFinal.DAL
             {
                 comando.CommandText = "select p.id_publicacao, p.titulo as Titulo, g.id_grupo, g.nome as Grupo, pr.id_projeto, pr.titulo as Projeto, d.id_docente, d.nome "
                     + "as Docente, l.id_linha, l.nome_linha as Linha from tblpublicacao p  "
-                    + "inner join tblgrupo g on p.fk_grupo = g.id_grupo  "
-                    + "inner join tblprojeto_pesquisa pr on p.fk_projeto = pr.id_projeto  "
+                    + "inner join tblgrupo g on p.fk_grupo = g.id_grupo "
+                    + "inner join tblprojeto_pesquisa pr on p.fk_projeto = pr.id_projeto "
                     + "inner join tbldocente d on p.fk_docente = d.id_docente "
                     + "inner join tbllinha_pesquisa l on p.fk_linha = l.id_linha ";
             }
+
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
+
+            da.Fill(dados);
+
+            return dados;
+        }
+
+        public static DataTable ConsultaPorGrupo(MODGrupo grupo)
+        {
+            MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "select pu.id_publicacao, pu.titulo as Titulo, d.nome as orientador, l.nome_linha as Linha, pu.tipo_publicacao as Tipo, pu.data_publicacao as Data "
+                    + "from tblpublicacao pu "
+                    + "inner join tblgrupo g on g.id_grupo = pu.fk_grupo "
+                    + "inner join tbldocente d on d.id_docente = pu.fk_docente "
+                    + "inner join tbllinha_pesquisa l on l.id_linha = pu.fk_linha and pu.fk_projeto is null and g.sigla = @sigla";
+
+            comando.Parameters.AddWithValue("@sigla", grupo.Sigla);
 
             comando.CommandType = CommandType.Text;
             MySqlDataAdapter da = new MySqlDataAdapter(comando);

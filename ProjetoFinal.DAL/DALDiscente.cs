@@ -159,5 +159,29 @@ namespace ProjetoFinal.DAL
 
             return retorno;
         }
+
+        public static DataTable PesquisarPorGrupo(MODGrupo grupo)
+        {
+            MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "select di.id_discente, di.nome as Nome, di.curso, di.lattes, p.titulo as Projeto from tbldiscente di "
+                    + "inner join tblprojeto_discente pd on pd.fk_discente = di.id_discente "
+                    + "inner join tblprojeto_pesquisa p on pd.fk_projeto = p.id_projeto "
+                    + "inner join tblgrupo g on p.fk_grupo = g.id_grupo and g.sigla = @sigla";
+
+            comando.Parameters.AddWithValue("@sigla", grupo.Sigla);
+
+
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
+
+            da.Fill(dados);
+
+            return dados;
+        }
+
     }
 }

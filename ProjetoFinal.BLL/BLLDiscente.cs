@@ -36,5 +36,10 @@ namespace ProjetoFinal.BLL
         {
             return DALDiscente.Pesquisar(discente, tipoPesquisa);
         }
+
+        public static DataTable PesquisarPorGrupo(MODGrupo grupo)
+        {
+            return DALDiscente.PesquisarPorGrupo(grupo);
+        }
     }
 }
