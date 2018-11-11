@@ -130,7 +130,7 @@
                          <hr />
                          <div class="row">
                              <div class="col-md-4" style="margin-left: 25%">
-                                <p> <%# Eval("Titulo") %></p>
+                                <p> <%# Eval("Titulo") %> - <a href="Projetos.aspx?id=<%# Eval("id_projeto") %>">Ver publicações</a></p>
                              </div>
                          </div>
                          <div class="row">
@@ -142,7 +142,7 @@
                  </asp:Repeater>
             </div>
             <div class="col s12 container">
-                <h5 style="text-align: center; margin-top: 40px;">Publicações</h5>
+                <h5 style="text-align: center; margin-top: 40px;">Publicações do grupo</h5>
                 <asp:Repeater ID="RPTPublicacao" runat="server">
                      <ItemTemplate>
                          <hr />
@@ -172,7 +172,7 @@
                              <div class="col-md-4" style="margin-left: 25%">
                                 <p>Linha: <%# Eval("Nome") %></p>
                                 <p>Curso: <%# Eval("Curso") %></p>
-                                <p>Lattes: <%# Eval("Lattes") %></p>
+                                <p>Lattes: <a href="<%# Eval("Lattes") %>"><%# Eval("Lattes") %></a></p>
                                 <p>Projeto de pesquisa: <%# Eval("Projeto") %></p>
                              </div>
                          </div>

@@ -26,5 +26,10 @@ namespace ProjetoFinal.BLL
         {
             return DALPublicacao.ConsultaPorGrupo(grupo);
         }
+
+        public static DataTable ConsultaPorProjeto(MODProjetoPesquisa projetoPesquisa)
+        {
+            return DALPublicacao.ConsultaPorProjeto(projetoPesquisa);
+        }
     }
 }

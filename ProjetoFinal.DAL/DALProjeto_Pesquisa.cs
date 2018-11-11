@@ -163,7 +163,17 @@ namespace ProjetoFinal.DAL
                     + "inner join tblprojeto_discente pd on pd.fk_projeto = p.id_projeto "
                     + "inner join tbldiscente di on pd.fk_discente = di.id_discente";
             }
-                
+            else if (tipoPesquisa == "projeto")
+            {
+                comando.CommandText = "select p.id_projeto, p.titulo as Titulo, p.data_inicio as Data, g.id_grupo, g.nome as Grupo, d.id_docente, d.nome as Docente, di.id_discente, di.nome as Discente from tblprojeto_pesquisa p "
+                    + "inner join tbldocente d on p.fk_docente = d.id_docente "
+                    + "inner join tblgrupo g on p.fk_grupo = g.id_grupo "
+                    + "inner join tblprojeto_discente pd on pd.fk_projeto = p.id_projeto "
+                    + "inner join tbldiscente di on pd.fk_discente = di.id_discente and p.id_projeto = @projeto";
+
+                comando.Parameters.AddWithValue("@projeto", projeto.IdProjeto);
+            }
+
             comando.CommandType = CommandType.Text;
             MySqlDataAdapter da = new MySqlDataAdapter(comando);
             DataTable dados = new DataTable();

@@ -94,5 +94,29 @@ namespace ProjetoFinal.DAL
 
             return dados;
         }
+
+        public static DataTable ConsultaPorProjeto(MODProjetoPesquisa projetoPesquisa)
+        {
+            MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "select pu.id_publicacao, pu.titulo as Titulo, d.nome as orientador, l.nome_linha as Linha, pu.tipo_publicacao as Tipo, pu.data_publicacao as Data "
+                    + "from tblpublicacao pu "
+                    + "inner join tblgrupo g on g.id_grupo = pu.fk_grupo "
+                    + "inner join tbldocente d on d.id_docente = pu.fk_docente "
+                    + "inner join tblprojeto_pesquisa p on p.id_projeto = pu.fk_projeto "
+                    + "inner join tbllinha_pesquisa l on l.id_linha = pu.fk_linha and p.id_projeto = @projeto";
+
+            comando.Parameters.AddWithValue("@projeto", projetoPesquisa.IdProjeto);
+
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
+
+            da.Fill(dados);
+
+            return dados;
+        }
     }
 }
