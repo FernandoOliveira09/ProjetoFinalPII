@@ -272,18 +272,6 @@
                                                     
                           <div class="row">
                             <div class="input-field col s12">
-                              <asp:TextBox id="TxtDataInicio" type="text" runat="server" ClientIDMode="Static" />
-                              <label for="TxtDataInicio">Data do Inicio da Disponibilidade<span style="color: red;">*</span></label>
-                            </div>
-                          </div>  
-                            <div class="row">
-                            <div class="input-field col s12">
-                              <asp:TextBox id="TxtDataFim" type="text" runat="server" ClientIDMode="Static" />
-                              <label for="TxtDataFim">Data do Fim da Disponibilidade</label>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="input-field col s12">
                                 <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
                             </div>
                           </div>    

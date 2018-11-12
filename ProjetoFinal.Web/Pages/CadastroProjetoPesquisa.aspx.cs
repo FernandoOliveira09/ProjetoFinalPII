@@ -121,30 +121,30 @@ namespace ProjetoFinal.Web.Pages
                     projetoPesquisa.DataInicio = Convert.ToDateTime(TxtDataInicio.Text.Trim());
 
                     idProjeto = BLLProjeto_Pesquisa.Inserir(projetoPesquisa);
-                }               
-            }
+                }
 
-            foreach (RepeaterItem dli in RptLinhas.Items)
-            {              
-                if (dli.ItemType == ListItemType.Item || dli.ItemType == ListItemType.AlternatingItem)
+                foreach (RepeaterItem dli in RptLinhas.Items)
                 {
-                    DropDownList ddl = (DropDownList)dli.FindControl("DdlAddLinha");
-                    if (ddl.Text == "Sim")
+                    if (dli.ItemType == ListItemType.Item || dli.ItemType == ListItemType.AlternatingItem)
                     {
-                        Label lbl = (Label)dli.FindControl("TxtNomeLinha");
-                        string titulo = lbl.Text;
-                        linhaPesquisa.Linha = titulo;
+                        DropDownList ddl = (DropDownList)dli.FindControl("DdlAddLinha");
+                        if (ddl.Text == "Sim")
+                        {
+                            Label lbl = (Label)dli.FindControl("TxtNomeLinha");
+                            string titulo = lbl.Text;
+                            linhaPesquisa.Linha = titulo;
 
-                        linhaPesquisa = BLLLinha_Pesquisa.PesquisarLinha(linhaPesquisa, "nome");
+                            linhaPesquisa = BLLLinha_Pesquisa.PesquisarLinha(linhaPesquisa, "nome");
 
-                        projetoLinha.FkLinha = linhaPesquisa.Id;
-                        projetoLinha.FkProjeto = idProjeto;
+                            projetoLinha.FkLinha = linhaPesquisa.Id;
+                            projetoLinha.FkProjeto = idProjeto;
 
-                        BLLProjeto_Pesquisa.InserirLinha(projetoLinha);
-                        LblResposta.Text = "Projeto cadastrado com sucesso!";
+                            BLLProjeto_Pesquisa.InserirLinha(projetoLinha);
+                            LblResposta.Text = "Projeto cadastrado com sucesso!";
+                        }
                     }
                 }
-            }
+            }   
         }
 
         protected void BtnPesquisar_Click(object sender, EventArgs e)
@@ -158,6 +158,7 @@ namespace ProjetoFinal.Web.Pages
 
         protected void TxtDocenteLider_SelectedIndexChanged(object sender, EventArgs e)
         {
+            LblLiderExiste.Text = "";
             MODDocente_Linha_Pesquisa docenteLinha = new MODDocente_Linha_Pesquisa();
             MODGrupo grupo = new MODGrupo();
             MODDocente docente = new MODDocente();
@@ -182,6 +183,7 @@ namespace ProjetoFinal.Web.Pages
         protected void BtnAddGrupo_Click(object sender, EventArgs e)
         {
             TxtDocenteLider.Items.Clear();
+            LblLiderExiste.Text = "";
             MODGrupoDocente grupoDocente = new MODGrupoDocente();
             MODDocente_Linha_Pesquisa docenteLinha = new MODDocente_Linha_Pesquisa();
             MODGrupo grupo = new MODGrupo();

@@ -116,7 +116,6 @@
     <Content Include="Pages\ConsultaTecnico.aspx" />
     <Content Include="Pages\ConsultaUsuario.aspx" />
     <Content Include="Pages\DesvincularDiscente.aspx" />
-    <Content Include="Pages\DesvincularEquipamento.aspx" />
     <Content Include="Pages\EncerrarProjeto.aspx" />
     <Content Include="Pages\InserirCodigoRecuperacao.aspx" />
     <Content Include="Pages\Principal.aspx" />
@@ -416,13 +415,6 @@
     </Compile>
     <Compile Include="Pages\DesvincularDiscente.aspx.designer.cs">
       <DependentUpon>DesvincularDiscente.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\DesvincularEquipamento.aspx.cs">
-      <DependentUpon>DesvincularEquipamento.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\DesvincularEquipamento.aspx.designer.cs">
-      <DependentUpon>DesvincularEquipamento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\EncerrarProjeto.aspx.cs">
       <DependentUpon>EncerrarProjeto.aspx</DependentUpon>

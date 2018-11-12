@@ -81,17 +81,12 @@ CREATE TABLE `tbldiscente` (
   `curso` varchar(100) NOT NULL,
   `lattes` varchar(100) NOT NULL,
   PRIMARY KEY (`id_discente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tbldiscente`
 --
-
-LOCK TABLES `tbldiscente` WRITE;
-/*!40000 ALTER TABLE `tbldiscente` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tbldiscente` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tbldocente`
@@ -115,12 +110,6 @@ CREATE TABLE `tbldocente` (
 --
 -- Dumping data for table `tbldocente`
 --
-
-LOCK TABLES `tbldocente` WRITE;
-/*!40000 ALTER TABLE `tbldocente` DISABLE KEYS */;
-INSERT INTO `tbldocente` VALUES (1,'Fernando Oliveira','Pos Graduacao','teste','2014-10-21','Imagens/1433572.jpg','dara222'),(2,'Fernando Alves','Ensino Medio','teste','2017-10-21','Imagens/wallpaper-do-espaco22.jpg','dara22'),(3,'Igor','Ensino Medio','teste','2017-10-21','Imagens/wallpaper-do-espaco22.jpg','dara22');
-/*!40000 ALTER TABLE `tbldocente` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tbldocente_linha_pesquisa`
@@ -148,12 +137,6 @@ CREATE TABLE `tbldocente_linha_pesquisa` (
 -- Dumping data for table `tbldocente_linha_pesquisa`
 --
 
-LOCK TABLES `tbldocente_linha_pesquisa` WRITE;
-/*!40000 ALTER TABLE `tbldocente_linha_pesquisa` DISABLE KEYS */;
-INSERT INTO `tbldocente_linha_pesquisa` VALUES (1,1,'10102000','2018-10-21',NULL);
-/*!40000 ALTER TABLE `tbldocente_linha_pesquisa` ENABLE KEYS */;
-UNLOCK TABLES;
-
 --
 -- Table structure for table `tblequipamento`
 --
@@ -166,17 +149,12 @@ CREATE TABLE `tblequipamento` (
   `nome` varchar(100) NOT NULL,
   `descricao` text NOT NULL,
   PRIMARY KEY (`id_equipamento`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tblequipamento`
 --
-
-LOCK TABLES `tblequipamento` WRITE;
-/*!40000 ALTER TABLE `tblequipamento` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblequipamento` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tblgrupo`
@@ -198,18 +176,12 @@ CREATE TABLE `tblgrupo` (
   PRIMARY KEY (`id_grupo`),
   KEY `fk_situacao` (`fk_situacao`),
   CONSTRAINT `tblgrupo_ibfk_1` FOREIGN KEY (`fk_situacao`) REFERENCES `tblsituacao` (`id_situacao`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tblgrupo`
 --
-
-LOCK TABLES `tblgrupo` WRITE;
-/*!40000 ALTER TABLE `tblgrupo` DISABLE KEYS */;
-INSERT INTO `tblgrupo` VALUES (1,'TESTE','TSD','regreg','Teste','Imagens/wallpaper-do-espaco.jpg','gergeger','0001-01-01',1);
-/*!40000 ALTER TABLE `tblgrupo` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tblgrupo_docente`
@@ -234,12 +206,6 @@ CREATE TABLE `tblgrupo_docente` (
 -- Dumping data for table `tblgrupo_docente`
 --
 
-LOCK TABLES `tblgrupo_docente` WRITE;
-/*!40000 ALTER TABLE `tblgrupo_docente` DISABLE KEYS */;
-INSERT INTO `tblgrupo_docente` VALUES (1,1,'2018-10-21',NULL),(1,2,'2019-10-21',NULL);
-/*!40000 ALTER TABLE `tblgrupo_docente` ENABLE KEYS */;
-UNLOCK TABLES;
-
 --
 -- Table structure for table `tblgrupo_equipamento`
 --
@@ -263,11 +229,6 @@ CREATE TABLE `tblgrupo_equipamento` (
 -- Dumping data for table `tblgrupo_equipamento`
 --
 
-LOCK TABLES `tblgrupo_equipamento` WRITE;
-/*!40000 ALTER TABLE `tblgrupo_equipamento` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblgrupo_equipamento` ENABLE KEYS */;
-UNLOCK TABLES;
-
 --
 -- Table structure for table `tblgrupo_lider`
 --
@@ -286,18 +247,12 @@ CREATE TABLE `tblgrupo_lider` (
   KEY `fk_lider` (`fk_lider`),
   CONSTRAINT `tblgrupo_lider_ibfk_1` FOREIGN KEY (`fk_grupo`) REFERENCES `tblgrupo` (`id_grupo`),
   CONSTRAINT `tblgrupo_lider_ibfk_2` FOREIGN KEY (`fk_lider`) REFERENCES `tblusuario` (`login`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tblgrupo_lider`
 --
-
-LOCK TABLES `tblgrupo_lider` WRITE;
-/*!40000 ALTER TABLE `tblgrupo_lider` DISABLE KEYS */;
-INSERT INTO `tblgrupo_lider` VALUES (1,1,'BA1841144','2018-10-21',NULL);
-/*!40000 ALTER TABLE `tblgrupo_lider` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tblgrupo_linha_pesquisa`
@@ -323,12 +278,6 @@ CREATE TABLE `tblgrupo_linha_pesquisa` (
 -- Dumping data for table `tblgrupo_linha_pesquisa`
 --
 
-LOCK TABLES `tblgrupo_linha_pesquisa` WRITE;
-/*!40000 ALTER TABLE `tblgrupo_linha_pesquisa` DISABLE KEYS */;
-INSERT INTO `tblgrupo_linha_pesquisa` VALUES (1,'10102000','2018-10-21',NULL,'Só teste');
-/*!40000 ALTER TABLE `tblgrupo_linha_pesquisa` ENABLE KEYS */;
-UNLOCK TABLES;
-
 --
 -- Table structure for table `tblgrupo_tecnico`
 --
@@ -351,12 +300,6 @@ CREATE TABLE `tblgrupo_tecnico` (
 --
 -- Dumping data for table `tblgrupo_tecnico`
 --
-
-LOCK TABLES `tblgrupo_tecnico` WRITE;
-/*!40000 ALTER TABLE `tblgrupo_tecnico` DISABLE KEYS */;
-INSERT INTO `tblgrupo_tecnico` VALUES (1,1,'2018-10-21',NULL),(1,2,'2018-10-21',NULL);
-/*!40000 ALTER TABLE `tblgrupo_tecnico` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tbllinha_pesquisa`
@@ -455,11 +398,6 @@ CREATE TABLE `tblprojeto_colaborador` (
 -- Dumping data for table `tblprojeto_colaborador`
 --
 
-LOCK TABLES `tblprojeto_colaborador` WRITE;
-/*!40000 ALTER TABLE `tblprojeto_colaborador` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblprojeto_colaborador` ENABLE KEYS */;
-UNLOCK TABLES;
-
 --
 -- Table structure for table `tblprojeto_discente`
 --
@@ -482,11 +420,6 @@ CREATE TABLE `tblprojeto_discente` (
 --
 -- Dumping data for table `tblprojeto_discente`
 --
-
-LOCK TABLES `tblprojeto_discente` WRITE;
-/*!40000 ALTER TABLE `tblprojeto_discente` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblprojeto_discente` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tblprojeto_linha_pesquisa`
@@ -530,22 +463,51 @@ CREATE TABLE `tblprojeto_pesquisa` (
   `data_fim` date DEFAULT NULL,
   `fk_docente` int(11) DEFAULT NULL,
   `fk_grupo` int(11) DEFAULT NULL,
+  `nome_bolsa` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_projeto`),
   KEY `fk_docente` (`fk_docente`),
   KEY `fk_grupo` (`fk_grupo`),
   CONSTRAINT `tblprojeto_pesquisa_ibfk_1` FOREIGN KEY (`fk_docente`) REFERENCES `tbldocente` (`id_docente`),
   CONSTRAINT `tblprojeto_pesquisa_ibfk_2` FOREIGN KEY (`fk_grupo`) REFERENCES `tblgrupo` (`id_grupo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tblprojeto_pesquisa`
 --
 
-LOCK TABLES `tblprojeto_pesquisa` WRITE;
-/*!40000 ALTER TABLE `tblprojeto_pesquisa` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblprojeto_pesquisa` ENABLE KEYS */;
-UNLOCK TABLES;
+--
+-- Table structure for table `tblpublicacao`
+--
+
+DROP TABLE IF EXISTS `tblpublicacao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tblpublicacao` (
+  `id_publicacao` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(100) NOT NULL,
+  `tipo_publicacao` varchar(40) NOT NULL,
+  `data_publicacao` date NOT NULL,
+  `referencia_abnt` varchar(100) NOT NULL,
+  `fk_grupo` int(11) NOT NULL,
+  `fk_projeto` int(11) DEFAULT NULL,
+  `fk_linha` varchar(10) NOT NULL,
+  `fk_docente` int(11) NOT NULL,
+  PRIMARY KEY (`id_publicacao`),
+  KEY `fk_grupo` (`fk_grupo`),
+  KEY `fk_projeto` (`fk_projeto`),
+  KEY `fk_linha` (`fk_linha`),
+  KEY `fk_docente` (`fk_docente`),
+  CONSTRAINT `tblpublicacao_ibfk_1` FOREIGN KEY (`fk_grupo`) REFERENCES `tblgrupo` (`id_grupo`),
+  CONSTRAINT `tblpublicacao_ibfk_2` FOREIGN KEY (`fk_projeto`) REFERENCES `tblprojeto_pesquisa` (`id_projeto`),
+  CONSTRAINT `tblpublicacao_ibfk_3` FOREIGN KEY (`fk_linha`) REFERENCES `tbllinha_pesquisa` (`id_linha`),
+  CONSTRAINT `tblpublicacao_ibfk_4` FOREIGN KEY (`fk_docente`) REFERENCES `tbldocente` (`id_docente`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tblpublicacao`
+--
 
 --
 -- Table structure for table `tblrecuperacao_senha`
@@ -696,13 +658,6 @@ CREATE TABLE `tbltecnico` (
 --
 -- Dumping data for table `tbltecnico`
 --
-
-LOCK TABLES `tbltecnico` WRITE;
-/*!40000 ALTER TABLE `tbltecnico` DISABLE KEYS */;
-INSERT INTO `tbltecnico` VALUES (1,'FERNANDO32','dara22','Tecnico em info2','Ensino Médio Completo','ADS22','2016-10-21','Imagens/tecnico.png'),(2,'Teste','dara222','Tecnico em info','Doutorado','ADS','2017-10-21','Imagens/143357233.jpg');
-/*!40000 ALTER TABLE `tbltecnico` ENABLE KEYS */;
-UNLOCK TABLES;
-
 --
 -- Table structure for table `tbltipo_usuario`
 --
@@ -757,11 +712,6 @@ CREATE TABLE `tblusuario` (
 -- Dumping data for table `tblusuario`
 --
 
-LOCK TABLES `tblusuario` WRITE;
-/*!40000 ALTER TABLE `tblusuario` DISABLE KEYS */;
-INSERT INTO `tblusuario` VALUES ('BA1748411','NADA','5df77a36b3c63458744186344c72aac4bf382b7876b7d5c03d85a61ab8424e13','nada@teste.com.br','2018-10-21',2,1,NULL,'s','Imagens/usuario.png'),('BA1841144','TESTE','af3a72aedc193773bef4641ce2bc40e388dafca4f63dcef61c2da19ddc659f5b','teste@teste.com.br','2018-10-21',2,1,NULL,'s','Imagens/usuario.png'),('FernandoO','Fernando Oliveira','663b21d377e8b49e0235a1acaf175c6702580b0466782de62c94c398435fc32e','fernando.costa1801@gmail.com','2018-10-16',1,1,NULL,'s','Imagens/usuario.png');
-/*!40000 ALTER TABLE `tblusuario` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -772,4 +722,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-28 20:37:00
+-- Dump completed on 2018-11-11 23:11:31
