@@ -1,8 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConsultaEquipamento.aspx.cs" Inherits="ProjetoFinal.Web.Pages.ConsultaEquipamento" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EncerrarProjeto.aspx.cs" Inherits="ProjetoFinal.Web.Pages.EncerrarProjeto" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
+  <!--================================================================================
+	Item Name: Materialize - Material Design Admin Template
+	Version: 4.0
+	Author: PIXINVENT
+	Author URL: https://themeforest.net/user/pixinvent/portfolio
+  ================================================================================ -->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,13 +18,11 @@
     <title>Admin | SG Manager</title>
     <!-- Favicons-->
     <link rel="icon" href="../Content/images/favicon/favicon-32x32.png" sizes="32x32">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <!-- Favicons-->
-    <link rel="apple-touch-icon-precomposed" href="..Content/images/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon-precomposed" href="../Content/images/favicon/apple-touch-icon-152x152.png">
     <!-- For iPhone -->
     <meta name="msapplication-TileColor" content="#00bcd4">
-    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+    <meta name="msapplication-TileImage" content="../Content/images/favicon/mstile-144x144.png">
     <!-- For Windows Phone -->
     <!-- CORE CSS-->
     <link href="../Content/css//materialize.css" type="text/css" rel="stylesheet">
@@ -119,9 +122,8 @@
               </li>
               <li class="divider"></li>
               <li>
-                  <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1" ID="BtnLogout">
+                <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1">
                   <i class="material-icons">keyboard_tab</i> Logout</a>
-                  
               </li>
             </ul>
           </div>
@@ -155,7 +157,7 @@
             <li class="no-padding">
               <ul class="collapsible" data-collapsible="accordion">
                 <li class="bold">
-                  <a href="Principal.aspx" class="waves-effect waves-cyan">
+                  <a href="../Pages/Principal.aspx" class="waves-effect waves-cyan">
                       <i class="material-icons">pie_chart_outlined</i>
                       <span class="nav-text">Dashboard</span>
                     </a>
@@ -172,14 +174,26 @@
                       <span class="nav-text">Grupos de Pesquisa</span>
                     </a>
                 </li>
-                   <li class="bold">
-                  <a href="ConsultaTecnico.aspx" class="waves-effect waves-cyan">
-                      <i class="material-icons">person</i>
+                <li class="bold">
+                  <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
+                      <span class="nav-text">Docentes</span>
+                    </a>
+                </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaDiscente.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
+                      <span class="nav-text">Discentes</span>
+                  </a>
+                </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaTecnico.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
                       <span class="nav-text">Técnicos</span>
                     </a>
                 </li>
-                    <li class="bold">
-                  <a href="ConsultaEquipamento.aspx" class="waves-effect waves-cyan">
+                <li class="bold">
+                  <a href="../Pages/ConsultaEquipamento.aspx" class="waves-effect waves-cyan">
                       <i class="material-icons">settings</i>
                       <span class="nav-text">Equipamentos</span>
                     </a>
@@ -196,7 +210,7 @@
                       <span class="nav-text">Publicações</span>
                     </a>
                 </li>
-               <ul class="collapsible collapsible-accordion">
+                <ul class="collapsible collapsible-accordion">
                   <li>
                     <a class="collapsible-header">Linhas de pesquisa<i class="material-icons">search</i></a>
                     <div class="collapsible-body">
@@ -219,7 +233,9 @@
         <!-- END LEFT SIDEBAR NAV-->
         <!-- //////////////////////////////////////////////////////////////////////////// -->
         <!-- START CONTENT -->
-        <div id="breadcrumbs-wrapper">
+        <section id="content">
+          <!--start container-->
+            <div id="breadcrumbs-wrapper">
               <!-- Search for small screen -->
               <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
                 <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
@@ -227,53 +243,60 @@
               <div class="container">
                 <div class="row">
                   <div class="col s10 m6 l6">
-                    <h5 class="breadcrumbs-title">Consulta de Equipamentos</h5>
+                    <h5 class="breadcrumbs-title">Encerrar projeto</h5>
                     <ol class="breadcrumbs">
                       <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
-                      <li><a href="#">Equipamentos</a></li>
-                      <li><a href="#">Consulta de Equipamentos</a></li>
-                    </ol>   
-                  </div>
-                  <%--<div class="col s2 m6 l6">
-                      <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/VincularGrupoTecnico.aspx">Vincular Técnico</a>
-                  </div>--%>
-                  <div class="col s2 m6 l6">
-                      <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/CadastroEquipamento.aspx">Novo Equipamento</a>
+                      <li><a href="#">Projetos</a></li>
+                      <li><a href="#">Encerrar projeto</a></li>
+                    </ol>
                   </div>
                 </div>
               </div>
             </div>
-         <div class='row'>
-              <div class='input-field col s12'>
-                    <asp:Repeater ID="RptConsulta" runat="server">
-                        <HeaderTemplate>
-                            <table class="striped responsive-table">
-                                <thead>
-                                  <tr>
-                                      <th>Nome</th>
-                                      <th>Descrição</th>
-                                     </tr>
-                                </thead>
-          
-                            <tbody>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                             <tr>
-                                <td><%# Eval("Nome") %></td>
-                                <td><%# Eval("Descricao") %></td>
-                                
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoEquipamento.aspx?id=<%# Eval("IdEquipamento") %>"><i class="material-icons">edit</i></a>
-                                </td>
-<%--                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
-                              </tr>               
-                        </ItemTemplate>
-                        <FooterTemplate>
-                            </tbody>
-                          </table>
-                        </FooterTemplate>
-                    </asp:Repeater>
+            <form class="col s12" runat="server">
+            <div id="basic-form" class="section">
+                <div class="row" style="display: inline-block">
+                  <div class="col s12 m12 l12">
+                    <div class="card-panel">
+                      <h4 class="header2">Insira os dados nos campos abaixo para desvincular</h4>
+                      <div class="row">
+                          
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <asp:TextBox id="TxtNome" type="text" runat="server" ReadOnly="true"/>
+                              <label for="TxtNome">Nome do projeto<span style="color: red;">*</span></label>
+                            </div>
+                          </div>
+                          
+                          
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <asp:TextBox id="TxtDataTermino" type="text" runat="server" />
+                              <label for="TxtCurso">Data de término<span style="color: red;">*</span></label>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                              <div class="input-field col s12">
+                                  <asp:Button id="BtnEncerrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Encerrar" runat="server" OnClick="BtnEncerrar_Click">
+                                  </asp:Button>
+                              </div>
+                          </div>
+                          <div class="row">
+                                <div class="input-field col s12">
+                                    <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
+                                </div>
+                            </div> 
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-        </div>
+            </form>
+          <!--end container-->
+            </section>
+        </section>
         <!-- END CONTENT -->
         <!-- START RIGHT SIDEBAR NAV-->
         <aside id="right-sidebar-nav">
@@ -300,7 +323,7 @@
                   </ul>
                 </div>
                 <div id="settings" class="col s12">
-                 <h6 class="mt-5 mb-3 ml-3">GENERAL SETTINGS</h6>
+                  <h6 class="mt-5 mb-3 ml-3">GENERAL SETTINGS</h6>
                   <ul class="collection border-none">
                     <li class="collection-item border-none">
                       <div class="m-0">
@@ -379,85 +402,85 @@
                 <div id="chatapp" class="col s12">
                   <div class="collection border-none">
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="..Content/images/avatar/avatar-1.png" alt="" class="circle cyan">
+                      <img src="../Content/images/avatar/avatar-1.png" alt="" class="circle cyan">
                       <span class="line-height-0">Elizabeth Elliott </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">5.00 AM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Thank you </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="..Content/images/avatar/avatar-2.png" alt="" class="circle deep-orange accent-2">
+                      <img src="../Content/images/avatar/avatar-2.png" alt="" class="circle deep-orange accent-2">
                       <span class="line-height-0">Mary Adams </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">4.14 AM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Hello Boo </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="..Content/images/avatar/avatar-3.png" alt="" class="circle teal accent-4">
+                      <img src="../Content/images/avatar/avatar-3.png" alt="" class="circle teal accent-4">
                       <span class="line-height-0">Caleb Richards </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">9.00 PM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Keny ! </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="..Content/images/avatar/avatar-4.png" alt="" class="circle cyan">
+                      <img src="../Content/images/avatar/avatar-4.png" alt="" class="circle cyan">
                       <span class="line-height-0">June Lane </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">4.14 AM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Ohh God </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="..Content/images/avatar/avatar-5.png" alt="" class="circle red accent-2">
+                      <img src="../Content/images/avatar/avatar-5.png" alt="" class="circle red accent-2">
                       <span class="line-height-0">Edward Fletcher </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">5.15 PM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Love you </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="..Content/images/avatar/avatar-6.png" alt="" class="circle deep-orange accent-2">
+                      <img src="../Content/images/avatar/avatar-6.png" alt="" class="circle deep-orange accent-2">
                       <span class="line-height-0">Crystal Bates </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">8.00 AM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Can we </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="..Content/images/avatar/avatar-7.png" alt="" class="circle cyan">
+                      <img src="../Content/images/avatar/avatar-7.png" alt="" class="circle cyan">
                       <span class="line-height-0">Nathan Watts </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">9.53 PM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Great! </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="..Content/images/avatar/avatar-8.png" alt="" class="circle red accent-2">
+                      <img src="../Content/images/avatar/avatar-8.png" alt="" class="circle red accent-2">
                       <span class="line-height-0">Willard Wood </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">4.20 AM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Do it </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="..Content/images/avatar/avatar-9.png" alt="" class="circle teal accent-4">
+                      <img src="../Content/images/avatar/avatar-9.png" alt="" class="circle teal accent-4">
                       <span class="line-height-0">Ronnie Ellis </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">5.30 PM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Got that </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="..Content/images/avatar/avatar-1.png" alt="" class="circle cyan">
+                      <img src="../Content/images/avatar/avatar-1.png" alt="" class="circle cyan">
                       <span class="line-height-0">Gwendolyn Wood </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">4.34 AM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Like you </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="..Content/images/avatar/avatar-2.png" alt="" class="circle red accent-2">
+                      <img src="../Content/images/avatar/avatar-2.png" alt="" class="circle red accent-2">
                       <span class="line-height-0">Daniel Russell </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">12.00 AM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Thank you </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="..Content/images/avatar/avatar-3.png" alt="" class="circle teal accent-4">
+                      <img src="../Content/images/avatar/avatar-3.png" alt="" class="circle teal accent-4">
                       <span class="line-height-0">Sarah Graves </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">11.14 PM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Okay you </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="..Content/images/avatar/avatar-4.png" alt="" class="circle red accent-2">
+                      <img src="../Content/images/avatar/avatar-4.png" alt="" class="circle red accent-2">
                       <span class="line-height-0">Andrew Hoffman </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">7.30 PM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Can do </p>
                     </a>
                     <a href="#!" class="collection-item avatar border-none">
-                      <img src="..Content/images/avatar/avatar-5.png" alt="" class="circle cyan">
+                      <img src="../Content/images/avatar/avatar-5.png" alt="" class="circle cyan">
                       <span class="line-height-0">Camila Lynch </span>
                       <span class="medium-small right blue-grey-text text-lighten-3">2.00 PM</span>
                       <p class="medium-small blue-grey-text text-lighten-3">Leave it </p>
@@ -575,6 +598,16 @@
     <script type="text/javascript" src="../Content/js/plugins.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="../Content/js/custom-script.js"></script>
+    <script>$('.dropdown-trigger').dropdown();</script>
+     <script src="../Content/js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript">
+         jQuery(function ($) {
+             $("#TxtDataTermino").mask("99/99/9999");
+             $("#TxtDataInicio").mask("99/99/9999");
+
+         });
+    </script>
   </body>
 </html>
+
 

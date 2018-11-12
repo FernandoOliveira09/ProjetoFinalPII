@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VincularProjetoEquipamento.aspx.cs" Inherits="ProjetoFinal.Web.VincularProjetoEquipamento" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VincularGrupoEquipamento.aspx.cs" Inherits="ProjetoFinal.Web.VincularProjetoEquipamento" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">

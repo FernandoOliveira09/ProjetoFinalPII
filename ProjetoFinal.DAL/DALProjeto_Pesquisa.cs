@@ -56,6 +56,22 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
+        public static void AlteracaoEncerrar(MODProjetoPesquisa projetoPesquisa)
+        {
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "Update TBLProjeto_pesquisa set data_fim = @data"
+                + " where id_projeto = @projeto";
+            comando.Parameters.AddWithValue("@data", projetoPesquisa.DataTermino);
+            comando.Parameters.AddWithValue("@projeto", projetoPesquisa.IdProjeto);
+
+            comando.ExecuteNonQuery();
+
+            Conexao.Fechar();
+        }
 
         public static DataTable PesquisarLinha(MODProjetoPesquisa_Linha projetoLinha)
         {

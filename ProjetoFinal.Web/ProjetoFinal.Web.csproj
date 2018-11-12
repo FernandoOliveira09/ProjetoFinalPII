@@ -116,6 +116,8 @@
     <Content Include="Pages\ConsultaTecnico.aspx" />
     <Content Include="Pages\ConsultaUsuario.aspx" />
     <Content Include="Pages\DesvincularDiscente.aspx" />
+    <Content Include="Pages\DesvincularEquipamento.aspx" />
+    <Content Include="Pages\EncerrarProjeto.aspx" />
     <Content Include="Pages\InserirCodigoRecuperacao.aspx" />
     <Content Include="Pages\Principal.aspx" />
     <Content Include="Pages\Login.aspx" />
@@ -127,7 +129,7 @@
     <Content Include="Pages\VincularGrupoTecnico.aspx" />
     <Content Include="Pages\VincularProjetoColaborador.aspx" />
     <Content Include="Pages\VincularProjetoDiscente.aspx" />
-    <Content Include="Pages\VincularProjetoEquipamento.aspx" />
+    <Content Include="Pages\VincularGrupoEquipamento.aspx" />
     <Content Include="Projetos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -415,6 +417,20 @@
     <Compile Include="Pages\DesvincularDiscente.aspx.designer.cs">
       <DependentUpon>DesvincularDiscente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DesvincularEquipamento.aspx.cs">
+      <DependentUpon>DesvincularEquipamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DesvincularEquipamento.aspx.designer.cs">
+      <DependentUpon>DesvincularEquipamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EncerrarProjeto.aspx.cs">
+      <DependentUpon>EncerrarProjeto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EncerrarProjeto.aspx.designer.cs">
+      <DependentUpon>EncerrarProjeto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\InserirCodigoRecuperacao.aspx.cs">
       <DependentUpon>InserirCodigoRecuperacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -500,12 +516,12 @@
       <DependentUpon>Projetos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Pages\VincularProjetoEquipamento.aspx.cs">
-      <DependentUpon>VincularProjetoEquipamento.aspx</DependentUpon>
+    <Compile Include="Pages\VincularGrupoEquipamento.aspx.cs">
+      <DependentUpon>VincularGrupoEquipamento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\VincularProjetoEquipamento.aspx.designer.cs">
-      <DependentUpon>VincularProjetoEquipamento.aspx</DependentUpon>
+    <Compile Include="Pages\VincularGrupoEquipamento.aspx.designer.cs">
+      <DependentUpon>VincularGrupoEquipamento.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

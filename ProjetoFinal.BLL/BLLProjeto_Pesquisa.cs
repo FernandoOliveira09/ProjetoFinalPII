@@ -21,6 +21,11 @@ namespace ProjetoFinal.BLL
             DALProjeto_Pesquisa.InserirLinha(projetoLinha);
         }
 
+        public static void AlteracaoEncerrar(MODProjetoPesquisa projetoPesquisa)
+        {
+            DALProjeto_Pesquisa.AlteracaoEncerrar(projetoPesquisa);
+        }
+
         public static DataTable PesquisarLinha(MODProjetoPesquisa_Linha projetoLinha)
         {
             return DALProjeto_Pesquisa.PesquisarLinha(projetoLinha);
