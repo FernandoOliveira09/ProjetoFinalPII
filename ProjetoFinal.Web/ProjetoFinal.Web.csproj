@@ -122,6 +122,7 @@
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\RecuperacaoSenha.aspx" />
     <Content Include="Pages\RecuperaSenhaUsuario.aspx" />
+    <Content Include="Pages\SelecionarRelatorio.aspx" />
     <Content Include="Pages\VincularDocenteLinhaPesquisa.aspx" />
     <Content Include="Pages\VincularGrupoDocente.aspx" />
     <Content Include="Pages\VincularGrupoLinhaPesquisa.aspx" />
@@ -457,6 +458,13 @@
     </Compile>
     <Compile Include="Pages\RecuperaSenhaUsuario.aspx.designer.cs">
       <DependentUpon>RecuperaSenhaUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SelecionarRelatorio.aspx.cs">
+      <DependentUpon>SelecionarRelatorio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SelecionarRelatorio.aspx.designer.cs">
+      <DependentUpon>SelecionarRelatorio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\VincularDocenteLinhaPesquisa.aspx.cs">
       <DependentUpon>VincularDocenteLinhaPesquisa.aspx</DependentUpon>
