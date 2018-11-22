@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RelatorioLinhaPesquisa.aspx.cs" Inherits="ProjetoFinal.Web.Pages.Relatorios.RelatorioLinhaPesquisa" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RelatorioDocente.aspx.cs" Inherits="ProjetoFinal.Web.Pages.Relatorios.RelatorioDocente" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -104,7 +104,7 @@
             <!-- START LEFT SIDEBAR NAV-->
             <aside id="left-sidebar-nav">
                 <ul id="slide-out" class="side-nav fixed leftside-navigation">
-                    <li class="user-details cyan darken-2" style="background: url(../../Content/images/gallary/12.png)">
+                    <li class="user-details cyan darken-2" style="background:url(../../Content/images/gallary/12.png)">
                         <div class="row">
                             <div class="col col s4 m4 l4">
                                 <asp:Image ID="ImagemUser" ImageUrl="../../Pages/Imagens/usuario.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server" />
@@ -209,11 +209,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title">Relatório de linhas de pesquisa</h5>
+                            <h5 class="breadcrumbs-title">Relatório de docentes</h5>
                             <ol class="breadcrumbs">
                                 <li><a href="../../Pages/Principal.aspx">Dashboard</a></li>
                                 <li><a href="#">Relatórios</a></li>
-                                <li><a href="#">Linhas de pesquisa</a></li>
+                                <li><a href="#">Docentes</a></li>
                             </ol>
                         </div>
                     </div>
@@ -228,14 +228,15 @@
                                 <form class="col s12" runat="server">
 
                                     <div class="col s4 m6 l2">
-                                        <div class="input-field col s12 m12 l12" style="display: inline-block;">
+                                        <div class="input-field col s12 m12 l12" style="display:inline-block;">
                                             <asp:TextBox ID="TxtAno" type="text" runat="server" MaxLength="4" />
                                             <label for="TxtAno">Ano<span style="color: red;">*</span></label>
                                         </div>
                                     </div>
                                     <div class="col s6 m8 l6">
-                                        <div class="input-field col s12 m12 l12" style="display: inline-block;">
+                                        <div class="input-field col s12 m12 l12" style="display:inline-block;">
                                             <asp:DropDownList ID="TxtGrupo" type="text" runat="server">
+
                                             </asp:DropDownList>
                                             <label for="TxtGrupo">Grupo<span style="color: red;">*</span></label>
                                         </div>
@@ -261,7 +262,7 @@
                             <thead>
                                 <tr>
                                     <th>Nome</th>
-                                    <th>Data de início</th>
+                                    <th>Data de Entrada</th>
                                     <th>Data de termino</th>
                                 </tr>
                             </thead>
@@ -269,9 +270,9 @@
                     </HeaderTemplate>
                     <ItemTemplate>
                         <tr>
-                            <td><%# Eval("Nome_linha") %></td>
-                            <td><%# Eval("Data_inicio", "{0:d}") %></td>
-                            <td><%# Eval("Data_termino", "{0:d}") %></td>
+                            <td><%# Eval("Nome") %></td>
+                            <td><%# Eval("Data_entrada", "{0:d}") %></td>
+                            <td><%# Eval("Data_saida", "{0:d}") %></td>
                         </tr>
                     </ItemTemplate>
                     <FooterTemplate>
@@ -315,4 +316,5 @@
     <script type="text/javascript" src="../../Content/js/custom-script.js"></script>
 </body>
 </html>
+
 

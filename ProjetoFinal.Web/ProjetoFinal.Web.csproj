@@ -122,7 +122,11 @@
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\RecuperacaoSenha.aspx" />
     <Content Include="Pages\RecuperaSenhaUsuario.aspx" />
+    <Content Include="Pages\Relatorios\RelatorioDocente.aspx" />
+    <Content Include="Pages\Relatorios\RelatorioEquipamento.aspx" />
     <Content Include="Pages\Relatorios\RelatorioLinhaPesquisa.aspx" />
+    <Content Include="Pages\Relatorios\RelatorioProjetosFinalizados.aspx" />
+    <Content Include="Pages\Relatorios\RelatorioTecnico.aspx" />
     <Content Include="Pages\SelecionarRelatorio.aspx" />
     <Content Include="Pages\VincularDocenteLinhaPesquisa.aspx" />
     <Content Include="Pages\VincularGrupoDocente.aspx" />
@@ -460,12 +464,40 @@
     <Compile Include="Pages\RecuperaSenhaUsuario.aspx.designer.cs">
       <DependentUpon>RecuperaSenhaUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioDocente.aspx.cs">
+      <DependentUpon>RelatorioDocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioDocente.aspx.designer.cs">
+      <DependentUpon>RelatorioDocente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioEquipamento.aspx.cs">
+      <DependentUpon>RelatorioEquipamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioEquipamento.aspx.designer.cs">
+      <DependentUpon>RelatorioEquipamento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Relatorios\RelatorioLinhaPesquisa.aspx.cs">
       <DependentUpon>RelatorioLinhaPesquisa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Relatorios\RelatorioLinhaPesquisa.aspx.designer.cs">
       <DependentUpon>RelatorioLinhaPesquisa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioProjetosFinalizados.aspx.cs">
+      <DependentUpon>RelatorioProjetosFinalizados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioProjetosFinalizados.aspx.designer.cs">
+      <DependentUpon>RelatorioProjetosFinalizados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioTecnico.aspx.cs">
+      <DependentUpon>RelatorioTecnico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioTecnico.aspx.designer.cs">
+      <DependentUpon>RelatorioTecnico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SelecionarRelatorio.aspx.cs">
       <DependentUpon>SelecionarRelatorio.aspx</DependentUpon>

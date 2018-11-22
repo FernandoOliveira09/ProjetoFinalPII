@@ -296,7 +296,7 @@ namespace ProjetoFinal.DAL
             }
             else if (tipoPesquisa == "docente")
             {
-                comando.CommandText = "SELECT d.id_docente, d.nome from tbldocente d "
+                comando.CommandText = "SELECT d.id_docente, d.nome, gd.data_entrada, gd.data_saida from tbldocente d "
                     + "inner join tblgrupo_docente gd on gd.fk_docente = d.id_docente "
                     + "inner join tblgrupo g on gd.fk_grupo = g.id_grupo "
                     + "and gd.fk_grupo = @grupo and gd.data_entrada BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
@@ -304,7 +304,7 @@ namespace ProjetoFinal.DAL
             }
             else if (tipoPesquisa == "tecnico")
             {
-                comando.CommandText = "SELECT t.id_tecnico, t.nome from tbltecnico t "
+                comando.CommandText = "SELECT t.id_tecnico, t.nome, gt.data_entrada, gt.data_saida from tbltecnico t "
                     + "inner join tblgrupo_tecnico gt on gt.fk_tecnico = t.id_tecnico "
                     + "inner join tblgrupo g on gt.fk_grupo = g.id_grupo "
                     + "and gt.fk_grupo = @grupo and gt.data_entrada BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
@@ -312,7 +312,7 @@ namespace ProjetoFinal.DAL
             }
             else if (tipoPesquisa == "equipamento")
             {
-                comando.CommandText = "SELECT e.id_equipamento, e.nome, e.descricao from tblequipamento e "
+                comando.CommandText = "SELECT e.id_equipamento, e.nome, e.descricao, ge.data_inicio, ge.data_fim from tblequipamento e "
                     + "inner join tblgrupo_equipamento ge on ge.fk_equipamento = e.id_equipamento "
                     + "inner join tblgrupo g on ge.fk_grupo = g.id_grupo "
                     + "and ge.fk_grupo = @grupo and ge.data_inicio BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
@@ -320,7 +320,7 @@ namespace ProjetoFinal.DAL
             }
             else if (tipoPesquisa == "projeto")
             {
-                comando.CommandText = "SELECT p.id_projeto, p.titulo, p.data_inicio from tblprojeto_pesquisa p "
+                comando.CommandText = "SELECT p.id_projeto, p.titulo, p.data_inicio, p.data_fim from tblprojeto_pesquisa p "
                     + "inner join tblgrupo g on p.fk_grupo = g.id_grupo "
                     + "and p.fk_grupo = @grupo and p.data_fim BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
                 comando.Parameters.AddWithValue("@grupo", grupo.IdGrupo);
