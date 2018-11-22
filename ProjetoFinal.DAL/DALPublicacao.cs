@@ -118,5 +118,48 @@ namespace ProjetoFinal.DAL
 
             return dados;
         }
+
+        public static DataTable Relatorio(MODPublicacao publicacao, string ano, string tipoPesquisa)
+        {
+            MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
+            comando.Connection = Conexao.conexao;
+
+            if(tipoPesquisa == "grupo")
+            {
+                comando.CommandText = "select pu.titulo, pu.tipo_publicacao, pu.referencia_abnt, pu.data_publicacao, l.nome_linha, d.nome "
+                    + "from tblpublicacao pu "
+                    + "inner join tbldocente d on d.id_docente = pu.fk_docente "
+                    + "inner join tbllinha_pesquisa l on l.id_linha = pu.fk_linha "
+                    + "and pu.fk_grupo = @grupo and pu.fk_projeto is null and pu.tipo_publicacao = @tipo "
+                    + "and pu.data_publicacao between '" + ano +"-01-01' and '"+ ano + "-12-31'";
+
+                comando.Parameters.AddWithValue("@grupo", publicacao.FkGrupo);
+                comando.Parameters.AddWithValue("@tipo", publicacao.TipoPublicacao);
+            }
+            else
+            {
+                comando.CommandText = "select pu.titulo, pu.tipo_publicacao, pu.referencia_abnt, pu.data_publicacao, pr.titulo, l.nome_linha, d.nome "
+                    + "from tblpublicacao pu "
+                    + "inner join tbldocente d on d.id_docente = pu.fk_docente "
+                    + "inner join tbllinha_pesquisa l on l.id_linha = pu.fk_linha "
+                    + "inner join tblprojeto_pesquisa pr on pr.id_projeto = pu.fk_projeto "
+                    + "and pu.fk_grupo = @grupo and pu.fk_projeto = @projeto and pu.tipo_publicacao = @tipo "
+                    + "and pu.data_publicacao between '" + ano + "-01-01' and '" + ano + "-12-31'";
+
+                comando.Parameters.AddWithValue("@grupo", publicacao.FkGrupo);
+                comando.Parameters.AddWithValue("@projeto", publicacao.FKProjeto);
+                comando.Parameters.AddWithValue("@tipo", publicacao.TipoPublicacao);
+
+            }
+            
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
+
+            da.Fill(dados);
+
+            return dados;
+        }
     }
 }

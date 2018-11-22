@@ -31,5 +31,10 @@ namespace ProjetoFinal.BLL
         {
             return DALPublicacao.ConsultaPorProjeto(projetoPesquisa);
         }
+
+        public static DataTable Relatorio(MODPublicacao publicacao, string ano, string tipoPesquisa)
+        {
+            return DALPublicacao.Relatorio(publicacao, ano, tipoPesquisa);
+        }
     }
 }
