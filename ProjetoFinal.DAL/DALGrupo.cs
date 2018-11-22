@@ -288,7 +288,7 @@ namespace ProjetoFinal.DAL
 
             if (tipoPesquisa == "linha")
             {
-                comando.CommandText = "SELECT l.id_linha, l.nome_linha from tbllinha_pesquisa l "
+                comando.CommandText = "SELECT l.id_linha, l.nome_linha, glp.data_inicio, glp.data_termino from tbllinha_pesquisa l "
                     + "inner join tblgrupo_linha_pesquisa glp on glp.fk_linha = l.id_linha "
                     + "inner join tblgrupo g on glp.fk_grupo = g.id_grupo "
                     + "and glp.fk_grupo = @grupo and glp.data_inicio BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";

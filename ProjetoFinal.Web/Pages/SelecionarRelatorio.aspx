@@ -81,7 +81,7 @@
                     <ul id="notifications-dropdown" class="dropdown-content">
                         <li>
                             <h6>NOTIFICATIONS
-                  <span class="new badge">5</span>
+                                <span class="new badge">5</span>
                             </h6>
                         </li>
                         <li class="divider"></li>
