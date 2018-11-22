@@ -64,7 +64,7 @@ namespace ProjetoFinal.DAL
 
             if (tipoPesquisa == "docente")
             {
-                comando.CommandText = "SELECT d.id_docente, d.nome from tbldocente d "
+                comando.CommandText = "SELECT d.id_docente, d.nome, dlp.data_entrada, dlp.data_saida from tbldocente d "
                     + "inner join tbldocente_linha_pesquisa dlp on dlp.fk_docente = d.id_docente "
                     + "inner join tblgrupo g on dlp.fk_grupo = g.id_grupo "
                     + "inner join tbllinha_pesquisa l on dlp.fk_linha = l.id_linha "
@@ -74,7 +74,7 @@ namespace ProjetoFinal.DAL
             }
             else if (tipoPesquisa == "linha")
             {
-                comando.CommandText = "SELECT l.id_linha, l.nome_linha from tbllinha_pesquisa l "
+                comando.CommandText = "SELECT l.id_linha, l.nome_linha, dlp.data_entrada, dlp.data_saida from tbllinha_pesquisa l "
                     + "inner join tbldocente_linha_pesquisa dlp on dlp.fk_linha = l.id_linha "
                     + "inner join tblgrupo g on dlp.fk_grupo = g.id_grupo "
                     + "inner join tbldocente d on dlp.fk_docente = d.id_docente "

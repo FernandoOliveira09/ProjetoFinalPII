@@ -88,7 +88,8 @@ namespace ProjetoFinal.DAL
             }
             else if (tipoPesquisa == "grupo")
             {
-                comando.CommandText = "select l.id_linha, l.nome_linha, gl.descricao, gl.data_inicio, gl.data_termino, g.id_grupo from tbllinha_pesquisa l inner join tblgrupo_linha_pesquisa gl on gl.fk_linha = l.id_linha inner join Tblgrupo g on gl.fk_grupo = g.id_grupo and gl.fk_grupo = @grupo";
+                comando.CommandText = "select l.id_linha, l.nome_linha, gl.descricao, gl.data_inicio, gl.data_termino, g.id_grupo from tbllinha_pesquisa l inner join tblgrupo_linha_pesquisa gl " 
+                    + "on gl.fk_linha = l.id_linha inner join Tblgrupo g on gl.fk_grupo = g.id_grupo and gl.fk_grupo = @grupo";
                 comando.Parameters.AddWithValue("@grupo", grupoLinha.FkGrupo);
             }
 

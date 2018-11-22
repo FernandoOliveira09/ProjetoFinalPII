@@ -20,5 +20,10 @@ namespace ProjetoFinal.BLL
         {
             return DALDocente_Linha_Pesquisa.Pesquisar(linhaDocente, tipoPesquisa);
         }
+
+        public static DataTable Relatorio(MODDocente_Linha_Pesquisa docenteLinha, string ano, string tipoPesquisa)
+        {
+            return DALDocente_Linha_Pesquisa.Relatorio(docenteLinha, ano, tipoPesquisa);
+        }
     }
 }

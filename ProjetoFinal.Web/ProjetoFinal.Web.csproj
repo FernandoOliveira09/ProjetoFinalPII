@@ -122,6 +122,8 @@
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\RecuperacaoSenha.aspx" />
     <Content Include="Pages\RecuperaSenhaUsuario.aspx" />
+    <Content Include="Pages\Relatorios\RelatorioDocenteLinha.aspx" />
+    <Content Include="Pages\Relatorios\RelatorioLinhaDocente.aspx" />
     <Content Include="Pages\Relatorios\RelatorioDocente.aspx" />
     <Content Include="Pages\Relatorios\RelatorioEquipamento.aspx" />
     <Content Include="Pages\Relatorios\RelatorioLinhaPesquisa.aspx" />
@@ -463,6 +465,20 @@
     </Compile>
     <Compile Include="Pages\RecuperaSenhaUsuario.aspx.designer.cs">
       <DependentUpon>RecuperaSenhaUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioDocenteLinha.aspx.cs">
+      <DependentUpon>RelatorioDocenteLinha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioDocenteLinha.aspx.designer.cs">
+      <DependentUpon>RelatorioDocenteLinha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioLinhaDocente.aspx.cs">
+      <DependentUpon>RelatorioLinhaDocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioLinhaDocente.aspx.designer.cs">
+      <DependentUpon>RelatorioLinhaDocente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Relatorios\RelatorioDocente.aspx.cs">
       <DependentUpon>RelatorioDocente.aspx</DependentUpon>
