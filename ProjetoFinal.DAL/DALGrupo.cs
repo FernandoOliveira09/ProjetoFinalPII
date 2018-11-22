@@ -279,5 +279,61 @@ namespace ProjetoFinal.DAL
 
             return retorno;
         }
+
+        public static DataTable Relatorio(MODGrupo grupo, string ano, string tipoPesquisa)
+        {
+            MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
+            comando.Connection = Conexao.conexao;
+
+            if (tipoPesquisa == "linha")
+            {
+                comando.CommandText = "SELECT l.id_linha, l.nome_linha from tbllinha_pesquisa l "
+                    + "inner join tblgrupo_linha_pesquisa glp on glp.fk_linha = l.id_linha "
+                    + "inner join tblgrupo g on glp.fk_grupo = g.id_grupo "
+                    + "and glp.fk_grupo = @grupo and glp.data_inicio BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
+                comando.Parameters.AddWithValue("@grupo", grupo.IdGrupo);
+            }
+            else if (tipoPesquisa == "docente")
+            {
+                comando.CommandText = "SELECT d.id_docente, d.nome from tbldocente d "
+                    + "inner join tblgrupo_docente gd on gd.fk_docente = d.id_docente "
+                    + "inner join tblgrupo g on gd.fk_grupo = g.id_grupo "
+                    + "and gd.fk_grupo = @grupo and gd.data_entrada BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
+                comando.Parameters.AddWithValue("@grupo", grupo.IdGrupo);
+            }
+            else if (tipoPesquisa == "tecnico")
+            {
+                comando.CommandText = "SELECT t.id_tecnico, t.nome from tbltecnico t "
+                    + "inner join tblgrupo_tecnico gt on gt.fk_tecnico = t.id_tecnico "
+                    + "inner join tblgrupo g on gt.fk_grupo = g.id_grupo "
+                    + "and gt.fk_grupo = @grupo and gt.data_entrada BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
+                comando.Parameters.AddWithValue("@grupo", grupo.IdGrupo);
+            }
+            else if (tipoPesquisa == "equipamento")
+            {
+                comando.CommandText = "SELECT e.id_equipamento, e.nome, e.descricao from tblequipamento e "
+                    + "inner join tblgrupo_equipamento ge on ge.fk_equipamento = e.id_equipamento "
+                    + "inner join tblgrupo g on ge.fk_grupo = g.id_grupo "
+                    + "and ge.fk_grupo = @grupo and ge.data_inicio BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
+                comando.Parameters.AddWithValue("@grupo", grupo.IdGrupo);
+            }
+            else if (tipoPesquisa == "projeto")
+            {
+                comando.CommandText = "SELECT p.id_projeto, p.titulo, p.data_inicio from tblprojeto_pesquisa p "
+                    + "inner join tblgrupo g on p.fk_grupo = g.id_grupo "
+                    + "and p.fk_grupo = @grupo and p.data_fim BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
+                comando.Parameters.AddWithValue("@grupo", grupo.IdGrupo);
+            }
+
+
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
+
+            da.Fill(dados);
+
+            return dados;
+        }
     }
 }

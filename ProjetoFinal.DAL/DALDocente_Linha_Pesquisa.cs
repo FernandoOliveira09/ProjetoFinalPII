@@ -55,5 +55,41 @@ namespace ProjetoFinal.DAL
 
             return dados;
         }
+
+        public static DataTable Relatorio(MODDocente_Linha_Pesquisa docenteLinha, string ano, string tipoPesquisa)
+        {
+            MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
+            comando.Connection = Conexao.conexao;
+
+            if (tipoPesquisa == "docente")
+            {
+                comando.CommandText = "SELECT d.id_docente, d.nome from tbldocente d "
+                    + "inner join tbldocente_linha_pesquisa dlp on dlp.fk_docente = d.id_docente "
+                    + "inner join tblgrupo g on dlp.fk_grupo = g.id_grupo "
+                    + "inner join tbllinha_pesquisa l on dlp.fk_linha = l.id_linha "
+                    + "and dlp.fk_grupo = @grupo and dlp.fk_linha = @linha and dlp.data_entrada BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31' ";
+                comando.Parameters.AddWithValue("@grupo", docenteLinha.FkGrupo);
+                comando.Parameters.AddWithValue("@linha", docenteLinha.FkLinha);
+            }
+            else if (tipoPesquisa == "linha")
+            {
+                comando.CommandText = "SELECT l.id_linha, l.nome_linha from tbllinha_pesquisa l "
+                    + "inner join tbldocente_linha_pesquisa dlp on dlp.fk_linha = l.id_linha "
+                    + "inner join tblgrupo g on dlp.fk_grupo = g.id_grupo "
+                    + "inner join tbldocente d on dlp.fk_docente = d.id_docente "
+                    + "and dlp.fk_grupo = @grupo and dlp.fk_docente = @docente and dlp.data_entrada BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31' ";
+                comando.Parameters.AddWithValue("@grupo", docenteLinha.FkGrupo);
+                comando.Parameters.AddWithValue("@docente", docenteLinha.FkDocente);
+            }
+
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
+
+            da.Fill(dados);
+
+            return dados;
+        }
     }
 }

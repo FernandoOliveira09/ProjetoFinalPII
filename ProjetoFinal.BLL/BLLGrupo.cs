@@ -51,5 +51,10 @@ namespace ProjetoFinal.BLL
         {
             return DALGrupo.PesquisarLider(grupoLider);
         }
+
+        public static DataTable Relatorio(MODGrupo grupo, string ano, string tipoPesquisa)
+        {
+            return DALGrupo.Relatorio(grupo, ano, tipoPesquisa);
+        }
     }
 }

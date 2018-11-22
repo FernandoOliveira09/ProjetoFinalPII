@@ -213,6 +213,7 @@ namespace ProjetoFinal.Web.Pages
             }
 
             docenteLinha.FkDocente = Convert.ToInt32(TxtDocenteLider.SelectedValue);
+            docenteLinha.FkGrupo = idGrupo;
 
             RptLinhas.DataSource = BLLDocente_Linha_Pesquisa.Pesquisar(docenteLinha, "docente");
             RptLinhas.DataBind();
