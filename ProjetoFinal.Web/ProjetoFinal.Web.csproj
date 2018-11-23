@@ -131,6 +131,7 @@
     <Content Include="Pages\Relatorios\RelatorioEquipamento.aspx" />
     <Content Include="Pages\Relatorios\RelatorioLinhaPesquisa.aspx" />
     <Content Include="Pages\Relatorios\RelatorioProjetosFinalizados.aspx" />
+    <Content Include="Pages\Relatorios\RelatorioPublicacao.aspx" />
     <Content Include="Pages\Relatorios\RelatorioTecnico.aspx" />
     <Content Include="Pages\SelecionarRelatorio.aspx" />
     <Content Include="Pages\VincularDocenteLinhaPesquisa.aspx" />
@@ -531,6 +532,13 @@
     </Compile>
     <Compile Include="Pages\Relatorios\RelatorioProjetosFinalizados.aspx.designer.cs">
       <DependentUpon>RelatorioProjetosFinalizados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioPublicacao.aspx.cs">
+      <DependentUpon>RelatorioPublicacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioPublicacao.aspx.designer.cs">
+      <DependentUpon>RelatorioPublicacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Relatorios\RelatorioTecnico.aspx.cs">
       <DependentUpon>RelatorioTecnico.aspx</DependentUpon>
