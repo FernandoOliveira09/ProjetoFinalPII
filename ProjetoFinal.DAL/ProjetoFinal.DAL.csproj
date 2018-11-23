@@ -59,6 +59,7 @@
     <Compile Include="DALPublicacao.cs" />
     <Compile Include="DALRecuperacaoSenha.cs" />
     <Compile Include="DALRecuperacaoSenha_Usuario.cs" />
+    <Compile Include="DALReuniao.cs" />
     <Compile Include="DALTecnico.cs" />
     <Compile Include="DALUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

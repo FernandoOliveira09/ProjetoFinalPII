@@ -31,5 +31,7 @@ namespace ProjetoFinal.Utilitarios
         public static string FormacaoVazia = "O campo FORMAÇÃO é inválido!";
         public static string TituloVazio = "O campo TÍTULO é inválido!";
         public static string AnoConclusaoVazio = "O campo ANO DE CONCLUSÃO é inválido!";
+        public static string PautaVazia = "O campo PAUTA é inválido!";
+        public static string HoraVazia = "O campo HORA é inválido!";
     }
 }

@@ -86,6 +86,7 @@
     <Content Include="Pages\AlteracaoGrupo.aspx" />
     <Content Include="Pages\AlteracaoLider.aspx" />
     <Content Include="Pages\AlteracaoLinhaPesquisa.aspx" />
+    <Content Include="Pages\AlteracaoReuniao.aspx" />
     <Content Include="Pages\AlteracaoSubAreaAvaliacao.aspx" />
     <Content Include="Pages\AlteracaoTecnico.aspx" />
     <Content Include="Pages\AlteracaoUsuario.aspx" />
@@ -99,6 +100,7 @@
     <Content Include="Pages\CadastroLinhaPesquisa.aspx" />
     <Content Include="Pages\CadastroProjetoPesquisa.aspx" />
     <Content Include="Pages\CadastroPublicacao.aspx" />
+    <Content Include="Pages\CadastroReuniao.aspx" />
     <Content Include="Pages\CadastroSubAreaAvaliacao.aspx" />
     <Content Include="Pages\CadastroTecnico.aspx" />
     <Content Include="Pages\CadastroUsuario.aspx" />
@@ -111,6 +113,7 @@
     <Content Include="Pages\ConsultaLinhaPesquisa.aspx" />
     <Content Include="Pages\ConsultaProjetoPesquisa.aspx" />
     <Content Include="Pages\ConsultaPublicacao.aspx" />
+    <Content Include="Pages\ConsultaReuniao.aspx" />
     <Content Include="Pages\ConsultarGrupoVinculos.aspx" />
     <Content Include="Pages\ConsultaSubAreaAvaliacao.aspx" />
     <Content Include="Pages\ConsultaTecnico.aspx" />
@@ -214,6 +217,13 @@
     <Compile Include="Pages\AlteracaoLinhaPesquisa.aspx.designer.cs">
       <DependentUpon>AlteracaoLinhaPesquisa.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AlteracaoReuniao.aspx.cs">
+      <DependentUpon>AlteracaoReuniao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AlteracaoReuniao.aspx.designer.cs">
+      <DependentUpon>AlteracaoReuniao.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AlteracaoSubAreaAvaliacao.aspx.cs">
       <DependentUpon>AlteracaoSubAreaAvaliacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -305,6 +315,13 @@
     <Compile Include="Pages\CadastroPublicacao.aspx.designer.cs">
       <DependentUpon>CadastroPublicacao.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CadastroReuniao.aspx.cs">
+      <DependentUpon>CadastroReuniao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CadastroReuniao.aspx.designer.cs">
+      <DependentUpon>CadastroReuniao.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CadastroSubAreaAvaliacao.aspx.cs">
       <DependentUpon>CadastroSubAreaAvaliacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -388,6 +405,13 @@
     </Compile>
     <Compile Include="Pages\ConsultaPublicacao.aspx.designer.cs">
       <DependentUpon>ConsultaPublicacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConsultaReuniao.aspx.cs">
+      <DependentUpon>ConsultaReuniao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ConsultaReuniao.aspx.designer.cs">
+      <DependentUpon>ConsultaReuniao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ConsultarGrupoVinculos.aspx.cs">
       <DependentUpon>ConsultarGrupoVinculos.aspx</DependentUpon>
