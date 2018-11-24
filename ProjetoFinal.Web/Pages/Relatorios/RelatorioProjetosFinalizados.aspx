@@ -69,7 +69,7 @@
                         <li>
                             <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button" data-activates="profile-dropdown">
                                 <span class="avatar-status avatar-online">
-                                    <asp:Image ID="ImagemUser2" ImageUrl="../Pages/Imagens/usuario.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server" />
+                                    <asp:Image ID="ImagemUser2" ImageUrl="../../Pages/Imagens/usuario.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server" />
                                     <i></i>
                                 </span>
                             </a>

@@ -58,7 +58,7 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            if(tipoAlteracao == "todos")
+            if (tipoAlteracao == "todos")
             {
                 comando.CommandText = "UPDATE TBLGRUPO SET nome = @nome, sigla = @sigla, email = @email, texto_descricao = @texto, " +
                 "logotipo = @logotipo, lattes = @lattes, data_inicio = @data_inicio WHERE id_grupo = @id";
@@ -77,7 +77,7 @@ namespace ProjetoFinal.DAL
                 comando.Parameters.AddWithValue("@fk_situacao", grupo.FkSituacao);
                 comando.Parameters.AddWithValue("@id", grupo.IdGrupo);
             }
-            
+
             comando.ExecuteNonQuery();
 
             Conexao.Fechar();
@@ -96,7 +96,7 @@ namespace ProjetoFinal.DAL
                 comando.Parameters.AddWithValue("@data_saida", grupoLider.DataSaida);
                 comando.Parameters.AddWithValue("@id", grupoLider.Id);
             }
-            
+
             comando.ExecuteNonQuery();
 
             Conexao.Fechar();
@@ -111,7 +111,7 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            if(tipoPesquisa == "nome")
+            if (tipoPesquisa == "nome")
             {
                 comando.CommandText = "SELECT id_grupo, nome, sigla, email, texto_descricao, logotipo, lattes, data_inicio, fk_situacao FROM TBLGRUPO WHERE nome = @nome";
                 comando.Parameters.AddWithValue("@nome", grupo.Nome);
@@ -139,7 +139,7 @@ namespace ProjetoFinal.DAL
                 ret.Descricao = reader["texto_descricao"].ToString();
                 ret.Logotipo = reader["Logotipo"].ToString();
                 ret.Lattes = reader["lattes"].ToString();
-                if(reader["data_inicio"].ToString() != "")
+                if (reader["data_inicio"].ToString() != "")
                     ret.DataInicio = Convert.ToDateTime(reader["data_inicio"].ToString());
                 ret.FkSituacao = Convert.ToInt32(reader["fk_situacao"]);
 
@@ -172,7 +172,7 @@ namespace ProjetoFinal.DAL
 
             comando.CommandText = "SELECT id, fk_grupo, fk_lider, data_entrada, data_saida FROM tblgrupo_lider where fk_grupo = @grupo";
             comando.Parameters.AddWithValue("@grupo", grupoLider.FkGrupo);
-            
+
 
             MySqlDataReader reader = comando.ExecuteReader();
 
@@ -206,7 +206,7 @@ namespace ProjetoFinal.DAL
             Conexao.Abrir();
             comando.Connection = Conexao.conexao;
 
-            if(tipoPesquisa == "todos")
+            if (tipoPesquisa == "todos")
             {
                 comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.texto_descricao, s.situacao as Situacao, u.login, u.nome as Lider from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
                     + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao and l.data_saida is null";
@@ -221,13 +221,13 @@ namespace ProjetoFinal.DAL
                 comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.texto_descricao, g.lattes, g.logotipo, s.situacao as Situacao, u.login, u.nome as Lider from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
                     + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao and g.fk_situacao = 3";
             }
-            else if(tipoPesquisa == "grupo")
+            else if (tipoPesquisa == "grupo")
             {
                 comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.texto_descricao, g.lattes, g.logotipo, g.data_inicio as Data, s.situacao as Situacao, u.login, u.nome as Lider, l.data_entrada, l.data_saida from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "
                     + "inner join tblusuario u on u.login = l.fk_lider inner join tblsituacao s on s.id_situacao = g.fk_situacao and l.fk_grupo = @grupo and l.data_saida is null";
                 comando.Parameters.AddWithValue("@grupo", grupoLider.FkGrupo);
             }
-            
+
 
             comando.CommandType = CommandType.Text;
             MySqlDataAdapter da = new MySqlDataAdapter(comando);
@@ -292,7 +292,6 @@ namespace ProjetoFinal.DAL
                     + "inner join tblgrupo_linha_pesquisa glp on glp.fk_linha = l.id_linha "
                     + "inner join tblgrupo g on glp.fk_grupo = g.id_grupo "
                     + "and glp.fk_grupo = @grupo and glp.data_inicio BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
-                comando.Parameters.AddWithValue("@grupo", grupo.IdGrupo);
             }
             else if (tipoPesquisa == "docente")
             {
@@ -300,7 +299,6 @@ namespace ProjetoFinal.DAL
                     + "inner join tblgrupo_docente gd on gd.fk_docente = d.id_docente "
                     + "inner join tblgrupo g on gd.fk_grupo = g.id_grupo "
                     + "and gd.fk_grupo = @grupo and gd.data_entrada BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
-                comando.Parameters.AddWithValue("@grupo", grupo.IdGrupo);
             }
             else if (tipoPesquisa == "tecnico")
             {
@@ -308,7 +306,6 @@ namespace ProjetoFinal.DAL
                     + "inner join tblgrupo_tecnico gt on gt.fk_tecnico = t.id_tecnico "
                     + "inner join tblgrupo g on gt.fk_grupo = g.id_grupo "
                     + "and gt.fk_grupo = @grupo and gt.data_entrada BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
-                comando.Parameters.AddWithValue("@grupo", grupo.IdGrupo);
             }
             else if (tipoPesquisa == "equipamento")
             {
@@ -316,16 +313,43 @@ namespace ProjetoFinal.DAL
                     + "inner join tblgrupo_equipamento ge on ge.fk_equipamento = e.id_equipamento "
                     + "inner join tblgrupo g on ge.fk_grupo = g.id_grupo "
                     + "and ge.fk_grupo = @grupo and ge.data_inicio BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
-                comando.Parameters.AddWithValue("@grupo", grupo.IdGrupo);
             }
             else if (tipoPesquisa == "projeto")
             {
                 comando.CommandText = "SELECT p.id_projeto, p.titulo, p.data_inicio, p.data_fim from tblprojeto_pesquisa p "
                     + "inner join tblgrupo g on p.fk_grupo = g.id_grupo "
                     + "and p.fk_grupo = @grupo and p.data_fim BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
-                comando.Parameters.AddWithValue("@grupo", grupo.IdGrupo);
+            }
+            else if (tipoPesquisa == "discente")
+            {
+                comando.CommandText = "SELECT di.id_discente, di.nome, pd.data_inicio, pd.data_fim from tbldiscente di "
+                    + "inner join tblprojeto_discente pd on pd.fk_discente = di.id_discente "
+                    + "inner join tblprojeto_pesquisa pr on pd.fk_projeto = pr.id_projeto "
+                    + "inner join tblgrupo g on pr.fk_grupo = g.id_grupo "
+                    + "and pr.fk_grupo = @grupo and pd.data_inicio BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
+            }
+            else if (tipoPesquisa == "discenteorientador")
+            {
+                comando.CommandText = "SELECT di.id_discente, di.nome as Discente, doc.nome as Orientador from tbldiscente di "
+                    + "inner join tblprojeto_discente pd on pd.fk_discente = di.id_discente "
+                    + "inner join tblprojeto_pesquisa pr on pd.fk_projeto = pr.id_projeto "
+                    + "inner join tbldocente doc on pr.fk_docente = doc.id_docente "
+                    + "inner join tblgrupo g on pr.fk_grupo = g.id_grupo "
+                    + "and pr.fk_grupo = @grupo and pd.data_inicio BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
+            }
+            else if (tipoPesquisa == "discenteorientadorlinha")
+            {
+                comando.CommandText = "SELECT di.id_discente, di.nome Discente, doc.nome as Orientador, l.nome_linha as Linha from tbldiscente di "
+                    + "inner join tblprojeto_discente pd on pd.fk_discente = di.id_discente "
+                    + "inner join tblprojeto_pesquisa pr on pd.fk_projeto = pr.id_projeto "
+                    + "inner join tbldocente doc on pr.fk_docente = doc.id_docente "
+                    + "inner join tblprojeto_linha_pesquisa pl on pl.fk_projeto = pr.id_projeto "
+                    + "inner join tbllinha_pesquisa l on pl.fk_linha = l.id_linha "
+                    + "inner join tblgrupo g on pr.fk_grupo = g.id_grupo "
+                    + "and pr.fk_grupo = @grupo and pd.data_inicio BETWEEN '" + ano + "-01-01' AND '" + ano + "-12-31'";
             }
 
+            comando.Parameters.AddWithValue("@grupo", grupo.IdGrupo);
 
             comando.CommandType = CommandType.Text;
             MySqlDataAdapter da = new MySqlDataAdapter(comando);

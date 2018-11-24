@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RelatorioEquipamento.aspx.cs" Inherits="ProjetoFinal.Web.Pages.Relatorios.RelatorioEquipamento" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RelatorioDiscente.aspx.cs" Inherits="ProjetoFinal.Web.Pages.Relatorios.RelatorioDiscente" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -209,11 +209,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title">Relatório de equipamentos</h5>
+                            <h5 class="breadcrumbs-title">Relatório de discentes</h5>
                             <ol class="breadcrumbs">
                                 <li><a href="../../Pages/Principal.aspx">Dashboard</a></li>
                                 <li><a href="#">Relatórios</a></li>
-                                <li><a href="#">Equipamentos</a></li>
+                                <li><a href="#">Discentes</a></li>
                             </ol>
                         </div>
                     </div>
@@ -262,8 +262,8 @@
                             <thead>
                                 <tr>
                                     <th>Nome</th>
-                                    <th>Data de início</th>
-                                    <th>Data de termino</th>
+                                    <th>Data de Entrada</th>
+                                    <th>Data de Saída</th>
                                 </tr>
                             </thead>
                             <tbody>

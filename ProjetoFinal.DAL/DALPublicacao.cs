@@ -139,7 +139,7 @@ namespace ProjetoFinal.DAL
             }
             else
             {
-                comando.CommandText = "select pu.titulo, pu.tipo_publicacao, pu.referencia_abnt, pu.data_publicacao, pr.titulo, l.nome_linha, d.nome "
+                comando.CommandText = "select pu.titulo, pu.tipo_publicacao, pu.referencia_abnt, pu.data_publicacao, pr.titulo as Projeto, l.nome_linha, d.nome "
                     + "from tblpublicacao pu "
                     + "inner join tbldocente d on d.id_docente = pu.fk_docente "
                     + "inner join tbllinha_pesquisa l on l.id_linha = pu.fk_linha "

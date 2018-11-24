@@ -8,12 +8,33 @@ using ProjetoFinal.Model;
 using ProjetoFinal.BLL;
 using ProjetoFinal.Utilitarios;
 
+
 namespace ProjetoFinal.Web.Pages.Relatorios
 {
-    public partial class RelatorioPublicacao : System.Web.UI.Page
+    public partial class RelatorioPublicacaoProjeto : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["login"] == null)
+            {
+                Session.RemoveAll();
+                Response.Redirect("../../Pages/Login.aspx");
+            }
+
+            MODUsuario usuario = new MODUsuario();
+
+            usuario.Login = PegaLogin.RetornaLogin();
+            usuario = BLLUsuario.PesquisarLogin(usuario);
+
+            ImagemUser.ImageUrl = "../../Pages/" + usuario.Imagem;
+            ImagemUser2.ImageUrl = "../../Pages/" + usuario.Imagem;
+            LblNome.Text = usuario.Nome;
+
+            if (usuario.FkTipo == 1)
+                LblFuncao.Text = "Administrador";
+            else
+                LblFuncao.Text = "Lider";
+
             if (!Page.IsPostBack)
             {
                 CarregaGrupos();
@@ -39,21 +60,8 @@ namespace ProjetoFinal.Web.Pages.Relatorios
 
             TxtProjeto.DataSource = BLLProjeto_Pesquisa.PesquisarProjetos(projeto, "grupo");
             TxtProjeto.DataValueField = "IdProjeto";
-            TxtProjeto.DataTextField = "titulo";
+            TxtProjeto.DataTextField = "Titulo";
             TxtProjeto.DataBind();
-        }
-
-        protected void TxtGrupo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CarregaProjetos();
-        }
-
-        protected void ChkProjeto_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ChkProjeto.Checked == true)
-                TxtProjeto.Enabled = true;
-            else
-                TxtProjeto.Enabled = false;
         }
 
         protected void BtnPesquisar_Click(object sender, EventArgs e)
@@ -63,18 +71,11 @@ namespace ProjetoFinal.Web.Pages.Relatorios
             MODPublicacao publicacao = new MODPublicacao();
 
             publicacao.FkGrupo = Convert.ToInt32(TxtGrupo.SelectedValue);
+            publicacao.FKProjeto = Convert.ToInt32(TxtProjeto.SelectedValue);
             publicacao.TipoPublicacao = TxtTipo.Text.Trim();
 
-            if(ChkProjeto.Checked == true)
-            {
-                publicacao.FKProjeto = Convert.ToInt32(TxtProjeto.SelectedValue);
-                RptConsulta.DataSource = BLLPublicacao.Relatorio(publicacao, ano, "projeto");
-            }
-            else
-            {
-                RptConsulta.DataSource = BLLPublicacao.Relatorio(publicacao, ano, "grupo");
-            }
-                
+            RptConsulta.DataSource = BLLPublicacao.Relatorio(publicacao, ano, "projeto");
+
             RptConsulta.DataBind();
         }
     }

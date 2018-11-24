@@ -125,13 +125,17 @@
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\RecuperacaoSenha.aspx" />
     <Content Include="Pages\RecuperaSenhaUsuario.aspx" />
+    <Content Include="Pages\Relatorios\RelatorioDiscente.aspx" />
+    <Content Include="Pages\Relatorios\RelatorioDiscenteOrientador.aspx" />
+    <Content Include="Pages\Relatorios\RelatorioDiscenteOrientadorLinha.aspx" />
     <Content Include="Pages\Relatorios\RelatorioDocenteLinha.aspx" />
     <Content Include="Pages\Relatorios\RelatorioLinhaDocente.aspx" />
     <Content Include="Pages\Relatorios\RelatorioDocente.aspx" />
     <Content Include="Pages\Relatorios\RelatorioEquipamento.aspx" />
     <Content Include="Pages\Relatorios\RelatorioLinhaPesquisa.aspx" />
     <Content Include="Pages\Relatorios\RelatorioProjetosFinalizados.aspx" />
-    <Content Include="Pages\Relatorios\RelatorioPublicacao.aspx" />
+    <Content Include="Pages\Relatorios\RelatorioPublicacaoGrupo.aspx" />
+    <Content Include="Pages\Relatorios\RelatorioPublicacaoProjeto.aspx" />
     <Content Include="Pages\Relatorios\RelatorioTecnico.aspx" />
     <Content Include="Pages\SelecionarRelatorio.aspx" />
     <Content Include="Pages\VincularDocenteLinhaPesquisa.aspx" />
@@ -491,6 +495,27 @@
     <Compile Include="Pages\RecuperaSenhaUsuario.aspx.designer.cs">
       <DependentUpon>RecuperaSenhaUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioDiscente.aspx.cs">
+      <DependentUpon>RelatorioDiscente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioDiscente.aspx.designer.cs">
+      <DependentUpon>RelatorioDiscente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioDiscenteOrientador.aspx.cs">
+      <DependentUpon>RelatorioDiscenteOrientador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioDiscenteOrientador.aspx.designer.cs">
+      <DependentUpon>RelatorioDiscenteOrientador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioDiscenteOrientadorLinha.aspx.cs">
+      <DependentUpon>RelatorioDiscenteOrientadorLinha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioDiscenteOrientadorLinha.aspx.designer.cs">
+      <DependentUpon>RelatorioDiscenteOrientadorLinha.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Relatorios\RelatorioDocenteLinha.aspx.cs">
       <DependentUpon>RelatorioDocenteLinha.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -533,12 +558,19 @@
     <Compile Include="Pages\Relatorios\RelatorioProjetosFinalizados.aspx.designer.cs">
       <DependentUpon>RelatorioProjetosFinalizados.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Relatorios\RelatorioPublicacao.aspx.cs">
-      <DependentUpon>RelatorioPublicacao.aspx</DependentUpon>
+    <Compile Include="Pages\Relatorios\RelatorioPublicacaoGrupo.aspx.cs">
+      <DependentUpon>RelatorioPublicacaoGrupo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Relatorios\RelatorioPublicacao.aspx.designer.cs">
-      <DependentUpon>RelatorioPublicacao.aspx</DependentUpon>
+    <Compile Include="Pages\Relatorios\RelatorioPublicacaoGrupo.aspx.designer.cs">
+      <DependentUpon>RelatorioPublicacaoGrupo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioPublicacaoProjeto.aspx.cs">
+      <DependentUpon>RelatorioPublicacaoProjeto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Relatorios\RelatorioPublicacaoProjeto.aspx.designer.cs">
+      <DependentUpon>RelatorioPublicacaoProjeto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Relatorios\RelatorioTecnico.aspx.cs">
       <DependentUpon>RelatorioTecnico.aspx</DependentUpon>

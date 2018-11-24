@@ -265,51 +265,51 @@
                         <tbody>
                             <tr>
                                 <td>Linhas de pesquisa por grupo</td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">remove_red_eye</i></a></td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Relatorios/RelatorioLinhaPesquisa.aspx"><i class="material-icons">remove_red_eye</i></a></td>
                             </tr>
                             <tr>
-                                <td>Linhas e lideres de pesquisa que trabalharam no grupo</td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">remove_red_eye</i></a></td>
+                                <td>Docentes por linha de pesquisa</td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Relatorios/RelatorioLinhaDocente.aspx"><i class="material-icons">remove_red_eye</i></a></td>
                             </tr>
                             <tr>
                                 <td>Docentes por grupo</td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">remove_red_eye</i></a></td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Relatorios/RelatorioDocente.aspx"><i class="material-icons">remove_red_eye</i></a></td>
                             </tr>
                             <tr>
-                                <td>Docentes e suas linhas de pesquisa por grupo</td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">remove_red_eye</i></a></td>
+                                <td>Linhas de pesquisa por docente</td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Relatorios/RelatorioDocenteLinha.aspx"><i class="material-icons">remove_red_eye</i></a></td>
                             </tr>
                             <tr>
-                                <td>Discentes por ano</td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">remove_red_eye</i></a></td>
+                                <td>Discentes por grupo</td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Relatorios/RelatorioDiscente.aspx"><i class="material-icons">remove_red_eye</i></a></td>
                             </tr>
                             <tr>
-                                <td>Discentes e seus orientadores por ano</td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">remove_red_eye</i></a></td>
+                                <td>Discentes e seus orientadores por grupo</td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Relatorios/RelatorioDiscenteOrientador.aspx"><i class="material-icons">remove_red_eye</i></a></td>
                             </tr>
                             <tr>
-                                <td>Discentes, seus orientadores e linhas de pesquisa por ano</td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">remove_red_eye</i></a></td>
+                                <td>Discentes, seus orientadores e linhas de pesquisa por grupo</td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Relatorios/RelatorioDiscenteOrientadorLinha.aspx"><i class="material-icons">remove_red_eye</i></a></td>
                             </tr>
                             <tr>
                                 <td>Técnicos por grupo</td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">remove_red_eye</i></a></td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Relatorios/RelatorioTecnico.aspx"><i class="material-icons">remove_red_eye</i></a></td>
                             </tr>
                             <tr>
                                 <td>Equipamentos por grupo</td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">remove_red_eye</i></a></td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Relatorios/RelatorioEquipamento.aspx"><i class="material-icons">remove_red_eye</i></a></td>
                             </tr>
                             <tr>
                                 <td>Projetos finalizados por grupo</td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">remove_red_eye</i></a></td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Relatorios/RelatorioProjetosFinalizados.aspx"><i class="material-icons">remove_red_eye</i></a></td>
                             </tr>
                             <tr>
                                 <td>Publicações por grupo</td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">remove_red_eye</i></a></td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Relatorios/RelatorioPublicacaoGrupo.aspx"><i class="material-icons">remove_red_eye</i></a></td>
                             </tr>
                             <tr>
                                 <td>Publicações por projeto</td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">remove_red_eye</i></a></td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Relatorios/RelatorioPublicacaoProjeto.aspx"><i class="material-icons">remove_red_eye</i></a></td>
                             </tr>
                         </tbody>
                     </table>

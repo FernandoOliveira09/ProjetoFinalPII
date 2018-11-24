@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RelatorioEquipamento.aspx.cs" Inherits="ProjetoFinal.Web.Pages.Relatorios.RelatorioEquipamento" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RelatorioDiscenteOrientadorLinha.aspx.cs" Inherits="ProjetoFinal.Web.Pages.Relatorios.RelatorioDiscenteOrientadorLinha" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -209,11 +209,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title">Relatório de equipamentos</h5>
+                            <h5 class="breadcrumbs-title">Relatório de discentes, orientadores e linhas de pesquisa</h5>
                             <ol class="breadcrumbs">
                                 <li><a href="../../Pages/Principal.aspx">Dashboard</a></li>
                                 <li><a href="#">Relatórios</a></li>
-                                <li><a href="#">Equipamentos</a></li>
+                                <li><a href="#">Relatório de discentes, orientadores e linhas de pesquisa</a></li>
                             </ol>
                         </div>
                     </div>
@@ -261,18 +261,18 @@
                         <table class="striped responsive-table">
                             <thead>
                                 <tr>
-                                    <th>Nome</th>
-                                    <th>Data de início</th>
-                                    <th>Data de termino</th>
+                                    <th>Discente</th>
+                                    <th>Orientador</th>
+                                    <th>Linha de pesquisa</th>
                                 </tr>
                             </thead>
                             <tbody>
                     </HeaderTemplate>
                     <ItemTemplate>
                         <tr>
-                            <td><%# Eval("Nome") %></td>
-                            <td><%# Eval("Data_inicio", "{0:d}") %></td>
-                            <td><%# Eval("Data_fim", "{0:d}") %></td>
+                            <td><%# Eval("Discente") %></td>
+                            <td><%# Eval("Orientador") %></td>
+                            <td><%# Eval("Linha") %></td>
                         </tr>
                     </ItemTemplate>
                     <FooterTemplate>

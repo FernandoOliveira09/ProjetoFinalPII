@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RelatorioEquipamento.aspx.cs" Inherits="ProjetoFinal.Web.Pages.Relatorios.RelatorioEquipamento" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RelatorioPublicacaoGrupo.aspx.cs" Inherits="ProjetoFinal.Web.Pages.Relatorios.RelatorioPublicacao" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -209,11 +209,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title">Relatório de equipamentos</h5>
+                            <h5 class="breadcrumbs-title">Relatório de publicações por grupo</h5>
                             <ol class="breadcrumbs">
                                 <li><a href="../../Pages/Principal.aspx">Dashboard</a></li>
                                 <li><a href="#">Relatórios</a></li>
-                                <li><a href="#">Equipamentos</a></li>
+                                <li><a href="#">Relatório de publicações por grupo</a></li>
                             </ol>
                         </div>
                     </div>
@@ -227,22 +227,35 @@
                             <div class="row">
                                 <form class="col s12" runat="server">
 
-                                    <div class="col s4 m6 l2">
+                                    <div class="col s4 m4 l2">
                                         <div class="input-field col s12 m12 l12" style="display:inline-block;">
                                             <asp:TextBox ID="TxtAno" type="text" runat="server" MaxLength="4" />
                                             <label for="TxtAno">Ano<span style="color: red;">*</span></label>
                                         </div>
                                     </div>
-                                    <div class="col s6 m8 l6">
+                                    <div class="col s4 m4 l5">
                                         <div class="input-field col s12 m12 l12" style="display:inline-block;">
-                                            <asp:DropDownList ID="TxtGrupo" type="text" runat="server">
+                                            <asp:DropDownList ID="TxtGrupo" type="text" runat="server" AutoPostBack="true">
 
                                             </asp:DropDownList>
                                             <label for="TxtGrupo">Grupo<span style="color: red;">*</span></label>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col s4 m4 l5">
+                                            <div class="input-field col s12 m12 l12" style="display:inline-block;">
+                                                <asp:DropDownList ID="TxtTipo" type="text" runat="server">
+                                                    <asp:ListItem Text="Livro Completo"></asp:ListItem>
+                                                    <asp:ListItem Text="Capitulo de Livro"></asp:ListItem>
+                                                    <asp:ListItem Text="Anais de Congresso"></asp:ListItem>
+                                                    <asp:ListItem Text="Periodico de Revista"></asp:ListItem>
+                                                </asp:DropDownList>
+                                                <label for="TxtTipo">Tipo de publicação<span style="color: red;">*</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    <div class="col">
+                                    <div class="row">
                                         <div class="input-field col s12">
                                             <asp:Button ID="BtnPesquisar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Pesquisar" runat="server" OnClick="BtnPesquisar_Click"></asp:Button>
                                         </div>
@@ -261,18 +274,24 @@
                         <table class="striped responsive-table">
                             <thead>
                                 <tr>
-                                    <th>Nome</th>
-                                    <th>Data de início</th>
-                                    <th>Data de termino</th>
+                                    <th>Titulo</th>
+                                    <th>Tipo de publicação</th>
+                                    <th>Referência ABNT</th>
+                                    <th>Data de publicação</th>
+                                    <th>Linha de pesquisa</th>
+                                    <th>Docente</th>
                                 </tr>
                             </thead>
                             <tbody>
                     </HeaderTemplate>
                     <ItemTemplate>
                         <tr>
-                            <td><%# Eval("Nome") %></td>
-                            <td><%# Eval("Data_inicio", "{0:d}") %></td>
-                            <td><%# Eval("Data_fim", "{0:d}") %></td>
+                            <td><%# Eval("titulo") %></td>
+                            <td><%# Eval("tipo_publicacao") %></td>
+                            <td><%# Eval("referencia_abnt") %></td>
+                            <td><%# Eval("data_publicacao", "{0:d}") %></td>
+                            <td><%# Eval("nome_linha") %></td>
+                            <td><%# Eval("nome") %></td>
                         </tr>
                     </ItemTemplate>
                     <FooterTemplate>
