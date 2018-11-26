@@ -20,6 +20,11 @@ namespace ProjetoFinal.BLL
             DALReuniao.Inserir(reuniao);
         }
 
+        public static void Alterar(MODReuniao reuniao)
+        {
+            DALReuniao.Alterar(reuniao);
+        }
+
         public static List<MODReuniao> Pesquisar(MODReuniao reuniao, string tipoPesquisa)
         {
             return DALReuniao.Pesquisar(reuniao, tipoPesquisa);

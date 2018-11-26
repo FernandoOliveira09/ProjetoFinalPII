@@ -27,18 +27,20 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
-        public static void Alterar(MODEquipamento equipamento)
+        public static void Alterar(MODReuniao reuniao)
         {
             Conexao.Abrir();
 
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "UPDATE TBLEQUIPAMENTO SET nome = @nome, descricao = @descricao "
-                + "WHERE id_equipamento = @id_equipamento";
-            comando.Parameters.AddWithValue("@id_equipamento", equipamento.IdEquipamento);
-            comando.Parameters.AddWithValue("@nome", equipamento.Nome);
-            comando.Parameters.AddWithValue("@descricao", equipamento.Descricao);
+            comando.CommandText = "UPDATE TBLREUNIAO SET pauta = @pauta, data_reuniao = @data_reuniao, hora_inicio = @hora_inicio, hora_fim = @hora_fim "
+                + "WHERE id_reuniao = @id_reuniao";
+            comando.Parameters.AddWithValue("@id_reuniao", reuniao.IdReuniao);
+            comando.Parameters.AddWithValue("@pauta", reuniao.Pauta);
+            comando.Parameters.AddWithValue("@data_reuniao", reuniao.DataReuniao);
+            comando.Parameters.AddWithValue("@hora_inicio", reuniao.HoraInicio);
+            comando.Parameters.AddWithValue("@hora_fim", reuniao.HoraFim);
 
 
             comando.ExecuteNonQuery();
@@ -55,14 +57,14 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            if (tipoPesquisa == "id")
+            if (tipoPesquisa == "id_reuniao")
             {
-                comando.CommandText = "SELECT pauta, data_reuniao, hora_inicio FROM TBLREUNIAO WHERE id_reuniao = @id";
+                comando.CommandText = "SELECT pauta, data_reuniao, hora_inicio, hora_fim FROM TBLREUNIAO WHERE id_reuniao = @id_reuniao";
                 comando.Parameters.AddWithValue("@id", reuniao.IdReuniao);
             }
             else
             {
-                comando.CommandText = "SELECT id_reuniao, pauta, data_reuniao, hora_inicio FROM TBLREUNIAO WHERE pauta = @pauta";
+                comando.CommandText = "SELECT id_reuniao, pauta, data_reuniao, hora_inicio, hora_fim FROM TBLREUNIAO WHERE pauta = @pauta";
                 comando.Parameters.AddWithValue("@pauta", reuniao.Pauta);
             }
 
@@ -77,10 +79,14 @@ namespace ProjetoFinal.DAL
                     ret.DataReuniao = Convert.ToDateTime(reader["data_reuniao"].ToString());
                 if (reader["hora_inicio"].ToString() != "")
                     ret.HoraInicio = Convert.ToDateTime(reader["hora_inicio"].ToString());
+                if (reader["hora_fim"].ToString() != "")
+                    ret.HoraFim = Convert.ToDateTime(reader["hora_fim"].ToString());
 
                 retorno.IdReuniao = ret.IdReuniao;
                 retorno.Pauta = ret.Pauta;
+                retorno.DataReuniao = ret.DataReuniao;
                 retorno.HoraInicio = ret.HoraInicio;
+                retorno.HoraFim = ret.HoraFim;
 
             }
 
@@ -102,13 +108,13 @@ namespace ProjetoFinal.DAL
 
             if (tipoPesquisa == "pauta")
             {
-                comando.CommandText = "SELECT pauta, data_reuniao, hora_inicio FROM TBLREUNIAO WHERE pauta = @pauta";
+                comando.CommandText = "SELECT pauta, data_reuniao, hora_inicio, hora_fim FROM TBLREUNIAO WHERE pauta = @pauta";
                 comando.Parameters.AddWithValue("@pauta", item.Pauta);
             }
 
             else if (tipoPesquisa == "todos")
             {
-                comando.CommandText = "SELECT id_reuniao, pauta, data_reuniao, hora_inicio FROM TBLREUNIAO";
+                comando.CommandText = "SELECT id_reuniao, pauta, data_reuniao, hora_inicio, hora_fim FROM TBLREUNIAO";
             }
             else
             {
@@ -126,7 +132,8 @@ namespace ProjetoFinal.DAL
                     ret.DataReuniao = Convert.ToDateTime(reader["data_reuniao"].ToString());
                 if (reader["hora_inicio"].ToString() != "")
                     ret.HoraInicio = Convert.ToDateTime(reader["hora_inicio"].ToString());
-
+                if (reader["hora_fim"].ToString() != "")
+                    ret.HoraFim = Convert.ToDateTime(reader["hora_fim"].ToString());
 
                 retorno.Add(ret);
             }

@@ -172,25 +172,62 @@
                       <span class="nav-text">Grupos de Pesquisa</span>
                     </a>
                 </li>
-                   <li class="bold">
-                  <a href="ConsultaTecnico.aspx" class="waves-effect waves-cyan">
-                      <i class="material-icons">person</i>
-                      <span class="nav-text">Técnicos</span>
-                    </a>
+                <li class="bold">
+                  <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
+                      <span class="nav-text">Docente</span>
+                  </a>
                 </li>
-                    <li class="bold">
-                  <a href="ConsultaEquipamento.aspx" class="waves-effect waves-cyan">
+                <li class="bold">
+                  <a href="../Pages/ConsultaDiscente.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
+                      <span class="nav-text">Discentes</span>
+                  </a>
+                </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaTecnico.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
+                      <span class="nav-text">Técnicos</span>
+                  </a>
+                </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaEquipamento.aspx" class="waves-effect waves-cyan">
                       <i class="material-icons">settings</i>
                       <span class="nav-text">Equipamentos</span>
                     </a>
                 </li>
-               <li class="bold">
+                <li class="bold">
+                  <a href="../Pages/ConsultaProjetoPesquisa.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">work</i>
+                      <span class="nav-text">Projetos de pesquisa</span>
+                    </a>
+                </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaPublicacao.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">title</i>
+                      <span class="nav-text">Publicações</span>
+                    </a>
+                </li>
+                  <li class="bold">
                   <a href="../Pages/ConsultaReuniao.aspx" class="waves-effect waves-cyan">
-                      <i class="material-icons">description</i>
-                      <span class="nav-text">Reunião</span>
+                      <i class="material-icons">title</i>
+                      <span class="nav-text">Reuniões</span>
                     </a>
                 </li>
               </ul>
+              <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header">Linhas de pesquisa<i class="material-icons">search</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a href="../Pages/ConsultaAreaConhecimento.aspx">Áreas do conhecimento</a></li>
+                    <li><a href="../Pages/ConsultaAreaAvaliacao.aspx">Áreas de avaliação</a></li>
+                    <li><a href="../Pages/ConsultaSubAreaAvaliacao.aspx">Sub áreas de avaliação</a></li>
+                    <li><a href="../Pages/ConsultaLinhaPesquisa.aspx">Linhas de pesquisa</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
             </li>
           </ul>
           <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only">
@@ -234,6 +271,7 @@
                                       <th>Pauta</th>
                                       <th>Data da Reunião</th>
                                       <th>Horário</th>
+                                      <th>Ações</th>
                                       </tr>
                                 </thead>
           
@@ -242,11 +280,16 @@
                         <ItemTemplate>
                              <tr>
                                 <td><%# Eval("Pauta") %></td>
-                                <td><%# Eval("Data") %></td>
-                                <td><%# Eval("HoraInicio") %></td>
+                                <td><%# Eval("DataReuniao", "{0:d}") %></td>
+                                <td><%# Eval("HoraInicio","{0:hh:mm tt}") %></td>
                                 <%--<td><%# Eval("AnoFim") %></td>--%>
-                                
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoReuniao.aspx?id=<%# Eval("IdReuniao") %>"><i class="material-icons">edit</i></a></td>
+
+                                 <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/CadastroAta.aspx?id=<%# Eval("IdReuniao") %>"><i class="material-icons">edit</i></a>
+                                     <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/CadastroParticipante.aspx?id=<%# Eval("IdReuniao") %>"><i class="material-icons">edit</i></a>
+                                     <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/CadastroConvidado.aspx?id=<%# Eval("IdReuniao") %>"><i class="material-icons">edit</i></a>
+                                     <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoReuniao.aspx?id=<%# Eval("IdReuniao") %>"><i class="material-icons">edit</i></a>
+                                 </td>
+                                  
 <%--                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
                               </tr>               
                         </ItemTemplate>

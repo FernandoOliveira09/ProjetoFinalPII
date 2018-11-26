@@ -159,7 +159,7 @@
             <li class="no-padding">
               <ul class="collapsible" data-collapsible="accordion">
                 <li class="bold">
-                  <a href="../Pages/Principal.aspx" class="waves-effect waves-cyan">
+                  <a href="Principal.aspx" class="waves-effect waves-cyan">
                       <i class="material-icons">pie_chart_outlined</i>
                       <span class="nav-text">Dashboard</span>
                     </a>
@@ -179,23 +179,59 @@
                 <li class="bold">
                   <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
                       <i class="material-icons">group</i>
-                      <span class="nav-text">Docentes</span>
-                    </a>
+                      <span class="nav-text">Docente</span>
+                  </a>
+                </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaDiscente.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">group</i>
+                      <span class="nav-text">Discentes</span>
+                  </a>
                 </li>
                 <li class="bold">
                   <a href="../Pages/ConsultaTecnico.aspx" class="waves-effect waves-cyan">
                       <i class="material-icons">group</i>
                       <span class="nav-text">Técnicos</span>
-                    </a>
+                  </a>
                 </li>
-                  <li class="bold">
+                <li class="bold">
                   <a href="../Pages/ConsultaEquipamento.aspx" class="waves-effect waves-cyan">
                       <i class="material-icons">settings</i>
                       <span class="nav-text">Equipamentos</span>
                     </a>
                 </li>
-                
+                <li class="bold">
+                  <a href="../Pages/ConsultaProjetoPesquisa.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">work</i>
+                      <span class="nav-text">Projetos de pesquisa</span>
+                    </a>
+                </li>
+                <li class="bold">
+                  <a href="../Pages/ConsultaPublicacao.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">title</i>
+                      <span class="nav-text">Publicações</span>
+                    </a>
+                </li>
+                  <li class="bold">
+                  <a href="../Pages/ConsultaReuniao.aspx" class="waves-effect waves-cyan">
+                      <i class="material-icons">title</i>
+                      <span class="nav-text">Reuniões</span>
+                    </a>
+                </li>
               </ul>
+              <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header">Linhas de pesquisa<i class="material-icons">search</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a href="../Pages/ConsultaAreaConhecimento.aspx">Áreas do conhecimento</a></li>
+                    <li><a href="../Pages/ConsultaAreaAvaliacao.aspx">Áreas de avaliação</a></li>
+                    <li><a href="../Pages/ConsultaSubAreaAvaliacao.aspx">Sub áreas de avaliação</a></li>
+                    <li><a href="../Pages/ConsultaLinhaPesquisa.aspx">Linhas de pesquisa</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
             </li>
           </ul>
           <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only">
@@ -217,11 +253,11 @@
               <div class="container">
                 <div class="row">
                   <div class="col s10 m6 l6">
-                    <h5 class="breadcrumbs-title">Alteração de Equipamentos</h5>
+                    <h5 class="breadcrumbs-title">Alteração de Reunião</h5>
                     <ol class="breadcrumbs">
                       <li><a href="index.html">Dashboard</a></li>
-                      <li><a href="#">Equipamentos</a></li>
-                      <li><a href="#">Alteração de Equipamentos</a></li>
+                      <li><a href="#">Reunião</a></li>
+                      <li><a href="#">Alteração de Reunião</a></li>
                     </ol>
                   </div>
                 </div>
@@ -282,7 +318,7 @@
                             
                           <div class="row">
                               <div class="input-field col s12">
-                                  <asp:Button id="BtnAlterar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Alterar" runat="server">
+                                  <asp:Button id="BtnAlterar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Alterar" runat="server" OnClick="BtnAlterar_Click">
                                   </asp:Button>
                               </div>
                           </div>
