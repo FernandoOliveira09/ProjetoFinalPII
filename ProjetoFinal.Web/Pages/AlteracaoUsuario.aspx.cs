@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -40,20 +41,24 @@ namespace ProjetoFinal.Web.Pages
             Criptografia cripto = new Criptografia();
             EnviaEmail enviaEmail = new EnviaEmail();
             string senha = "";
-
+            string extensao = Path.GetExtension(FUFoto.FileName);
             bool senhaForte = ValidaSenhaForte.ValidaSenha(TxtSenha.Text.Trim());
 
             if (senhaForte == false)
             {
                 LblResposta.Text = Erros.SenhaFraca;
             }
-            else if (TxtLattes.Text.Trim() == "" || TxtLattes.Text.Length > 70)
-            {
-                LblResposta.Text = Erros.LattesVazio;
-            }
             else if (!FUFoto.HasFile)
             {
                 LblResposta.Text = Erros.FotoVazio;
+            }
+            else if (extensao != ".jpg" && extensao != ".jpeg" && extensao != ".png" && extensao != ".bmp")
+            {
+                LblResposta.Text = "Arquivo de foto inválido, utilize fotos nas seguintes extensões: .jpg/.jpeg/.png/.bmp";
+            }
+            else if (TxtLattes.Text.Trim() == "" || TxtLattes.Text.Length > 70)
+            {
+                LblResposta.Text = Erros.LattesVazio;
             }
             else if (TxtSenha.Text.Trim() == "" || TxtSenha.Text.Length > 12)
             {
@@ -71,8 +76,14 @@ namespace ProjetoFinal.Web.Pages
             {
                 try
                 {
+                    string foto = "Imagens/" + PegaLogin.RetornaLogin() + extensao;
+                    if (File.Exists(Server.MapPath(foto)))
+                        File.Delete(Server.MapPath(foto));
+
                     this.FUFoto.SaveAs(Server.MapPath("Imagens/" + FUFoto.FileName));
-                    usuario.Imagem = "Imagens/" + FUFoto.FileName;
+
+                    System.IO.File.Move(Server.MapPath("Imagens/" + FUFoto.FileName), Server.MapPath("Imagens/"+ PegaLogin.RetornaLogin() + extensao));
+                    usuario.Imagem = "Imagens/" + PegaLogin.RetornaLogin() + extensao;
 
                     usuario.Login = PegaLogin.RetornaLogin();
                     usuario.Lattes = TxtLattes.Text.Trim();

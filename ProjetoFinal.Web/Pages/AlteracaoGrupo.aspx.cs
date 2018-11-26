@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,6 +16,7 @@ namespace ProjetoFinal.Web.Pages
         private int idGrupo;
         private string logo;
         private string status;
+        private static string nome;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,6 +42,7 @@ namespace ProjetoFinal.Web.Pages
             MODGrupo grupo = new MODGrupo();
 
             grupo.Nome = Page.Request.QueryString["grupo"];
+            nome = grupo.Nome;
 
             grupo = BLLGrupo.PesquisarGrupo(grupo, "nome");
             idGrupo = grupo.IdGrupo;
@@ -78,6 +81,9 @@ namespace ProjetoFinal.Web.Pages
         protected void BtnAlterar_Click(object sender, EventArgs e)
         {
             MODGrupo grupo = new MODGrupo();
+            string extensao = Path.GetExtension(FUFoto.FileName);
+
+            grupo.Nome = TxtNome.Text.Trim();
 
             if (TxtLattes.Text.Trim() == "")
             {
@@ -86,6 +92,10 @@ namespace ProjetoFinal.Web.Pages
             else if (TxtDescricao.Text.Trim() == "")
             {
                 LblResposta.Text = Erros.DescricaoVazio;
+            }
+            else if (extensao != ".jpg" && extensao != ".jpeg" && extensao != ".png" && extensao != ".bmp")
+            {
+                LblResposta.Text = "Arquivo de foto inválido, utilize fotos nas seguintes extensões: .jpg/.jpeg/.png/.bmp";
             }
             else
             {
@@ -104,11 +114,16 @@ namespace ProjetoFinal.Web.Pages
                     }
                     else
                     {
+                        string foto = "Imagens/" + grupo.Nome + extensao;
+                        if (File.Exists(Server.MapPath(foto)))
+                            File.Delete(Server.MapPath(foto));
+
                         this.FUFoto.SaveAs(Server.MapPath("Imagens/" + FUFoto.FileName));
-                        grupo.Logotipo = "Imagens/" + FUFoto.FileName;
+                        System.IO.File.Move(Server.MapPath("Imagens/" + FUFoto.FileName), Server.MapPath("Imagens/" + grupo.Nome + extensao));
+
+                        grupo.Logotipo = foto;
                     }   
                     grupo.IdGrupo = idGrupo;
-                    grupo.Nome = TxtNome.Text.Trim();
                     grupo.Lattes = TxtLattes.Text.Trim();
                     grupo.Sigla = TxtSigla.Text.Trim();
                     grupo.Email = TxtEmail2.Text.Trim();
