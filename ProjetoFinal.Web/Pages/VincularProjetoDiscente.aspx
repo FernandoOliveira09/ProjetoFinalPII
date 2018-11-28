@@ -2,13 +2,13 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-  <!--================================================================================
+<!--================================================================================
 	Item Name: Materialize - Material Design Admin Template
 	Version: 4.0
 	Author: PIXINVENT
 	Author URL: https://themeforest.net/user/pixinvent/portfolio
   ================================================================================ -->
-  <head>
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,314 +32,297 @@
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
     <link href="../Content/vendors/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet">
     <link href="../Content/vendors/flag-icon/css/flag-icon.min.css" type="text/css" rel="stylesheet">
-  </head>
-  <body>
+</head>
+<body>
     <!-- Start Page Loading -->
     <div id="loader-wrapper">
-      <div id="loader"></div>
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
     </div>
     <!-- End Page Loading -->
     <!-- //////////////////////////////////////////////////////////////////////////// -->
     <!-- START HEADER -->
     <header id="header" class="page-topbar">
-      <!-- start header nav-->
-      <div class="navbar-fixed">
-        <nav class="navbar-color blue darken-4">
-          <div class="nav-wrapper">
-            <ul class="left">
-              <li>
-                <h1 class="logo-wrapper">
-                  <a href="../Pages/Principal.aspx" class="brand-logo darken-1">
-                    <img src="../Content/images/logo/materialize-logo.png" alt="materialize logo">
-                    <span class="logo-text hide-on-med-and-down"><strong>SG</strong> Manager</span>
-                  </a>
-                </h1>
-              </li>
-            </ul>
-            <div class="header-search-wrapper hide-on-med-and-down">
-              <i class="material-icons">search</i>
-              <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Pesquisar" />
-            </div>
-            <ul class="right hide-on-med-and-down">
-              <li>
-                <a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen">
-                  <i class="material-icons">settings_overscan</i>
-                </a>
-              </li>
-              <li>
-              <li>
-                <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button" data-activates="profile-dropdown">
-                  <span class="avatar-status avatar-online">
-                    <asp:Image ID="ImagemUser2" ImageUrl="../Pages/Imagens/usuario.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server"/>
-                    <i></i>
-                  </span>
-                </a>
-              </li>
-            </ul>
-            <!-- translation-button -->
-            
-            <!-- notifications-dropdown -->
-            <ul id="notifications-dropdown" class="dropdown-content">
-              <li>
-                <h6>NOTIFICATIONS
-                  <span class="new badge">5</span>
-                </h6>
-              </li>
-              <li class="divider"></li>
-              <li>
-                <a href="#!" class="grey-text text-darken-2">
-                  <span class="material-icons icon-bg-circle cyan small">add_shopping_cart</span> A new order has been placed!</a>
-                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">2 hours ago</time>
-              </li>
-              <li>
-                <a href="#!" class="grey-text text-darken-2">
-                  <span class="material-icons icon-bg-circle red small">stars</span> Completed the task</a>
-                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">3 days ago</time>
-              </li>
-              <li>
-                <a href="#!" class="grey-text text-darken-2">
-                  <span class="material-icons icon-bg-circle teal small">settings</span> Settings updated</a>
-                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">4 days ago</time>
-              </li>
-              <li>
-                <a href="#!" class="grey-text text-darken-2">
-                  <span class="material-icons icon-bg-circle deep-orange small">today</span> Director meeting started</a>
-                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">6 days ago</time>
-              </li>
-              <li>
-                <a href="#!" class="grey-text text-darken-2">
-                  <span class="material-icons icon-bg-circle amber small">trending_up</span> Generate monthly report</a>
-                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">1 week ago</time>
-              </li>
-            </ul>
-            <!-- profile-dropdown -->
-            <ul id="profile-dropdown" class="dropdown-content">
-              <li>
-                <a href="../Pages/AlteracaoUsuario.aspx" class="grey-text text-darken-1">
-                  <i class="material-icons">settings</i> Alterar Informações</a>
-              </li>
-              <li class="divider"></li>
-              <li>
-                <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1">
-                  <i class="material-icons">keyboard_tab</i> Logout</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-      <!-- end header nav-->
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="navbar-color blue darken-4">
+                <div class="nav-wrapper">
+                    <ul class="left">
+                        <li>
+                            <h1 class="logo-wrapper">
+                                <a href="../Pages/Principal.aspx" class="brand-logo darken-1">
+                                    <img src="../Content/images/logo/materialize-logo.png" alt="materialize logo">
+                                    <span class="logo-text hide-on-med-and-down"><strong>SG</strong> Manager</span>
+                                </a>
+                            </h1>
+                        </li>
+                    </ul>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen">
+                                <i class="material-icons">settings_overscan</i>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button" data-activates="profile-dropdown">
+                                <span class="avatar-status avatar-online">
+                                    <asp:Image ID="ImagemUser2" ImageUrl="../Pages/Imagens/usuario.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server" />
+                                    <i></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- translation-button -->
+
+                    <!-- profile-dropdown -->
+                    <ul id="profile-dropdown" class="dropdown-content">
+                        <li>
+                            <a href="../Pages/AlteracaoUsuario.aspx" class="grey-text text-darken-1">
+                                <i class="material-icons">settings</i> Alterar Informações</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1">
+                                <i class="material-icons">keyboard_tab</i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- end header nav-->
     </header>
     <!-- END HEADER -->
     <!-- //////////////////////////////////////////////////////////////////////////// -->
     <!-- START MAIN -->
     <div id="main">
-      <!-- START WRAPPER -->
-      <div class="wrapper">
-        <!-- START LEFT SIDEBAR NAV-->
-        <aside id="left-sidebar-nav">
-          <ul id="slide-out" class="side-nav fixed leftside-navigation">
-            <li class="user-details cyan darken-2">
-              <div class="row">
-                <div class="col col s4 m4 l4">
-                    <asp:Image ID="ImagemUser" ImageUrl="../Pages/Imagens/usuario.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server"/>
-                    <!--<asp:Image src="../Content/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server"/>-->
-                    <!--<img src="../Content/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan">-->
-                </div>
-                <div class="col col s8 m8 l8">
-                  
-                  <a class="btn-flat waves-light white-text profile-btn" href="#" data-activates="profile-dropdown-nav"><asp:Label ID="LblNome" runat="server">Usuário</asp:Label> <i class="mdi-navigation-arrow-drop-down right"></i></a>
-                  <p class="user-roal"><asp:Label ID="LblFuncao" runat="server">Função</asp:Label></p>
-                </div>
-              </div>
-            </li>
-            <li class="no-padding">
-              <ul class="collapsible" data-collapsible="accordion">
-                <li class="bold">
-                  <a href="../Pages/Principal.aspx" class="waves-effect waves-cyan">
-                      <i class="material-icons">pie_chart_outlined</i>
-                      <span class="nav-text">Dashboard</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a href="ConsultaUsuario.aspx" class="waves-effect waves-cyan">
-                      <i class="material-icons">group</i>
-                      <span class="nav-text">Usuários</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a href="ConsultaGrupo.aspx" class="waves-effect waves-cyan">
-                      <i class="material-icons">group_work</i>
-                      <span class="nav-text">Grupos de Pesquisa</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
-                      <i class="material-icons">group</i>
-                      <span class="nav-text">Docentes</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a href="../Pages/ConsultaTecnico.aspx" class="waves-effect waves-cyan">
-                      <i class="material-icons">group</i>
-                      <span class="nav-text">Técnicos</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a href="../Pages/ConsultaEquipamento.aspx" class="waves-effect waves-cyan">
-                      <i class="material-icons">settings</i>
-                      <span class="nav-text">Equipamentos</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a href="../Pages/ConsultaProjetoPesquisa.aspx" class="waves-effect waves-cyan">
-                      <i class="material-icons">work</i>
-                      <span class="nav-text">Projetos de pesquisa</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a href="../Pages/ConsultaPublicacao.aspx" class="waves-effect waves-cyan">
-                      <i class="material-icons">title</i>
-                      <span class="nav-text">Publicações</span>
-                    </a>
-                </li>
-                <ul class="collapsible collapsible-accordion">
-                  <li>
-                    <a class="collapsible-header">Linhas de pesquisa<i class="material-icons">search</i></a>
-                    <div class="collapsible-body">
-                      <ul>
-                        <li><a href="../Pages/ConsultaAreaConhecimento.aspx">Áreas do conhecimento</a></li>
-                        <li><a href="../Pages/ConsultaAreaAvaliacao.aspx">Áreas de avaliação</a></li>
-                        <li><a href="../Pages/ConsultaSubAreaAvaliacao.aspx">Sub áreas de avaliação</a></li>
-                        <li><a href="../Pages/ConsultaLinhaPesquisa.aspx">Linhas de pesquisa</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-              </ul>
-            </li>
-          </ul>
-          <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only">
-            <i class="material-icons">menu</i>
-          </a>
-        </aside>
-        <!-- END LEFT SIDEBAR NAV-->
-        <!-- //////////////////////////////////////////////////////////////////////////// -->
-        <!-- START CONTENT -->
-        <section id="content">
-          <!--start container-->
-            <div id="breadcrumbs-wrapper">
-              <!-- Search for small screen -->
-              <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
-                <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
-              </div>
-              <div class="container">
-                <div class="row">
-                  <div class="col s10 m6 l6">
-                    <h5 class="breadcrumbs-title">Vínculo de Discentes</h5>
-                    <ol class="breadcrumbs">
-                      <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
-                      <li><a href="#">Projetos</a></li>
-                      <li><a href="#">Vínculo de Discentes</a></li>
-                    </ol>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <form class="col s12" runat="server">
-            <div id="basic-form" class="section">
-                <div class="row" style="display: inline-block">
-                  <div class="col s12 m12 l12">
-                    <div class="card-panel">
-                      <h4 class="header2">Insira os dados nos campos abaixo para vincular</h4>
-                      <div class="row">
-                          <div class="row">
-                            <div class="input-field col s12">
-                              <asp:TextBox id="TxtProjeto" type="text" runat="server" Enabled="false"/>
-                              <label for="TxtCurso">Projeto</label>
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+            <!-- START LEFT SIDEBAR NAV-->
+            <aside id="left-sidebar-nav">
+                <ul id="slide-out" class="side-nav fixed leftside-navigation">
+                    <li class="user-details cyan darken-2">
+                        <div class="row">
+                            <div class="col col s4 m4 l4">
+                                <asp:Image ID="ImagemUser" ImageUrl="../Pages/Imagens/usuario.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server" />
+                                <!--<asp:Image src="../Content/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server"/>-->
+                                <!--<img src="../Content/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan">-->
                             </div>
-                          </div>  
+                            <div class="col col s8 m8 l8">
 
-                          <div class="row">
-                            <div class="input-field col s8">
-                              <asp:TextBox id="TxtPesquisarDiscente" type="text" runat="server" />
-                              <label for="TxtPesquisarDiscente">Pesquisar discente<span style="color: red;">*</span></label>
+                                <a class="btn-flat waves-light white-text profile-btn" href="#" data-activates="profile-dropdown-nav">
+                                    <asp:Label ID="LblNome" runat="server">Usuário</asp:Label>
+                                    <i class="mdi-navigation-arrow-drop-down right"></i></a>
+                                <p class="user-roal">
+                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label></p>
                             </div>
-                          </div>
-                          <div class="input-field col s1" style="float:right; margin-top: -74px;">                          
-                            <asp:LinkButton ID="BtnPesquisar" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="Pesquisar" />
-                          </div>
-                          <div class="row">
-                            <div class='input-field col s12' style="margin-top: -10px">
-                                <h5>Discentes</h5>
-                                <asp:Repeater ID="RptDiscente" runat="server">
-                                    <HeaderTemplate>
-                                        <table class="striped responsive-table">
-                                            <thead>
-                                              <tr>
-                                                  <th>Nome do discente</th>
-                                                  <th>Ações</th>
-                                              </tr>
-                                            </thead>
-                                        <tbody>
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                         <tr>
-                                            <td><asp:Label ID="TxtNomeDiscente" Text='<%# Eval("Nome") %>' runat="server"></asp:Label> </td>
-                                            <td><asp:LinkButton ID="BtnAddDiscente" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="+" OnClick="BtnAddDiscente_Click"></asp:LinkButton></td>
-                                        </tr>               
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        </tbody>
-                                      </table>
-                                    </FooterTemplate>
-                                </asp:Repeater> 
-                            </div>
-                          </div>
-                          
-                          <div class="row">
-                            <div class="input-field col s6">
-                              <asp:TextBox id="TxtDataInicio" type="text" runat="server" />
-                              <label for="TxtCurso">Data de início<span style="color: red;">*</span></label>
-                            </div>
-                          </div>
-
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
+                        </div>
+                    </li>
+                    <li class="no-padding">
+                        <ul class="collapsible" data-collapsible="accordion">
+                            <li class="bold">
+                                <a href="Principal.aspx" class="waves-effect waves-cyan">
+                                    <i class="material-icons">pie_chart_outlined</i>
+                                    <span class="nav-text">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a href="ConsultaUsuario.aspx" class="waves-effect waves-cyan">
+                                    <i class="material-icons">group</i>
+                                    <span class="nav-text">Usuários</span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a href="ConsultaGrupo.aspx" class="waves-effect waves-cyan">
+                                    <i class="material-icons">group_work</i>
+                                    <span class="nav-text">Grupos de Pesquisa</span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
+                                    <i class="material-icons">group</i>
+                                    <span class="nav-text">Docente</span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a href="../Pages/ConsultaDiscente.aspx" class="waves-effect waves-cyan">
+                                    <i class="material-icons">group</i>
+                                    <span class="nav-text">Discentes</span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a href="../Pages/ConsultaTecnico.aspx" class="waves-effect waves-cyan">
+                                    <i class="material-icons">group</i>
+                                    <span class="nav-text">Técnicos</span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a href="../Pages/ConsultaEquipamento.aspx" class="waves-effect waves-cyan">
+                                    <i class="material-icons">settings</i>
+                                    <span class="nav-text">Equipamentos</span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a href="../Pages/ConsultaProjetoPesquisa.aspx" class="waves-effect waves-cyan">
+                                    <i class="material-icons">work</i>
+                                    <span class="nav-text">Projetos de pesquisa</span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a href="../Pages/ConsultaPublicacao.aspx" class="waves-effect waves-cyan">
+                                    <i class="material-icons">title</i>
+                                    <span class="nav-text">Publicações</span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a href="../Pages/SelecionarRelatorio.aspx" class="waves-effect waves-cyan">
+                                    <i class="material-icons">insert_drive_file</i>
+                                    <span class="nav-text">Relatórios</span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a href="../Pages/ConsultaReuniao.aspx" class="waves-effect waves-cyan">
+                                    <i class="material-icons">textsms</i>
+                                    <span class="nav-text">Reuniões</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="collapsible-header">Linhas de pesquisa<i class="material-icons">search</i></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="../Pages/ConsultaAreaConhecimento.aspx">Áreas do conhecimento</a></li>
+                                        <li><a href="../Pages/ConsultaAreaAvaliacao.aspx">Áreas de avaliação</a></li>
+                                        <li><a href="../Pages/ConsultaSubAreaAvaliacao.aspx">Sub áreas de avaliação</a></li>
+                                        <li><a href="../Pages/ConsultaLinhaPesquisa.aspx">Linhas de pesquisa</a></li>
+                                    </ul>
                                 </div>
-                            </div> 
-
-                          <div class="row">
-                              <div class="input-field col s12">
-                                  <asp:Button id="BtnVincularDiscente" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Vincular" runat="server" OnClick="BtnVincularDiscente_Click">
-                                  </asp:Button>
-                              </div>
-                          </div>                        
-                      </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only">
+                    <i class="material-icons">menu</i>
+                </a>
+            </aside>
+            <!-- END LEFT SIDEBAR NAV-->
+            <!-- //////////////////////////////////////////////////////////////////////////// -->
+            <!-- START CONTENT -->
+            <section id="content">
+                <!--start container-->
+                <div id="breadcrumbs-wrapper">
+                    <!-- Search for small screen -->
+                    <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
+                        <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
                     </div>
-                  </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col s10 m6 l6">
+                                <h5 class="breadcrumbs-title">Vínculo de Discentes</h5>
+                                <ol class="breadcrumbs">
+                                    <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
+                                    <li><a href="#">Projetos</a></li>
+                                    <li><a href="#">Vínculo de Discentes</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </form>
-          <!--end container-->
-         </section>
-      </div>
-      <!-- END WRAPPER -->
+                <form class="col s12" runat="server">
+                    <div id="basic-form" class="section">
+                        <div class="row" style="display: inline-block">
+                            <div class="col s12 m12 l12">
+                                <div class="card-panel">
+                                    <h4 class="header2">Insira os dados nos campos abaixo para vincular</h4>
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <asp:TextBox ID="TxtProjeto" type="text" runat="server" Enabled="false" />
+                                                <label for="TxtCurso">Projeto</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s8">
+                                                <asp:TextBox ID="TxtPesquisarDiscente" type="text" runat="server" />
+                                                <label for="TxtPesquisarDiscente">Pesquisar discente<span style="color: red;">*</span></label>
+                                            </div>
+                                        </div>
+                                        <div class="input-field col s1" style="float: right; margin-top: -74px;">
+                                            <asp:LinkButton ID="BtnPesquisar" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="Pesquisar" />
+                                        </div>
+                                        <div class="row">
+                                            <div class='input-field col s12' style="margin-top: -10px">
+                                                <h5>Discentes</h5>
+                                                <asp:Repeater ID="RptDiscente" runat="server">
+                                                    <HeaderTemplate>
+                                                        <table class="striped responsive-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Nome do discente</th>
+                                                                    <th>Ações</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                    </HeaderTemplate>
+                                                    <ItemTemplate>
+                                                        <tr>
+                                                            <td>
+                                                                <asp:Label ID="TxtNomeDiscente" Text='<%# Eval("Nome") %>' runat="server"></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:LinkButton ID="BtnAddDiscente" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="+" OnClick="BtnAddDiscente_Click"></asp:LinkButton></td>
+                                                        </tr>
+                                                    </ItemTemplate>
+                                                    <FooterTemplate>
+                                                        </tbody>
+                                      </table>
+                                                    </FooterTemplate>
+                                                </asp:Repeater>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <asp:TextBox ID="TxtDataInicio" type="text" runat="server" />
+                                                <label for="TxtCurso">Data de início<span style="color: red;">*</span></label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <asp:Button ID="BtnVincularDiscente" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Vincular" runat="server" OnClick="BtnVincularDiscente_Click"></asp:Button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--end container-->
+            </section>
+        </div>
+        <!-- END WRAPPER -->
     </div>
     <!-- END MAIN -->
     <!-- //////////////////////////////////////////////////////////////////////////// -->
     <!-- START FOOTER -->
     <footer class="page-footer gradient-45deg-light-blue-cyan">
         <div class="footer-copyright">
-          <div class="container">
-            <span>Copyright ©
+            <div class="container">
+                <span>Copyright ©
               <script type="text/javascript">
-                document.write(new Date().getFullYear());
+                  document.write(new Date().getFullYear());
               </script>
-            <span class="right hide-on-small-only"> Desenvolvido por Fernando, Reginaldo e Eduardo </span>
-          </div>
+                    <span class="right hide-on-small-only">Desenvolvido por Fernando, Reginaldo e Eduardo </span>
+            </div>
         </div>
     </footer>
     <!-- END FOOTER -->
@@ -357,12 +340,12 @@
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="../Content/js/custom-script.js"></script>
     <script>$('.dropdown-trigger').dropdown();</script>
-     <script src="../Content/js/jquery.maskedinput.min.js"></script>
+    <script src="../Content/js/jquery.maskedinput.min.js"></script>
     <script type="text/javascript">
-         jQuery(function ($) {
-             $("#TxtDataInicio").mask("99/99/9999");
+        jQuery(function ($) {
+            $("#TxtDataInicio").mask("99/99/9999");
 
-         });
+        });
     </script>
-  </body>
+</body>
 </html>

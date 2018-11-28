@@ -17,7 +17,7 @@ namespace ProjetoFinal.Web.Pages
             if (Session["login"] == null)
             {
                 Session.RemoveAll();
-                Response.Redirect("../../Pages/Login.aspx");
+                Response.Redirect("../Pages/Login.aspx");
             }
 
             MODUsuario usuario = new MODUsuario();
@@ -25,8 +25,8 @@ namespace ProjetoFinal.Web.Pages
             usuario.Login = PegaLogin.RetornaLogin();
             usuario = BLLUsuario.PesquisarLogin(usuario);
 
-            ImagemUser.ImageUrl = "../../Pages/" + usuario.Imagem;
-            ImagemUser2.ImageUrl = "../../Pages/" + usuario.Imagem;
+            ImagemUser.ImageUrl = "../Pages/" + usuario.Imagem;
+            ImagemUser2.ImageUrl = "../Pages/" + usuario.Imagem;
             LblNome.Text = usuario.Nome;
 
             if (usuario.FkTipo == 1)

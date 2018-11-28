@@ -55,10 +55,6 @@
                             </h1>
                         </li>
                     </ul>
-                    <div class="header-search-wrapper hide-on-med-and-down">
-                        <i class="material-icons">search</i>
-                        <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Pesquisar" />
-                    </div>
                     <ul class="right hide-on-med-and-down">
                         <li>
                             <a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen">
@@ -178,19 +174,29 @@
                                     <span class="nav-text">Publicações</span>
                                 </a>
                             </li>
-                            <ul class="collapsible collapsible-accordion">
-                                <li>
-                                    <a class="collapsible-header">Linhas de pesquisa<i class="material-icons">search</i></a>
-                                    <div class="collapsible-body">
-                                        <ul>
-                                            <li><a href="../../Pages/ConsultaAreaConhecimento.aspx">Áreas do conhecimento</a></li>
-                                            <li><a href="../../Pages/ConsultaAreaAvaliacao.aspx">Áreas de avaliação</a></li>
-                                            <li><a href="../../Pages/ConsultaSubAreaAvaliacao.aspx">Sub áreas de avaliação</a></li>
-                                            <li><a href="../../Pages/ConsultaLinhaPesquisa.aspx">Linhas de pesquisa</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
+                            <li class="bold">
+                                <a href="../../Pages/SelecionarRelatorio.aspx" class="waves-effect waves-cyan">
+                                    <i class="material-icons">insert_drive_file</i>
+                                    <span class="nav-text">Relatórios</span>
+                                </a>
+                            </li>
+                            <li class="bold">
+                                <a href="../../Pages/ConsultaReuniao.aspx" class="waves-effect waves-cyan">
+                                    <i class="material-icons">textsms</i>
+                                    <span class="nav-text">Reuniões</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="collapsible-header">Linhas de pesquisa<i class="material-icons">search</i></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="../../Pages/ConsultaAreaConhecimento.aspx">Áreas do conhecimento</a></li>
+                                        <li><a href="../../Pages/ConsultaAreaAvaliacao.aspx">Áreas de avaliação</a></li>
+                                        <li><a href="../../Pages/ConsultaSubAreaAvaliacao.aspx">Sub áreas de avaliação</a></li>
+                                        <li><a href="../../Pages/ConsultaLinhaPesquisa.aspx">Linhas de pesquisa</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                         </ul>
                     </li>
                 </ul>
