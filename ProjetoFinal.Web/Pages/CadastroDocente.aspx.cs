@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -37,6 +38,8 @@ namespace ProjetoFinal.Web.Pages
         protected void BtnCadastrar_Click1(object sender, EventArgs e)
         {
             MODDocente docente = new MODDocente();
+            string extensao = Path.GetExtension(FUFoto.FileName);
+            docente.Nome = TxtNome.Text.Trim();
 
             if (TxtNome.Text.Trim() == "" || TxtNome.Text.Length > 50)
             {
@@ -54,24 +57,28 @@ namespace ProjetoFinal.Web.Pages
             {
                 LblResposta.Text = Erros.LattesVazio;
             }
-            else if (TxtCurso.Text.Trim() == "")
+            else if (extensao != ".jpg" && extensao != ".jpeg" && extensao != ".png" && extensao != ".bmp")
             {
-                LblResposta.Text = Erros.CursoVazio;
-            }
-            else if (!FUFoto.HasFile)
-            {
-                LblResposta.Text = Erros.FotoVazio;
+                LblResposta.Text = "Arquivo de foto inválido, utilize fotos nas seguintes extensões: .jpg/.jpeg/.png/.bmp";
             }
             else
             {
                 try
                 {
-                    docente.Nome = TxtNome.Text.Trim();
                     docente.Formacao = TxtFormacaoAcademica.Text.Trim();
-                    docente.Curso = TxtCurso.Text.Trim();
+
+                    if(TxtCurso.Enabled == true)
+                        docente.Curso = TxtCurso.Text.Trim();
                     docente.DataInclusao = Convert.ToDateTime(TxtData.Text.Trim());
                     docente.Lattes = TxtLattes.Text.Trim();
+
+                    string foto = "Imagens/" + docente.Nome + extensao;
+                    if (File.Exists(Server.MapPath(foto)))
+                        File.Delete(Server.MapPath(foto));
+
                     this.FUFoto.SaveAs(Server.MapPath("Imagens/" + FUFoto.FileName));
+                    System.IO.File.Move(Server.MapPath("Imagens/" + FUFoto.FileName), Server.MapPath(foto));
+
                     docente.Foto = "Imagens/" + FUFoto.FileName;
 
                     BLLDocente.InserirDocente(docente);
@@ -85,6 +92,15 @@ namespace ProjetoFinal.Web.Pages
                     throw;
                 }
             }
+        }
+
+        protected void TxtFormacaoAcademica_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TxtFormacaoAcademica.Text != "Ensino Médio Completo" && TxtFormacaoAcademica.Text != "Ensino Técnico")
+                TxtCurso.Enabled = true;
+            else
+                TxtCurso.Enabled = false;
+
         }
     }
 }

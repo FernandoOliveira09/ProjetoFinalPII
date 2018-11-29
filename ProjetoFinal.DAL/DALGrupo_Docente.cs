@@ -81,6 +81,12 @@ namespace ProjetoFinal.DAL
                 comando.CommandText = "select d.id_docente, d.nome, d.formacao, d.curso, d.lattes, d.foto, gd.data_entrada from tbldocente d inner join tblgrupo_docente gd on gd.fk_docente = d.id_docente inner join Tblgrupo g on gd.fk_grupo = g.id_grupo "
                     + "and gd.data_saida is null";
             }
+            else if (tipoPesquisa == "gativos")
+            {
+                comando.CommandText = "select d.id_docente, d.nome, d.formacao, d.curso, d.lattes, d.foto, gd.data_entrada from tbldocente d inner join tblgrupo_docente gd on gd.fk_docente = d.id_docente inner join Tblgrupo g on gd.fk_grupo = g.id_grupo "
+                    + "and gd.data_saida is null and gd.fk_grupo = @grupo";
+                comando.Parameters.AddWithValue("@grupo", grupoDocente.FkGrupo);
+            }
             else if (tipoPesquisa == "aguardando")
             {
                 comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.texto_descricao, g.lattes, g.logotipo, s.situacao as Situacao, u.login, u.nome as Lider from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "

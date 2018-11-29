@@ -67,7 +67,7 @@
                                 <p>Nome: <%# Eval("Nome") %></p>
                                 <p>Formação: <%# Eval("Formacao") %></p>
                                 <p>lattes: <%# Eval("Lattes") %></p>       
-                                <p>Data Entrada: <%# Eval("Data_Entrada") %></p>       
+                                <p>Data Entrada: <%# Eval("Data_Entrada", "{0:d}") %></p>       
 
                              </div>
                          </div>
@@ -92,7 +92,7 @@
                                 <p>Nome: <%# Eval("Nome") %></p>
                                 <p>Formação: <%# Eval("Formacao") %></p>
                                 <p>lattes: <%# Eval("Lattes") %></p>       
-                                <p>Data Entrada: <%# Eval("Data_Entrada") %></p>       
+                                <p>Data Entrada: <%# Eval("Data_Entrada", "{0:d}") %></p>       
 
                              </div>
                          </div>

@@ -73,10 +73,6 @@ namespace ProjetoFinal.Web.Pages
                 area.FkCon = conhecimento;
             }
 
-
-            List<MODArea_Avaliacao> lista = new List<MODArea_Avaliacao>();
-            lista = BLLLinha_Pesquisa.PesquisarAreaAvaliacao(area, "existente");
-
             if (TxtIdAva.Text.Trim() == "" || TxtIdAva.Text.Length > 10)
             {
                 LblResposta.Text = Erros.CodigoVazio;
@@ -88,10 +84,6 @@ namespace ProjetoFinal.Web.Pages
             else if (TxtAreaAvaliacao.Text.Trim() == "" || TxtAreaAvaliacao.Text.Length > 80)
             {
                 LblResposta.Text = Erros.NomeVazio;
-            }
-            else if (lista.Count > 0)
-            {
-                LblResposta.Text = Erros.AreaConExiste;
             }
             else
             {

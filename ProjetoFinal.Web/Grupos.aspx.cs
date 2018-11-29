@@ -29,18 +29,21 @@ namespace ProjetoFinal.Web
                 RptConsulta.DataBind();
 
                 MODGrupoDocente grupoDocente = new MODGrupoDocente();
+                grupoDocente.FkGrupo = grupoLider.FkGrupo;
 
-                RPTDocente.DataSource = BLLGrupo_Docente.Pesquisar(grupoDocente, "ativos");
+                RPTDocente.DataSource = BLLGrupo_Docente.Pesquisar(grupoDocente, "gativos");
                 RPTDocente.DataBind();
 
                 MODGrupoTecnico grupoTecnico = new MODGrupoTecnico();
+                grupoTecnico.FkGrupo = grupoLider.FkGrupo;
 
-                RPTTecnico.DataSource = BLLGrupo_Tecnico.Pesquisar(grupoTecnico, "ativos");
+                RPTTecnico.DataSource = BLLGrupo_Tecnico.Pesquisar(grupoTecnico, "gativos");
                 RPTTecnico.DataBind();
 
                 MODGrupoLinha_Pesquisa grupoLinha_Pesquisa = new MODGrupoLinha_Pesquisa();
+                grupoLinha_Pesquisa.FkGrupo = grupoLider.FkGrupo;
 
-                RPTLinha.DataSource = BLLGrupo_Linha_Pesquisa.Pesquisar(grupoLinha_Pesquisa, "ativos");
+                RPTLinha.DataSource = BLLGrupo_Linha_Pesquisa.Pesquisar(grupoLinha_Pesquisa, "gativos");
                 RPTLinha.DataBind();
 
                 RPTDiscente.DataSource = BLLDiscente.PesquisarPorGrupo(grupo);

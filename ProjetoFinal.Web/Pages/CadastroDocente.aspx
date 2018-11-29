@@ -114,7 +114,8 @@
                                     <asp:Label ID="LblNome" runat="server">Usuário</asp:Label>
                                     <i class="mdi-navigation-arrow-drop-down right"></i></a>
                                 <p class="user-roal">
-                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label></p>
+                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label>
+                                </p>
                             </div>
                         </div>
                     </li>
@@ -244,20 +245,19 @@
                                                 </div>
                                             </div>
 
-                                            <asp:DropDownList class="input-field col s7" runat="server" ID="TxtFormacaoAcademica">
-                                                <asp:ListItem Text="Formação Acadêmica Máxima (Obrigatório)" disabled Selected />
-                                                <asp:ListItem Text="Ensino Fundamental" />
-                                                <asp:ListItem Text="Ensino Medio" />
-                                                <asp:ListItem Text="Graduacao" />
-                                                <asp:ListItem Text="Pos Graduacao" />
-                                                <asp:ListItem Text="Mestrado" />
-                                                <asp:ListItem Text="Doutorado" />
-                                                <asp:ListItem Text="Pos Doutorado" />
+                                            <asp:DropDownList class="input-field col s7" runat="server" ID="TxtFormacaoAcademica" OnSelectedIndexChanged="TxtFormacaoAcademica_SelectedIndexChanged" AutoPostBack="true">
+                                                <asp:ListItem>Ensino Médio Completo</asp:ListItem>
+                                                <asp:ListItem>Ensino Técnico</asp:ListItem>
+                                                <asp:ListItem>Ensino Superior</asp:ListItem>
+                                                <asp:ListItem>Pós Graduação</asp:ListItem>
+                                                <asp:ListItem>Mestrado</asp:ListItem>
+                                                <asp:ListItem>Doutorado</asp:ListItem>
+                                                <asp:ListItem>Pós Doutorado</asp:ListItem>
                                             </asp:DropDownList>
 
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <asp:TextBox ID="TxtCurso" type="text" runat="server" />
+                                                    <asp:TextBox ID="TxtCurso" type="text" runat="server" Enabled="false" />
                                                     <label for="TxtCurso">Curso</label>
                                                 </div>
                                             </div>

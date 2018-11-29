@@ -57,9 +57,6 @@ namespace ProjetoFinal.Web.Pages
             area.Id = TxtIdArea.Text.Trim();
             area.Nome = TxtAreaConhecimento.Text.Trim().ToUpper();
 
-            List<MODArea_Conhecimento> lista = new List<MODArea_Conhecimento>();
-            lista = BLLLinha_Pesquisa.PesquisarAreaConhecimento(area, "existente");
-
             if (TxtIdArea.Text.Trim() == "" || TxtIdArea.Text.Length > 10)
             {
                 LblResposta.Text = Erros.CodigoVazio;
@@ -71,10 +68,6 @@ namespace ProjetoFinal.Web.Pages
             else if (TxtAreaConhecimento.Text.Trim() == "" || TxtAreaConhecimento.Text.Length > 80)
             {
                 LblResposta.Text = Erros.NomeVazio;
-            }
-            else if (lista.Count > 0)
-            {
-                LblResposta.Text = Erros.AreaConExiste;
             }
             else
             {

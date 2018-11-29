@@ -81,6 +81,12 @@ namespace ProjetoFinal.DAL
                 comando.CommandText = "select l.id_linha, l.nome_linha, gl.descricao from tbllinha_pesquisa l inner join tblgrupo_linha_pesquisa gl on gl.fk_linha = l.id_linha inner join Tblgrupo g on gl.fk_grupo = g.id_grupo "
                     + "and gl.data_termino is null";
             }
+            else if (tipoPesquisa == "gativos")
+            {
+                comando.CommandText = "select l.id_linha, l.nome_linha, gl.descricao from tbllinha_pesquisa l inner join tblgrupo_linha_pesquisa gl on gl.fk_linha = l.id_linha inner join Tblgrupo g on gl.fk_grupo = g.id_grupo "
+                    + "and gl.data_termino is null and gl.fk_grupo = @grupo";
+                comando.Parameters.AddWithValue("@grupo", grupoLinha.FkGrupo);
+            }
             else if (tipoPesquisa == "aguardando")
             {
                 comando.CommandText = "select g.id_grupo, g.nome, g.sigla, g.texto_descricao, g.lattes, g.logotipo, s.situacao as Situacao, u.login, u.nome as Lider from tblgrupo g inner join tblgrupo_lider l on l.fk_grupo = g.id_grupo "

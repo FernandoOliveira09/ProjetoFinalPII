@@ -95,7 +95,13 @@ namespace ProjetoFinal.DAL
             else if (tipoPesquisa == "ativos")
             {
                 comando.CommandText = "select t.id_tecnico, t.nome, t.formacao, t.curso, t.lattes, t.foto, gt.data_entrada from tbltecnico t inner join tblgrupo_tecnico gt on gt.fk_tecnico = t.id_tecnico inner join Tblgrupo g on gt.fk_grupo = g.id_grupo "
-                    + "and gt.data_saida is null";
+                    + "and gt.data_saida is null and g.sigla = @sigla";
+            }
+            else if (tipoPesquisa == "gativos")
+            {
+                comando.CommandText = "select t.id_tecnico, t.nome, t.formacao, t.curso, t.lattes, t.foto, gt.data_entrada from tbltecnico t inner join tblgrupo_tecnico gt on gt.fk_tecnico = t.id_tecnico inner join Tblgrupo g on gt.fk_grupo = g.id_grupo "
+                    + "and gt.data_saida is null and gt.fk_grupo = @grupo";
+                comando.Parameters.AddWithValue("@grupo", grupoTecnico.FkGrupo);
             }
             else if (tipoPesquisa == "aguardando")
             {
