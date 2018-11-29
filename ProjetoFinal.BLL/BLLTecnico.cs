@@ -18,7 +18,7 @@ namespace ProjetoFinal.BLL
                 throw new ExcecaoPersonalizada(Erros.NomeVazio);
             if (tecnico.Lattes.Trim() == "" || tecnico.Lattes.Length > 50)
                 throw new ExcecaoPersonalizada(Erros.LattesVazio);
-            if (tecnico.Atividade.Trim() == "" || tecnico.Atividade.Length > 15)
+            if (tecnico.Atividade.Trim() == "" || tecnico.Atividade.Length > 50)
                 throw new ExcecaoPersonalizada(Erros.AtividadeVazia);
             if (tecnico.Curso.Trim() == "")
                 throw new ExcecaoPersonalizada(Erros.CursoVazio);

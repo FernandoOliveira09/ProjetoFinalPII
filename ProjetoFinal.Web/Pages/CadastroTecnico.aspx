@@ -259,7 +259,7 @@
                                                 <div class="input-field col s8">
                                                     <label for="TxtFormacao">Formação<span style="color: red;">*</span></label>
                                                     <br />
-                                                    <asp:DropDownList class="input-field" runat="server" ID="TxtFormacao">
+                                                    <asp:DropDownList class="input-field" runat="server" ID="TxtFormacao" OnSelectedIndexChanged="TxtFormacao_SelectedIndexChanged" AutoPostBack="true">
                                                         <asp:ListItem>Ensino Médio Completo</asp:ListItem>
                                                         <asp:ListItem>Ensino Técnico</asp:ListItem>
                                                         <asp:ListItem>Ensino Superior</asp:ListItem>
@@ -272,7 +272,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s6">
-                                                    <asp:TextBox ID="TextCurso" type="text" runat="server" />
+                                                    <asp:TextBox ID="TextCurso" type="text" runat="server" Enabled="false"/>
                                                     <label for="TxtCurso">Curso<span style="color: red;"></span></label>
                                                 </div>
                                             </div>

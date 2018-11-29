@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,12 +15,32 @@ namespace ProjetoFinal.Web.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["login"] == null)
+            {
+                Session.RemoveAll();
+                Response.Redirect("../Pages/Login.aspx");
+            }
 
+            MODUsuario usuario = new MODUsuario();
+            usuario.Login = PegaLogin.RetornaLogin();
+            usuario = BLLUsuario.PesquisarLogin(usuario);
+
+            ImagemUser.ImageUrl = "../Pages/" + usuario.Imagem;
+            ImagemUser2.ImageUrl = "../Pages/" + usuario.Imagem;
+            LblNome.Text = usuario.Nome;
+
+            if (usuario.FkTipo == 1)
+                LblFuncao.Text = "Administrador";
+            else
+                LblFuncao.Text = "Lider de Pesquisa";
         }
 
         protected void BtnCadastrar_Click(object sender, EventArgs e)
         {
             MODTecnico tecnico = new MODTecnico();
+            string extensao = Path.GetExtension(FUFotoTec.FileName);
+
+            tecnico.Nome = TxtNome.Text.Trim();
 
             if (TxtNome.Text.Trim() == "" || TxtNome.Text.Length > 50)
             {
@@ -33,10 +54,6 @@ namespace ProjetoFinal.Web.Pages
             {
                 LblResposta.Text = Erros.AtividadeVazia;
             }
-            else if (TextCurso.Text.Trim() == "")
-            {
-                LblResposta.Text = Erros.CursoVazio;
-            }
             else if (TxtFormacao.Text.Trim() == "")
             {
                 LblResposta.Text = Erros.FormacaoVazia;
@@ -45,23 +62,31 @@ namespace ProjetoFinal.Web.Pages
             {
                 LblResposta.Text = Erros.DataVazio;
             }
-            //else if (FUFotoTec.Text.Trim() == "")
-            //{
-            //    LblResposta.Text = Erros.FotoVazio;
-            //}
-
+            else if (extensao != ".jpg" && extensao != ".jpeg" && extensao != ".png" && extensao != ".bmp")
+            {
+                LblResposta.Text = "Arquivo de foto inválido, utilize fotos nas seguintes extensões: .jpg/.jpeg/.png/.bmp";
+            }
             else
             {
                 try
                 {
-                    tecnico.Nome = TxtNome.Text.Trim();
                     tecnico.Lattes = TxtLattes.Text.Trim();
                     tecnico.Atividade = TextAtividades.Text.Trim();
-                    tecnico.Curso = TextCurso.Text.Trim();
+                    if(TextCurso.Enabled == true)
+                        tecnico.Curso = TextCurso.Text.Trim();
+
                     tecnico.Formacao = TxtFormacao.Text;
                     tecnico.AnoConclusao = Convert.ToDateTime(TxtData.Text.Trim());
+
+                    string foto = "Imagens/" + tecnico.Nome + extensao;
+                    if (File.Exists(Server.MapPath(foto)))
+                        File.Delete(Server.MapPath(foto));
+
                     this.FUFotoTec.SaveAs(Server.MapPath("Imagens/" + FUFotoTec.FileName));
-                    tecnico.Foto = "Imagens/" + FUFotoTec.FileName;
+
+                    System.IO.File.Move(Server.MapPath("Imagens/" + FUFotoTec.FileName), Server.MapPath(foto));
+
+                    tecnico.Foto = foto;
 
                     BLLTecnico.Inserir(tecnico);
 
@@ -73,6 +98,14 @@ namespace ProjetoFinal.Web.Pages
                     throw;
                 }
             }
+        }
+
+        protected void TxtFormacao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TxtFormacao.Text != "Ensino Médio Completo" && TxtFormacao.Text != "Ensino Técnico")
+                TextCurso.Enabled = true;
+            else
+                TextCurso.Enabled = false;
         }
     }
 }
