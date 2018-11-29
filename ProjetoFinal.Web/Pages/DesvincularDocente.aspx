@@ -1,8 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConsultaDocente.aspx.cs" Inherits="ProjetoFinal.Web.Pages.ConsultaDocente" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DesvincularDocente.aspx.cs" Inherits="ProjetoFinal.Web.Pages.DesvincularDocente" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
+<!--================================================================================
+	Item Name: Materialize - Material Design Admin Template
+	Version: 4.0
+	Author: PIXINVENT
+	Author URL: https://themeforest.net/user/pixinvent/portfolio
+  ================================================================================ -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,13 +18,11 @@
     <title>Admin | SG Manager</title>
     <!-- Favicons-->
     <link rel="icon" href="../Content/images/favicon/favicon-32x32.png" sizes="32x32">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <!-- Favicons-->
-    <link rel="apple-touch-icon-precomposed" href="..Content/images/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon-precomposed" href="../Content/images/favicon/apple-touch-icon-152x152.png">
     <!-- For iPhone -->
     <meta name="msapplication-TileColor" content="#00bcd4">
-    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+    <meta name="msapplication-TileImage" content="../Content/images/favicon/mstile-144x144.png">
     <!-- For Windows Phone -->
     <!-- CORE CSS-->
     <link href="../Content/css//materialize.css" type="text/css" rel="stylesheet">
@@ -81,9 +84,8 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1" id="BtnLogout">
+                            <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1">
                                 <i class="material-icons">keyboard_tab</i> Logout</a>
-
                         </li>
                     </ul>
                 </div>
@@ -113,7 +115,8 @@
                                     <asp:Label ID="LblNome" runat="server">Usuário</asp:Label>
                                     <i class="mdi-navigation-arrow-drop-down right"></i></a>
                                 <p class="user-roal">
-                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label></p>
+                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label>
+                                </p>
                             </div>
                         </div>
                     </li>
@@ -206,61 +209,75 @@
             <!-- END LEFT SIDEBAR NAV-->
             <!-- //////////////////////////////////////////////////////////////////////////// -->
             <!-- START CONTENT -->
-            <div id="breadcrumbs-wrapper">
-                <!-- Search for small screen -->
-                <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
-                    <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title">Consulta de Docentes</h5>
-                            <ol class="breadcrumbs">
-                                <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
-                                <li><a href="#">Docentes</a></li>
-                                <li><a href="#">Consulta de Docentes</a></li>
-                            </ol>
-                        </div>
-                        <div class="col s2 m6 l6">
-                            <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/VincularGrupoDocente.aspx">Vincular Docente</a>
-                            <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/CadastroDocente.aspx">Novo Docente</a>
+            <section id="content">
+                <!--start container-->
+                <div id="breadcrumbs-wrapper">
+                    <!-- Search for small screen -->
+                    <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
+                        <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col s10 m6 l6">
+                                <h5 class="breadcrumbs-title">Desvincular docente</h5>
+                                <ol class="breadcrumbs">
+                                    <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
+                                    <li><a href="#">Docente</a></li>
+                                    <li><a href="#">Desvincular docente</a></li>
+                                </ol>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class='row'>
-                <div class='input-field col s12'>
-                    <asp:Repeater ID="RptConsulta" runat="server">
-                        <HeaderTemplate>
-                            <table class="striped responsive-table">
-                                <thead>
-                                    <tr>
-                                        <th>Nome</th>
-                                        <th>Formação</th>
-                                        <th>Data de inclusão</th>
-                                        <th>Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <tr>
-                                <td><%# Eval("Nome") %></td>
-                                <td><%# Eval("Formacao") %></td>
-                                <td><%# Eval("DataInclusao", "{0:d}") %></td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDocente.aspx?docente=<%# Eval("IdDocente") %>"><i class="material-icons">edit</i></a><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/VincularDocenteLinhaPesquisa.aspx"><i class="material-icons">search</i></a></td>
-                                <%--                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
-                            </tr>
-                        </ItemTemplate>
-                        <FooterTemplate>
-                            </tbody>
-                          </table>
-                        </FooterTemplate>
-                    </asp:Repeater>
-                </div>
-            </div>
+                <form class="col s12" runat="server">
+                    <div id="basic-form" class="section">
+                        <div class="row" style="display: inline-block">
+                            <div class="col s12 m12 l12">
+                                <div class="card-panel">
+                                    <h4 class="header2">Insira os dados nos campos abaixo para desvincular</h4>
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <asp:TextBox ID="TxtNome" type="text" runat="server" ReadOnly="true" />
+                                                <label for="TxtNome">Nome do docente</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <asp:TextBox ID="TxtDataTermino" type="text" runat="server" />
+                                                <label for="TxtCurso">Data de término<span style="color: red;">*</span></label>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-field col s12">
+                                            <label for="TxtGrupo">Grupos vinculados<span style="color: red;">*</span></label>
+                                            <br />
+                                            <asp:DropDownList class="input-field" runat="server" ID="TxtGrupo">
+                                            </asp:DropDownList>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <asp:Button ID="Desvincular" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Desvincular" runat="server" OnClick="Desvincular_Click"></asp:Button>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--end container-->
+            </section>
             <!-- END CONTENT -->
-            
+
             <!-- END RIGHT SIDEBAR NAV-->
         </div>
         <!-- END WRAPPER -->
@@ -293,5 +310,15 @@
     <script type="text/javascript" src="../Content/js/plugins.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="../Content/js/custom-script.js"></script>
+    <script>$('.dropdown-trigger').dropdown();</script>
+    <script src="../Content/js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#TxtDataTermino").mask("99/99/9999");
+            $("#TxtDataInicio").mask("99/99/9999");
+
+        });
+    </script>
 </body>
 </html>
+

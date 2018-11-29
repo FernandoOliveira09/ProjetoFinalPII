@@ -119,6 +119,10 @@
     <Content Include="Pages\ConsultaTecnico.aspx" />
     <Content Include="Pages\ConsultaUsuario.aspx" />
     <Content Include="Pages\DesvincularDiscente.aspx" />
+    <Content Include="Pages\DesvincularDocente.aspx" />
+    <Content Include="Pages\DesvincularLinha.aspx" />
+    <Content Include="Pages\DesvincularLinhaDocente.aspx" />
+    <Content Include="Pages\DesvincularTecnico.aspx" />
     <Content Include="Pages\EncerrarProjeto.aspx" />
     <Content Include="Pages\InserirCodigoRecuperacao.aspx" />
     <Content Include="Pages\Principal.aspx" />
@@ -452,6 +456,34 @@
     </Compile>
     <Compile Include="Pages\DesvincularDiscente.aspx.designer.cs">
       <DependentUpon>DesvincularDiscente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DesvincularDocente.aspx.cs">
+      <DependentUpon>DesvincularDocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DesvincularDocente.aspx.designer.cs">
+      <DependentUpon>DesvincularDocente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DesvincularLinha.aspx.cs">
+      <DependentUpon>DesvincularLinha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DesvincularLinha.aspx.designer.cs">
+      <DependentUpon>DesvincularLinha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DesvincularLinhaDocente.aspx.cs">
+      <DependentUpon>DesvincularLinhaDocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DesvincularLinhaDocente.aspx.designer.cs">
+      <DependentUpon>DesvincularLinhaDocente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DesvincularTecnico.aspx.cs">
+      <DependentUpon>DesvincularTecnico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DesvincularTecnico.aspx.designer.cs">
+      <DependentUpon>DesvincularTecnico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\EncerrarProjeto.aspx.cs">
       <DependentUpon>EncerrarProjeto.aspx</DependentUpon>

@@ -30,5 +30,10 @@ namespace ProjetoFinal.BLL
         {
             return DALGrupo_Docente.Pesquisar(grupoDocente, tipoPesquisa);
         }
+
+        public static MODGrupoDocente PesquisarDataEntrada(MODGrupoDocente grupoDocente)
+        {
+            return DALGrupo_Docente.PesquisarDataEntrada(grupoDocente);
+        }
     }
 }

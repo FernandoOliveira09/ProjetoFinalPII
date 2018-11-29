@@ -65,6 +65,35 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
+        public static MODGrupoDocente PesquisarDataEntrada(MODGrupoDocente grupoDocente)
+        {
+            MODGrupoDocente retorno = new MODGrupoDocente();
+
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "select gd.data_entrada from tblgrupo_docente gd inner join tblgrupo gd on gd.fk_grupo = g.id_grupo inner join tbldocente d on gd.fk_docente = d.id_docente and gd.fk_docente = @docente and gd.data_saida is null";
+            comando.Parameters.AddWithValue("@docente", grupoDocente.FkDocente);
+
+            MySqlDataReader reader = comando.ExecuteReader();
+
+            while (reader.Read())
+            {
+                MODGrupoDocente ret = new MODGrupoDocente();
+                ret.DataEntrada = Convert.ToDateTime(reader["data_entrada"]);
+
+                retorno.DataEntrada = ret.DataEntrada;
+            }
+
+            reader.Close();
+
+            Conexao.Fechar();
+
+            return retorno;
+        }
+
         public static DataTable Pesquisar(MODGrupoDocente grupoDocente, string tipoPesquisa)
         {
             MySqlCommand comando = new MySqlCommand();
