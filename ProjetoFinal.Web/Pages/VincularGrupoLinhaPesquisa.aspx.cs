@@ -55,7 +55,6 @@ namespace ProjetoFinal.Web.Pages
             TxtAreaConhecimento.DataValueField = "Id";
             TxtAreaConhecimento.DataTextField = "Nome";
             TxtAreaConhecimento.DataBind();
-            carregamento = 0;
         }
 
         private void CarregaAreaAvaliacao()
@@ -76,7 +75,6 @@ namespace ProjetoFinal.Web.Pages
                 TxtAreaAvaliacao.DataValueField = "Id";
                 TxtAreaAvaliacao.DataTextField = "Nome";
                 TxtAreaAvaliacao.DataBind();
-                carregamento = 1;
             }
         }
 
@@ -98,7 +96,6 @@ namespace ProjetoFinal.Web.Pages
                 TxtSubAreaAvaliacao.DataValueField = "Id";
                 TxtSubAreaAvaliacao.DataTextField = "Nome";
                 TxtSubAreaAvaliacao.DataBind();
-                carregamento = 2;
             }
         }
 
@@ -120,15 +117,7 @@ namespace ProjetoFinal.Web.Pages
                 TxtLinhaPesquisa.DataValueField = "Id";
                 TxtLinhaPesquisa.DataTextField = "Linha";
                 TxtLinhaPesquisa.DataBind();
-                carregamento = 1;
             }
-        }
-
-        protected void TxtAreaConhecimento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CarregaAreaAvaliacao();
-            CarregaSubAreaAvaliacao();
-            CarregaLinhaPesquisa();
         }
 
         private void CarregaGrupo()
@@ -139,6 +128,13 @@ namespace ProjetoFinal.Web.Pages
             TxtGrupo.DataValueField = "IdGrupo";
             TxtGrupo.DataTextField = "Nome";
             TxtGrupo.DataBind();
+        }
+
+        protected void TxtAreaConhecimento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CarregaAreaAvaliacao();
+            CarregaSubAreaAvaliacao();
+            CarregaLinhaPesquisa();
         }
 
         protected void TxtAreaAvaliacao_SelectedIndexChanged(object sender, EventArgs e)

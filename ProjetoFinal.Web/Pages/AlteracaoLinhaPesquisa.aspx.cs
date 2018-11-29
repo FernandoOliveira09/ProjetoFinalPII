@@ -36,12 +36,6 @@ namespace ProjetoFinal.Web.Pages
             else
                 LblFuncao.Text = "Lider de Pesquisa";
 
-            if (!Page.IsPostBack)
-            {
-                carregamento = 0;
-                CarregaAreaConhecimento();
-            }
-
             MODSubArea_Avaliacao subArea = new MODSubArea_Avaliacao();
             MODLinha_Pesquisa linha = new MODLinha_Pesquisa();
 
@@ -54,13 +48,12 @@ namespace ProjetoFinal.Web.Pages
             subArea.Id = idLinha;
             subArea = BLLLinha_Pesquisa.PesquisarSubAvaliacao(subArea);
 
-            if (carregamento == 0)
-                CarregaAreaAvaliacao();
-
-            CarregaSubAreaAvaliacao();
-
             if (!Page.IsPostBack)
             {
+                CarregaAreaConhecimento();
+                CarregaAreaAvaliacao();
+                CarregaSubAreaAvaliacao();
+
                 TxtIdLinha.Text = linha.Id;
                 TxtLinhaPesquisa.Text = linha.Linha;
                 TxtSubArea.Text = subArea.Nome;
@@ -75,7 +68,6 @@ namespace ProjetoFinal.Web.Pages
             TxtAreaConhecimento.DataValueField = "Id";
             TxtAreaConhecimento.DataTextField = "Nome";
             TxtAreaConhecimento.DataBind();
-            carregamento = 0;
         }
 
         private void CarregaAreaAvaliacao()
@@ -97,7 +89,6 @@ namespace ProjetoFinal.Web.Pages
                 TxtAreaAvaliacao.DataValueField = "Id";
                 TxtAreaAvaliacao.DataTextField = "Nome";
                 TxtAreaAvaliacao.DataBind();
-                carregamento = 1;
             }
         }
 

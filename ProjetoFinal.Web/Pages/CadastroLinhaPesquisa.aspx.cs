@@ -12,8 +12,6 @@ namespace ProjetoFinal.Web.Pages
 {
     public partial class CadastroLinhaPesquisa : System.Web.UI.Page
     {
-        private static int carregamento = 0;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["login"] == null)
@@ -38,14 +36,11 @@ namespace ProjetoFinal.Web.Pages
 
             if (!Page.IsPostBack)
             {
-                carregamento = 0;
                 CarregaAreaConhecimento();
-            }
-                
-            if (carregamento == 0)
                 CarregaAreaAvaliacao();
-
-            CarregaSubAreaAvaliacao();
+                CarregaSubAreaAvaliacao();
+            }
+            
         }
 
         private void CarregaAreaConhecimento()
@@ -56,7 +51,6 @@ namespace ProjetoFinal.Web.Pages
             TxtAreaConhecimento.DataValueField = "Id";
             TxtAreaConhecimento.DataTextField = "Nome";
             TxtAreaConhecimento.DataBind();
-            carregamento = 0;
         }
 
         private void CarregaAreaAvaliacao()
@@ -78,7 +72,6 @@ namespace ProjetoFinal.Web.Pages
                 TxtAreaAvaliacao.DataValueField = "Id";
                 TxtAreaAvaliacao.DataTextField = "Nome";
                 TxtAreaAvaliacao.DataBind();
-                carregamento = 1;
             }            
         }
 

@@ -37,9 +37,8 @@ namespace ProjetoFinal.Web.Pages
             if (!Page.IsPostBack)
             {
                 CarregaAreaConhecimento();
-            }
-
-            CarregaAreaAvaliacao();
+                CarregaAreaAvaliacao();
+            }    
         }
 
         private void CarregaAreaConhecimento()

@@ -258,7 +258,7 @@
                                                 <div class="input-field col s8">
                                                     <label for="TxtAreaAvaliacao">Selecione a área de avaliação<span style="color: red;">*</span></label>
                                                     <br />
-                                                    <asp:DropDownList class="input-field" runat="server" ID="TxtAreaAvaliacao" AutoPostBack="true" Enabled="false">
+                                                    <asp:DropDownList class="input-field" runat="server" ID="TxtAreaAvaliacao" AutoPostBack="true" Enabled="false" OnSelectedIndexChanged="TxtAreaAvaliacao_SelectedIndexChanged">
                                                     </asp:DropDownList>
                                                     <asp:Label ID="LblAreaAvaliacao" runat="server" ForeColor="Red"></asp:Label>
                                                 </div>

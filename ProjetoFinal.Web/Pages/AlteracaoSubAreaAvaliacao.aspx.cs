@@ -36,11 +36,6 @@ namespace ProjetoFinal.Web.Pages
             else
                 LblFuncao.Text = "Lider de Pesquisa";
 
-            if (!Page.IsPostBack)
-            {
-                CarregaAreaConhecimento();
-            }
-
             MODArea_Avaliacao areaAvaliacao = new MODArea_Avaliacao();
             MODSubArea_Avaliacao subArea = new MODSubArea_Avaliacao();
 
@@ -55,12 +50,12 @@ namespace ProjetoFinal.Web.Pages
 
             if (!Page.IsPostBack)
             {
+                CarregaAreaConhecimento();
+                CarregaAreaAvaliacao();
                 TxtIdSubArea.Text = subArea.Id;
                 TxtSubArea.Text = subArea.Nome;
                 TxtAvaliacao.Text = areaAvaliacao.Nome;
-            }
-
-            CarregaAreaAvaliacao();
+            }            
         }
 
         protected void TxtSelecao_CheckedChanged(object sender, EventArgs e)

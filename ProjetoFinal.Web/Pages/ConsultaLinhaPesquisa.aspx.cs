@@ -42,7 +42,6 @@ namespace ProjetoFinal.Web.Pages
                 CarregaAreaAvaliacao();
                 CarregaSubAreaAvaliacao();
                 CarregaLinhaPesquisa();
-
             }
         }
 
