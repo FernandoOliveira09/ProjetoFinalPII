@@ -252,7 +252,7 @@
                                                 <div class="input-field col s8">
                                                     <label for="TxtAreaAvaliacao">Selecione a área de avaliação<span style="color: red;">*</span></label>
                                                     <br />
-                                                    <asp:DropDownList class="input-field" runat="server" ID="TxtAreaAvaliacao" AutoPostBack="true">
+                                                    <asp:DropDownList class="input-field" runat="server" ID="TxtAreaAvaliacao" AutoPostBack="true" OnSelectedIndexChanged="TxtAreaAvaliacao_SelectedIndexChanged">
                                                     </asp:DropDownList>
                                                     <asp:Label ID="LblAreaAvaliacao" runat="server" ForeColor="Red"></asp:Label>
                                                 </div>
@@ -264,7 +264,7 @@
                                                 <div class="input-field col s8" style="float: left">
                                                     <label for="TxtLider">Selecione a sub área de avaliação<span style="color: red;">*</span></label>
                                                     <br />
-                                                    <asp:DropDownList class="input-field" runat="server" ID="TxtSubAreaAvaliacao" AutoPostBack="true">
+                                                    <asp:DropDownList class="input-field" runat="server" ID="TxtSubAreaAvaliacao" AutoPostBack="true" OnSelectedIndexChanged="TxtSubAreaAvaliacao_SelectedIndexChanged">
                                                     </asp:DropDownList>
                                                     <%--<a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i></a>--%>
                                                     <asp:Label ID="LblSubArea" runat="server" ForeColor="Red"></asp:Label>
@@ -277,7 +277,7 @@
                                                 <div class="input-field col s8" style="float: left">
                                                     <label for="TxtLinhaPesquisa">Selecione a linha de pesquisa<span style="color: red;">*</span></label>
                                                     <br />
-                                                    <asp:DropDownList class="input-field" runat="server" ID="TxtLinhaPesquisa" AppendDataBoundItems="true">
+                                                    <asp:DropDownList class="input-field" runat="server" ID="TxtLinhaPesquisa">
                                                     </asp:DropDownList>
                                                     <%--<a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i></a>--%>
                                                     <asp:Label ID="LblLinha" runat="server" ForeColor="Red"></asp:Label>

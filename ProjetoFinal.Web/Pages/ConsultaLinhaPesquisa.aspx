@@ -245,7 +245,7 @@
                     <div class="input-field col s6">
                         <label for="TxtSubAreaAvaliacao">Selecione a sub área de avaliação<span style="color: red;">*</span></label>
                         <br />
-                        <asp:DropDownList class="input-field" runat="server" ID="TxtSubAreaAvaliacao" AutoPostBack="true">
+                        <asp:DropDownList class="input-field" runat="server" ID="TxtSubAreaAvaliacao" AutoPostBack="true" OnSelectedIndexChanged="TxtSubAreaAvaliacao_SelectedIndexChanged">
                         </asp:DropDownList>
                     </div>
                 </form>

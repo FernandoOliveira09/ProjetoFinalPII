@@ -149,7 +149,7 @@ namespace ProjetoFinal.Web.Pages
 
         protected void TxtSubAreaAvaliacao_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            CarregaLinhaPesquisa();
         }
 
         protected void BtnVincular_Click(object sender, EventArgs e)
