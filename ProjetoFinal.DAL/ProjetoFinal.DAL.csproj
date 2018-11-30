@@ -61,6 +61,7 @@
     <Compile Include="DALRecuperacaoSenha.cs" />
     <Compile Include="DALRecuperacaoSenha_Usuario.cs" />
     <Compile Include="DALReuniao.cs" />
+    <Compile Include="DALReuniaoConvidado.cs" />
     <Compile Include="DALReuniaoParticipante.cs" />
     <Compile Include="DALTecnico.cs" />
     <Compile Include="DALUsuario.cs" />

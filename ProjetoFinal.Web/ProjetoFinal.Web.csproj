@@ -94,6 +94,7 @@
     <Content Include="Pages\CadastroAreaAvaliacao.aspx" />
     <Content Include="Pages\CadastroAreaConhecimento.aspx" />
     <Content Include="Pages\CadastroAta.aspx" />
+    <Content Include="Pages\CadastroConvidado.aspx" />
     <Content Include="Pages\CadastroDiscente.aspx" />
     <Content Include="Pages\CadastroDocente.aspx" />
     <Content Include="Pages\CadastroEquipamento.aspx" />
@@ -283,6 +284,13 @@
     </Compile>
     <Compile Include="Pages\CadastroAta.aspx.designer.cs">
       <DependentUpon>CadastroAta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CadastroConvidado.aspx.cs">
+      <DependentUpon>CadastroConvidado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CadastroConvidado.aspx.designer.cs">
+      <DependentUpon>CadastroConvidado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CadastroDiscente.aspx.cs">
       <DependentUpon>CadastroDiscente.aspx</DependentUpon>

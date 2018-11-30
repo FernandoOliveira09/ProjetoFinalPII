@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CadastroAta.aspx.cs" Inherits="ProjetoFinal.Web.Pages.CadastroAta" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CadastroConvidado.aspx.cs" Inherits="ProjetoFinal.Web.Pages.CadastroConvidado" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -219,11 +219,11 @@
                     <div class="container">
                         <div class="row">
                             <div class="col s10 m6 l6">
-                                <h5 class="breadcrumbs-title">Cadastro de Ata</h5>
+                                <h5 class="breadcrumbs-title">Cadastro de Convidado</h5>
                                 <ol class="breadcrumbs">
                                     <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
                                     <li><a href="#">Reuniões</a></li>
-                                    <li><a href="#">Cadastro de Ata</a></li>
+                                    <li><a href="#">Cadastro de Convidado</a></li>
                                 </ol>
                             </div>
                         </div>
@@ -246,8 +246,8 @@
 
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <asp:TextBox ID="TxtAta" type="text" runat="server" TextMode="MultiLine"/>
-                                                <label for="TxtAta">Texto da ata<span style="color: red;">*</span></label>
+                                                <asp:TextBox ID="TxtConvidado" type="text" runat="server"/>
+                                                <label for="TxtAta">Nome do convidado<span style="color: red;">*</span></label>
                                             </div>
                                         </div>
 
@@ -259,7 +259,7 @@
 
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <asp:Button ID="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar Convidado" runat="server" OnClick="BtnCadastrar_Click"></asp:Button>
+                                                <asp:Button ID="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar Ata" runat="server" OnClick="BtnCadastrar_Click"></asp:Button>
                                             </div>
                                         </div>
                                     </form>
