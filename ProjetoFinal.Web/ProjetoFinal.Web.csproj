@@ -99,6 +99,7 @@
     <Content Include="Pages\CadastroEquipamento.aspx" />
     <Content Include="Pages\CadastroGrupo.aspx" />
     <Content Include="Pages\CadastroLinhaPesquisa.aspx" />
+    <Content Include="Pages\CadastroParticipante.aspx" />
     <Content Include="Pages\CadastroProjetoPesquisa.aspx" />
     <Content Include="Pages\CadastroPublicacao.aspx" />
     <Content Include="Pages\CadastroReuniao.aspx" />
@@ -317,6 +318,13 @@
     </Compile>
     <Compile Include="Pages\CadastroLinhaPesquisa.aspx.designer.cs">
       <DependentUpon>CadastroLinhaPesquisa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CadastroParticipante.aspx.cs">
+      <DependentUpon>CadastroParticipante.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CadastroParticipante.aspx.designer.cs">
+      <DependentUpon>CadastroParticipante.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CadastroProjetoPesquisa.aspx.cs">
       <DependentUpon>CadastroProjetoPesquisa.aspx</DependentUpon>

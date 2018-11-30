@@ -59,7 +59,7 @@ namespace ProjetoFinal.DAL
 
             if (tipoPesquisa == "id_reuniao")
             {
-                comando.CommandText = "SELECT id_reuniao, pauta, data_reuniao, hora_inicio, hora_fim FROM TBLREUNIAO WHERE id_reuniao = @id_reuniao";
+                comando.CommandText = "SELECT id_reuniao, pauta, data_reuniao, hora_inicio, hora_fim, fk_grupo FROM TBLREUNIAO WHERE id_reuniao = @id_reuniao";
                 comando.Parameters.AddWithValue("@id_reuniao", reuniao.IdReuniao);
             }
             else
@@ -75,6 +75,7 @@ namespace ProjetoFinal.DAL
                 MODReuniao ret = new MODReuniao();
                 ret.IdReuniao = Convert.ToInt32(reader["id_reuniao"].ToString());
                 ret.Pauta = reader["Pauta"].ToString();
+                ret.FkGrupo = Convert.ToInt32(reader["fk_grupo"].ToString());
                 if (reader["data_reuniao"].ToString() != "")
                     ret.DataReuniao = Convert.ToDateTime(reader["data_reuniao"].ToString());
                 if (reader["hora_inicio"].ToString() != "")
@@ -87,7 +88,7 @@ namespace ProjetoFinal.DAL
                 retorno.DataReuniao = ret.DataReuniao;
                 retorno.HoraInicio = ret.HoraInicio;
                 retorno.HoraFim = ret.HoraFim;
-
+                retorno.FkGrupo = ret.FkGrupo;
             }
 
             reader.Close();

@@ -63,6 +63,7 @@
     <Compile Include="MODRecuperacaoSenha_Usuario.cs" />
     <Compile Include="MODRecuperaSenha.cs" />
     <Compile Include="MODReuniao.cs" />
+    <Compile Include="MODReuniaoParticipante.cs" />
     <Compile Include="MODSubArea_Avaliacao.cs" />
     <Compile Include="MODTecnico.cs" />
     <Compile Include="MODUsuario.cs" />
