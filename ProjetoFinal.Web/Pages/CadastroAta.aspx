@@ -1,8 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConsultaReuniao.aspx.cs" Inherits="ProjetoFinal.Web.Pages.ConsultaReuniao" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CadastroAta.aspx.cs" Inherits="ProjetoFinal.Web.Pages.CadastroAta" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
+<!--================================================================================
+	Item Name: Materialize - Material Design Admin Template
+	Version: 4.0
+	Author: PIXINVENT
+	Author URL: https://themeforest.net/user/pixinvent/portfolio
+  ================================================================================ -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,13 +18,11 @@
     <title>Admin | SG Manager</title>
     <!-- Favicons-->
     <link rel="icon" href="../Content/images/favicon/favicon-32x32.png" sizes="32x32">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <!-- Favicons-->
-    <link rel="apple-touch-icon-precomposed" href="..Content/images/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon-precomposed" href="../Content/images/favicon/apple-touch-icon-152x152.png">
     <!-- For iPhone -->
     <meta name="msapplication-TileColor" content="#00bcd4">
-    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+    <meta name="msapplication-TileImage" content="../Content/images/favicon/mstile-144x144.png">
     <!-- For Windows Phone -->
     <!-- CORE CSS-->
     <link href="../Content/css//materialize.css" type="text/css" rel="stylesheet">
@@ -80,9 +83,8 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1" id="BtnLogout">
+                            <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1">
                                 <i class="material-icons">keyboard_tab</i> Logout</a>
-
                         </li>
                     </ul>
                 </div>
@@ -112,7 +114,8 @@
                                     <asp:Label ID="LblNome" runat="server">Usuário</asp:Label>
                                     <i class="mdi-navigation-arrow-drop-down right"></i></a>
                                 <p class="user-roal">
-                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label></p>
+                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label>
+                                </p>
                             </div>
                         </div>
                     </li>
@@ -205,69 +208,70 @@
             <!-- END LEFT SIDEBAR NAV-->
             <!-- //////////////////////////////////////////////////////////////////////////// -->
             <!-- START CONTENT -->
-            <div id="breadcrumbs-wrapper">
-                <!-- Search for small screen -->
-                <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
-                    <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title">Consulta de Reunião</h5>
-                            <ol class="breadcrumbs">
-                                <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
-                                <li><a href="#">Reunião</a></li>
-                                <li><a href="#">Consulta de Reunião</a></li>
-                            </ol>
-                        </div>
-                        <%--<div class="col s2 m6 l6">
-                      <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/VincularGrupoTecnico.aspx">Vincular Técnico</a>
-                  </div>--%>
-                        <div class="col s2 m6 l6">
-                            <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/CadastroReuniao.aspx">Nova Reunião</a>
+            <!--start container-->
+            <section id="content">
+                <!--start container-->
+                <div id="breadcrumbs-wrapper">
+                    <!-- Search for small screen -->
+                    <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
+                        <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col s10 m6 l6">
+                                <h5 class="breadcrumbs-title">Cadastro de Ata</h5>
+                                <ol class="breadcrumbs">
+                                    <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
+                                    <li><a href="#">Reuniões</a></li>
+                                    <li><a href="#">Cadastro de Ata</a></li>
+                                </ol>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class='row'>
-                <div class='input-field col s12'>
-                    <asp:Repeater ID="RptConsulta" runat="server">
-                        <HeaderTemplate>
-                            <table class="striped responsive-table">
-                                <thead>
-                                    <tr>
-                                        <th>Pauta</th>
-                                        <th>Data da Reunião</th>
-                                        <th>Horário</th>
-                                        <th>Ações</th>
-                                    </tr>
-                                </thead>
+                <div id="basic-form" class="section">
+                    <div class="row">
+                        <div class="col s12 m12 l6">
+                            <div class="card-panel">
+                                <h4 class="header2">Insira os dados nos campos abaixo para cadastrar</h4>
+                                <div class="row">
+                                    <form class="col s12" runat="server">
 
-                                <tbody>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <tr>
-                                <td><%# Eval("Pauta") %></td>
-                                <td><%# Eval("DataReuniao", "{0:d}") %></td>
-                                <td><%# Eval("HoraInicio","{0:hh:mm tt}") %></td>
-                                <%--<td><%# Eval("AnoFim") %></td>--%>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <asp:TextBox ID="TxtPauta" type="text" runat="server" ReadOnly="true"/>
+                                                <label for="TxtPauta">Pauta<span style="color: red;">*</span></label>
+                                            </div>
+                                        </div>
 
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/CadastroAta.aspx?id=<%# Eval("IdReuniao") %>"><i class="material-icons">insert_drive_file</i></a>
-                                    <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/CadastroParticipante.aspx?id=<%# Eval("IdReuniao") %>"><i class="material-icons">account_circle</i></a>
-                                    <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/CadastroConvidado.aspx?id=<%# Eval("IdReuniao") %>"><i class="material-icons">group</i></a>
-                                    <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoReuniao.aspx?id=<%# Eval("IdReuniao") %>"><i class="material-icons">edit</i></a>
-                                </td>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <asp:TextBox ID="TxtAta" type="text" runat="server" TextMode="MultiLine"/>
+                                                <label for="TxtAta">Texto da ata<span style="color: red;">*</span></label>
+                                            </div>
+                                        </div>
 
-                            </tr>
-                        </ItemTemplate>
-                        <FooterTemplate>
-                            </tbody>
-                          </table>
-                        </FooterTemplate>
-                    </asp:Repeater>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <asp:Button ID="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar Ata" runat="server" OnClick="BtnCadastrar_Click"></asp:Button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <!--end container-->
+            </section>
             <!-- END CONTENT -->
+            <!-- END RIGHT SIDEBAR NAV-->
         </div>
         <!-- END WRAPPER -->
     </div>
@@ -299,7 +303,14 @@
     <script type="text/javascript" src="../Content/js/plugins.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="../Content/js/custom-script.js"></script>
+    <script>$('.dropdown-trigger').dropdown();</script>
+    <script src="../Content/js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#TxtData").mask("99/99/9999");
+
+        });
+    </script>
 </body>
 </html>
-
 

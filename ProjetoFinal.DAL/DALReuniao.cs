@@ -59,8 +59,8 @@ namespace ProjetoFinal.DAL
 
             if (tipoPesquisa == "id_reuniao")
             {
-                comando.CommandText = "SELECT pauta, data_reuniao, hora_inicio, hora_fim FROM TBLREUNIAO WHERE id_reuniao = @id_reuniao";
-                comando.Parameters.AddWithValue("@id", reuniao.IdReuniao);
+                comando.CommandText = "SELECT id_reuniao, pauta, data_reuniao, hora_inicio, hora_fim FROM TBLREUNIAO WHERE id_reuniao = @id_reuniao";
+                comando.Parameters.AddWithValue("@id_reuniao", reuniao.IdReuniao);
             }
             else
             {

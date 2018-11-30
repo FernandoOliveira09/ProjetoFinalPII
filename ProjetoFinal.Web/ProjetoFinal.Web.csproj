@@ -93,6 +93,7 @@
     <Content Include="Pages\CadastroAdmin.aspx" />
     <Content Include="Pages\CadastroAreaAvaliacao.aspx" />
     <Content Include="Pages\CadastroAreaConhecimento.aspx" />
+    <Content Include="Pages\CadastroAta.aspx" />
     <Content Include="Pages\CadastroDiscente.aspx" />
     <Content Include="Pages\CadastroDocente.aspx" />
     <Content Include="Pages\CadastroEquipamento.aspx" />
@@ -274,6 +275,13 @@
     </Compile>
     <Compile Include="Pages\CadastroAreaConhecimento.aspx.designer.cs">
       <DependentUpon>CadastroAreaConhecimento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CadastroAta.aspx.cs">
+      <DependentUpon>CadastroAta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CadastroAta.aspx.designer.cs">
+      <DependentUpon>CadastroAta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CadastroDiscente.aspx.cs">
       <DependentUpon>CadastroDiscente.aspx</DependentUpon>
