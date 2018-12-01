@@ -266,18 +266,6 @@
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <asp:TextBox ID="TxtAta" type="text" runat="server" TextMode="MultiLine" />
-                                                    <label for="TxtAta">Ata<span style="color: red;">*</span></label>
-                                                </div>
-                                            </div>
-                                            <div class="input-field col s6">
-                                                <label for="TxtParticipantes">Selecione os participantes dessa reunião<span style="color: red;">*</span></label>
-                                                <br />
-                                                <asp:DropDownList class="input-field" runat="server" ID="TxtParticipantes" AutoPostBack="true">
-                                                </asp:DropDownList>
-                                            </div>
-                                            <div class="row">
-                                                <div class="input-field col s12">
                                                     <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
                                                 </div>
                                             </div>

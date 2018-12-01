@@ -12,7 +12,9 @@ namespace ProjetoFinal.Web.Pages
 {
     public partial class CadastroAta : System.Web.UI.Page
     {
-        static int idReuniao, idAta, modo = 1;
+        int idAta, idReuniao;
+        int modo = 1;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -37,6 +39,7 @@ namespace ProjetoFinal.Web.Pages
                     TxtAta.Text = ata.Ata;
                     idAta = ata.IdAta;
                     BtnCadastrar.Text = "Alterar Ata";
+                    BtnExcluir.Visible = true;
                 }
             }
         }
@@ -66,6 +69,20 @@ namespace ProjetoFinal.Web.Pages
                     LblResposta.Text = "Ata alterada com sucesso!";
                 }
 
+            }
+        }
+
+        protected void BtnExcluir_Click(object sender, EventArgs e)
+        {
+            MODAta ata = new MODAta();
+            string opcao = Request.Form["opcao"];
+
+            if (opcao == "Sim")
+            {
+                ata.IdAta = idAta;
+                BLLAta.Excluir(ata);
+                Response.Write("<script>alert('Ata excluida com sucesso!')</script>");
+                Response.Write("<script>top.document.location='../Pages/ConsultaReuniao.aspx'</script>");
             }
         }
     }

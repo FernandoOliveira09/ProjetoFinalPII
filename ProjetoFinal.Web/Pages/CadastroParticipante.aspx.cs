@@ -12,22 +12,43 @@ namespace ProjetoFinal.Web.Pages
 {
     public partial class CadastroParticipante : System.Web.UI.Page
     {
-        static int modo = 1;
+        int modo = 1;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            MODReuniao reuniao = new MODReuniao();
             if (!Page.IsPostBack)
             {
-                MODReuniao reuniao = new MODReuniao();
-
+                
                 reuniao.IdReuniao = Convert.ToInt32(Page.Request.QueryString["id"]);
                 reuniao = BLLReuniao.PesquisarReuniao(reuniao, "id_reuniao");
                 TxtPauta.Text = reuniao.Pauta;
 
-                MODGrupoDocente grupoDocente = new MODGrupoDocente();
-                grupoDocente.FkGrupo = reuniao.FkGrupo;
-                RptDocente.DataSource = BLLGrupo_Docente.Pesquisar(grupoDocente, "grupo");
-                RptDocente.DataBind();
-            }
+                MODReuniaoParticipante reuniaoParticipante = new MODReuniaoParticipante();
+                reuniaoParticipante.FKReuniao = Convert.ToInt32(Page.Request.QueryString["id"]);
+
+                List<MODDocente> docente = new List<MODDocente>();
+
+                docente = BLLReuniaoParticipante.PesquisarDocente(reuniaoParticipante, "reuniao");
+
+                if (docente.Count != 0)
+                {
+                    modo = 2;
+                    RptExcluir.DataSource = docente;
+                    RptExcluir.DataBind();
+
+                    docente = BLLReuniaoParticipante.PesquisarDocente(reuniaoParticipante, "existente");
+                    RptDocente.DataSource = docente;
+                    RptDocente.DataBind();
+                }
+                else
+                {
+                    MODGrupoDocente grupoDocente = new MODGrupoDocente();
+                    grupoDocente.FkGrupo = reuniao.FkGrupo;
+                    RptDocente.DataSource = BLLGrupo_Docente.Pesquisar(grupoDocente, "grupo");
+                    RptDocente.DataBind();
+                }
+            }   
         }
 
         protected void BtnCadastrar_Click(object sender, EventArgs e)
@@ -56,6 +77,44 @@ namespace ProjetoFinal.Web.Pages
                     }
                 }
             }
+        }
+
+        protected void BtnExcluir_Click(object sender, EventArgs e)
+        {
+            MODDocente docente = new MODDocente();
+            MODReuniaoParticipante reuniaoParticipante = new MODReuniaoParticipante();
+
+            Control botao = (Control)sender;
+            RepeaterItem item = (RepeaterItem)botao.Parent;
+
+            Label lbl = (Label)item.FindControl("TxtNomeParticipante");
+            string titulo = lbl.Text;
+            docente.Nome = titulo;
+
+            docente = BLLDocente.PesquisarDocente(docente, "nome");
+            reuniaoParticipante.FkDocente = docente.IdDocente;
+            reuniaoParticipante.FKReuniao = Convert.ToInt32(Page.Request.QueryString["id"]);
+
+            string opcao = Request.Form["opcao"];
+
+            if (opcao == "Sim")
+            {
+                BLLReuniaoParticipante.Excluir(reuniaoParticipante);
+                Response.Write("<script>alert('Participante excluido com sucesso!')</script>");
+            }
+
+            reuniaoParticipante.FKReuniao = Convert.ToInt32(Page.Request.QueryString["id"]);
+
+            List<MODDocente> docenteLista = new List<MODDocente>();
+
+            docenteLista = BLLReuniaoParticipante.PesquisarDocente(reuniaoParticipante, "reuniao");
+
+            RptExcluir.DataSource = docenteLista;
+            RptExcluir.DataBind();
+
+            docenteLista = BLLReuniaoParticipante.PesquisarDocente(reuniaoParticipante, "existente");
+            RptDocente.DataSource = docenteLista;
+            RptDocente.DataBind();
         }
     }
 }

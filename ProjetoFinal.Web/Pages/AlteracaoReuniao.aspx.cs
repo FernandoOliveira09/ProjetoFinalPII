@@ -37,18 +37,18 @@ namespace ProjetoFinal.Web.Pages
 
             MODReuniao reuniao = new MODReuniao();
 
-            reuniao.IdReuniao = Convert.ToInt32(Page.Request.QueryString["reuniao"]);
-            idReuniao = Convert.ToInt32(Page.Request.QueryString["reuniao"]);
-            reuniao = BLLReuniao.PesquisarReuniao(reuniao, "id");
-            //idReuniao = reuniao.idReuniao;
+            reuniao.IdReuniao = Convert.ToInt32(Page.Request.QueryString["id"]);
+            reuniao = BLLReuniao.PesquisarReuniao(reuniao, "id_reuniao");
 
             if (!Page.IsPostBack)
             {
                 TxtPauta.Text = reuniao.Pauta;
-                TxtData.Text = reuniao.DataReuniao.ToString();
-                TxtHoraInicio.Text = reuniao.HoraInicio.ToString();
-                TxtHoraTermino.Text = reuniao.HoraFim.ToString();
-                TxtAta.Text = reuniao.Ata;
+                TxtData.Text = reuniao.DataReuniao.ToShortDateString().ToString();
+                TxtHoraInicio.Text = reuniao.HoraInicio.ToString("hh:mm");
+                if(reuniao.HoraFim.ToString() == "01/01/0001 00:00:00")
+                    TxtHoraTermino.Text = "";
+                else
+                    TxtHoraTermino.Text = reuniao.HoraFim.ToString("hh:mm");
             }
         }
 
@@ -68,19 +68,15 @@ namespace ProjetoFinal.Web.Pages
             {
                 LblResposta.Text = Erros.HoraVazia;
             }
-            else if (TxtHoraTermino.Text.Trim() == "" || TxtHoraTermino.Text.Length > 50)
-            {
-                LblResposta.Text = Erros.HoraVazia;
-            }
             else
             {
                 try
                 {
-                    reuniao.IdReuniao = idReuniao;
+                    reuniao.IdReuniao = Convert.ToInt32(Page.Request.QueryString["id"]);
                     reuniao.Pauta = TxtPauta.Text.Trim();
                     reuniao.DataReuniao = Convert.ToDateTime(TxtData.Text.Trim());
                     reuniao.HoraInicio = Convert.ToDateTime(TxtHoraInicio.Text.Trim());
-                    reuniao.HoraInicio = Convert.ToDateTime(TxtHoraTermino.Text.Trim());
+                    reuniao.HoraFim = Convert.ToDateTime(TxtHoraTermino.Text.Trim());
 
                     BLLReuniao.Alterar(reuniao);
 

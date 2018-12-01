@@ -239,14 +239,14 @@
 
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <asp:TextBox ID="TxtPauta" type="text" runat="server" ReadOnly="true"/>
+                                                <asp:TextBox ID="TxtPauta" type="text" runat="server" ReadOnly="true" />
                                                 <label for="TxtPauta">Pauta<span style="color: red;">*</span></label>
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <asp:TextBox ID="TxtAta" type="text" runat="server" TextMode="MultiLine"/>
+                                                <asp:TextBox ID="TxtAta" type="text" runat="server" TextMode="MultiLine" />
                                                 <label for="TxtAta">Texto da ata<span style="color: red;">*</span></label>
                                             </div>
                                         </div>
@@ -258,8 +258,17 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="input-field col s12">
-                                                <asp:Button ID="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar Convidado" runat="server" OnClick="BtnCadastrar_Click"></asp:Button>
+                
+                                            <div class="col s6">
+                                                <div class="input-field col s12">
+                                                    <asp:Button ID="BtnExcluir" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Excluir Ata" runat="server" OnClientClick = "ConfirmaExcluir()" OnClick="BtnExcluir_Click" Visible="false"></asp:Button>
+                                                </div>
+                                            </div>
+
+                                            <div class="col s6">
+                                                <div class="input-field col s12">
+                                                    <asp:Button ID="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar Ata" runat="server" OnClick="BtnCadastrar_Click"></asp:Button>
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
@@ -310,6 +319,19 @@
             $("#TxtData").mask("99/99/9999");
 
         });
+    </script>
+    <script type = "text/javascript">
+      function ConfirmaExcluir() {
+          var opcao = document.createElement("INPUT");
+          opcao.type = "hidden";
+          opcao.name = "opcao";
+          if (confirm("Você deseja realmente excluir a ata?")) {
+              opcao.value = "Sim";
+          } else {
+              opcao.value = "Não";
+          }
+          document.forms[0].appendChild(opcao);
+      }
     </script>
 </body>
 </html>

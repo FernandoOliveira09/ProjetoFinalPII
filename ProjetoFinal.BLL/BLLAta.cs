@@ -26,5 +26,10 @@ namespace ProjetoFinal.BLL
         {
             DALAta.Alterar(ata);
         }
+
+        public static void Excluir(MODAta ata)
+        {
+            DALAta.Excluir(ata);
+        }
     }
 }

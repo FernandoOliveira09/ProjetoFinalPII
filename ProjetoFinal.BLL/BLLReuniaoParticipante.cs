@@ -17,5 +17,15 @@ namespace ProjetoFinal.BLL
         {
             DALReuniaoParticipante.Inserir(reuniaoParticipante);
         }
+
+        public static void Excluir(MODReuniaoParticipante reuniaoParticipante)
+        {
+            DALReuniaoParticipante.Excluir(reuniaoParticipante);
+        }
+
+        public static List<MODDocente> PesquisarDocente(MODReuniaoParticipante item, string tipoPesquisa)
+        {
+            return DALReuniaoParticipante.PesquisarDocente(item, tipoPesquisa);
+        }
     }
 }

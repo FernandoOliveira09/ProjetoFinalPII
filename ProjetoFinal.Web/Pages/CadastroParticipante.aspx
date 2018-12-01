@@ -245,10 +245,44 @@
                                         </div>
 
                                         <div class='input-field col s12' style="margin-top: -10px">
-                                            <h5>Participantes da reunião</h5>
+
+                                            <asp:Repeater ID="RptExcluir" runat="server">
+                                                <HeaderTemplate>
+                                                    <h5>Excluir participantes da reunião</h5>
+                                                    <table class="striped responsive-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Nome do participante</th>
+                                                                <th>Excluir</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                </HeaderTemplate>
+                                                <ItemTemplate>
+                                                    <tr>
+                                                        <td>
+                                                            <asp:Label ID="TxtNomeParticipante" Text='<%# Eval("Nome") %>' runat="server"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:LinkButton Text="x" runat="server" ID="BtnExcluir" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" Style="margin-right: 10px" OnClick="BtnExcluir_Click" OnClientClick = "ConfirmaExcluir()"></asp:LinkButton>
+
+                                                        </td>
+                                                    </tr>
+                                                </ItemTemplate>
+                                                <FooterTemplate>
+                                                    </tbody>
+                                      </table>
+                                                </FooterTemplate>
+                                            </asp:Repeater>
+                                        </div>
+
+                                        <div class='input-field col s12' style="margin-top: 10px">
+
                                             <asp:Repeater ID="RptDocente" runat="server">
+
                                                 <HeaderTemplate>
                                                     <table class="striped responsive-table">
+                                                        <h5>Participantes da reunião</h5>
                                                         <thead>
                                                             <tr>
                                                                 <th>Nome do participante</th>
@@ -273,7 +307,7 @@
                                                 </ItemTemplate>
                                                 <FooterTemplate>
                                                     </tbody>
-                                      </table>
+                                                </table>
                                                 </FooterTemplate>
                                             </asp:Repeater>
                                         </div>
@@ -337,6 +371,19 @@
             $("#TxtData").mask("99/99/9999");
 
         });
+    </script>
+    <script type="text/javascript">
+        function ConfirmaExcluir() {
+            var opcao = document.createElement("INPUT");
+            opcao.type = "hidden";
+            opcao.name = "opcao";
+            if (confirm("Você deseja realmente excluir a ata?")) {
+                opcao.value = "Sim";
+            } else {
+                opcao.value = "Não";
+            }
+            document.forms[0].appendChild(opcao);
+        }
     </script>
 </body>
 </html>

@@ -114,7 +114,8 @@
                                     <asp:Label ID="LblNome" runat="server">Usuário</asp:Label>
                                     <i class="mdi-navigation-arrow-drop-down right"></i></a>
                                 <p class="user-roal">
-                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label></p>
+                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label>
+                                </p>
                             </div>
                         </div>
                     </li>
@@ -257,6 +258,15 @@
                                             </div>
 
                                             <div class="row">
+                                                <div class="input-field col s10">
+                                                    <label for="TxtGrupo">Selecione o grupo<span style="color: red;">*</span></label>
+                                                    <br />
+                                                    <asp:DropDownList class="input-field" runat="server" ID="TxtGrupo">
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
                                                 <div class="input-field col s12">
                                                     <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
                                                 </div>
@@ -288,10 +298,10 @@
         <div class="footer-copyright">
             <div class="container">
                 <span>Copyright ©</span>
-              <script type="text/javascript">
-                  document.write(new Date().getFullYear());
-              </script>
-                    <span class="right hide-on-small-only">Desenvolvido por Fernando, Reginaldo e Eduardo </span>
+                <script type="text/javascript">
+                    document.write(new Date().getFullYear());
+                </script>
+                <span class="right hide-on-small-only">Desenvolvido por Fernando, Reginaldo e Eduardo </span>
             </div>
         </div>
     </footer>

@@ -17,11 +17,12 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "INSERT INTO TBLREUNIAO (pauta, data_reuniao, hora_inicio) "
-                + "VALUES (@pauta, @data_reuniao, @hora_inicio)";
+            comando.CommandText = "INSERT INTO TBLREUNIAO (pauta, data_reuniao, hora_inicio, fk_grupo) "
+                + "VALUES (@pauta, @data_reuniao, @hora_inicio, @fk_grupo)";
             comando.Parameters.AddWithValue("@pauta", reuniao.Pauta);
             comando.Parameters.AddWithValue("@data_reuniao", reuniao.DataReuniao);
             comando.Parameters.AddWithValue("@hora_inicio", reuniao.HoraInicio);
+            comando.Parameters.AddWithValue("@fk_grupo", reuniao.FkGrupo);
             comando.ExecuteNonQuery();
 
             Conexao.Fechar();
@@ -64,7 +65,7 @@ namespace ProjetoFinal.DAL
             }
             else
             {
-                comando.CommandText = "SELECT id_reuniao, pauta, data_reuniao, hora_inicio, hora_fim FROM TBLREUNIAO WHERE pauta = @pauta";
+                comando.CommandText = "SELECT id_reuniao, pauta, data_reuniao, hora_inicio, hora_fim, fk_grupo FROM TBLREUNIAO WHERE pauta = @pauta";
                 comando.Parameters.AddWithValue("@pauta", reuniao.Pauta);
             }
 

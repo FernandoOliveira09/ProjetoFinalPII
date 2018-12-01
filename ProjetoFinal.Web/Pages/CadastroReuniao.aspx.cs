@@ -14,7 +14,10 @@ namespace ProjetoFinal.Web.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                CarregaGrupo();
+            }
         }
 
         protected void BtnCadastrar_Click(object sender, EventArgs e)
@@ -40,6 +43,7 @@ namespace ProjetoFinal.Web.Pages
                     reuniao.Pauta = TxtPauta.Text.Trim();
                     reuniao.DataReuniao = Convert.ToDateTime(TxtData.Text.Trim());
                     reuniao.HoraInicio = Convert.ToDateTime(TxtHoraInicio.Text.Trim());
+                    reuniao.FkGrupo = Convert.ToInt32(TxtGrupo.SelectedValue);
                     BLLReuniao.Inserir(reuniao);
 
                     LblResposta.Text = "Reunião cadastrado com sucesso!";
@@ -51,6 +55,16 @@ namespace ProjetoFinal.Web.Pages
                 }
 
             }
+        }
+
+        private void CarregaGrupo()
+        {
+            MODGrupo grupo = new MODGrupo();
+
+            TxtGrupo.DataSource = BLLGrupo.PesquisarGrupos(grupo, "todos");
+            TxtGrupo.DataValueField = "IdGrupo";
+            TxtGrupo.DataTextField = "Nome";
+            TxtGrupo.DataBind();
         }
     }
 

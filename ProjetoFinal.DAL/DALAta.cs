@@ -46,6 +46,20 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
+        public static void Excluir(MODAta ata)
+        {
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "DELETE FROM TBLREUNIAO_ATA WHERE id_ata = @id ";
+            comando.Parameters.AddWithValue("@id", ata.IdAta);
+
+            comando.ExecuteNonQuery();
+
+            Conexao.Fechar();
+        }
 
         public static MODAta PesquisarAta(MODAta ata, string tipoPesquisa)
         {
