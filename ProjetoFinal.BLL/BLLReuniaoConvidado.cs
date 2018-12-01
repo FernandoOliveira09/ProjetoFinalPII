@@ -16,5 +16,20 @@ namespace ProjetoFinal.BLL
         {
             DALReuniaoConvidado.Inserir(reuniaoConvidado);
         }
+
+        public static MODReuniaoConvidado PesquisarConvidado(MODReuniaoConvidado reuniaoConvidado, string tipoPesquisa)
+        {
+            return DALReuniaoConvidado.PesquisarConvidado(reuniaoConvidado, tipoPesquisa);
+        }
+
+        public static void Excluir(MODReuniaoConvidado reuniaoConvidado)
+        {
+            DALReuniaoConvidado.Excluir(reuniaoConvidado);
+        }
+
+        public static List<MODReuniaoConvidado> Pesquisar(MODReuniaoConvidado item, string tipoPesquisa)
+        {
+            return DALReuniaoConvidado.Pesquisar(item, tipoPesquisa);
+        }
     }
 }

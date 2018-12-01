@@ -264,7 +264,7 @@
                                                             <asp:Label ID="TxtNomeParticipante" Text='<%# Eval("Nome") %>' runat="server"></asp:Label>
                                                         </td>
                                                         <td>
-                                                            <asp:LinkButton Text="x" runat="server" ID="BtnExcluir" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" Style="margin-right: 10px" OnClick="BtnExcluir_Click" OnClientClick = "ConfirmaExcluir()"></asp:LinkButton>
+                                                            <asp:LinkButton Text="x" runat="server" ID="BtnExcluir" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" Style="margin-right: 10px" OnClick="BtnExcluir_Click" OnClientClick="ConfirmaExcluir()"></asp:LinkButton>
 
                                                         </td>
                                                     </tr>
@@ -377,7 +377,7 @@
             var opcao = document.createElement("INPUT");
             opcao.type = "hidden";
             opcao.name = "opcao";
-            if (confirm("Você deseja realmente excluir a ata?")) {
+            if (confirm("Você deseja realmente excluir o participante?")) {
                 opcao.value = "Sim";
             } else {
                 opcao.value = "Não";

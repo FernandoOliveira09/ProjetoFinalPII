@@ -239,14 +239,14 @@
 
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <asp:TextBox ID="TxtPauta" type="text" runat="server" ReadOnly="true"/>
+                                                <asp:TextBox ID="TxtPauta" type="text" runat="server" ReadOnly="true" />
                                                 <label for="TxtPauta">Pauta<span style="color: red;">*</span></label>
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <asp:TextBox ID="TxtConvidado" type="text" runat="server"/>
+                                                <asp:TextBox ID="TxtConvidado" type="text" runat="server" />
                                                 <label for="TxtAta">Nome do convidado<span style="color: red;">*</span></label>
                                             </div>
                                         </div>
@@ -259,8 +259,40 @@
 
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <asp:Button ID="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar Ata" runat="server" OnClick="BtnCadastrar_Click"></asp:Button>
+                                                <asp:Button ID="BtnCadastrar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Cadastrar Convidado" runat="server" OnClick="BtnCadastrar_Click"></asp:Button>
                                             </div>
+                                        </div>
+
+                                        <div class='input-field col s12' style="margin-top: -10px">
+
+                                            <asp:Repeater ID="RptExcluir" runat="server">
+                                                <HeaderTemplate>
+                                                    <h5>Excluir convidados da reunião</h5>
+                                                    <table class="striped responsive-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Nome do convidado</th>
+                                                                <th>Excluir</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                </HeaderTemplate>
+                                                <ItemTemplate>
+                                                    <tr>
+                                                        <td>
+                                                            <asp:Label ID="TxtNomeConvidado" Text='<%# Eval("Nome") %>' runat="server"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:LinkButton Text="x" runat="server" ID="BtnExcluir" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" Style="margin-right: 10px" OnClick="BtnExcluir_Click" OnClientClick="ConfirmaExcluir()"></asp:LinkButton>
+
+                                                        </td>
+                                                    </tr>
+                                                </ItemTemplate>
+                                                <FooterTemplate>
+                                                    </tbody>
+                                      </table>
+                                                </FooterTemplate>
+                                            </asp:Repeater>
                                         </div>
                                     </form>
                                 </div>
@@ -310,6 +342,19 @@
             $("#TxtData").mask("99/99/9999");
 
         });
+    </script>
+    <script type="text/javascript">
+        function ConfirmaExcluir() {
+            var opcao = document.createElement("INPUT");
+            opcao.type = "hidden";
+            opcao.name = "opcao";
+            if (confirm("Você deseja realmente excluir o convidado?")) {
+                opcao.value = "Sim";
+            } else {
+                opcao.value = "Não";
+            }
+            document.forms[0].appendChild(opcao);
+        }
     </script>
 </body>
 </html>

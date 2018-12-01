@@ -59,7 +59,7 @@ namespace ProjetoFinal.DAL
             }
             else
             {
-                comando.CommandText = "SELECT* FROM tbldocente d "
+                comando.CommandText = "SELECT * FROM tbldocente d "
                     + "inner join tblgrupo_docente gd "
                     + "on gd.fk_docente = d.id_docente "
                     + "WHERE d.id_docente NOT IN(SELECT fk_docente FROM tblreuniao_participante where fk_reuniao = @reuniao)";
