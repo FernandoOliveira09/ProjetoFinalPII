@@ -317,7 +317,17 @@
     <script type="text/javascript" src="../Content/js/plugins.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="../Content/js/custom-script.js"></script>
-    <script>$('.dropdown-trigger').dropdown();</script>
+    <script src="../Content/js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#TxtHorainicio").mask("99:99");
+        });
+    </script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#TxtHoraTermino").mask("99:99");
+        });
+    </script>
 </body>
 </html>
 

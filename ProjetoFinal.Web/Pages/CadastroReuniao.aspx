@@ -327,6 +327,11 @@
 
         });
     </script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#TxtHoraInicio").mask("99:99");
 
+        });
+    </script>
 </body>
 </html>
