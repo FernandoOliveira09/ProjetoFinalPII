@@ -50,6 +50,16 @@ namespace ProjetoFinal.Web.Pages
                 else
                     TxtHoraTermino.Text = reuniao.HoraFim.ToString("hh:mm");
             }
+
+            if (reuniao.HoraFim.ToString() != "01/01/0001 00:00:00")
+            {
+                LblResposta.Text = "Não é possivel editar, pois a reunião já foi encerrada!";
+                TxtPauta.Enabled = false;
+                TxtData.Enabled = false;
+                TxtHoraInicio.Enabled = false;
+                TxtHoraTermino.Enabled = false;
+                BtnAlterar.Visible = false;
+            }
         }
 
         protected void BtnAlterar_Click(object sender, EventArgs e)

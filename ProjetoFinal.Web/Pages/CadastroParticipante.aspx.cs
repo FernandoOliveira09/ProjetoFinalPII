@@ -12,8 +12,6 @@ namespace ProjetoFinal.Web.Pages
 {
     public partial class CadastroParticipante : System.Web.UI.Page
     {
-        int modo = 1;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             MODReuniao reuniao = new MODReuniao();
@@ -33,13 +31,15 @@ namespace ProjetoFinal.Web.Pages
 
                 if (docente.Count != 0)
                 {
-                    modo = 2;
-                    RptExcluir.DataSource = docente;
-                    RptExcluir.DataBind();
+                    if (reuniao.HoraFim.ToString() == "01/01/0001 00:00:00")
+                    {
+                        RptExcluir.DataSource = docente;
+                        RptExcluir.DataBind();
 
-                    docente = BLLReuniaoParticipante.PesquisarDocente(reuniaoParticipante, "existente");
-                    RptDocente.DataSource = docente;
-                    RptDocente.DataBind();
+                        docente = BLLReuniaoParticipante.PesquisarDocente(reuniaoParticipante, "existente");
+                        RptDocente.DataSource = docente;
+                        RptDocente.DataBind();
+                    }                  
                 }
                 else
                 {
@@ -47,6 +47,12 @@ namespace ProjetoFinal.Web.Pages
                     grupoDocente.FkGrupo = reuniao.FkGrupo;
                     RptDocente.DataSource = BLLGrupo_Docente.Pesquisar(grupoDocente, "grupo");
                     RptDocente.DataBind();
+                }
+
+                if (reuniao.HoraFim.ToString() != "01/01/0001 00:00:00")
+                {
+                    LblResposta.Text = "Não é possivel editar os participantes, pois a reunião já foi encerrada!";
+                    BtnCadastrar.Visible = false;
                 }
             }   
         }

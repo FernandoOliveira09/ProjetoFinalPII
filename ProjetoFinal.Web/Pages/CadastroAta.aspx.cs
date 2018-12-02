@@ -12,11 +12,31 @@ namespace ProjetoFinal.Web.Pages
 {
     public partial class CadastroAta : System.Web.UI.Page
     {
-        int idAta, idReuniao;
+        static int idAta, idReuniao;
         int modo = 1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["login"] == null)
+            {
+                Session.RemoveAll();
+                Response.Redirect("../Pages/Login.aspx");
+            }
+
+            MODUsuario usuario = new MODUsuario();
+
+            usuario.Login = PegaLogin.RetornaLogin();
+            usuario = BLLUsuario.PesquisarLogin(usuario);
+
+            ImagemUser.ImageUrl = "../Pages/" + usuario.Imagem;
+            ImagemUser2.ImageUrl = "../Pages/" + usuario.Imagem;
+            LblNome.Text = usuario.Nome;
+
+            if (usuario.FkTipo == 1)
+                LblFuncao.Text = "Administrador";
+            else
+                LblFuncao.Text = "Lider de Pesquisa";
+
             if (!Page.IsPostBack)
             {
 
@@ -40,6 +60,14 @@ namespace ProjetoFinal.Web.Pages
                     idAta = ata.IdAta;
                     BtnCadastrar.Text = "Alterar Ata";
                     BtnExcluir.Visible = true;
+
+                    if (reuniao.HoraFim.ToString() != "01/01/0001 00:00:00")
+                    {
+                        LblResposta.Text = "Não é possivel editar essa ata, pois a reunião já foi encerrada!";
+                        BtnCadastrar.Visible = false;
+                        BtnExcluir.Visible = false;
+                        TxtAta.Enabled = false;
+                    }
                 }
             }
         }

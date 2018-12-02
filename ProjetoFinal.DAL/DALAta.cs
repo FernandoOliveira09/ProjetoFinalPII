@@ -97,5 +97,39 @@ namespace ProjetoFinal.DAL
 
             return retorno;
         }
+
+        public static List<MODAta> Pesquisar(MODAta item, string tipoPesquisa)
+        {
+            List<MODAta> retorno = new List<MODAta>();
+
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            if (tipoPesquisa == "reuniao")
+            {
+                comando.CommandText = "SELECT id_ata, ata, fk_reuniao FROM tblreuniao_ata WHERE fk_reuniao = @fk";
+                comando.Parameters.AddWithValue("@fk", item.FkReuniao);
+            }
+
+            MySqlDataReader reader = comando.ExecuteReader();
+
+            while (reader.Read())
+            {
+                MODAta ret = new MODAta();
+                ret.IdAta = Convert.ToInt32(reader["id_ata"]);
+                ret.Ata = reader["ata"].ToString();
+                ret.FkReuniao = Convert.ToInt32(reader["fk_reuniao"]);
+
+                retorno.Add(ret);
+            }
+
+            reader.Close();
+
+            Conexao.Fechar();
+
+            return retorno;
+        }
     }
 }

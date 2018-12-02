@@ -202,7 +202,7 @@
             <h5 style="text-align: center; margin-top: 40px;">Reuniões</h5>
             <hr />
             <div class="col-md-4">
-                <asp:Calendar ID="CldReuniao" runat="server" Width="500" Height="250" OnDayRender="CldReuniao_DayRender" OnSelectionChanged="CldReuniao_SelectionChanged" OnVisibleMonthChanged="CldReuniao_VisibleMonthChanged"></asp:Calendar>
+                <asp:Calendar ID="CldReuniao" runat="server" Width="500" Height="250" OnDayRender="CldReuniao_DayRender" OnVisibleMonthChanged="CldReuniao_VisibleMonthChanged" SelectionMode="None"></asp:Calendar>
             </div>
         </form>
     </div>
@@ -215,7 +215,7 @@
                             <tr>
                                 <th>Data</th>
                                 <th>Pauta</th>
-                                <th>Ver</th>
+                                <th>Ver ata</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -224,7 +224,7 @@
                     <tr>
                         <td><%# Eval("data_reuniao", "{0:d}") %></td>
                         <td><%# Eval("Pauta") %></td>
-                        <%--<td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">edit</i></a></td>--%>
+                        <td><a class="btn waves-effect waves-light teal lighten-2" href="Reunioes.aspx?id=<%# Eval("id_reuniao") %>"><i class="material-icons">remove_red_eye</i></a></td>
                         <%--                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
                     </tr>
                 </ItemTemplate>
@@ -234,12 +234,12 @@
                 </FooterTemplate>
             </asp:Repeater>
         </div>
-    </div>
+    </div>  
+
     <div class="row">
         <hr />
     </div>
     
-
     <hr />
     <br />
 

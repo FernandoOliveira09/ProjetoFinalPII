@@ -22,75 +22,12 @@ namespace ProjetoFinal.Web {
         protected global::System.Web.UI.WebControls.Repeater RptConsulta;
         
         /// <summary>
-        /// RPTDocente control.
+        /// LblResposta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RPTDocente;
-        
-        /// <summary>
-        /// RPTTecnico control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RPTTecnico;
-        
-        /// <summary>
-        /// RPTLinha control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RPTLinha;
-        
-        /// <summary>
-        /// RPTProjetos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RPTProjetos;
-        
-        /// <summary>
-        /// RPTPublicacao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RPTPublicacao;
-        
-        /// <summary>
-        /// RPTDiscente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RPTDiscente;
-        
-        /// <summary>
-        /// RptEquipamento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RptEquipamento;
-        
-        /// <summary>
-        /// CldReuniao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar CldReuniao;
+        protected global::System.Web.UI.WebControls.Label LblResposta;
     }
 }

@@ -31,5 +31,10 @@ namespace ProjetoFinal.BLL
         {
             DALAta.Excluir(ata);
         }
+
+        public static List<MODAta> Pesquisar(MODAta item, string tipoPesquisa)
+        {
+            return DALAta.Pesquisar(item, tipoPesquisa);
+        }
     }
 }

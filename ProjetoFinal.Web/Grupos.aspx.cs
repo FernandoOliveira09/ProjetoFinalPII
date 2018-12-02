@@ -103,11 +103,6 @@ namespace ProjetoFinal.Web
             }
         }
 
-        protected void CldReuniao_SelectionChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         protected void CldReuniao_VisibleMonthChanged(object sender, MonthChangedEventArgs e)
         {
             List<MODReuniao> reunioes = new List<MODReuniao>();
