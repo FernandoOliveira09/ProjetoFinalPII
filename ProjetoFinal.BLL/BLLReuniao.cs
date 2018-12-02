@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ProjetoFinal.Model;
 using ProjetoFinal.DAL;
 using ProjetoFinal.Utilitarios;
+using System.Data;
 
 namespace ProjetoFinal.BLL
 {
@@ -33,6 +34,11 @@ namespace ProjetoFinal.BLL
         public static MODReuniao PesquisarReuniao(MODReuniao reuniao, string tipoPesquisa)
         {
             return DALReuniao.PesquisarReuniao(reuniao, tipoPesquisa);
+        }
+
+        public static DataTable CarregarCalendario(MODReuniao reuniao, string ano, string tipoPesquisa)
+        {
+            return DALReuniao.CarregarCalendario(reuniao, ano, tipoPesquisa);
         }
     }
 }

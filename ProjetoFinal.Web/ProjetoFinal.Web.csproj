@@ -153,6 +153,7 @@
     <Content Include="Pages\VincularProjetoDiscente.aspx" />
     <Content Include="Pages\VincularGrupoEquipamento.aspx" />
     <Content Include="Projetos.aspx" />
+    <Content Include="Reunioes.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -698,6 +699,13 @@
     </Compile>
     <Compile Include="Pages\VincularGrupoEquipamento.aspx.designer.cs">
       <DependentUpon>VincularGrupoEquipamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reunioes.aspx.cs">
+      <DependentUpon>Reunioes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reunioes.aspx.designer.cs">
+      <DependentUpon>Reunioes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
