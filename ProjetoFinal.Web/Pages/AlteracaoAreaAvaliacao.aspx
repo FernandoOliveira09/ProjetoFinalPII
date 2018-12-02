@@ -140,7 +140,7 @@
                             <li class="bold">
                                 <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
                                     <i class="material-icons">group</i>
-                                    <span class="nav-text">Docente</span>
+                                    <span class="nav-text">Docentes</span>
                                 </a>
                             </li>
                             <li class="bold">
@@ -248,7 +248,7 @@
 
                                                     <label for="TxtAreaConhecimento">Selecione a área de conhecimento<span style="color: red;">*</span></label>
                                                     <br />
-                                                    <asp:DropDownList class="input-field" runat="server" ID="TxtAreaConhecimento" AutoPostBack="true" Enabled="false">
+                                                    <asp:DropDownList class="input-field" runat="server" ID="TxtAreaConhecimento" Enabled="false">
                                                     </asp:DropDownList>
                                                 </div>
                                                 <div class="input-field col s1" style="float: left; margin-top: 60px">

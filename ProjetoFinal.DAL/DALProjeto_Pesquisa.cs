@@ -19,7 +19,7 @@ namespace ProjetoFinal.DAL
             comando.Connection = Conexao.conexao;
 
             comando.CommandText = "INSERT INTO TBLProjeto_pesquisa (titulo, tipo, bolsa, nome_bolsa, data_inicio, fk_docente, fk_grupo)" 
-                + " VALUES (@titulo, @tipo, @bolsa, @nomebolsa, @data_inicio, @data_fim, @fkdocente, @fkgrupo)";
+                + " VALUES (@titulo, @tipo, @bolsa, @nomebolsa, @data_inicio, @fkdocente, @fkgrupo)";
             comando.Parameters.AddWithValue("@titulo", projetoPesquisa.Titulo);
             comando.Parameters.AddWithValue("@tipo", projetoPesquisa.Tipo);
             comando.Parameters.AddWithValue("@bolsa", projetoPesquisa.Bolsa);

@@ -30,6 +30,24 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
+        public static void AlterarDataSaidaDocente(MODDocente_Linha_Pesquisa DocenteLinha)
+        {
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "UPDATE TBLDocente_linha_pesquisa SET data_saida = @data where fk_grupo = @grupo and fk_docente = @docente and fk_linha = @linha and data_saida is null";
+            comando.Parameters.AddWithValue("@data", DocenteLinha.DataSaida);
+            comando.Parameters.AddWithValue("@grupo", DocenteLinha.FkGrupo);
+            comando.Parameters.AddWithValue("@docente", DocenteLinha.FkDocente);
+            comando.Parameters.AddWithValue("@linha", DocenteLinha.FkLinha);
+
+            comando.ExecuteNonQuery();
+
+            Conexao.Fechar();
+        }
+
         public static DataTable Pesquisar(MODDocente_Linha_Pesquisa linhaDocente, string tipoPesquisa)
         {
             MySqlCommand comando = new MySqlCommand();
@@ -43,6 +61,16 @@ namespace ProjetoFinal.DAL
                     + " inner join tblgrupo g on g.id_grupo = dlp.fk_grupo" 
                     + " inner join tbldocente d on dlp.fk_docente = d.id_docente and dlp.fk_docente = @docente" 
                     + " and dlp.fk_grupo = @grupo and dlp.data_saida is null";
+                comando.Parameters.AddWithValue("@docente", linhaDocente.FkDocente);
+                comando.Parameters.AddWithValue("@grupo", linhaDocente.FkGrupo);
+            }
+            else if (tipoPesquisa == "linha")
+            {
+                comando.CommandText = "select l.id_linha, l.nome_linha, dl.data_entrada, dl.data_saida from tbllinha_pesquisa l"
+                    + " inner join tbldocente_linha_pesquisa dl on dl.fk_linha = l.id_linha"
+                    + " inner join tblgrupo g on dl.fk_grupo = g.id_grupo"
+                    + " inner join tbldocente d on dl.fk_docente = d.id_docente"
+                    + " and dl.fk_docente = @docente and dl.fk_grupo = @grupo and dl.data_saida is null";
                 comando.Parameters.AddWithValue("@docente", linhaDocente.FkDocente);
                 comando.Parameters.AddWithValue("@grupo", linhaDocente.FkGrupo);
             }

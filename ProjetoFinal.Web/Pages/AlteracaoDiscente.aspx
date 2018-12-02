@@ -142,7 +142,7 @@
                             <li class="bold">
                                 <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
                                     <i class="material-icons">group</i>
-                                    <span class="nav-text">Docente</span>
+                                    <span class="nav-text">Docentes</span>
                                 </a>
                             </li>
                             <li class="bold">

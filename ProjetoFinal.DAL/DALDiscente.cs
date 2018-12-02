@@ -76,7 +76,7 @@ namespace ProjetoFinal.DAL
             comando.Connection = Conexao.conexao;
 
             comando.CommandText = "UPDATE tblprojeto_discente SET data_fim = @data "
-                + "WHERE fk_projeto = @projeto and fk_discente = @discente";
+                + "WHERE fk_projeto = @projeto and fk_discente = @discente and data_fim is null";
             comando.Parameters.AddWithValue("@projeto", projetoDiscente.FkProjeto);
             comando.Parameters.AddWithValue("@discente", projetoDiscente.FkDiscente);
             comando.Parameters.AddWithValue("@data", projetoDiscente.DataFim);
@@ -201,5 +201,26 @@ namespace ProjetoFinal.DAL
             return dados;
         }
 
+        public static DataTable PesquisarProjeto(MODProjetoPesquisa_Discente projetoDiscente, string tipoPesquisa)
+        {
+            MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
+            comando.Connection = Conexao.conexao;
+
+            if (tipoPesquisa == "discente")
+            {
+                comando.CommandText = "select p.id_projeto, p.titulo, pd.data_inicio, pd.data_fim from tblprojeto_pesquisa p "
+                    + "inner join tblprojeto_discente pd on pd.fk_projeto = p.id_projeto inner join tbldiscente d on pd.fk_discente = d.id_discente and pd.fk_discente = @discente and pd.data_fim is null";
+                comando.Parameters.AddWithValue("@discente", projetoDiscente.FkDiscente);
+            }
+
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
+
+            da.Fill(dados);
+
+            return dados;
+        }
     }
 }

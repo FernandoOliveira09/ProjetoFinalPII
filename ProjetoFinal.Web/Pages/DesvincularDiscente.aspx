@@ -115,7 +115,8 @@
                                     <asp:Label ID="LblNome" runat="server">Usuário</asp:Label>
                                     <i class="mdi-navigation-arrow-drop-down right"></i></a>
                                 <p class="user-roal">
-                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label></p>
+                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label>
+                                </p>
                             </div>
                         </div>
                     </li>
@@ -142,7 +143,7 @@
                             <li class="bold">
                                 <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
                                     <i class="material-icons">group</i>
-                                    <span class="nav-text">Docente</span>
+                                    <span class="nav-text">Docentes</span>
                                 </a>
                             </li>
                             <li class="bold">
@@ -221,7 +222,7 @@
                                 <h5 class="breadcrumbs-title">Desvincular discente</h5>
                                 <ol class="breadcrumbs">
                                     <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
-                                    <li><a href="#">Projetos</a></li>
+                                    <li><a href="#">Discente</a></li>
                                     <li><a href="#">Desvincular discente</a></li>
                                 </ol>
                             </div>
@@ -235,26 +236,25 @@
                                 <div class="card-panel">
                                     <h4 class="header2">Insira os dados nos campos abaixo para desvincular</h4>
                                     <div class="row">
-
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <asp:TextBox ID="TxtNome" type="text" runat="server" ReadOnly="true" />
-                                                <label for="TxtNome">Nome do aluno<span style="color: red;">*</span></label>
+                                                <label for="TxtNome">Nome do discente</label>
                                             </div>
                                         </div>
 
                                         <div class="row">
-                                            <div class="input-field col s12">
-                                                <asp:TextBox ID="TxtProjeto" type="text" runat="server" ReadOnly="true" />
-                                                <label for="TxtProjeto">Nome do projeto<span style="color: red;">*</span></label>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="input-field col s12">
+                                            <div class="input-field col s6">
                                                 <asp:TextBox ID="TxtDataTermino" type="text" runat="server" />
                                                 <label for="TxtCurso">Data de término<span style="color: red;">*</span></label>
                                             </div>
+                                        </div>
+
+                                        <div class="input-field col s12">
+                                            <label for="TxtProjeto">Projetos vinculados<span style="color: red;">*</span></label>
+                                            <br />
+                                            <asp:DropDownList class="input-field" runat="server" ID="TxtProjeto">
+                                            </asp:DropDownList>
                                         </div>
 
                                         <div class="row">
@@ -264,65 +264,10 @@
                                         </div>
 
                                         <div class="row">
-                                            <h5>Trocar discente</h5>
-                                            <div class="input-field col s8">
-                                                <asp:TextBox ID="TxtPesquisar" type="text" runat="server" />
-                                                <label for="TxtPesquisaGrupo">Pesquisar discente<span style="color: red;">*</span></label>
-                                            </div>
-                                        </div>
-                                        <div class="input-field col s1" style="float: right; margin-top: -74px;">
-                                            <asp:LinkButton ID="BtnPesquisar" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="Pesquisar" OnClick="BtnPesquisar_Click" />
-                                        </div>
-                                        <div class="row">
-                                            <div class='input-field col s12' style="margin-top: -10px">
-                                                <h5>Discentes</h5>
-                                                <asp:Repeater ID="RptDiscente" runat="server">
-                                                    <HeaderTemplate>
-                                                        <table class="striped responsive-table">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Nome do discente</th>
-                                                                    <th>Ações</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                    </HeaderTemplate>
-                                                    <ItemTemplate>
-                                                        <tr>
-                                                            <td>
-                                                                <asp:Label ID="TxtNomeDiscente" Text='<%# Eval("Nome") %>' runat="server"></asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:LinkButton ID="BtnAddDiscente" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="+" OnClick="BtnAddDiscente_Click"></asp:LinkButton></td>
-                                                        </tr>
-                                                    </ItemTemplate>
-                                                    <FooterTemplate>
-                                                        </tbody>
-                                      </table>
-                                                    </FooterTemplate>
-                                                </asp:Repeater>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <asp:TextBox ID="TxtDataInicio" type="text" runat="server" />
-                                                <label for="TxtCurso">Data de início<span style="color: red;">*</span></label>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
                                             <div class="input-field col s12">
                                                 <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
                                             </div>
                                         </div>
-
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <asp:Button ID="BtnVincular" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Vincular" runat="server" OnClick="BtnVincular_Click"></asp:Button>
-                                            </div>
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -376,3 +321,4 @@
     </script>
 </body>
 </html>
+

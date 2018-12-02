@@ -45,6 +45,23 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
+        public static void AlterarDataSaidaEquipamento(MODGrupo_Equipamento grupoEquipamento)
+        {
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "UPDATE TBLGRUPO_Equipamento SET data_fim = @data where fk_grupo = @grupo and fk_equipamento = @equipamento and data_fim is null";
+            comando.Parameters.AddWithValue("@data", grupoEquipamento.DataFim);
+            comando.Parameters.AddWithValue("@grupo", grupoEquipamento.FkGrupo);
+            comando.Parameters.AddWithValue("@equipamento", grupoEquipamento.FkEquipamento);
+
+            comando.ExecuteNonQuery();
+
+            Conexao.Fechar();
+        }
+
         public static void Alterar(MODEquipamento equipamento)
         {
             Conexao.Abrir();
@@ -162,6 +179,28 @@ namespace ProjetoFinal.DAL
                     + "inner join tblgrupo g on ge.fk_grupo = g.id_grupo and ge.data_fim is null and g.sigla = @sigla";
 
             comando.Parameters.AddWithValue("@sigla", grupo.Sigla);
+
+            comando.CommandType = CommandType.Text;
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dados = new DataTable();
+
+            da.Fill(dados);
+
+            return dados;
+        }
+
+
+        public static DataTable PesquisarGrupo(MODGrupo_Equipamento grupoEquipamento, string tipoPesquisa)
+        {
+            MySqlCommand comando = new MySqlCommand();
+            Conexao.Abrir();
+            comando.Connection = Conexao.conexao;
+
+            if (tipoPesquisa == "equipamento")
+            {
+                comando.CommandText = "select g.id_grupo, g.nome, ge.data_inicio, ge.data_fim from tblgrupo g inner join tblgrupo_equipamento ge on ge.fk_grupo = g.id_grupo inner join tblequipamento e on ge.fk_equipamento = e.id_equipamento and ge.fk_equipamento = @equipamento and ge.data_fim is null";
+                comando.Parameters.AddWithValue("@equipamento", grupoEquipamento.FkEquipamento);
+            }
 
             comando.CommandType = CommandType.Text;
             MySqlDataAdapter da = new MySqlDataAdapter(comando);

@@ -37,11 +37,10 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "UPDATE TBLGRUPO_Linha_Pesquisa  SET data_saida = @data where fk_grupo = @grupo and fk_linha = @linha and data_inicio = @data_inicio";
+            comando.CommandText = "UPDATE TBLGRUPO_Linha_Pesquisa SET data_termino = @data where fk_grupo = @grupo and fk_linha = @linha and data_termino is null";
             comando.Parameters.AddWithValue("@data", grupoLinha.DataSaida);
             comando.Parameters.AddWithValue("@grupo", grupoLinha.FkGrupo);
             comando.Parameters.AddWithValue("@linha", grupoLinha.FkLinha);
-            comando.Parameters.AddWithValue("@data_inicio", grupoLinha.DataEntrada);
 
             comando.ExecuteNonQuery();
 
@@ -97,6 +96,12 @@ namespace ProjetoFinal.DAL
                 comando.CommandText = "select l.id_linha, l.nome_linha, gl.descricao, gl.data_inicio, gl.data_termino, g.id_grupo from tbllinha_pesquisa l inner join tblgrupo_linha_pesquisa gl " 
                     + "on gl.fk_linha = l.id_linha inner join Tblgrupo g on gl.fk_grupo = g.id_grupo and gl.fk_grupo = @grupo";
                 comando.Parameters.AddWithValue("@grupo", grupoLinha.FkGrupo);
+            }
+            else
+            {
+                comando.CommandText = "select g.id_grupo, g.nome, gl.descricao, gl.data_inicio, gl.data_termino from tblgrupo g inner join tblgrupo_linha_pesquisa gl "
+                    + "on gl.fk_grupo = g.id_grupo inner join tbllinha_pesquisa l on gl.fk_linha = l.id_linha and gl.fk_linha = @linha";
+                comando.Parameters.AddWithValue("@linha", grupoLinha.FkLinha);
             }
 
             comando.CommandType = CommandType.Text;

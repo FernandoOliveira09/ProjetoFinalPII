@@ -81,7 +81,7 @@ CREATE TABLE `tbldiscente` (
   `curso` varchar(100) NOT NULL,
   `lattes` varchar(100) NOT NULL,
   PRIMARY KEY (`id_discente`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +104,7 @@ CREATE TABLE `tbldocente` (
   `foto` varchar(80) NOT NULL,
   `lattes` varchar(100) NOT NULL,
   PRIMARY KEY (`id_docente`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +149,7 @@ CREATE TABLE `tblequipamento` (
   `nome` varchar(100) NOT NULL,
   `descricao` text NOT NULL,
   PRIMARY KEY (`id_equipamento`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,7 +176,7 @@ CREATE TABLE `tblgrupo` (
   PRIMARY KEY (`id_grupo`),
   KEY `fk_situacao` (`fk_situacao`),
   CONSTRAINT `tblgrupo_ibfk_1` FOREIGN KEY (`fk_situacao`) REFERENCES `tblsituacao` (`id_situacao`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -247,7 +247,7 @@ CREATE TABLE `tblgrupo_lider` (
   KEY `fk_lider` (`fk_lider`),
   CONSTRAINT `tblgrupo_lider_ibfk_1` FOREIGN KEY (`fk_grupo`) REFERENCES `tblgrupo` (`id_grupo`),
   CONSTRAINT `tblgrupo_lider_ibfk_2` FOREIGN KEY (`fk_lider`) REFERENCES `tblusuario` (`login`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -398,6 +398,11 @@ CREATE TABLE `tblprojeto_colaborador` (
 -- Dumping data for table `tblprojeto_colaborador`
 --
 
+LOCK TABLES `tblprojeto_colaborador` WRITE;
+/*!40000 ALTER TABLE `tblprojeto_colaborador` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tblprojeto_colaborador` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `tblprojeto_discente`
 --
@@ -442,11 +447,6 @@ CREATE TABLE `tblprojeto_linha_pesquisa` (
 -- Dumping data for table `tblprojeto_linha_pesquisa`
 --
 
-LOCK TABLES `tblprojeto_linha_pesquisa` WRITE;
-/*!40000 ALTER TABLE `tblprojeto_linha_pesquisa` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblprojeto_linha_pesquisa` ENABLE KEYS */;
-UNLOCK TABLES;
-
 --
 -- Table structure for table `tblprojeto_pesquisa`
 --
@@ -469,7 +469,7 @@ CREATE TABLE `tblprojeto_pesquisa` (
   KEY `fk_grupo` (`fk_grupo`),
   CONSTRAINT `tblprojeto_pesquisa_ibfk_1` FOREIGN KEY (`fk_docente`) REFERENCES `tbldocente` (`id_docente`),
   CONSTRAINT `tblprojeto_pesquisa_ibfk_2` FOREIGN KEY (`fk_grupo`) REFERENCES `tblgrupo` (`id_grupo`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -502,7 +502,7 @@ CREATE TABLE `tblpublicacao` (
   CONSTRAINT `tblpublicacao_ibfk_2` FOREIGN KEY (`fk_projeto`) REFERENCES `tblprojeto_pesquisa` (`id_projeto`),
   CONSTRAINT `tblpublicacao_ibfk_3` FOREIGN KEY (`fk_linha`) REFERENCES `tbllinha_pesquisa` (`id_linha`),
   CONSTRAINT `tblpublicacao_ibfk_4` FOREIGN KEY (`fk_docente`) REFERENCES `tbldocente` (`id_docente`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -521,17 +521,12 @@ CREATE TABLE `tblrecuperacao_senha` (
   `codigo_recuperacao` varchar(68) NOT NULL,
   `ativo` char(1) NOT NULL,
   PRIMARY KEY (`id_recuperacao`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tblrecuperacao_senha`
 --
-
-LOCK TABLES `tblrecuperacao_senha` WRITE;
-/*!40000 ALTER TABLE `tblrecuperacao_senha` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblrecuperacao_senha` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tblrecuperacao_senha_usuario`
@@ -555,10 +550,94 @@ CREATE TABLE `tblrecuperacao_senha_usuario` (
 -- Dumping data for table `tblrecuperacao_senha_usuario`
 --
 
-LOCK TABLES `tblrecuperacao_senha_usuario` WRITE;
-/*!40000 ALTER TABLE `tblrecuperacao_senha_usuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblrecuperacao_senha_usuario` ENABLE KEYS */;
-UNLOCK TABLES;
+--
+-- Table structure for table `tblreuniao`
+--
+
+DROP TABLE IF EXISTS `tblreuniao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tblreuniao` (
+  `id_reuniao` int(11) NOT NULL AUTO_INCREMENT,
+  `pauta` varchar(100) NOT NULL,
+  `data_reuniao` date NOT NULL,
+  `hora_inicio` time NOT NULL,
+  `hora_fim` time DEFAULT NULL,
+  `fk_grupo` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_reuniao`),
+  KEY `fk_grupo` (`fk_grupo`),
+  CONSTRAINT `tblreuniao_ibfk_1` FOREIGN KEY (`fk_grupo`) REFERENCES `tblgrupo` (`id_grupo`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tblreuniao`
+--
+--
+-- Table structure for table `tblreuniao_ata`
+--
+
+DROP TABLE IF EXISTS `tblreuniao_ata`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tblreuniao_ata` (
+  `id_ata` int(11) NOT NULL AUTO_INCREMENT,
+  `ata` text NOT NULL,
+  `fk_reuniao` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_ata`),
+  KEY `fk_reuniao` (`fk_reuniao`),
+  CONSTRAINT `tblreuniao_ata_ibfk_1` FOREIGN KEY (`fk_reuniao`) REFERENCES `tblreuniao` (`id_reuniao`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tblreuniao_ata`
+--
+
+--
+-- Table structure for table `tblreuniao_convidado`
+--
+
+DROP TABLE IF EXISTS `tblreuniao_convidado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tblreuniao_convidado` (
+  `id_convidado` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `fk_reuniao` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_convidado`),
+  KEY `fk_reuniao` (`fk_reuniao`),
+  CONSTRAINT `tblreuniao_convidado_ibfk_1` FOREIGN KEY (`fk_reuniao`) REFERENCES `tblreuniao` (`id_reuniao`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tblreuniao_convidado`
+--
+
+--
+-- Table structure for table `tblreuniao_participante`
+--
+
+DROP TABLE IF EXISTS `tblreuniao_participante`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tblreuniao_participante` (
+  `id_participante` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_docente` int(11) DEFAULT NULL,
+  `fk_reuniao` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_participante`),
+  KEY `fk_reuniao` (`fk_reuniao`),
+  KEY `fk_docente` (`fk_docente`),
+  CONSTRAINT `tblreuniao_participante_ibfk_1` FOREIGN KEY (`fk_reuniao`) REFERENCES `tblreuniao` (`id_reuniao`),
+  CONSTRAINT `tblreuniao_participante_ibfk_2` FOREIGN KEY (`fk_docente`) REFERENCES `tbldocente` (`id_docente`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tblreuniao_participante`
+--
+
 
 --
 -- Table structure for table `tblsituacao`
@@ -652,12 +731,13 @@ CREATE TABLE `tbltecnico` (
   `data_conclusao` date DEFAULT NULL,
   `foto` varchar(80) NOT NULL,
   PRIMARY KEY (`id_tecnico`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tbltecnico`
 --
+
 --
 -- Table structure for table `tbltipo_usuario`
 --
@@ -722,4 +802,4 @@ CREATE TABLE `tblusuario` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-11 23:11:31
+-- Dump completed on 2018-12-02 13:11:15

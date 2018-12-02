@@ -46,5 +46,10 @@ namespace ProjetoFinal.BLL
         {
             DALDiscente.AlterarVinculoProjeto(projetoDiscente);
         }
+
+        public static DataTable PesquisarProjeto(MODProjetoPesquisa_Discente projetoDiscente, string tipoPesquisa)
+        {
+            return DALDiscente.PesquisarProjeto(projetoDiscente, tipoPesquisa);
+        }
     }
 }

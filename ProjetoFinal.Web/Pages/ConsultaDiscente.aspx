@@ -140,7 +140,7 @@
                             <li class="bold">
                                 <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
                                     <i class="material-icons">group</i>
-                                    <span class="nav-text">Docente</span>
+                                    <span class="nav-text">Docentes</span>
                                 </a>
                             </li>
                             <li class="bold">
@@ -237,7 +237,7 @@
                                     <tr>
                                         <th>Nome</th>
                                         <th>Curso</th>
-                                        <th>Lattes</th>
+                                        <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -246,8 +246,9 @@
                             <tr>
                                 <td><%# Eval("Nome") %></td>
                                 <td><%# Eval("Curso") %></td>
-                                <td><%# Eval("Lattes") %></td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">edit</i></a></td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">edit</i></a>
+                                    <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/DesvincularDiscente.aspx?discente=<%# Eval("IdDiscente") %>"><i class="material-icons">speaker_notes_off</i></a>
+                                </td>
                                 <%--                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
                             </tr>
                         </ItemTemplate>

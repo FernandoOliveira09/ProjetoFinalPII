@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AlteracaoAreaConhecimento.aspx.cs" Inherits="ProjetoFinal.Web.Pages.AlteracaoAreaConhecimento" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DesvincularEquipamento.aspx.cs" Inherits="ProjetoFinal.Web.Pages.DesvincularEquipamento" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -106,6 +106,8 @@
                         <div class="row">
                             <div class="col col s4 m4 l4">
                                 <asp:Image ID="ImagemUser" ImageUrl="../Pages/Imagens/usuario.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server" />
+                                <!--<asp:Image src="../Content/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan" runat="server"/>-->
+                                <!--<img src="../Content/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image cyan">-->
                             </div>
                             <div class="col col s8 m8 l8">
 
@@ -113,7 +115,8 @@
                                     <asp:Label ID="LblNome" runat="server">Usuário</asp:Label>
                                     <i class="mdi-navigation-arrow-drop-down right"></i></a>
                                 <p class="user-roal">
-                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label></p>
+                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label>
+                                </p>
                             </div>
                         </div>
                     </li>
@@ -208,68 +211,74 @@
             <!-- START CONTENT -->
             <section id="content">
                 <!--start container-->
-                <section id="content">
-                    <!--start container-->
-                    <div id="breadcrumbs-wrapper">
-                        <!-- Search for small screen -->
-                        <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
-                            <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col s10 m6 l6">
-                                    <h5 class="breadcrumbs-title">Alteração de área do conhecimento</h5>
-                                    <ol class="breadcrumbs">
-                                        <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
-                                        <li><a href="#">Linhas de pesquisa</a></li>
-                                        <li><a href="#">Alteração de área do conhecimento</a></li>
-                                    </ol>
-                                </div>
+                <div id="breadcrumbs-wrapper">
+                    <!-- Search for small screen -->
+                    <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
+                        <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col s10 m6 l6">
+                                <h5 class="breadcrumbs-title">Desvincular equipamento</h5>
+                                <ol class="breadcrumbs">
+                                    <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
+                                    <li><a href="#">Equipamento</a></li>
+                                    <li><a href="#">Desvincular equipamento</a></li>
+                                </ol>
                             </div>
                         </div>
                     </div>
+                </div>
+                <form class="col s12" runat="server">
                     <div id="basic-form" class="section">
-                        <div class="row">
-                            <div class="col s12 m12 l8">
+                        <div class="row" style="display: inline-block">
+                            <div class="col s12 m12 l12">
                                 <div class="card-panel">
-                                    <h4 class="header2">Insira os dados nos campos abaixo para cadastrar</h4>
+                                    <h4 class="header2">Insira os dados nos campos abaixo para desvincular</h4>
                                     <div class="row">
-                                        <form class="col s12" runat="server">
-                                            <div class="row">
-                                                <div class="input-field col s6">
-                                                    <asp:TextBox ID="TxtIdArea" type="text" runat="server" MaxLength="10" />
-                                                    <label for="TxtIdArea">Código da área de conhecimento <span style="color: red;">*</span></label>
-                                                </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <asp:TextBox ID="TxtNome" type="text" runat="server" ReadOnly="true" />
+                                                <label for="TxtNome">Nome do equipamento</label>
                                             </div>
-                                            <div class="row">
-                                                <div class="input-field col s6">
-                                                    <asp:TextBox ID="TxtAreaConhecimento" type="text" runat="server" MaxLength="80" />
-                                                    <label for="TxtAreaConhecimento">Nome <span style="color: red;">*</span></label>
-                                                </div>
-                                            </div>
+                                        </div>
 
-                                            <div class="row">
-                                                <div class="input-field col s12">
-                                                    <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
-                                                </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <asp:TextBox ID="TxtDataTermino" type="text" runat="server" />
+                                                <label for="TxtCurso">Data de término<span style="color: red;">*</span></label>
                                             </div>
+                                        </div>
 
+                                        <div class="input-field col s12">
+                                            <label for="TxtGrupo">Grupos vinculados<span style="color: red;">*</span></label>
+                                            <br />
+                                            <asp:DropDownList class="input-field" runat="server" ID="TxtGrupo">
+                                            </asp:DropDownList>
+                                        </div>
 
-                                            <div class="row">
-                                                <div class="input-field col s12">
-                                                    <asp:Button ID="BtnAlterar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Alterar" runat="server" OnClick="BtnAlterar_Click"></asp:Button>
-                                                </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <asp:Button ID="Desvincular" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Desvincular" runat="server" OnClick="Desvincular_Click"></asp:Button>
                                             </div>
-                                        </form>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--end container-->
-                </section>
+                </form>
+                <!--end container-->
             </section>
             <!-- END CONTENT -->
+
+            <!-- END RIGHT SIDEBAR NAV-->
         </div>
         <!-- END WRAPPER -->
     </div>
@@ -302,5 +311,14 @@
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="../Content/js/custom-script.js"></script>
     <script>$('.dropdown-trigger').dropdown();</script>
+    <script src="../Content/js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#TxtDataTermino").mask("99/99/9999");
+            $("#TxtDataInicio").mask("99/99/9999");
+
+        });
+    </script>
 </body>
 </html>
+

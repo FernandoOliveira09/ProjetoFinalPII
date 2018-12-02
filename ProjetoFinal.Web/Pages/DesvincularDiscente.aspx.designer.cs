@@ -58,15 +58,6 @@ namespace ProjetoFinal.Web.Pages {
         protected global::System.Web.UI.WebControls.TextBox TxtNome;
         
         /// <summary>
-        /// TxtProjeto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtProjeto;
-        
-        /// <summary>
         /// TxtDataTermino control.
         /// </summary>
         /// <remarks>
@@ -74,6 +65,15 @@ namespace ProjetoFinal.Web.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtDataTermino;
+        
+        /// <summary>
+        /// TxtProjeto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TxtProjeto;
         
         /// <summary>
         /// Desvincular control.
@@ -85,42 +85,6 @@ namespace ProjetoFinal.Web.Pages {
         protected global::System.Web.UI.WebControls.Button Desvincular;
         
         /// <summary>
-        /// TxtPesquisar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtPesquisar;
-        
-        /// <summary>
-        /// BtnPesquisar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton BtnPesquisar;
-        
-        /// <summary>
-        /// RptDiscente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RptDiscente;
-        
-        /// <summary>
-        /// TxtDataInicio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtDataInicio;
-        
-        /// <summary>
         /// LblResposta control.
         /// </summary>
         /// <remarks>
@@ -128,14 +92,5 @@ namespace ProjetoFinal.Web.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblResposta;
-        
-        /// <summary>
-        /// BtnVincular control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnVincular;
     }
 }

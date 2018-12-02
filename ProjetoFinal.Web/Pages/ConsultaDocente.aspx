@@ -140,7 +140,7 @@
                             <li class="bold">
                                 <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
                                     <i class="material-icons">group</i>
-                                    <span class="nav-text">Docente</span>
+                                    <span class="nav-text">Docentes</span>
                                 </a>
                             </li>
                             <li class="bold">
@@ -248,7 +248,11 @@
                                 <td><%# Eval("Nome") %></td>
                                 <td><%# Eval("Formacao") %></td>
                                 <td><%# Eval("DataInclusao", "{0:d}") %></td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDocente.aspx?docente=<%# Eval("IdDocente") %>"><i class="material-icons">edit</i></a><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/VincularDocenteLinhaPesquisa.aspx"><i class="material-icons">search</i></a></td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoDocente.aspx?docente=<%# Eval("IdDocente") %>"><i class="material-icons">edit</i></a>
+                                    <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/DesvincularDocente.aspx?docente=<%# Eval("IdDocente") %>"><i class="material-icons">speaker_notes_off</i></a>
+                                    <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/VincularDocenteLinhaPesquisa.aspx"><i class="material-icons">search</i></a>
+                                    <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/DesvincularLinhaDocente.aspx?docente=<%# Eval("IdDocente") %>"><i class="material-icons">grid_off</i></a>
+                                </td>
                                 <%--                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
                             </tr>
                         </ItemTemplate>

@@ -57,6 +57,7 @@ namespace ProjetoFinal.Web.Pages
                 TxtIdLinha.Text = linha.Id;
                 TxtLinhaPesquisa.Text = linha.Linha;
                 TxtSubArea.Text = subArea.Nome;
+                TxtIdLinha.ReadOnly = true;
             }
         }
 
@@ -160,9 +161,6 @@ namespace ProjetoFinal.Web.Pages
                 area.FkSub = idSub;
             }
 
-            List<MODLinha_Pesquisa> lista = new List<MODLinha_Pesquisa>();
-            lista = BLLLinha_Pesquisa.PesquisarLinhaPesquisa(area, "existente");
-
             if (TxtIdLinha.Text.Trim() == "" || TxtIdLinha.Text.Length > 10)
             {
                 LblResposta.Text = Erros.CodigoVazio;
@@ -175,10 +173,6 @@ namespace ProjetoFinal.Web.Pages
             {
                 LblResposta.Text = Erros.NomeVazio;
             }
-            else if (lista.Count > 0)
-            {
-                LblResposta.Text = Erros.AreaConExiste;
-            }
             else
             {
                 try
@@ -186,7 +180,7 @@ namespace ProjetoFinal.Web.Pages
 
                     BLLLinha_Pesquisa.AlterarLinhaPesquisa(area, idLinha);
 
-                    LblResposta.Text = "Sub área de avaliação alterada com sucesso!";
+                    LblResposta.Text = "Linha alterada com sucesso!";
                 }
                 catch (Exception)
                 {

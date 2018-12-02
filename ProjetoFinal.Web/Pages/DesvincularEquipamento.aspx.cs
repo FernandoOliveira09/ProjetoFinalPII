@@ -10,7 +10,7 @@ using ProjetoFinal.Utilitarios;
 
 namespace ProjetoFinal.Web.Pages
 {
-    public partial class DesvincularDocente : System.Web.UI.Page
+    public partial class DesvincularEquipamento : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,25 +35,24 @@ namespace ProjetoFinal.Web.Pages
 
             if (!Page.IsPostBack)
             {
-                MODGrupoDocente grupoDocente = new MODGrupoDocente();
-                MODDocente docente = new MODDocente();
-                grupoDocente.FkDocente = Convert.ToInt32(Page.Request.QueryString["docente"]);
-                TxtGrupo.DataSource = BLLGrupo_Docente.Pesquisar(grupoDocente, "docente");
+                MODGrupo_Equipamento grupoEquipamento = new MODGrupo_Equipamento();
+                MODEquipamento equipamento = new MODEquipamento();
+                grupoEquipamento.FkEquipamento = Convert.ToInt32(Page.Request.QueryString["equipamento"]);
+                TxtGrupo.DataSource = BLLEquipamento.PesquisarGrupo(grupoEquipamento, "equipamento");
                 TxtGrupo.DataValueField = "Id_grupo";
                 TxtGrupo.DataTextField = "Nome";
                 TxtGrupo.DataBind();
 
-                docente.IdDocente = grupoDocente.FkDocente;
-                docente = BLLDocente.PesquisarDocente(docente, "id");
-               
+                equipamento.IdEquipamento = grupoEquipamento.FkEquipamento;
+                equipamento = BLLEquipamento.PesquisarEquipamento(equipamento, "id");
 
-                TxtNome.Text = docente.Nome;
+                TxtNome.Text = equipamento.Nome;
             }
         }
 
         protected void Desvincular_Click(object sender, EventArgs e)
         {
-            MODGrupoDocente grupoDocente = new MODGrupoDocente();
+            MODGrupo_Equipamento grupoEquipamento = new MODGrupo_Equipamento();
 
             if (TxtDataTermino.Text.Trim() == "")
             {
@@ -61,13 +60,13 @@ namespace ProjetoFinal.Web.Pages
             }
             else
             {
-                grupoDocente.FkDocente = Convert.ToInt32(Page.Request.QueryString["docente"]);
-                grupoDocente.FkGrupo = Convert.ToInt32(TxtGrupo.SelectedValue);
-                grupoDocente.DataSaida = Convert.ToDateTime(TxtDataTermino.Text.Trim());
+                grupoEquipamento.FkEquipamento = Convert.ToInt32(Page.Request.QueryString["equipamento"]);
+                grupoEquipamento.FkGrupo = Convert.ToInt32(TxtGrupo.SelectedValue);
+                grupoEquipamento.DataFim = Convert.ToDateTime(TxtDataTermino.Text.Trim());
 
-                BLLGrupo_Docente.AlterarDataSaidaDocente(grupoDocente);
+                BLLEquipamento.AlterarDataSaidaEquipamento(grupoEquipamento);
 
-                LblResposta.Text = "Docente desvinculado com sucesso!";
+                LblResposta.Text = "Equipamento desvinculado com sucesso!";
             }
         }
     }

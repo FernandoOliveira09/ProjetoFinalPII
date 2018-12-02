@@ -46,6 +46,7 @@ namespace ProjetoFinal.Web.Pages
             if (!Page.IsPostBack)
             {
                 TxtIdArea.Text = areaConhecimento.Id;
+                TxtIdArea.ReadOnly = true;
                 TxtAreaConhecimento.Text = areaConhecimento.Nome;
             }
         }
@@ -60,10 +61,6 @@ namespace ProjetoFinal.Web.Pages
             if (TxtIdArea.Text.Trim() == "" || TxtIdArea.Text.Length > 10)
             {
                 LblResposta.Text = Erros.CodigoVazio;
-            }
-            else if (TxtIdArea.Text.Length < 8)
-            {
-                LblResposta.Text = "O código deve ter ao menos 8 caracteres";
             }
             else if (TxtAreaConhecimento.Text.Trim() == "" || TxtAreaConhecimento.Text.Length > 80)
             {

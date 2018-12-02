@@ -13,89 +13,60 @@ namespace ProjetoFinal.Web.Pages
 {
     public partial class DesvincularDiscente : System.Web.UI.Page
     {
-        static int idProjeto, idDiscente;
-
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["login"] == null)
+            {
+                Session.RemoveAll();
+                Response.Redirect("../Pages/Login.aspx");
+            }
+
+            MODUsuario usuario2 = new MODUsuario();
+            usuario2.Login = PegaLogin.RetornaLogin();
+            usuario2 = BLLUsuario.PesquisarLogin(usuario2);
+
+            ImagemUser.ImageUrl = "../Pages/" + usuario2.Imagem;
+            ImagemUser2.ImageUrl = "../Pages/" + usuario2.Imagem;
+            LblNome.Text = usuario2.Nome;
+
+            if (usuario2.FkTipo == 1)
+                LblFuncao.Text = "Administrador";
+            else
+                LblFuncao.Text = "Lider de Pesquisa";
+
             MODDiscente discente = new MODDiscente();
             MODProjetoPesquisa projeto = new MODProjetoPesquisa();
-
-            if (!IsPostBack)
-            {
-                projeto.IdProjeto = Convert.ToInt32(Page.Request.QueryString["projeto"]);
-                discente.IdDiscente = Convert.ToInt32(Page.Request.QueryString["discente"]);
-
-                idProjeto = projeto.IdProjeto;
-                idDiscente = discente.IdDiscente;
-
-                projeto = BLLProjeto_Pesquisa.PesquisarProjeto(projeto);
-                discente = BLLDiscente.PesquisarDiscente(discente, "id");
-
-                TxtProjeto.Text = projeto.Titulo;
-                TxtNome.Text = discente.Nome;
-
-            }
-        }
-
-        protected void BtnAddDiscente_Click(object sender, EventArgs e)
-        {
-            MODDiscente discente = new MODDiscente();
-
-            Control botao = (Control)sender;
-            RepeaterItem item = (RepeaterItem)botao.Parent;
-
-            Label lbl = (Label)item.FindControl("TxtNomeDiscente");
-            string titulo = lbl.Text;
-            discente.Nome = titulo;
-
-            discente = BLLDiscente.PesquisarDiscente(discente, "nome");
-
-            idDiscente = discente.IdDiscente;
-
-        }
-
-        protected void BtnVincular_Click(object sender, EventArgs e)
-        {
             MODProjetoPesquisa_Discente projetoDiscente = new MODProjetoPesquisa_Discente();
 
-            if (TxtDataInicio.Text.Trim() == "")
+            if (!Page.IsPostBack)
             {
-                LblResposta.Text = Erros.DataVazio;
+
+                projetoDiscente.FkDiscente = Convert.ToInt32(Page.Request.QueryString["discente"]);
+                TxtProjeto.DataSource = BLLDiscente.PesquisarProjeto(projetoDiscente, "discente");
+                TxtProjeto.DataValueField = "Id_projeto";
+                TxtProjeto.DataTextField = "Titulo";
+                TxtProjeto.DataBind();
+
+                discente.IdDiscente = Convert.ToInt32(Page.Request.QueryString["discente"]);
+                discente = BLLDiscente.PesquisarDiscente(discente, "id");
+
+
+                TxtNome.Text = discente.Nome;
             }
-            else
-            {
-                projetoDiscente.FkDiscente = idDiscente;
-                projetoDiscente.FkProjeto = idProjeto;
-                projetoDiscente.DataInicio = Convert.ToDateTime(TxtDataInicio.Text.Trim());
-
-                
-                BLLDiscente.InserirDiscenteProjeto(projetoDiscente);
-
-                LblResposta.Text = "Discente vinculado com sucesso!";
-            }
-        }
-
-        protected void BtnPesquisar_Click(object sender, EventArgs e)
-        {
-            MODDiscente discente = new MODDiscente();
-
-            discente.Nome = TxtPesquisar.Text.Trim();
-            RptDiscente.DataSource = BLLDiscente.Pesquisar(discente, "incompleto");
-            RptDiscente.DataBind();
         }
 
         protected void Desvincular_Click(object sender, EventArgs e)
         {
             MODProjetoPesquisa_Discente projetoDiscente = new MODProjetoPesquisa_Discente();
 
-            if(TxtDataTermino.Text.Trim() == "")
+            if (TxtDataTermino.Text.Trim() == "")
             {
-                LblResposta.Text = Erros.DataVazio;
+                LblResposta.Text = "A data de término nao pode ser nula!";
             }
             else
             {
-                projetoDiscente.FkDiscente = idDiscente;
-                projetoDiscente.FkProjeto = idProjeto;
+                projetoDiscente.FkDiscente = Convert.ToInt32(Page.Request.QueryString["discente"]);
+                projetoDiscente.FkProjeto = Convert.ToInt32(TxtProjeto.SelectedValue);
                 projetoDiscente.DataFim = Convert.ToDateTime(TxtDataTermino.Text.Trim());
 
                 BLLDiscente.AlterarVinculoProjeto(projetoDiscente);

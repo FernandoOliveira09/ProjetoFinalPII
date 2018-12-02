@@ -123,6 +123,7 @@
     <Content Include="Pages\ConsultaUsuario.aspx" />
     <Content Include="Pages\DesvincularDiscente.aspx" />
     <Content Include="Pages\DesvincularDocente.aspx" />
+    <Content Include="Pages\DesvincularEquipamento.aspx" />
     <Content Include="Pages\DesvincularLinha.aspx" />
     <Content Include="Pages\DesvincularLinhaDocente.aspx" />
     <Content Include="Pages\DesvincularTecnico.aspx" />
@@ -488,6 +489,13 @@
     </Compile>
     <Compile Include="Pages\DesvincularDocente.aspx.designer.cs">
       <DependentUpon>DesvincularDocente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DesvincularEquipamento.aspx.cs">
+      <DependentUpon>DesvincularEquipamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DesvincularEquipamento.aspx.designer.cs">
+      <DependentUpon>DesvincularEquipamento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\DesvincularLinha.aspx.cs">
       <DependentUpon>DesvincularLinha.aspx</DependentUpon>

@@ -143,7 +143,7 @@
                             <li class="bold">
                                 <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
                                     <i class="material-icons">group</i>
-                                    <span class="nav-text">Docente</span>
+                                    <span class="nav-text">Docentes</span>
                                 </a>
                             </li>
                             <li class="bold">
@@ -259,7 +259,7 @@
 
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <asp:Button ID="Desvincular" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Desvincular" runat="server"></asp:Button>
+                                                <asp:Button ID="Desvincular" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Desvincular" runat="server" OnClick="Desvincular_Click"></asp:Button>
                                             </div>
                                         </div>
 

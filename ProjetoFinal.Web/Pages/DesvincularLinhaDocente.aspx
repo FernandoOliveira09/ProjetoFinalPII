@@ -143,7 +143,7 @@
                             <li class="bold">
                                 <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
                                     <i class="material-icons">group</i>
-                                    <span class="nav-text">Docente</span>
+                                    <span class="nav-text">Docentes</span>
                                 </a>
                             </li>
                             <li class="bold">
@@ -251,15 +251,22 @@
                                         </div>
 
                                         <div class="input-field col s12">
-                                            <label for="TxtGrupo">Linhas vinculadas<span style="color: red;">*</span></label>
+                                            <label for="TxtGrupo">Grupos vinculados<span style="color: red;">*</span></label>
                                             <br />
-                                            <asp:DropDownList class="input-field" runat="server" ID="TxtGrupo">
+                                            <asp:DropDownList class="input-field" runat="server" ID="TxtGrupo" AutoPostBack="true" OnSelectedIndexChanged="TxtGrupo_SelectedIndexChanged">
+                                            </asp:DropDownList>
+                                        </div>
+
+                                        <div class="input-field col s12">
+                                            <label for="TxtLinha">Linhas vinculadas<span style="color: red;">*</span></label>
+                                            <br />
+                                            <asp:DropDownList class="input-field" runat="server" ID="TxtLinha">
                                             </asp:DropDownList>
                                         </div>
 
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <asp:Button ID="Desvincular" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Desvincular" runat="server"></asp:Button>
+                                                <asp:Button ID="Desvincular" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Desvincular" runat="server" OnClick="Desvincular_Click"></asp:Button>
                                             </div>
                                         </div>
 

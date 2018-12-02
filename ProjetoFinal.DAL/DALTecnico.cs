@@ -57,39 +57,6 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
-        //public static void AlterarStatus(MODTecnico tecnico)
-        //{
-        //    Conexao.Abrir();
-
-        //    MySqlCommand comando = new MySqlCommand();
-        //    comando.Connection = Conexao.conexao;
-
-        //    comando.CommandText = "UPDATE TBLUSUARIO SET fk_status = @fk_status WHERE login = @login";
-        //    comando.Parameters.AddWithValue("@login", tecnico.Login);
-        //    comando.Parameters.AddWithValue("@fk_status", tecnico.FkStatus);
-
-        //    comando.ExecuteNonQuery();
-
-        //    Conexao.Fechar();
-        //}
-
-        //public static void AlterarSenha(MODTecnico tecnico)
-        //{
-        //    Conexao.Abrir();
-
-        //    MySqlCommand comando = new MySqlCommand();
-        //    comando.Connection = Conexao.conexao;
-
-        //    comando.CommandText = "UPDATE TBLUSUARIO SET senha = @senha, fk_status = @fk_status WHERE login = @login";
-        //    comando.Parameters.AddWithValue("@login", tecnico.Login);
-        //    comando.Parameters.AddWithValue("@senha", tecnico.Senha);
-        //    comando.Parameters.AddWithValue("@fk_status", tecnico.FkStatus);
-
-        //    comando.ExecuteNonQuery();
-
-        //    Conexao.Fechar();
-        //}
-
         public static MODTecnico PesquisarTecnico(MODTecnico tecnico)
         {
             MODTecnico retorno = new MODTecnico();

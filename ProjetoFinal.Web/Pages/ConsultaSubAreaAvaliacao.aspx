@@ -142,7 +142,7 @@
                             <li class="bold">
                                 <a href="../Pages/ConsultaDocente.aspx" class="waves-effect waves-cyan">
                                     <i class="material-icons">group</i>
-                                    <span class="nav-text">Docente</span>
+                                    <span class="nav-text">Docentes</span>
                                 </a>
                             </li>
                             <li class="bold">
@@ -265,7 +265,7 @@
                                 <td><%# Eval("ID") %></td>
                                 <td><%# Eval("NOME") %></td>
                                 <%--<td><%# Eval("Status") %></td>--%>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoSubAreaAvaliacao.aspx?id=<%# Eval("ID") %>"><i class="material-icons">edit</i>&nbsp&nbsp<a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Alteracaolider.aspx?linha=<%# Eval("ID") %>"><i class="material-icons">close</i></a></a></td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoSubAreaAvaliacao.aspx?id=<%# Eval("ID") %>"><i class="material-icons">edit</i></a></td>
                                 <%--                               <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
                             </tr>
                         </ItemTemplate>

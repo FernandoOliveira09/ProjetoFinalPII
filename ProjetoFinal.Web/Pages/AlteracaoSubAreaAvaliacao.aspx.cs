@@ -53,6 +53,7 @@ namespace ProjetoFinal.Web.Pages
                 CarregaAreaConhecimento();
                 CarregaAreaAvaliacao();
                 TxtIdSubArea.Text = subArea.Id;
+                TxtIdSubArea.ReadOnly = true;
                 TxtSubArea.Text = subArea.Nome;
                 TxtAvaliacao.Text = areaAvaliacao.Nome;
             }            
@@ -123,24 +124,13 @@ namespace ProjetoFinal.Web.Pages
                 area.FkAva = idArea;
             }
 
-            List<MODSubArea_Avaliacao> lista = new List<MODSubArea_Avaliacao>();
-            lista = BLLLinha_Pesquisa.PesquisarSubAreaAvaliacao(area, "existente");
-
             if (TxtIdSubArea.Text.Trim() == "" || TxtIdSubArea.Text.Length > 10)
             {
                 LblResposta.Text = Erros.CodigoVazio;
             }
-            else if (TxtIdSubArea.Text.Length < 8)
-            {
-                LblResposta.Text = "O código deve ter ao menos 8 caracteres";
-            }
             else if (TxtSubArea.Text.Trim() == "" || TxtSubArea.Text.Length > 80)
             {
                 LblResposta.Text = Erros.NomeVazio;
-            }
-            else if (lista.Count > 0)
-            {
-                LblResposta.Text = Erros.AreaConExiste;
             }
             else
             {
@@ -149,7 +139,7 @@ namespace ProjetoFinal.Web.Pages
                     
                     BLLLinha_Pesquisa.AlterarSubAreaAvaliacao(area, idSub);
 
-                    LblResposta.Text = "Linha de pesquisa alterada com sucesso!";
+                    LblResposta.Text = "Sub área alterada com sucesso!";
                 }
                 catch (Exception)
                 {

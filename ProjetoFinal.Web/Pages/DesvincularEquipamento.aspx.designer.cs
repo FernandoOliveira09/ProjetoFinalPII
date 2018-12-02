@@ -10,7 +10,7 @@
 namespace ProjetoFinal.Web.Pages {
     
     
-    public partial class DesvincularLinhaDocente {
+    public partial class DesvincularEquipamento {
         
         /// <summary>
         /// ImagemUser2 control.
@@ -74,15 +74,6 @@ namespace ProjetoFinal.Web.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList TxtGrupo;
-        
-        /// <summary>
-        /// TxtLinha control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TxtLinha;
         
         /// <summary>
         /// Desvincular control.

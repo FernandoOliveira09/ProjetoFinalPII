@@ -25,5 +25,10 @@ namespace ProjetoFinal.BLL
         {
             return DALDocente_Linha_Pesquisa.Relatorio(docenteLinha, ano, tipoPesquisa);
         }
+
+        public static void AlterarDataSaidaDocente(MODDocente_Linha_Pesquisa DocenteLinha)
+        {
+            DALDocente_Linha_Pesquisa.AlterarDataSaidaDocente(DocenteLinha);
+        }
     }
 }

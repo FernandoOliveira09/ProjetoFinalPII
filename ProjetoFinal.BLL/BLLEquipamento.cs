@@ -27,6 +27,11 @@ namespace ProjetoFinal.BLL
             DALEquipamento.InserirEquipamentoGrupo(grupoEquipamento);
         }
 
+        public static void AlterarDataSaidaEquipamento(MODGrupo_Equipamento grupoEquipamento)
+        {
+            DALEquipamento.AlterarDataSaidaEquipamento(grupoEquipamento);
+        }
+
         public static void Alterar(MODEquipamento equipamento)
         {
             DALEquipamento.Alterar(equipamento);
@@ -45,6 +50,11 @@ namespace ProjetoFinal.BLL
         public static DataTable ConsultaPorGrupo(MODGrupo grupo)
         {
             return DALEquipamento.ConsultaPorGrupo(grupo);
+        }
+
+        public static DataTable PesquisarGrupo(MODGrupo_Equipamento grupoEquipamento, string tipoPesquisa)
+        {
+            return DALEquipamento.PesquisarGrupo(grupoEquipamento, tipoPesquisa);
         }
     }
 }

@@ -68,11 +68,14 @@ namespace ProjetoFinal.Web.Pages
         {
             MODProjetoPesquisa projeto = new MODProjetoPesquisa();
 
-            projeto.FkGrupo = Convert.ToInt32(TxtGrupo.SelectedValue);
-            TxtProjeto.DataSource = BLLProjeto_Pesquisa.PesquisarProjetos(projeto, "grupo");
-            TxtProjeto.DataValueField = "IdProjeto";
-            TxtProjeto.DataTextField = "Titulo";
-            TxtProjeto.DataBind();
+            if(TxtGrupo.Text != "")
+            {
+                projeto.FkGrupo = Convert.ToInt32(TxtGrupo.SelectedValue);
+                TxtProjeto.DataSource = BLLProjeto_Pesquisa.PesquisarProjetos(projeto, "grupo");
+                TxtProjeto.DataValueField = "IdProjeto";
+                TxtProjeto.DataTextField = "Titulo";
+                TxtProjeto.DataBind();
+            } 
         }
 
         private void CarregaDocente()
@@ -82,22 +85,29 @@ namespace ProjetoFinal.Web.Pages
             if (ChkProjeto.Checked == false)
             {
                 MODGrupoDocente grupoDocente = new MODGrupoDocente();
-                grupoDocente.FkGrupo = Convert.ToInt32(TxtGrupo.SelectedValue);
-                TxtDocente.DataSource = BLLGrupo_Docente.Pesquisar(grupoDocente, "grupo");
-                TxtDocente.DataValueField = "id_docente";
-                TxtDocente.DataTextField = "Nome";
-                TxtDocente.DataBind();
+                if (TxtGrupo.Text != "")
+                {
+                    grupoDocente.FkGrupo = Convert.ToInt32(TxtGrupo.SelectedValue);
+                    TxtDocente.DataSource = BLLGrupo_Docente.Pesquisar(grupoDocente, "grupo");
+                    TxtDocente.DataValueField = "id_docente";
+                    TxtDocente.DataTextField = "Nome";
+                    TxtDocente.DataBind();
+                }       
             }
             else
             {
                 MODProjetoPesquisa projetoPesquisa = new MODProjetoPesquisa();
-                projetoPesquisa.IdProjeto = Convert.ToInt32(TxtProjeto.SelectedValue);
-                projetoPesquisa = BLLProjeto_Pesquisa.PesquisarDocente(projetoPesquisa);
-                docente.IdDocente = projetoPesquisa.FkDocente;
-                TxtDocente.DataSource = BLLDocente.Pesquisar(docente, "id");
-                TxtDocente.DataValueField = "IdDocente";
-                TxtDocente.DataTextField = "nome";
-                TxtDocente.DataBind();
+                if (TxtProjeto.Text != "")
+                {
+                    projetoPesquisa.IdProjeto = Convert.ToInt32(TxtProjeto.SelectedValue);
+                    projetoPesquisa = BLLProjeto_Pesquisa.PesquisarDocente(projetoPesquisa);
+                    docente.IdDocente = projetoPesquisa.FkDocente;
+                    TxtDocente.DataSource = BLLDocente.Pesquisar(docente, "id");
+                    TxtDocente.DataValueField = "IdDocente";
+                    TxtDocente.DataTextField = "nome";
+                    TxtDocente.DataBind();
+                }
+                    
             }
             
         }
@@ -107,21 +117,28 @@ namespace ProjetoFinal.Web.Pages
             if(ChkProjeto.Checked == false)
             {
                 MODDocente_Linha_Pesquisa docenteLinha = new MODDocente_Linha_Pesquisa();
-                docenteLinha.FkGrupo = Convert.ToInt32(TxtGrupo.SelectedValue);
-                docenteLinha.FkDocente = Convert.ToInt32(TxtDocente.SelectedValue);
-                TxtLinha.DataSource = BLLDocente_Linha_Pesquisa.Pesquisar(docenteLinha, "docente");
-                TxtLinha.DataValueField = "id_linha";
-                TxtLinha.DataTextField = "nome_linha";
-                TxtLinha.DataBind();
+                if (TxtGrupo.Text != "")
+                {
+                    docenteLinha.FkGrupo = Convert.ToInt32(TxtGrupo.SelectedValue);
+                    docenteLinha.FkDocente = Convert.ToInt32(TxtDocente.SelectedValue);
+                    TxtLinha.DataSource = BLLDocente_Linha_Pesquisa.Pesquisar(docenteLinha, "docente");
+                    TxtLinha.DataValueField = "id_linha";
+                    TxtLinha.DataTextField = "nome_linha";
+                    TxtLinha.DataBind();
+                }     
             }
             else
             {
                 MODProjetoPesquisa_Linha projetoLinha = new MODProjetoPesquisa_Linha();
-                projetoLinha.FkProjeto = Convert.ToInt32(TxtProjeto.SelectedValue);
-                TxtLinha.DataSource = BLLProjeto_Pesquisa.PesquisarLinha(projetoLinha);
-                TxtLinha.DataValueField = "id_linha";
-                TxtLinha.DataTextField = "nome_linha";
-                TxtLinha.DataBind();
+                if (TxtProjeto.Text != "")
+                {
+                    projetoLinha.FkProjeto = Convert.ToInt32(TxtProjeto.SelectedValue);
+                    TxtLinha.DataSource = BLLProjeto_Pesquisa.PesquisarLinha(projetoLinha);
+                    TxtLinha.DataValueField = "id_linha";
+                    TxtLinha.DataTextField = "nome_linha";
+                    TxtLinha.DataBind();
+                }
+                    
             }
             
         }
@@ -194,7 +211,6 @@ namespace ProjetoFinal.Web.Pages
 
                     LblResposta.Text = "Publicação cadastrada com sucesso!";
                 }
-               
             }
         }
     }
