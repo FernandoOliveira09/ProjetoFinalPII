@@ -225,6 +225,7 @@
                       <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/VincularGrupoTecnico.aspx">Vincular Técnico</a>
                   </div>--%>
                         <div class="col s2 m6 l6">
+                            <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/VincularGrupoEquipamento.aspx">Vincular Equipamento</a>
                             <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/CadastroEquipamento.aspx">Novo Equipamento</a>
                         </div>
                     </div>
@@ -248,7 +249,6 @@
                             <tr>
                                 <td><%# Eval("Nome") %></td>
                                 <td><%# Eval("Descricao") %></td>
-
                                 <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoEquipamento.aspx?id=<%# Eval("IdEquipamento") %>"><i class="material-icons">edit</i></a>
                                 </td>
                                 <%--                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>

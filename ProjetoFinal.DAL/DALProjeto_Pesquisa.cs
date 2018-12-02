@@ -18,14 +18,13 @@ namespace ProjetoFinal.DAL
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = Conexao.conexao;
 
-            comando.CommandText = "INSERT INTO TBLProjeto_pesquisa (titulo, tipo, bolsa, nome_bolsa, data_inicio, data_fim, fk_docente, fk_grupo)" 
+            comando.CommandText = "INSERT INTO TBLProjeto_pesquisa (titulo, tipo, bolsa, nome_bolsa, data_inicio, fk_docente, fk_grupo)" 
                 + " VALUES (@titulo, @tipo, @bolsa, @nomebolsa, @data_inicio, @data_fim, @fkdocente, @fkgrupo)";
             comando.Parameters.AddWithValue("@titulo", projetoPesquisa.Titulo);
             comando.Parameters.AddWithValue("@tipo", projetoPesquisa.Tipo);
             comando.Parameters.AddWithValue("@bolsa", projetoPesquisa.Bolsa);
             comando.Parameters.AddWithValue("@nomebolsa", projetoPesquisa.NomeBolsa);
             comando.Parameters.AddWithValue("@data_inicio", projetoPesquisa.DataInicio);
-            comando.Parameters.AddWithValue("@data_fim", projetoPesquisa.DataTermino);
             comando.Parameters.AddWithValue("@fkdocente", projetoPesquisa.FkDocente);
             comando.Parameters.AddWithValue("@fkgrupo", projetoPesquisa.FkGrupo);
 
@@ -204,11 +203,9 @@ namespace ProjetoFinal.DAL
 
             if(tipoPesquisa == "todos")
             {
-                comando.CommandText = "select p.id_projeto, p.titulo as Titulo, g.id_grupo, g.nome as Grupo, d.id_docente, d.nome as Docente, di.id_discente, di.nome as Discente from tblprojeto_pesquisa p "
+                comando.CommandText = "select p.id_projeto, p.titulo as Titulo, g.id_grupo, g.nome as Grupo, d.id_docente, d.nome as Docente from tblprojeto_pesquisa p "
                     + "inner join tbldocente d on p.fk_docente = d.id_docente "
-                    + "inner join tblgrupo g on p.fk_grupo = g.id_grupo "
-                    + "inner join tblprojeto_discente pd on pd.fk_projeto = p.id_projeto "
-                    + "inner join tbldiscente di on pd.fk_discente = di.id_discente and pd.data_fim is null";
+                    + "inner join tblgrupo g on p.fk_grupo = g.id_grupo";
             }
             else if (tipoPesquisa == "projeto")
             {

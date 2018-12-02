@@ -38,32 +38,24 @@ namespace ProjetoFinal.Web
 
             if (!IsPostBack)
             {
-                MODEquipamento equipamento = new MODEquipamento();
-                RptEquipamento.DataSource = BLLEquipamento.Pesquisar(equipamento, "todos");
-                RptEquipamento.DataBind();
+                CarregaGrupo();
+                CarregaEquipamento();
             }
-
-            MODGrupo grupo = new MODGrupo();
-
-            idGrupo = Convert.ToInt32(Page.Request.QueryString["id"]);
-            grupo.Nome = Page.Request.QueryString["grupo"];
-
-            TxtGrupo.Text = grupo.Nome;
         }
 
         protected void BtnVincularEquipamento_Click(object sender, EventArgs e)
         {
             MODGrupo_Equipamento grupoEquipamento = new MODGrupo_Equipamento();
 
-            if (TxtDataInicio.Text.Trim() == "")
+            if (TxtData.Text.Trim() == "")
             {
                 LblResposta.Text = Erros.DataVazio;
             }
             else
             {
-                grupoEquipamento.FkGrupo = idGrupo;
-                grupoEquipamento.FkEquipamento = idEquipamento;
-                grupoEquipamento.DataInicio = Convert.ToDateTime(TxtDataInicio.Text.Trim());
+                grupoEquipamento.FkGrupo = Convert.ToInt32(TxtGrupo.SelectedValue);
+                grupoEquipamento.FkEquipamento = Convert.ToInt32(TxtEquipamento.SelectedValue);
+                grupoEquipamento.DataInicio = Convert.ToDateTime(TxtData.Text.Trim());
 
                 BLLEquipamento.InserirEquipamentoGrupo(grupoEquipamento);
 
@@ -71,21 +63,24 @@ namespace ProjetoFinal.Web
             }
         }
 
-        protected void BtnAddEquipamento_Click(object sender, EventArgs e)
+        private void CarregaGrupo()
         {
-            MODGrupo_Equipamento projetoDiscente = new MODGrupo_Equipamento();
+            MODGrupo grupo = new MODGrupo();
+
+            TxtGrupo.DataSource = BLLGrupo.PesquisarGrupos(grupo, "todos");
+            TxtGrupo.DataValueField = "IdGrupo";
+            TxtGrupo.DataTextField = "Nome";
+            TxtGrupo.DataBind();
+        }
+
+        private void CarregaEquipamento()
+        {
             MODEquipamento equipamento = new MODEquipamento();
 
-            Control botao = (Control)sender;
-            RepeaterItem item = (RepeaterItem)botao.Parent;
-
-            Label lbl = (Label)item.FindControl("TxtNomeEquipamento");
-            string titulo = lbl.Text;
-            equipamento.Nome = titulo;
-
-            equipamento = BLLEquipamento.PesquisarEquipamento(equipamento, "nome");
-
-            idEquipamento = equipamento.IdEquipamento;
+            TxtEquipamento.DataSource = BLLEquipamento.Pesquisar(equipamento, "todos");
+            TxtEquipamento.DataValueField = "IdEquipamento";
+            TxtEquipamento.DataTextField = "Nome";
+            TxtEquipamento.DataBind();
         }
     }
 }

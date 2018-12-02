@@ -55,43 +55,25 @@ namespace ProjetoFinal.Web {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtGrupo;
+        protected global::System.Web.UI.WebControls.DropDownList TxtGrupo;
         
         /// <summary>
-        /// TxtPesquisarEquipamento control.
+        /// TxtEquipamento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtPesquisarEquipamento;
+        protected global::System.Web.UI.WebControls.DropDownList TxtEquipamento;
         
         /// <summary>
-        /// BtnPesquisar control.
+        /// TxtData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton BtnPesquisar;
-        
-        /// <summary>
-        /// RptEquipamento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RptEquipamento;
-        
-        /// <summary>
-        /// TxtDataInicio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtDataInicio;
+        protected global::System.Web.UI.WebControls.TextBox TxtData;
         
         /// <summary>
         /// LblResposta control.

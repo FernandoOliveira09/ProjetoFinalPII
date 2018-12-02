@@ -75,7 +75,7 @@ namespace ProjetoFinal.DAL
 
             if(tipoPesquisa == "id")
             {
-                comando.CommandText = "SELECT nome, descricao FROM TBLEQUIPAMENTO WHERE id_equipamento = @id";
+                comando.CommandText = "SELECT id_equipamento, nome, descricao FROM TBLEQUIPAMENTO WHERE id_equipamento = @id";
                 comando.Parameters.AddWithValue("@id", equipamento.IdEquipamento);
             }
             else

@@ -240,11 +240,7 @@
                                 <thead>
                                     <tr>
                                         <th>Nome</th>
-                                        <th>Lattes</th>
                                         <th>Atividade</th>
-                                        <th>Curso</th>
-                                        <th>Formação</th>
-                                        <th>Ano Conclusão</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
@@ -254,12 +250,8 @@
                         <ItemTemplate>
                             <tr>
                                 <td><%# Eval("Nome") %></td>
-                                <td><%# Eval("Lattes") %></td>
                                 <td><%# Eval("Atividade") %></td>
-                                <td><%# Eval("Curso") %></td>
-                                <td><%# Eval("Formacao") %></td>
-                                <td><%# Eval("AnoConclusao", "{0:d}") %></td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoTecnico.aspx?id=<%# Eval("IdTecnico") %>"><i class="material-icons">edit</i></a></td>
+                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoTecnico.aspx?id=<%# Eval("IdTecnico") %>"><i class="material-icons">edit</i></a><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/DesvincularTecnico.aspx?id=<%# Eval("IdTecnico") %>"><i class="material-icons">speaker_notes_off</i></a></td>
                                 <%--                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
                             </tr>
                         </ItemTemplate>

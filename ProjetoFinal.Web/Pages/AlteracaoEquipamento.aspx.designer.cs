@@ -67,24 +67,6 @@ namespace ProjetoFinal.Web.Pages {
         protected global::System.Web.UI.WebControls.TextBox TxtDescricao;
         
         /// <summary>
-        /// TxtDataInicio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtDataInicio;
-        
-        /// <summary>
-        /// TxtDataFim control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtDataFim;
-        
-        /// <summary>
         /// LblResposta control.
         /// </summary>
         /// <remarks>

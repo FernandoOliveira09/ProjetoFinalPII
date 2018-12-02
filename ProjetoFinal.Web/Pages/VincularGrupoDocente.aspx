@@ -238,7 +238,7 @@
                             <div class="input-field col s10">
                                 <label for="TxtGrupo">Selecione o grupo<span style="color: red;">*</span></label>
                                 <br /> 
-                                <asp:DropDownList class="input-field" runat="server" ID="TxtGrupo" AutoPostBack="true">
+                                <asp:DropDownList class="input-field" runat="server" ID="TxtGrupo">
 
                                 </asp:DropDownList>
                             </div>
@@ -247,7 +247,7 @@
                             <div class="input-field col s8">
                                 <label for="TxtDocente">Selecione o docente<span style="color: red;">*</span></label>
                                 <br /> 
-                                <asp:DropDownList class="input-field" runat="server" ID="TxtDocente" AutoPostBack="true">
+                                <asp:DropDownList class="input-field" runat="server" ID="TxtDocente">
 
                                 </asp:DropDownList>
                             </div>

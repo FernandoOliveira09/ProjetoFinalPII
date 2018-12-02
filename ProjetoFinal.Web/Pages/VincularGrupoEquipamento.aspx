@@ -74,7 +74,6 @@
                             </a>
                         </li>
                     </ul>
-
                     <!-- profile-dropdown -->
                     <ul id="profile-dropdown" class="dropdown-content">
                         <li>
@@ -114,7 +113,8 @@
                                     <asp:Label ID="LblNome" runat="server">Usuário</asp:Label>
                                     <i class="mdi-navigation-arrow-drop-down right"></i></a>
                                 <p class="user-roal">
-                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label></p>
+                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label>
+                                </p>
                             </div>
                         </div>
                     </li>
@@ -199,10 +199,9 @@
                             </li>
                         </ul>
                     </li>
-                </ul>
-                <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only">
-                    <i class="material-icons">menu</i>
-                </a>
+                    <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only">
+                        <i class="material-icons">menu</i>
+                    </a>
             </aside>
             <!-- END LEFT SIDEBAR NAV-->
             <!-- //////////////////////////////////////////////////////////////////////////// -->
@@ -217,74 +216,46 @@
                     <div class="container">
                         <div class="row">
                             <div class="col s10 m6 l6">
-                                <h5 class="breadcrumbs-title">Vínculo de Equipamentos</h5>
+                                <h5 class="breadcrumbs-title">Vinculação de equipamento</h5>
                                 <ol class="breadcrumbs">
                                     <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
-                                    <li><a href="#">Projetos</a></li>
-                                    <li><a href="#">Vínculo de Equipamentos</a></li>
+                                    <li><a href="#">Equipamento</a></li>
+                                    <li><a href="#">Vinculação de equipamento</a></li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
-                <form class="col s12" runat="server">
-                    <div id="basic-form" class="section">
-                        <div class="row" style="display: inline-block">
-                            <div class="col s12 m12 l12">
-                                <div class="card-panel">
-                                    <h4 class="header2">Insira os dados nos campos abaixo para vincular</h4>
-                                    <div class="row">
+                <div id="basic-form" class="section">
+                    <div class="row">
+                        <div class="col s12 m12 l8">
+                            <div class="card-panel">
+                                <h4 class="header2">Insira os dados nos campos abaixo para cadastrar</h4>
+                                <div class="row">
+                                    <form class="col s12" runat="server">
+
                                         <div class="row">
-                                            <div class="input-field col s12">
-                                                <asp:TextBox ID="TxtGrupo" type="text" runat="server" Enabled="false" />
-                                                <label for="TxtCurso">Grupo</label>
+                                            <div class="input-field col s10">
+                                                <label for="TxtGrupo">Selecione o grupo<span style="color: red;">*</span></label>
+                                                <br />
+                                                <asp:DropDownList class="input-field" runat="server" ID="TxtGrupo">
+
+                                                </asp:DropDownList>
+
                                             </div>
                                         </div>
-
                                         <div class="row">
                                             <div class="input-field col s8">
-                                                <asp:TextBox ID="TxtPesquisarEquipamento" type="text" runat="server" />
-                                                <label for="TxtPesquisarEquipamento">Pesquisar equipamento<span style="color: red;">*</span></label>
+                                                <label for="TxtEquipamento">Selecione o equipamento<span style="color: red;">*</span></label>
+                                                <br />
+                                                <asp:DropDownList class="input-field" runat="server" ID="TxtEquipamento">
+                                                </asp:DropDownList>
                                             </div>
                                         </div>
-                                        <div class="input-field col s1" style="float: right; margin-top: -74px;">
-                                            <asp:LinkButton ID="BtnPesquisar" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="Pesquisar" />
-                                        </div>
-                                        <div class="row">
-                                            <div class='input-field col s12' style="margin-top: -10px">
-                                                <h5>Equipamento</h5>
-                                                <asp:Repeater ID="RptEquipamento" runat="server">
-                                                    <HeaderTemplate>
-                                                        <table class="striped responsive-table">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Nome do equipamento</th>
-                                                                    <th>Ações</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                    </HeaderTemplate>
-                                                    <ItemTemplate>
-                                                        <tr>
-                                                            <td>
-                                                                <asp:Label ID="TxtNomeEquipamento" Text='<%# Eval("Nome") %>' runat="server"></asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:LinkButton ID="BtnAddEquipamento" class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" runat="server" Text="+" OnClick="BtnAddEquipamento_Click"></asp:LinkButton></td>
-                                                        </tr>
-                                                    </ItemTemplate>
-                                                    <FooterTemplate>
-                                                        </tbody>
-                                      </table>
-                                                    </FooterTemplate>
-                                                </asp:Repeater>
-                                            </div>
-                                        </div>
-
                                         <div class="row">
                                             <div class="input-field col s6">
-                                                <asp:TextBox ID="TxtDataInicio" type="text" runat="server" />
-                                                <label for="TxtCurso">Data de início<span style="color: red;">*</span></label>
+                                                <asp:TextBox ID="TxtData" type="text" runat="server" />
+                                                <label for="TxtData">Data de início <span style="color: red;">*</span></label>
                                             </div>
                                         </div>
 
@@ -299,14 +270,17 @@
                                                 <asp:Button ID="BtnVincularEquipamento" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Vincular" runat="server" OnClick="BtnVincularEquipamento_Click"></asp:Button>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
+                </div>
                 <!--end container-->
             </section>
+            <!-- END CONTENT -->
+
+            <!-- END RIGHT SIDEBAR NAV-->
         </div>
         <!-- END WRAPPER -->
     </div>
@@ -342,7 +316,7 @@
     <script src="../Content/js/jquery.maskedinput.min.js"></script>
     <script type="text/javascript">
         jQuery(function ($) {
-            $("#TxtDataInicio").mask("99/99/9999");
+            $("#TxtData").mask("99/99/9999");
 
         });
     </script>

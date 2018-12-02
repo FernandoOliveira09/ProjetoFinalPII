@@ -254,7 +254,6 @@
                                 <%--<td><%# Eval("Status") %></td>--%>
                                 <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoGrupo.aspx?grupo=<%# Eval("Nome") %>"><i class="material-icons">edit</i>&nbsp&nbsp<a class="btn waves-effect waves-light teal lighten-2" href="../Pages/Alteracaolider.aspx?grupo=<%# Eval("Nome") %>"><i class="material-icons">account_circle</i></a></a>
                                     <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/ConsultarGrupoVinculos.aspx?id=<%# Eval("id_grupo") %>"><i class="material-icons">search</i></a>
-                                    <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/VincularGrupoEquipamento.aspx?id=<%# Eval("id_grupo") %>&grupo=<%# Eval("Nome") %>"><i class="material-icons">settings</i></a>
                                 </td>
                                 <%--                               <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
                             </tr>
