@@ -29,17 +29,56 @@
     <div class="container">
         <div class="row">
             <div class="col s12 container">
+                <asp:Repeater ID="RptPauta" runat="server">
+                    <ItemTemplate>
+                        <h4 style="text-align: center; margin-top: 40px;">Pauta: <%# Eval("Pauta") %> </h4>
+                        <hr />
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 container">
+                <h4 style="text-align: center;">Participantes </h4>
+                <hr />
+                <asp:Repeater ID="RptParticipante" runat="server">
+                    <ItemTemplate>
+                        <p style="margin-left: 40%"><%# Eval("Nome") %></p>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>       
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 container">
+                <h4 style="text-align: center;">Convidados</h4>
+                <hr />
+                <asp:Repeater ID="RptConvidado" runat="server">
+                    <ItemTemplate> 
+                        <p style="margin-left: 40%"> <%# Eval("Nome") %></p>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 container">
                 <asp:Repeater ID="RptConsulta" runat="server">
                     <ItemTemplate>
-                        <h3 style="text-align: center; margin-top: 40px;">Ata da reunião</h3>
+                        <h4 style="text-align: center;">Ata da reunião</h4>
                         <hr />
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-4" style="margin-left: 5%; margin-right: 5%; text-align: justify">
                                 <p><%# Eval("ata") %></p>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
+                        <div class="row" >
+                            <div class="col-md-4" >
                             </div>
                         </div>
                     </ItemTemplate>

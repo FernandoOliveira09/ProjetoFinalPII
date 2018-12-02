@@ -119,6 +119,11 @@ namespace ProjetoFinal.DAL
                 comando.CommandText = "SELECT id_reuniao, pauta, data_reuniao, hora_inicio, hora_fim, fk_grupo FROM TBLREUNIAO WHERE fk_grupo = @grupo";
                 comando.Parameters.AddWithValue("@grupo", item.FkGrupo);
             }
+            else if (tipoPesquisa == "reuniao")
+            {
+                comando.CommandText = "SELECT id_reuniao, pauta, data_reuniao, hora_inicio, hora_fim, fk_grupo FROM TBLREUNIAO WHERE id_reuniao = @reuniao";
+                comando.Parameters.AddWithValue("@reuniao", item.IdReuniao);
+            }
             else if (tipoPesquisa == "todos")
             {
                 comando.CommandText = "SELECT id_reuniao, pauta, data_reuniao, hora_inicio, hora_fim, fk_grupo FROM TBLREUNIAO";

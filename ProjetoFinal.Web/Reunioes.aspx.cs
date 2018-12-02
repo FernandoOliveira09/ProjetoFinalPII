@@ -27,6 +27,19 @@ namespace ProjetoFinal.Web
                 }
                 else
                 {
+                    RptPauta.DataSource = BLLReuniao.Pesquisar(reuniao, "reuniao");
+                    RptPauta.DataBind();
+
+                    MODReuniaoParticipante reuniaoParticipante = new MODReuniaoParticipante();
+                    reuniaoParticipante.FKReuniao = Convert.ToInt32(Page.Request.QueryString["id"]);
+                    RptParticipante.DataSource = BLLReuniaoParticipante.PesquisarDocente(reuniaoParticipante, "reuniao");
+                    RptParticipante.DataBind();
+
+                    MODReuniaoConvidado reuniaoConvidado = new MODReuniaoConvidado();
+                    reuniaoConvidado.FkReuniao = Convert.ToInt32(Page.Request.QueryString["id"]);
+                    RptConvidado.DataSource = BLLReuniaoConvidado.Pesquisar(reuniaoConvidado, "reuniao");
+                    RptConvidado.DataBind();
+
                     MODAta ata = new MODAta();
                     ata.FkReuniao = Convert.ToInt32(Page.Request.QueryString["id"]);
                     RptConsulta.DataSource = BLLAta.Pesquisar(ata, "reuniao");
