@@ -236,7 +236,6 @@
                                     <tr>
                                         <th>Prontuário</th>
                                         <th>Nome</th>
-                                        <th>Email</th>
                                         <th>Tipo</th>
                                         <th>Status</th>
                                         <th>Ações</th>
@@ -248,10 +247,13 @@
                             <tr>
                                 <td><%# Eval("Login") %></td>
                                 <td><%# Eval("Nome") %></td>
-                                <td><%# Eval("Email") %></td>
                                 <td><%# Eval("Tipo") %></td>
                                 <td><%# Eval("Status") %></td>
-                                <td><a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoUsuario.aspx?login=<%# Eval("Login") %>"><i class="material-icons">edit</i></a></td>
+                                <td>
+                                    <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/AlteracaoUsuario.aspx?login=<%# Eval("Login") %>"><i class="material-icons">edit</i></a>
+                                    <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/RecuperaSenha.aspx?login=<%# Eval("Login") %>"><i class="material-icons">https</i></a>
+
+                                </td>
                                 <%--                                <td><button class="waves-effect waves-light btn teal lighten-2 BtnAlterar"><i class="material-icons">edit</i><a href="../Pages/Login.aspx"></a></button>&nbsp<button class="waves-effect waves-light btn teal lighten-2 BtnMais"><i class="material-icons">visibility</i></button></td>--%>
                             </tr>
                         </ItemTemplate>

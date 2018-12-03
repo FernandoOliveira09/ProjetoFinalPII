@@ -78,11 +78,11 @@ namespace ProjetoFinal.Web.Pages
 
             if (TxtDataSaida.Text.Trim() == "")
             {
-                LblResultado.Text = Erros.LattesVazio;
+                LblResultado.Text = Erros.DataVazio;
             }
             else if (TxtData.Text.Trim() == "")
             {
-                LblResultado.Text = Erros.DescricaoVazio;
+                LblResultado.Text = Erros.DataVazio;
             }
             else
             {

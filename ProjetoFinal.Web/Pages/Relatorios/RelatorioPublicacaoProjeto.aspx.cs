@@ -55,7 +55,6 @@ namespace ProjetoFinal.Web.Pages.Relatorios
         private void CarregaProjetos()
         {
             MODProjetoPesquisa projeto = new MODProjetoPesquisa();
-
             projeto.FkGrupo = Convert.ToInt32(TxtGrupo.SelectedValue);
 
             TxtProjeto.DataSource = BLLProjeto_Pesquisa.PesquisarProjetos(projeto, "grupo");
@@ -77,6 +76,11 @@ namespace ProjetoFinal.Web.Pages.Relatorios
             RptConsulta.DataSource = BLLPublicacao.Relatorio(publicacao, ano, "projeto");
 
             RptConsulta.DataBind();
+        }
+
+        protected void TxtGrupo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CarregaProjetos();
         }
     }
 }

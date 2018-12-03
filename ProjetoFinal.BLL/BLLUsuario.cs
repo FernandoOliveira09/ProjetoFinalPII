@@ -30,6 +30,11 @@ namespace ProjetoFinal.BLL
             DALUsuario.Alterar(usuario);
         }
 
+        public static void AlterarSenha2(MODUsuario usuario)
+        {
+            DALUsuario.AlterarSenha2(usuario);
+        }
+
         public static void AlterarStatus(MODUsuario usuario)
         {
             DALUsuario.AlterarStatus(usuario);

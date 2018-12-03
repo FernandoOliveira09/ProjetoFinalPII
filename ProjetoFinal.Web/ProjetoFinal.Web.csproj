@@ -132,6 +132,7 @@
     <Content Include="Pages\Principal.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\RecuperacaoSenha.aspx" />
+    <Content Include="Pages\RecuperaSenha.aspx" />
     <Content Include="Pages\RecuperaSenhaUsuario.aspx" />
     <Content Include="Pages\Relatorios\RelatorioDiscente.aspx" />
     <Content Include="Pages\Relatorios\RelatorioDiscenteOrientador.aspx" />
@@ -552,6 +553,13 @@
     </Compile>
     <Compile Include="Pages\RecuperacaoSenha.aspx.designer.cs">
       <DependentUpon>RecuperacaoSenha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecuperaSenha.aspx.cs">
+      <DependentUpon>RecuperaSenha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecuperaSenha.aspx.designer.cs">
+      <DependentUpon>RecuperaSenha.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\RecuperaSenhaUsuario.aspx.cs">
       <DependentUpon>RecuperaSenhaUsuario.aspx</DependentUpon>

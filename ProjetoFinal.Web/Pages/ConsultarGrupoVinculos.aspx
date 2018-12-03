@@ -234,7 +234,6 @@
                                     <tr>
                                         <th>Nome</th>
                                         <th>Data de Entrada</th>
-                                        <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -262,7 +261,6 @@
                                     <tr>
                                         <th>Nome</th>
                                         <th>Data de Entrada</th>
-                                        <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -290,7 +288,6 @@
                                     <tr>
                                         <th>Nome</th>
                                         <th>Data de Entrada</th>
-                                        <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>

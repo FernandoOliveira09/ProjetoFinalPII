@@ -241,7 +241,7 @@
                                     </div>
                                     <div class="col s4 m4 l5">
                                         <div class="input-field col s12 m12 l12" style="display: inline-block;">
-                                            <asp:DropDownList ID="TxtGrupo" type="text" runat="server" AutoPostBack="true">
+                                            <asp:DropDownList ID="TxtGrupo" type="text" runat="server" AutoPostBack="true" OnSelectedIndexChanged="TxtGrupo_SelectedIndexChanged">
                                             </asp:DropDownList>
                                             <label for="TxtGrupo">Grupo<span style="color: red;">*</span></label>
                                         </div>

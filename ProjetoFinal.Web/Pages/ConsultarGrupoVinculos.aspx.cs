@@ -44,9 +44,6 @@ namespace ProjetoFinal.Web.Pages
                 grupo = BLLGrupo.PesquisarGrupo(grupo, "id");
                 grupoLider.FkGrupo = grupo.IdGrupo;
 
-                //RptConsulta.DataSource = BLLGrupo.Pesquisar(grupoLider, "grupo");
-                //RptConsulta.DataBind();
-
                 MODGrupoDocente grupoDocente = new MODGrupoDocente();
                 grupoDocente.FkGrupo = grupo.IdGrupo;
 
@@ -56,7 +53,7 @@ namespace ProjetoFinal.Web.Pages
                 MODGrupoTecnico grupoTecnico = new MODGrupoTecnico();
                 grupoTecnico.FkGrupo = grupo.IdGrupo;
 
-                RPTTecnicos.DataSource = BLLGrupo_Tecnico.Pesquisar(grupoTecnico, "grupo");
+                RPTTecnicos.DataSource = BLLGrupo_Tecnico.Pesquisar(grupoTecnico, "gativos");
                 RPTTecnicos.DataBind();
 
                 MODGrupoLinha_Pesquisa grupoLinha_Pesquisa = new MODGrupoLinha_Pesquisa();

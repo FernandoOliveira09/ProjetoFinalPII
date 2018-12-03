@@ -1,8 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConsultaProjetoPesquisa.aspx.cs" Inherits="ProjetoFinal.Web.Pages.ConsultaProjetoPesquisa" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RecuperaSenha.aspx.cs" Inherits="ProjetoFinal.Web.Pages.RecuperaSenha" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
+<!--================================================================================
+	Item Name: Materialize - Material Design Admin Template
+	Version: 4.0
+	Author: PIXINVENT
+	Author URL: https://themeforest.net/user/pixinvent/portfolio
+  ================================================================================ -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,13 +18,11 @@
     <title>Admin | SG Manager</title>
     <!-- Favicons-->
     <link rel="icon" href="../Content/images/favicon/favicon-32x32.png" sizes="32x32">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <!-- Favicons-->
-    <link rel="apple-touch-icon-precomposed" href="..Content/images/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon-precomposed" href="../Content/images/favicon/apple-touch-icon-152x152.png">
     <!-- For iPhone -->
     <meta name="msapplication-TileColor" content="#00bcd4">
-    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+    <meta name="msapplication-TileImage" content="../Content/images/favicon/mstile-144x144.png">
     <!-- For Windows Phone -->
     <!-- CORE CSS-->
     <link href="../Content/css//materialize.css" type="text/css" rel="stylesheet">
@@ -48,7 +51,7 @@
                     <ul class="left">
                         <li>
                             <h1 class="logo-wrapper">
-                                <a href="../Pages/Principal.aspx" class="brand-logo darken-1">
+                                <a href="../Pages/Principal.html" class="brand-logo darken-1">
                                     <img src="../Content/images/logo/materialize-logo.png" alt="materialize logo">
                                     <span class="logo-text hide-on-med-and-down"><strong>SG</strong> Manager</span>
                                 </a>
@@ -82,6 +85,7 @@
                         <li>
                             <a href="../Pages/Login.aspx?logout=logout" class="grey-text text-darken-1" id="BtnLogout">
                                 <i class="material-icons">keyboard_tab</i> Logout</a>
+
                         </li>
                     </ul>
                 </div>
@@ -111,7 +115,8 @@
                                     <asp:Label ID="LblNome" runat="server">Usuário</asp:Label>
                                     <i class="mdi-navigation-arrow-drop-down right"></i></a>
                                 <p class="user-roal">
-                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label></p>
+                                    <asp:Label ID="LblFuncao" runat="server">Função</asp:Label>
+                                </p>
                             </div>
                         </div>
                     </li>
@@ -204,64 +209,70 @@
             <!-- END LEFT SIDEBAR NAV-->
             <!-- //////////////////////////////////////////////////////////////////////////// -->
             <!-- START CONTENT -->
-            <div id="breadcrumbs-wrapper">
-                <!-- Search for small screen -->
-                <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
-                    <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col s10 m6 l6">
-
-                            <h5 class="breadcrumbs-title">Consulta de projetos</h5>
-                            <ol class="breadcrumbs">
-                                <li><a href="../Pages/Principal.aspx">Dashboard</a></li>
-                                <li><a href="#">Projetos de Pesquisa</a></li>
-                                <li><a href="#">Consulta de Projetos</a></li>
-                            </ol>
+            <section id="content">
+                <!--start container-->
+                <section id="content">
+                    <!--start container-->
+                    <div id="breadcrumbs-wrapper">
+                        <!-- Search for small screen -->
+                        <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
+                            <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
                         </div>
-                        <div class="col s2 m6 l6">
-                            <a class="btn waves-effect waves-light breadcrumbs-btn right teal lighten-2" href="../Pages/CadastroProjetoPesquisa.aspx">Novo Projeto</a>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col s10 m6 l6">
+                                    <h5 class="breadcrumbs-title">Recuperação de senha do usuário</h5>
+                                    <ol class="breadcrumbs">
+                                        <li><a href="index.html">Dashboard</a></li>
+                                        <li><a href="#">Usuários</a></li>
+                                        <li><a href="#">Recuperação de senha do usuário</a></li>
+                                    </ol>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class='row'>
-                <div class='input-field col s12'>
-                    <asp:Repeater ID="RptConsulta" runat="server">
-                        <HeaderTemplate>
-                            <table class="striped responsive-table">
-                                <thead>
-                                    <tr>
-                                        <th>Nome</th>
-                                        <th>Grupo</th>
-                                        <th>Docente</th>
-                                        <th>Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <tr>
-                                <td><%# Eval("Titulo") %></td>
-                                <td><%# Eval("Grupo") %></td>
-                                <td><%# Eval("Docente") %></td>
- 
-                                <td>
-                                    <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/VincularProjetoDiscente.aspx?id=<%# Eval("id_projeto") %>&titulo=<%# Eval("Titulo") %>"><i class="material-icons">accessibility</i></a></a>
-                                    <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/VincularProjetoColaborador.aspx?id=<%# Eval("id_projeto") %>&titulo=<%# Eval("Titulo") %>"><i class="material-icons">account_circle</i></a></a>
-                                    <a class="btn waves-effect waves-light teal lighten-2" href="../Pages/EncerrarProjeto.aspx?id=<%# Eval("id_projeto") %>&projeto=<%# Eval("Titulo") %>"><i class="material-icons">cancel</i></a></a>
-                                </td>
-                            </tr>
-                        </ItemTemplate>
-                        <FooterTemplate>
-                            </tbody>
-                          </table>
-                        </FooterTemplate>
-                    </asp:Repeater>
-                </div>
-            </div>
-            <!-- END CONTENT -->
+                    <div id="basic-form" class="section">
+                        <div class="row">
+                            <div class="col s12 m12 l6">
+                                <div class="card-panel">
+                                    <h4 class="header2">Insira os dados nos campos abaixo para alterar</h4>
+                                    <div class="row">
+                                        <form class="col s12" runat="server">
+        
+                                            <div class='row'>
+                                                <div class='input-field col s6 cadastro'>
+                                                    <asp:TextBox name='password' ID='TxtUsuario' runat="server" ReadOnly="true" />
+                                                    <label for='TxtUsuario'>Usuário</label>
+                                                </div>
+                                            </div>
+
+                                            <div class='row'>
+                                                <div class='input-field col s6 cadastro'>
+                                                    <asp:TextBox class='validate' type='password' name='password' ID='TxtSenha' runat="server" />
+                                                    <label for='password'>Senha<span style="color: red;">*</span></label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <asp:Label ID="LblResposta" runat="server" ForeColor="Red"></asp:Label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <asp:Button ID="BtnAlterar" class="btn waves-effect waves-light right teal lighten-2" type="submit" name="action" Text="Alterar Senha" runat="server" OnClick="BtnAlterar_Click"></asp:Button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end container-->
+                </section>
+                <!-- END CONTENT -->
         </div>
         <!-- END WRAPPER -->
     </div>
@@ -271,11 +282,11 @@
     <footer class="page-footer gradient-45deg-light-blue-cyan">
         <div class="footer-copyright">
             <div class="container">
-                <span>Copyright ©
-              <script type="text/javascript">
-                  document.write(new Date().getFullYear());
-              </script>
-                    <span class="right hide-on-small-only">Desenvolvido por Fernando, Reginaldo e Eduardo </span>
+                <span>Copyright ©</span>
+                <script type="text/javascript">
+                    document.write(new Date().getFullYear());
+                </script>
+                <span class="right hide-on-small-only">Desenvolvido por Fernando, Reginaldo e Eduardo </span>
             </div>
         </div>
     </footer>
@@ -293,5 +304,6 @@
     <script type="text/javascript" src="../Content/js/plugins.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="../Content/js/custom-script.js"></script>
+    <script>$('.dropdown-trigger').dropdown();</script>
 </body>
 </html>

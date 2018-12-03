@@ -56,6 +56,23 @@ namespace ProjetoFinal.DAL
             Conexao.Fechar();
         }
 
+        public static void AlterarSenha2(MODUsuario usuario)
+        {
+            Conexao.Abrir();
+
+            MySqlCommand comando = new MySqlCommand();
+            comando.Connection = Conexao.conexao;
+
+            comando.CommandText = "UPDATE TBLUSUARIO SET senha = @senha "
+                + "WHERE login = @login";
+            comando.Parameters.AddWithValue("@login", usuario.Login);
+            comando.Parameters.AddWithValue("@senha", usuario.Senha);
+
+            comando.ExecuteNonQuery();
+
+            Conexao.Fechar();
+        }
+
         public static void AlterarStatus(MODUsuario usuario)
         {
             Conexao.Abrir();
